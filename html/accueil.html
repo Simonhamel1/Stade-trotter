@@ -3,47 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agence de Voyage</title>
+  <title>Stade Trotter - Voyages Football</title>
+  
+  <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Importation de la police Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- HEADER FIXE -->
   <header>
-    <img class="logo" src="../photo/logo-stade-trotter.png" alt="logo stade trotter">
-    <h1>Bienvenue à notre Agence de Voyage</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">À propos</a></li>
-        <li><a href="#">Contact</a></li>
-        <li style="float: right;"><a href="#">Connexion</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <a href="#top">
+        <img class="logo" src="../photo/logo.png" alt="Logo Stade Trotter">
+      </a>
+      <nav>
+        <ul>
+          <li><a href="accueil.html">Accueil</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="Nomenclature.html">À propos</a></li>
+          <li><a href="profil.html">Contact</a></li>
+          <li class="btn"><a href="connexion.html">Connexion</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
+
+  <!-- SECTION HERO -->
   <main>
-    <section class="stadium">
-      <h2>Stade de France</h2>
-      <img src="../photo/stade-de-france.jpg" alt="Stade de France">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus eaque nobis a dolor laudantium iure nostrum odio, dolores ab nam aliquid non sed cupiditate provident at, labore aliquam autem voluptatum!</p>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Voyagez à travers les plus grands stades du monde !</h1>
+        <p>Découvrez des destinations inoubliables pour les passionnés de football.</p>
+        <a href="#" class="explorer-button">Explorer</a>
+      </div>
     </section>
-    <section class="stadium">
-      <h2>Stade d'Allemagne</h2>
-      <img src="../photo/parc-des-princes.jpg" alt="image stade d'allemagne">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit officia aperiam, in natus est error placeat quo eos quia eaque sequi voluptate quam porro id provident! Rerum ratione nemo animi.</p>
-    </section>
-    <section class="stadium">
-      <h2>Stade de belgique</h2>
-      <img src="../photo/groupama-stadium.jpg" alt="image stade de belgique">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat animi maxime perspiciatis quas corporis itaque temporibus eius? Eius, delectus repudiandae? Cupiditate dolor, voluptatem magni quibusdam labore reiciendis reprehenderit non sequi?</p>
-    </section>
-    <section class="stadium">
-      <h2>Stade de belgique</h2>
-      <img src="../photo/groupama-stadium.jpg" alt="image stade de belgique"">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim pariatur sit illum consequuntur assumenda, quos dolores esse omnis possimus minima? Voluptatibus corporis, quibusdam praesentium esse soluta maiores velit repellendus voluptates.</p>
+
+    <!-- LISTE DES STADES -->
+    <section class="stadium-list">
+      <div class="stadium">
+        <img src="../photo/stade-de-france.jpg" alt="Stade de France">
+        <h2>Stade de France</h2>
+        <p>Plongez dans l'histoire du football français et vibrez au cœur de ce stade mythique.</p>
+      </div>
+
+      <div class="stadium">
+        <img src="../photo/allianz-arena.jpg" alt="Allianz Arena">
+        <h2>Allianz Arena</h2>
+        <p>Découvrez le célèbre stade du Bayern Munich avec son architecture futuriste.</p>
+      </div>
+
+      <div class="stadium">
+        <img src="../photo/camp-nou.jpeg" alt="Camp Nou">
+        <h2>Camp Nou</h2>
+        <p>Visitez la maison du FC Barcelone et ressentez l'ambiance unique de ce temple du football.</p>
+      </div>
+
+      <div class="stadium">
+        <img src="../photo/wembley.jpeg" alt="Wembley Stadium">
+        <h2>Wembley</h2>
+        <p>Un lieu emblématique du football anglais où se jouent les plus grandes finales.</p>
+      </div>
     </section>
   </main>
+
+  <!-- PIED DE PAGE -->
   <footer>
-    <p>&copy; 2025 Agence de Voyage. Tous droits réservés.</p>
+    <p>&copy; 2025 Stade Trotter - Tous droits réservés.</p>
   </footer>
+
 </body>
 </html>

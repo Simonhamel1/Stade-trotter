@@ -1,0 +1,97 @@
+@import url('colors.css');
+
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(../photo/fond-form.jpg);
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Conteneur des formulaires */
+.form-container {
+    background: rgba(173, 216, 230, 0.95); /* Bleu clair semi-transparent */
+    color: var(--bleu-fonce); /* Bleu foncé pour le texte */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 400px; /* Taille par défaut */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Réduction de la taille du formulaire d'inscription */
+.form-container.inscription {
+    width: 300px; /* Formulaire plus petit */
+    padding: 20px;
+}
+
+/* Titres */
+h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: var(--bleu-fonce); /* Bleu foncé pour les titres */
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--bleu-moyen); /* Bleu moyen */
+}
+
+/* Champs de saisie */
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    border: 2px solid var(--bleu-clair); /* Bleu clair */
+    border-radius: 5px;
+    font-size: 14px;
+    background: #E0F7FA; /* Fond bleu très clair */
+    color: var(--bleu-fonce); /* Texte bleu foncé */
+}
+
+/* Bouton */
+input[type="submit"] {
+    background: var(--bleu-fonce); /* Bleu foncé */
+    color: var(--blanc);
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px;
+    border: 2px solid var(--bleu-fonce); /* Contour bleu foncé */
+    transition: 0.3s;
+}
+
+/* Effet hover sur le bouton */
+input[type="submit"]:hover {
+    background: var(--bleu-moyen);
+    border: 2px solid var(--bleu-fonce);
+}
+
+/* Lien */
+p {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+a {
+    color: var(--bleu-clair);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--bleu-fonce);
+}

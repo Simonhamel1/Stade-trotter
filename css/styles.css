@@ -116,6 +116,7 @@ main {
 }
 
 .stadium {
+  
   background-color: var(--gris-clair);
   border-radius: 10px;
   overflow: hidden;
@@ -144,6 +145,12 @@ main {
 .stadium p {
   padding: 0 15px 15px;
 }
+
+a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: var(--bleu-fonce);
+}
+
 
 /* FOOTER */
 footer {

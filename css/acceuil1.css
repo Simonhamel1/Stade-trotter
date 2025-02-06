@@ -1,0 +1,301 @@
+/* Importation de la police */
+@import url('colors.css');
+
+
+/* HEADER */
+header {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 70px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--blanc);
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: var(--bleu-clair);
+}
+
+.btn a {
+    background-color: var(--bleu-moyen);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn a:hover {
+    background-color: var(--bleu-clair);
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gris-tres-clair);
+}
+/* main */
+main {
+    background-color: var(--bleu-fonce);
+    background-image: url('../photo/arriere-plan.jpeg');
+    background-repeat: no-repeat;
+    background-position: 50% 72%; /* 50% sur l'axe X, 72% sur l'axe Y */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.image-grid {
+    align-items: center;
+    background-attachment: fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0;
+}
+    
+.image-large {
+    padding-bottom: 70%;
+    grid-column: span 2;
+    position: relative;
+}
+    
+.image-large img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(90%);
+}
+    
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--blanc);
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+}
+    
+.image-small img { 
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.agency-info {
+
+    text-align: center;
+    color: var(--blanc);
+    padding: 20px;
+    font-size: 1rem; /* Augmenter la taille du texte */
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Témoignages */
+.temoignages {
+    display: flex;
+    justify-content: center; /* Centre globalement les témoignages */
+    gap: 60px; /* Augmente l'espacement entre les témoignages */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+}
+
+/* Conteneur de chaque témoignage */
+.temoignage-groupe {
+    display: flex;
+    align-items: center; /* Centrage vertical */
+    background-color: var(--bleu-fonce);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48%; /* Ajuste la largeur pour garder un bon équilibre */
+    min-height: 260px;
+}
+
+/* Décalage des témoignages */
+.temoignage-groupe:nth-child(odd) { /* Décale le premier témoignage vers la gauche */
+    margin-left: -80px;
+}
+
+.temoignage-groupe:nth-child(even) { /* Décale le deuxième témoignage vers la droite */
+    margin-right: -80px;
+}
+
+/* Image du témoignage */
+.temoignage-gauche img {
+    width: 280px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Texte du témoignage */
+.temoignage-texte {
+    flex: 1;
+    padding: 0 30px;
+    color: var(--blanc);
+    text-align: justify;
+    max-width: 400px;
+}
+
+/* Titre du témoignage */
+.temoignage-texte h1 {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Paragraphe du témoignage */
+.temoignage-texte p {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Étoiles d'évaluation */
+.stars {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 40px 20px;
+    width: 100%; /* Prend toute la largeur */
+    position: relative;
+    bottom: 0;
+}
+
+/* Conteneur principal du footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Espacement équilibré */
+    flex-wrap: wrap; /* Adaptation mobile */
+    max-width: 1400px;
+    margin: auto;
+    gap: 40px;
+    text-align: center;
+}
+
+/* Section du footer */
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+
+/* Titres */
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Paiements acceptés */
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.payment-logos img {
+    width: auto;
+    height: 50px
+}
+
+/* Liens utiles */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: var(--blanc);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #f8d210; /* Changement de couleur au survol */
+}
+
+/* Contact */
+.footer-section p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Icônes des réseaux sociaux */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+/* Bas de page */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    font-size: 14px;
+    color: #ccc;
+}

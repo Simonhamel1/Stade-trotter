@@ -107,7 +107,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--blanc);
-    font-size: clamp(2rem, 5vw, 3rem); /* Ajustement dynamique */
+    font-size: 3rem;
     font-weight: bold;
     text-align: center;
     width: 80%;
@@ -284,10 +284,7 @@ footer {
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media screen and (max-width: 1024px) {
-    body {
-        font-size: clamp(0.85rem, 1.8vw, 1rem); /* Ajustement fluide */
-    }
-
+    
     .temoignages {
         flex-direction: column;
         align-items: center;
@@ -302,40 +299,14 @@ footer {
         align-items: center;
         text-align: center;
     }
-
-    .overlay-text {
-        font-size: clamp(1.8rem, 4vw, 2.5rem); /* Ajustement dynamique */
-    }
-
-    .agency-info {
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
-    }
 }
 
 @media screen and (max-width: 768px) {
-    body {
-        font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-    }
-
     .overlay-text {
-        font-size: clamp(1.5rem, 3.5vw, 2rem);
+        font-size: 2rem;
     }
 
     .agency-info {
-        font-size: clamp(0.8rem, 1.8vw, 1rem);
-    }
-}
-
-@media screen and (max-width: 480px) {
-    body {
-        font-size: clamp(0.7rem, 1.3vw, 0.85rem);
-    }
-
-    .overlay-text {
-        font-size: clamp(1.2rem, 3vw, 1.5rem);
-    }
-
-    .agency-info {
-        font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+        font-size: 1rem;
     }
 }

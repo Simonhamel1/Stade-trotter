@@ -76,6 +76,46 @@ main {
   background-attachment: fixed;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--gris-clair);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+form input, form textarea, form button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--gris-fonce);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+form input:focus, form textarea:focus {
+  border-color: var(--bleu-moyen);
+  outline: none;
+}
+
+form button {
+  background-color: var(--bleu-moyen);
+  color: var(--blanc);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+form button:hover {
+  background-color: var(--bleu-clair);
+}
+
 /* HERO */
 .hero {
   text-align: center;
@@ -86,24 +126,6 @@ main {
 .hero h1 {
   font-size: 2.5rem;
 }
-
-.explorer-button {
-  display: inline-block;
-  background-color: var(--rouge);
-  padding: 14px 28px;
-  border-radius: 5px;
-  color: var(--blanc);
-  text-decoration: none;
-  margin-top: 15px;
-  font-weight: bold;
-  transition: all 0.3s ease-in-out;
-}
-
-.explorer-button:hover {
-  background-color: var(--rouge-fonce);
-  transform: scale(1.05);
-}
-
 /* STADES */
 .stadium-list {
   display: flex;
@@ -151,6 +173,24 @@ a {
     color: var(--bleu-fonce);
 }
 
+.explorer-button {
+  display: inline-block;
+  background-color: var(--rouge);
+  padding: 14px 28px;
+  border-radius: 5px;
+  color: var(--blanc);
+  text-decoration: none;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.explorer-button:hover {
+  background-color: var(--rouge-fonce);
+  transform: scale(1.05);
+}
+
+
 
 /* FOOTER */
 footer {
@@ -179,6 +219,15 @@ footer {
   }
 
   nav ul li {
+    margin: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .stadium {
+    width: 90%;
     margin: 10px 0;
   }
 }

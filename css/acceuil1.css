@@ -16,58 +16,57 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    padding: 10px 0;
-}
-
-.container {
+  }
+  
+  .container {
     width: 95%;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
+  }
+  
+  .logo {
     width: 70px;
     transition: transform 0.3s ease-in-out;
-}
-
-.logo:hover {
+    max-width: 100%;
+  }
+  
+  .logo:hover {
     transform: scale(1.1);
-}
-
-/* MENU NAVIGATION */
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-}
-
-nav ul li {
+  }
+  
+  nav ul li {
     margin: 0 15px;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
     color: var(--blanc);
     font-weight: 600;
     transition: color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover {
     color: var(--bleu-clair);
-}
-
-.btn a {
+  }
+  
+  .btn a {
     background-color: var(--bleu-moyen);
     padding: 10px 20px;
     border-radius: 5px;
-}
-
-.btn a:hover {
+  }
+  
+  .btn a:hover {
     background-color: var(--bleu-clair);
-}
+  }
 
 /* ==================== MAIN ==================== */
 main {
@@ -285,6 +284,20 @@ footer {
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media screen and (max-width: 1024px) {
     
+    .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      nav ul {
+        flex-direction: column;
+      }
+    
+      nav ul li {
+        margin: 10px 0;
+      }
+
+
     .temoignages {
         flex-direction: column;
         align-items: center;

@@ -17,6 +17,14 @@
 </head>
 
 <body>
+
+    <!-- js -->
+    <script src="https://cdn.footystats.org/embeds/standings-loc.js"></script>
+
+    <div class="loading-screen">
+        <div class="palette"></div>
+    </div>
+
     <!-- Entête navbar -->
     <header>
         <div class="navbar">
@@ -25,7 +33,7 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="accueil1.html">Accueil</a></li>
                     <li><a href="destinations.html">Destinations</a></li>
                     <li><a href="condition-Utilisation.html">À propos</a></li>
                     <li><a href="profil.html">Contact</a></li>
@@ -88,7 +96,8 @@
             </article>
         </section>
 
-        <div id="fs-standings"></div> <script> (function (w,d,s,o,f,js,fjs) { w['fsStandingsEmbed']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'mw', 'https://cdn.footystats.org/embeds/standings-loc.js')); mw('params', { leagueID: 2392, lang: 'fr' }); </script>
+        <div id="fs-standings"></div>
+        <script> (function (w, d, s, o, f, js, fjs) { w['fsStandingsEmbed'] = o; w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'mw', 'https://cdn.footystats.org/embeds/standings-loc.js')); mw('params', { leagueID: 2392, lang: 'fr' }); </script>
 
         <!-- FOOTER -->
         <footer>
@@ -147,6 +156,26 @@
                 <p>&copy;copyrignt 2025 Stade Trotter Simon hamelin et Ewan clabaut</p>
             </div>
         </footer>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let palette = document.querySelector(".palette");
+            let loadingScreen = document.querySelector(".loading-screen");
+            let contenu = document.querySelector(".contenu");
+
+            setTimeout(() => {
+                palette.style.animation = "moveToCorner 1.5s forwards";
+                setTimeout(() => {
+                    loadingScreen.style.opacity = "0";
+                    setTimeout(() => {
+                        loadingScreen.style.display = "none";
+                        contenu.style.display = "block";
+                    }, 500);
+                }, 1500);
+            }, 2000);
+        });
+    </script>
 
 </body>
 

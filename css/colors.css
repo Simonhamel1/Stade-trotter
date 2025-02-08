@@ -1,4 +1,5 @@
 :root {
+  --noir: #000000; /* Utilisé pour le fond du header */
   --blanc: #ffffff; /* Utilisé pour la couleur de la police */
   --gris-tres-clair: #fefefe; /* Utilisé pour le fond de la page */
   --bleu-fonce: #0a1720;  /* Utilisé pour le fond du header */
@@ -8,37 +9,4 @@
   --bleu-clair: #457b9d; /* Utilisé pour le survol du bouton */
   --rouge: #e63946; /* Utilisé pour le bouton */
   --rouge-fonce: #a82030; /* Utilisé pour le survol du bouton */
-}
-
-/* Utilisation des couleurs */
-
-body {
-  background-color: var(--gris-tres-clair);
-  color: var(--blanc);
-}
-
-header {
-  background-color: var(--bleu-fonce);
-}
-
-footer {
-  background-color: var(--bleu-nuit);
-}
-
-button {
-  background-color: var(--bleu-moyen);
-  color: var(--blanc);
-}
-
-button:hover {
-  background-color: var(--bleu-clair);
-}
-
-.button-red {
-  background-color: var(--rouge);
-  color: var(--blanc);
-}
-
-.button-red:hover {
-  background-color: var(--rouge-fonce);
 }

@@ -8,7 +8,7 @@ body {
     background-color: var(--gris-tres-clair);
 }
 
-/* ==================== HEADER ==================== */
+/* ==================== HEADER/NavBar ==================== */
 header {
     background-color: var(--bleu-fonce);
     color: var(--blanc);
@@ -18,7 +18,7 @@ header {
     z-index: 1000;
   }
   
-  .container {
+  .navbar {
     width: 95%;
     margin: 0 auto;
     display: flex;
@@ -33,13 +33,11 @@ header {
   }
   
   .logo:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   
   nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
   }
   
@@ -58,19 +56,19 @@ header {
     color: var(--bleu-clair);
   }
   
-  .btn a {
+  .connexion a {
     background-color: var(--bleu-moyen);
     padding: 10px 20px;
     border-radius: 5px;
   }
   
-  .btn a:hover {
+  .connexion a:hover {
     background-color: var(--bleu-clair);
-  }
+    color: black;
+}
 
 /* ==================== MAIN ==================== */
 main {
-    background-color: var(--bleu-fonce);
     background-image: url('../photo/acceuil/arriere-plan.jpeg');
     background-repeat: no-repeat;
     background-position: center;
@@ -93,14 +91,7 @@ main {
     padding-bottom: 50%;
 }
 
-.image-large img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: brightness(90%);
-}
-
-.overlay-text {
+.slogan {
     position: absolute;
     top: 30%;
     left: 50%;
@@ -118,8 +109,8 @@ main {
     display: block;
 }
 
-/* ==================== AGENCY INFO ==================== */
-.agency-info {
+/* ==================== AGENCe INFO ==================== */
+.agence-info {
     text-align: center;
     color: var(--blanc);
     padding: 30px;
@@ -127,6 +118,7 @@ main {
     line-height: 1.6;
     max-width: 800px;
     margin: auto;
+    font-weight: bold; /* Ajout de la propriété font-weight pour rendre le texte plus gras */
 }
 
 /* ==================== TÉMOIGNAGES ==================== */
@@ -140,7 +132,6 @@ main {
     margin: auto;
 }
 
-/* Conteneur de chaque témoignage */
 .temoignage-groupe {
     display: flex;
     align-items: center;
@@ -152,14 +143,12 @@ main {
     min-height: 260px;
 }
 
-/* Image du témoignage */
-.temoignage-gauche img {
+.temoignage img {
     width: 250px;
     height: auto;
     border-radius: 10px;
 }
 
-/* Texte du témoignage */
 .temoignage-texte {
     flex: 1;
     padding: 0 20px;
@@ -167,24 +156,28 @@ main {
     text-align: left;
 }
 
-/* Titre du témoignage */
 .temoignage-texte h1 {
     font-size: 22px;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
-/* Paragraphe du témoignage */
 .temoignage-texte p {
     font-size: 16px;
     line-height: 1.5;
 }
 
-/* Étoiles d'évaluation */
 .stars {
     font-size: 18px;
     margin-top: 10px;
 }
+
+#fs-standings {
+    max-width: 80%;
+    margin: auto; 
+}
+
+
 
 /* ==================== FOOTER ==================== */
 footer {
@@ -194,7 +187,6 @@ footer {
     text-align: center;
 }
 
-/* Conteneur du footer */
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -204,7 +196,6 @@ footer {
     gap: 40px;
 }
 
-/* Section du footer */
 .footer-section {
     flex: 1;
     min-width: 220px;
@@ -216,7 +207,6 @@ footer {
     text-transform: uppercase;
 }
 
-/* Paiements acceptés */
 .payment-logos {
     display: flex;
     justify-content: center;
@@ -228,7 +218,6 @@ footer {
     height: 50px;
 }
 
-/* Liens utiles */
 .footer-section ul {
     list-style: none;
     padding: 0;
@@ -254,7 +243,6 @@ footer {
     margin: 5px 0;
 }
 
-/* Réseaux sociaux */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -272,7 +260,6 @@ footer {
     transform: scale(1.1);
 }
 
-/* Bas de page */
 .footer-bottom {
     margin-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -284,7 +271,8 @@ footer {
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media screen and (max-width: 1024px) {
     
-    .container {
+    .navbar {
+        height: 95%;
         flex-direction: column;
         text-align: center;
       }
@@ -296,6 +284,8 @@ footer {
       nav ul li {
         margin: 10px 0;
       }
+    
+      
 
 
     .temoignages {

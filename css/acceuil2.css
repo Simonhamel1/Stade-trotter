@@ -71,49 +71,37 @@ nav ul li a:hover {
 main {
   background-image: url('../photo/arriere-plan.jpeg');
   background-repeat: no-repeat;
-  background-position: 50% 72%; /* 50% sur l'axe X, 72% sur l'axe Y */
+  background-position: 50% 72%;
+  /* 50% sur l'axe X, 72% sur l'axe Y */
   background-size: cover;
   background-attachment: fixed;
 }
 
+
+body {
+  background-color: #8ebf42;
+}
+
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: var(--gris-clair);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
+  width: 400px;
+  margin: auto;
+  margin-top: 30px;
 }
 
-form input, form textarea, form button {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid var(--gris-fonce);
-  border-radius: 5px;
-  box-sizing: border-box;
+input {
+  padding: 4px 10px;
+  border: 0;
+  font-size: 16px;
 }
 
-form input:focus, form textarea:focus {
-  border-color: var(--bleu-moyen);
-  outline: none;
+.search {
+  width: 75%;
 }
 
-form button {
-  background-color: var(--bleu-moyen);
-  color: var(--blanc);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-form button:hover {
-  background-color: var(--bleu-clair);
+.submit {
+  width: 70px;
+  background-color: #1c87c9;
+  color: #ffffff;
 }
 
 /* HERO */
@@ -126,6 +114,7 @@ form button:hover {
 .hero h1 {
   font-size: 2.5rem;
 }
+
 /* STADES */
 .stadium-list {
   display: flex;
@@ -134,11 +123,12 @@ form button:hover {
   padding: 20px 15px;
   width: 100%;
   box-sizing: border-box;
-  min-height: 10vh; /* Prend toute la hauteur de la page */
+  min-height: 10vh;
+  /* Prend toute la hauteur de la page */
 }
 
 .stadium {
-  
+
   background-color: var(--gris-clair);
   border-radius: 10px;
   overflow: hidden;
@@ -169,8 +159,9 @@ form button:hover {
 }
 
 a {
-    text-decoration: none; /* Supprime le soulignement */
-    color: var(--bleu-fonce);
+  text-decoration: none;
+  /* Supprime le soulignement */
+  color: var(--bleu-fonce);
 }
 
 .explorer-button {

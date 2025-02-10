@@ -15,6 +15,11 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
+html {
+    background-color: var(--bleu-fonce);
+    scroll-behavior: smooth;
+}
+
 /* ==================== ANIMATION ==================== */
 /* Écran de chargement */
 .loading-screen {
@@ -82,6 +87,8 @@ header {
   
   nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
   }
   
@@ -114,6 +121,8 @@ header {
 /* ==================== MAIN ==================== */
 main {
     background-image: url('../photo/acceuil/arriere-plan.jpeg');
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

@@ -8,6 +8,11 @@ body {
   background-color: var(--gris-tres-clair);
 }
 
+html {
+  background-color: var(--bleu-fonce);
+  scroll-behavior: smooth;
+}
+
 /* ==================== HEADER/NavBar ==================== */
 header {
   background-color: var(--bleu-fonce);
@@ -33,7 +38,7 @@ header {
 }
 
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 nav ul {
@@ -66,7 +71,23 @@ nav ul li a:hover {
 
 .btn a:hover {
   background-color: var(--bleu-clair);
+  color: var(--noir);
 }
+/* =================== Filtres ================== */
+
+
+/* Section des filtres fixée en largeur */
+.filter-section {
+  flex: 0 0 250px; /* largeur fixe pour le filtre */
+  padding: 20px;
+  background-color: #f2f2f2; /* couleur de fond, à modifier si nécessaire */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
 
 /* ==================== MAIN ==================== */
 main {

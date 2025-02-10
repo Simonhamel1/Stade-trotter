@@ -8,6 +8,11 @@ body {
   background-color: var(--gris-tres-clair);
 }
 
+html {
+  background-color: var(--bleu-fonce);
+  scroll-behavior: smooth;
+}
+
 /* HEADER */
 header {
   background-color: var(--bleu-fonce);
@@ -33,7 +38,7 @@ header {
 }
 
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 nav ul {

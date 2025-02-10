@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
+    <link rel="stylesheet" href="../css/profil.css">
+
 </head>
+
 <body>
     <h2>Page de profil</h2>
-    
+    <div id="profil">
+        <div id="form">
+            <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="Nom" required>
+
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="Prénom" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="Email" required>
+
+                <label for="sexe">Sexe:</label>
+                <select name="Sexe" id="sexe">
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="Password" required>
+
+                <label for="password">Confirmer le mot de passe:</label>
+                <input type="password" id="password" name="Password" required>
+
+
+                <label for="club">Club préféré:</label>
+                <select id="club" name="Club">
+                    <option value="PSG">PSG</option>
+                    <option value="Real Madrid">Real Madrid</option>
+                    <option value="Barcelone">FC Barcelone</option>
+                    <option value="Bayern">Bayern Munich</option>
+                    <option value="Autre">Autre</option>
+                </select>
+
+                <label for="modifier"></label>
+                <input type="button" id="modifier" name="modifier" value="Modifier">
+            </form>
+        </div>
+        <div id="presentation">
+            <h3>Lolo le chamallow</h3>
+            <div id="photo_profil"></div>
+        </div>
+    </div>
 </body>
+
 </html>

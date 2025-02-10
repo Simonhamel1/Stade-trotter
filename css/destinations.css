@@ -76,37 +76,75 @@ nav ul li a:hover {
 /* =================== Filtres ================== */
 
 
-/* Section des filtres fixée en largeur */
 .filter-section {
-  flex: 0 0 250px; /* largeur fixe pour le filtre */
-  padding: 20px;
-  background-color: #f2f2f2; /* couleur de fond, à modifier si nécessaire */
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  box-sizing: border-box;
-  align-items: center; 
-}
-
-.filter-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    position: sticky;
+    top: 80px; /* Même valeur que pour le header si besoin */
+    width: 250px; /* largeur fixe du filtre */
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    background-color: var(--gris-tres-clair);
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .filter-group label {
+  margin-top: 10px;
   font-weight: bold;
+  color: var(--bleu-fonce);
+  display: block;
+  font-size: 1.1rem;
 }
+
+.filter-group select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--noir);
+  border-radius: 5px;
+}
+
+.filter-section .submit {
+  width: 100%;
+  background-color: var(--bleu-moyen);
+  color: var(--blanc);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
 
 /* ==================== MAIN ==================== */
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre la hero section */
+  padding: 20px;
   background-image: url('../photo/arriere-plan.jpeg');
   background-repeat: no-repeat;
-  background-position: 50% 72%;
+  background-position: center;
   background-size: cover;
-  background-attachment: fixed; 
+  background-attachment: fixed;
+}
+
+.double-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr; /* Petit à gauche et grand à droite */
+  gap: 20px;
+
+}
+
+.stadium-list {
+  order: 2;
+}
+
+.filter-section {
+  
+  order: 1;
+  max-width: 300px; /* Réduit la largeur du filtre */
+  margin: 0 auto; /* Centre le filtre */
 }
 
 /* Centrer le formulaire */
@@ -167,6 +205,7 @@ main {
 
 /* HERO */
 .hero {
+  grid-column: 2 span;
   text-align: center;
   color: var(--blanc);
   padding: 70px 0px;

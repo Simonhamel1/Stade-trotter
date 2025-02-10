@@ -35,106 +35,78 @@
 
   <!-- SECTION HERO -->
   <main>
+    <div class="double-grid">
+    <!-- RECHERCHE EN HAUT -->
     <section class="hero">
       <div class="hero-content">
         <h1>Voyagez à travers les plus grands stades du monde !</h1>
         <p>Découvrez des destinations inoubliables pour les passionnés de football.</p>
         <form class="form">
-            <div class="search-container">
-                <span class="icon">🔍</span>
-                <input type="text" class="search" placeholder="Rechercher...">
-                <button type="submit" class="submit">Search</button>
-            </div>
+          <div class="search-container">
+            <span class="icon">🔍</span>
+            <input type="text" class="search" placeholder="Rechercher...">
+            <button type="submit" class="submit">Search</button>
+          </div>
         </form>
       </div>
     </section>
-
-    <!-- FILTRES -->
+  
+    <!-- FILTRE À GAUCHE -->
     <aside class="filter-section">
       <h2>Filtrer par</h2>
       <form>
-        <!-- Filtre Continent -->
-        <div class="filter-group">
-          <label for="continent">Continent</label>
-          <select id="continent" name="continent">
-            <option value="europe">Europe</option>
-            <option value="amerique">Amérique</option>
-            <option value="asie">Asie</option>
-            <option value="afrique">Afrique</option>
-            <option value="oceanie">Océanie</option>
-          </select>
-        </div>
-
+      <div class="filter-group">
+        <label for="continent">Continent</label>
+        <select id="continent" name="continent">
+        <option value="europe">Europe</option>
+        <option value="amerique">Amérique</option>
+        <option value="asie">Asie</option>
+        <option value="afrique">Afrique</option>
+        <option value="oceanie">Océanie</option>
+        </select>
       </div>
-
-      <!-- Filtre Capacité -->
+    
       <div class="filter-group">
         <label for="capacity">Capacité</label>
         <select id="capacity" name="capacity">
-          <option value="moins-de-20000">Moins de 20,000</option>
-          <option value="20000-50000">20,000 - 50,000</option>
-          <option value="plus-de-50000">Plus de 50,000</option>
+        <option value="moins-de-20000">Moins de 20,000</option>
+        <option value="20000-50000">20,000 - 50,000</option>
+        <option value="plus-de-50000">Plus de 50,000</option>
         </select>
       </div>
 
-      <!-- Filtre Pays -->
       <div class="filter-group">
-        <label for="country">Pays</label>
-        <select id="country" name="country">
-          <option value="">Tous</option>
-          <option value="france">France</option>
-          <option value="allemagne">Allemagne</option>
-            <option value="espagne">Espagne</option>
-          </select>
-        </div>
+        <label for="type">Type de stade</label>
+        <select id="type" name="type">
+        <option value="football">Football</option>
+        <option value="multi-sport">Multi-sport</option>
+        <option value="olympique">Olympique</option>
+        </select>
+      </div>
 
-        <!-- Filtre Ville -->
-        <div class="filter-group">
-          <label for="city">Ville</label>
-          <select id="city" name="city">
-            <option value="">Toutes</option>
-            <option value="paris">Paris</option>
-            <option value="lyon">Lyon</option>
-            <option value="marseille">Marseille</option>
-          </select>
-        </div>
+      <div class="filter-group">
+        <label for="roof">Toit</label>
+        <select id="roof" name="roof">
+        <option value="ouvert">Ouvert</option>
+        <option value="ferme">Fermé</option>
+        <option value="retractable">Rétractable</option>
+        </select>
+      </div>
 
-        <!-- Filtre Type de stade -->
-        <div class="filter-group">
-          <label for="stadiumType">Type de stade</label>
-          <select id="stadiumType" name="stadiumType">
-            <option value="">Tous</option>
-            <option value="ouvert">Ouvert</option>
-            <option value="ferme">Fermé</option>
-          </select>
-        </div>
-
-        <!-- Filtre Année de construction -->
-        <div class="filter-group">
-          <label for="constructionYear">Année de construction</label>
-          <select id="constructionYear" name="constructionYear">
-            <option value="">Toutes</option>
-            <option value="avant-1950">Avant 1950</option>
-            <option value="1950-2000">1950 - 2000</option>
-            <option value="apres-2000">Après 2000</option>
-          </select>
-        </div>
-
-        <!-- Filtre Équipe résidente -->
-        <div class="filter-group">
-          <label for="homeTeam">Équipe résidente</label>
-          <select id="homeTeam" name="homeTeam">
-            <option value="">Toutes</option>
-            <option value="psg">PSG</option>
-            <option value="ol">OL</option>
-            <option value="om">OM</option>
-          </select>
-
-          <button type="submit" class="submit">Filtrer</button>
-        </div>
+      <div class="filter-group">
+        <label for="year">Année de construction</label>
+        <select id="year" name="year">
+        <option value="avant-1950">Avant 1950</option>
+        <option value="1950-2000">1950 - 2000</option>
+        <option value="apres-2000">Après 2000</option>
+        </select>
+      </div>
+    
+      <button type="submit" class="submit">Filtrer</button>
       </form>
     </aside>
-
+  
+  
 
     <!-- LISTE DES STADES -->
     <section class="stadium-list">
@@ -220,6 +192,7 @@
       </a>
       
     </section>
+  </div>
   </main>
 
   <!-- FOOTER -->

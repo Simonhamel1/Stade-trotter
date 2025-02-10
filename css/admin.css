@@ -1,0 +1,58 @@
+@import url('colors.css');
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../photo/football-stadium.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+    flex: 1;
+    padding-top: 10px;
+    color: var(--bleu-fonce);
+}
+
+
+table {
+    border-collapse: collapse; /* Removes spacing between cells */
+    width: 95%; /* Makes table use full width of its container */
+    margin: 0 auto; /* Centers the table horizontally */
+    padding-left: 20px; /* Adds left padding */
+    padding-right: 20px; /* Adds right padding */
+}
+
+th, td {
+    padding: 8px; /* Add some padding inside cells */
+    text-align: left; /* Aligns text to the left */
+    border: 1px solid var(--bleu-fonce); /* Optional: adds borders to cells */
+}
+
+thead {
+    font-size: x-large;
+    background-color: var(--bleu-clair); /* Optional: adds background to header */
+}
+
+thead th {
+    white-space: nowrap; /* Prevents header text from wrapping */
+    min-width: fit-content; /* Makes columns at least as wide as their content */
+}
+
+tbody {
+    font-size: large;
+}
+
+tbody td {
+    white-space: nowrap; /* Optional: prevents wrapping in data cells */
+}

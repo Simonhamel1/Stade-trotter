@@ -86,8 +86,19 @@ nav ul li a:hover {
   flex-direction: column;
   gap: 15px;
   box-sizing: border-box;
+  align-items: center; 
 }
 
+.filter-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-weight: bold;
+}
 
 /* ==================== MAIN ==================== */
 main {

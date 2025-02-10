@@ -49,6 +49,10 @@ form {
     flex-direction: column;
 }
 
+#bouton {
+    display: flex;
+}
+
 label {
     margin-top: 15px;
     margin-bottom: 5px;
@@ -70,6 +74,11 @@ input[type="button"] {
     padding: 12px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+}
+
+input[id="annuler"] {
+    background-color: red;
 }
 
 input[type="button"]:hover {
@@ -86,7 +95,7 @@ input[type="button"]:hover {
     margin: 30px auto;
 }
 
-h3 {
+#presentation h2 {
     color: white;
     margin-bottom: 20px;
 }

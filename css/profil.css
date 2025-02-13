@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 body {
@@ -13,7 +14,16 @@ body {
     background-color: var(--bleu-clair);
 }
 
+#upbar {
+    margin: 20px auto;
+    background-color: #007bff;
+    text-align: center;
+    border-radius: 10px;
+    width: 50%;
+}
+
 h2 {
+    padding: 4px 0 4px 0;
     text-align: center;
     margin-bottom: 30px;
     color: var(--bleu-nuit);
@@ -27,14 +37,6 @@ h2 {
     gap: 40px;
 }
 
-#form {
-    flex: 1;
-    background-color: var(--bleu-nuit);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 #presentation {
     flex: 1;
     background-color: var(--bleu-nuit);
@@ -43,6 +45,15 @@ h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
+
+#form {
+    flex: 1;
+    background-color: var(--bleu-nuit);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 
 form {
     display: flex;

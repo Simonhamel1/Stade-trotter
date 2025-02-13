@@ -6,18 +6,20 @@ body {
     height: 100vh;
     width: 100%;
     background-image: url(../photo/football-stadium.webp);
+    backdrop-filter: blur(5px);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    text-decoration: none;
 }
 
-#main{
+#main {
     display: flex;
     flex-direction: column;
 }
 
-h1{
+h1 {
     text-align: center;
     flex: 1;
     padding-top: 10px;
@@ -26,27 +28,39 @@ h1{
 
 
 table {
-    border-collapse: collapse; /* Removes spacing between cells */
-    width: 95%; /* Makes table use full width of its container */
-    margin: 0 auto; /* Centers the table horizontally */
-    padding-left: 20px; /* Adds left padding */
-    padding-right: 20px; /* Adds right padding */
+    border-collapse: collapse;
+    /* Removes spacing between cells */
+    width: 95%;
+    /* Makes table use full width of its container */
+    margin: 0 auto;
+    /* Centers the table horizontally */
+    padding-left: 20px;
+    /* Adds left padding */
+    padding-right: 20px;
+    /* Adds right padding */
 }
 
-th, td {
-    padding: 8px; /* Add some padding inside cells */
-    text-align: left; /* Aligns text to the left */
-    border: 1px solid var(--bleu-fonce); /* Optional: adds borders to cells */
+th,
+td {
+    padding: 8px;
+    /* Add some padding inside cells */
+    text-align: left;
+    /* Aligns text to the left */
+    border: 1px solid var(--bleu-fonce);
+    /* Optional: adds borders to cells */
 }
 
 thead {
     font-size: x-large;
-    background-color: var(--bleu-clair); /* Optional: adds background to header */
+    background-color: var(--bleu-clair);
+    /* Optional: adds background to header */
 }
 
 thead th {
-    white-space: nowrap; /* Prevents header text from wrapping */
-    min-width: fit-content; /* Makes columns at least as wide as their content */
+    white-space: nowrap;
+    /* Prevents header text from wrapping */
+    min-width: fit-content;
+    /* Makes columns at least as wide as their content */
 }
 
 tbody {
@@ -54,5 +68,6 @@ tbody {
 }
 
 tbody td {
-    white-space: nowrap; /* Optional: prevents wrapping in data cells */
+    white-space: nowrap;
+    /* Optional: prevents wrapping in data cells */
 }

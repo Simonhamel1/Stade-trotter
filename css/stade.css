@@ -61,6 +61,7 @@ nav ul li a {
 
 nav ul li a:hover {
   color: var(--bleu-clair);
+  color: black;
 }
 
 .btn a {

@@ -7,6 +7,7 @@
   
   <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="../css/a_propos.css">
+  <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
   <script src="../js/navbar.js" defer></script>
 
   <!-- Importation de la police Montserrat -->
@@ -61,13 +62,6 @@
     </section>
   </body>
    
-  <iframe
-    allow="microphone;"
-    width="350"
-    height="430"
-    src="https://console.dialogflow.com/api-client/demo/embedded/66883058-001d-4ad8-9073-2eb75d3a41a2">
-</iframe>
-
 
   <!-- FOOTER -->
   </section><footer>
@@ -126,6 +120,16 @@
         <p>&copy;copyrignt 2025 Stade Trotter Simon hamelin et Ewan clabaut</p>
     </div>
 </footer>
+
+  <!-- Chat Widget -->
+  <div id="chat-widget-container">
+    <button id="chat-toggle-btn">Chat</button>
+    <!-- Adresse où se trouve le chatbot -->
+    <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
+  </div>
+
+  <!-- Inclusion du JS pour le Chat Widget -->
+  <script src="../js/deploiementChatWidget.js"></script>
 
 </body>
 </html>

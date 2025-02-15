@@ -9,6 +9,7 @@
     <title>Stade Trotter - Voyages Football</title>
 
     <link rel="stylesheet" href="../css/acceuil.css">
+    <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
     <script src="../js/navbar.js"></script>
 
     <!-- Importation de la police Montserrat -->
@@ -20,6 +21,16 @@
 <body>
     <!-- js -->
     <script src="https://cdn.footystats.org/embeds/standings-loc.js"></script>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget-container">
+        <button id="chat-toggle-btn">Chat</button>
+        <!-- Adresse où se trouve le chatbot -->
+        <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
+    </div>
+
+    <!-- Inclusion du JS pour le Chat Widget -->
+    <script src="../js/deploiementChatWidget.js"></script>
 
     <div class="loading-screen">
         <div class="palette"></div>
@@ -155,12 +166,13 @@
             <div class="footer-bottom">
                 <p>&copy;copyrignt 2025 Stade Trotter Simon hamelin et Ewan clabaut</p>
             </div>
+
         </footer>
     </main>
 
+
+
     <script src="script.js"></script>
-    
-       
 </body>
 
 </html>

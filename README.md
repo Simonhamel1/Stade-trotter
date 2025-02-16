@@ -27,6 +27,11 @@ L’objectif est de créer un site web pour une agence de voyages proposant des 
     ```bash
     cd stade-trotter
     ```
+3. Installer python :
+    ```bash
+    sudo apt-get install python3 python3-pip
+    pip install Flask
+    ```
 
 ## Utilisation
 
@@ -34,7 +39,18 @@ L’objectif est de créer un site web pour une agence de voyages proposant des 
     ```bash
     npm start
     ```
-2. Ouvrez votre navigateur et accédez à `http://localhost:3000`.
+
+2. Accédez au répertoire du projet :
+    ```bash
+    cd chatbot
+    ```
+
+3. Lancez le programme principal :
+    ```bash
+    python main.py
+    ``` 
+
+4. Ouvrez votre navigateur et accédez à `http://localhost:3000`.
 
 ## Contributeur
 [Simon](https://github.com/Simonhamel1) et [Ewan](https://github.com/Clab-ewan).

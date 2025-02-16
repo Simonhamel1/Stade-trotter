@@ -27,7 +27,7 @@ L’objectif est de créer un site web pour une agence de voyages proposant des 
     ```bash
     cd stade-trotter
     ```
-3. Installer python :
+3. Installer python et flask (pour le chatbot qui ne fonctionne pas ppour l'instant donc pas necessaire) :
     ```bash
     sudo apt-get install python3 python3-pip
     pip install Flask

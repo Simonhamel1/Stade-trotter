@@ -237,3 +237,39 @@ footer {
     font-size: 14px;
     color: #ccc;
 }
+
+
+@media screen and (max-width: 1024px) {
+  header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      /* Pour voir l’effet de déplacement */
+      transform: translateY(0);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+    }
+    
+    /* Quand on ajoute la classe active, on translate le header vers le haut */
+    header.active {
+      transform: translateY(-80%);
+      padding-bottom: 18%;
+  }
+
+
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav ul li {
+      margin: 10px 0;
+  }
+
+}

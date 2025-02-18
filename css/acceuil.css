@@ -41,8 +41,10 @@ html {
     background: url('../photo/logo.png') no-repeat center/cover;
     border-radius: 50%;
     position: absolute;
-    pointer-events: none; /* Pour éviter d'intercepter les clics */
-    transform: translate(-50%, -50%); /* Centrer le logo par rapport à la souris */
+    pointer-events: none;
+    /* Pour éviter d'intercepter les clics */
+    transform: translate(-50%, -50%);
+    /* Centrer le logo par rapport à la souris */
 }
 
 .contenu {
@@ -56,7 +58,6 @@ html {
     transition: opacity 0.5s ease-in-out;
 }
 
-
 /* ==================== HEADER/NavBar ==================== */
 header {
     background-color: var(--bleu-fonce);
@@ -65,55 +66,55 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-  }
-  
-  .navbar {
+}
+
+.navbar {
     width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
-  .logo {
+}
+
+.logo {
     width: 70px;
     transition: transform 0.3s ease-in-out;
     max-width: 100%;
-  }
-  
-  .logo:hover {
+}
+
+.logo:hover {
     transform: scale(1.2);
-  }
-  
-  nav ul {
+}
+
+nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     margin: 0 15px;
-  }
-  
-  nav ul li a {
+}
+
+nav ul li a {
     text-decoration: none;
     color: var(--blanc);
     font-weight: 600;
     transition: color 0.3s ease-in-out;
-  }
-  
-  nav ul li a:hover {
+}
+
+nav ul li a:hover {
     color: var(--bleu-clair);
-  }
-  
-  .connexion a {
+}
+
+.connexion a {
     background-color: var(--bleu-moyen);
     padding: 10px 20px;
     border-radius: 5px;
-  }
-  
-  .connexion a:hover {
+}
+
+.connexion a:hover {
     background-color: var(--bleu-clair);
     color: black;
 }
@@ -127,7 +128,8 @@ main {
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    padding-top: 100px; /* Pour éviter que le header fixe cache le contenu */
+    padding-top: 100px;
+    /* Pour éviter que le header fixe cache le contenu */
 }
 
 /* ==================== IMAGE GRID ==================== */
@@ -169,11 +171,13 @@ main {
     text-align: center;
     color: var(--blanc);
     padding: 30px;
-    font-size: clamp(1rem, 2vw, 1.2rem); /* Ajustement automatique */
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    /* Ajustement automatique */
     line-height: 1.6;
     max-width: 800px;
     margin: auto;
-    font-weight: bold; /* Ajout de la propriété font-weight pour rendre le texte plus gras */
+    font-weight: bold;
+    /* Ajout de la propriété font-weight pour rendre le texte plus gras */
 }
 
 /* ==================== TÉMOIGNAGES ==================== */
@@ -229,7 +233,7 @@ main {
 
 #fs-standings {
     max-width: 80%;
-    margin: auto; 
+    margin: auto;
 }
 
 
@@ -322,25 +326,58 @@ footer {
     font-size: 14px;
     color: var(--blanc);
 }
+
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media screen and (max-width: 1024px) {
-    
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* Pour voir l’effet de déplacement */
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+      }
+      
+      /* Quand on ajoute la classe active, on translate le header vers le haut */
+      header.active {
+        transform: translateY(-80%);
+        padding-bottom: 30%;
+    }
+
+
+  
     .navbar {
         height: 95%;
         flex-direction: column;
         text-align: center;
-      }
-    
-      nav ul {
-        flex-direction: column;
-      }
-    
-      nav ul li {
-        margin: 10px 0;
-      }
-    
-      
+    }
 
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav a {
+       margin-bottom: 10px;
+    }
+
+    .palette {
+        width: 35%;
+    }
+    
+    .image-large {
+        grid-column: span 2;
+        position: relative;
+        padding-bottom: 50%;
+        width: 100%;
+        padding-bottom: 100%;
+    }
 
     .temoignages {
         flex-direction: column;

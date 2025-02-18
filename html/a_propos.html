@@ -7,6 +7,8 @@
   
   <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="../css/a_propos.css">
+  <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
+  <script src="../js/navbar.js" defer></script>
 
   <!-- Importation de la police Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +27,7 @@
         <ul>
           <li><a href="accueil.html">Accueil</a></li>
           <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="condition-Utilisation.html">À propos</a></li>
+          <li><a href="a_propos.html">À propos</a></li>
           <li><a href="profil.html">Profil</a></li>
           <li class="btn"><a href="connexion.html">Connexion</a></li>
         </ul>
@@ -49,7 +51,7 @@
                     <p>Simon est étudiant en informatique et développeur web. Il aime coder, construire des interfaces fluides… mais le football ? Pas vraiment son truc. Pourtant, il s’est retrouvé à coder un site dédié aux voyages de stades. Allez comprendre.</p>
                 </div>
                 <div class="creator">
-                    <a href="https://www.linkedin.com/in/ewan-clabaut" target="_blank">
+                    <a href="https://www.linkedin.com/in/ewan-clabaut-116134283/?originalSubdomain=fr" target="_blank">
                       <img src="../photo/ewan.jpg" alt="Ewan Clabaut">
                     </a>
                     <h3>Ewan Clabaut</h3>
@@ -60,8 +62,6 @@
     </section>
   </body>
    
-
-
 
   <!-- FOOTER -->
   </section><footer>
@@ -120,6 +120,16 @@
         <p>&copy;copyrignt 2025 Stade Trotter Simon hamelin et Ewan clabaut</p>
     </div>
 </footer>
+
+  <!-- Chat Widget -->
+  <div id="chat-widget-container">
+    <button id="chat-toggle-btn">Chat</button>
+    <!-- Adresse où se trouve le chatbot -->
+    <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
+  </div>
+
+  <!-- Inclusion du JS pour le Chat Widget -->
+  <script src="../js/deploiementChatWidget.js"></script>
 
 </body>
 </html>

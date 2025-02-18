@@ -63,6 +63,13 @@ nav ul li a:hover {
   color: var(--bleu-clair);
 }
 
+nav ul li .btn:hover {
+  color: #000;
+}
+a {
+  text-decoration: none;
+}
+
 .btn a {
   background-color: var(--bleu-moyen);
   padding: 10px 20px;
@@ -71,6 +78,7 @@ nav ul li a:hover {
 
 .btn a:hover {
   background-color: var(--bleu-clair);
+  color: black;
 }
 
 /* MAIN CONTENT */
@@ -95,10 +103,6 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-}
-
-main {
-    padding: 20px;
 }
 
 section {

@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voyage au Stade de France</title>
-    <link rel="stylesheet" href="../../css/stade.css">
+    <link rel="stylesheet" href="../css/stade.css">
+    <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
 </head>
+
 <body>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget-container">
+        <button id="chat-toggle-btn">Chat</button>
+        <!-- Adresse où se trouve le chatbot -->
+        <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
+    </div>
+
+    <!-- Inclusion du JS pour le Chat Widget -->
+    <script src="../js/deploiementChatWidget.js"></script>
+
     <header>
         <div class="container">
             <a href="#top">
-                <img class="logo" src="../../photo/logo.png" alt="Logo Stade Trotter">
+                <img class="logo" src="../photo/logo.png" alt="Logo Stade Trotter">
             </a>
             <nav>
                 <ul>
-                    <li><a href="../accueil.html">Accueil</a></li>
-                    <li><a href="../destinations.html">Destinations</a></li>
-                    <li><a href="../Nomenclature.html">À propos</a></li>
-                    <li><a href="../profil.html">Contact</a></li>
-                    <li class="btn"><a href="../../connexion.html">Connexion</a></li>
+                    <li><a href="accueil.html">Accueil</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="a_propos.html">À propos</a></li>
+                    <li><a href="profil.html">Contact</a></li>
+                    <li class="btn"><a href="connexion.html">Connexion</a></li>
                 </ul>
             </nav>
         </div>
@@ -26,8 +40,9 @@
     <main>
         <section id="introduction">
             <h1>Voyage au Stade de France</h1>
-            <img src="../../photo/stade-de-france.jpg" alt="Stade de France">
-            <p>Le Stade de France est le plus grand stade de France, situé à Saint-Denis, au nord de Paris. Il a été inauguré en 1998 pour la Coupe du Monde de football.</p>
+            <img src="../photo/stade-de-france.jpg" alt="Stade de France">
+            <p>Le Stade de France est le plus grand stade de France, situé à Saint-Denis, au nord de Paris. Il a été
+                inauguré en 1998 pour la Coupe du Monde de football.</p>
         </section>
         <section id="informations">
             <h2>Informations</h2>
@@ -48,19 +63,24 @@
         </section>
         <section id="billets">
             <h2>Informations sur les Billets</h2>
-            <p>Les billets pour les matchs et les visites guidées peuvent être achetés en ligne sur le site officiel du Stade de France.</p>
+            <p>Les billets pour les matchs et les visites guidées peuvent être achetés en ligne sur le site officiel du
+                Stade de France.</p>
             <a href="https://www.stadefrance.com" target="_blank">Acheter des billets</a>
         </section>
         <section id="plan">
             <h2>Plan du Stade</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999231905613!2d2.343104315674287!3d48.92445997929266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f0b6d6c6b1b%3A0x40b82c3688c9460!2sStade%20de%20France!5e0!3m2!1sen!2sfr!4v1600000000000!5m2!1sen!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.999231905613!2d2.343104315674287!3d48.92445997929266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f0b6d6c6b1b%3A0x40b82c3688c9460!2sStade%20de%20France!5e0!3m2!1sen!2sfr!4v1600000000000!5m2!1sen!2sfr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </section>
-        <p><h2>Classement</h2></p>
+        <p>
+        <h2>Classement</h2>
+        </p>
         <section id="fs-standings">
             <div id="fs-standings"></div>
             <script>
-                (function (w,d,s,o,f,js,fjs) {
-                    w['fsStandingsEmbed']=o;w[o] = w[o] || function () {
+                (function (w, d, s, o, f, js, fjs) {
+                    w['fsStandingsEmbed'] = o; w[o] = w[o] || function () {
                         (w[o].q = w[o].q || []).push(arguments)
                     };
                     js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
@@ -75,4 +95,5 @@
         <p>&copy; 2023 Stade Trotter. Tous droits réservés.</p>
     </footer>
 </body>
+
 </html>

@@ -7,6 +7,8 @@
   
   <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="../css/destinations.css">
+  <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
+  <script src="../js/navbar.js"></script>
 
   <!-- Importation de la police Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +16,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Chat Widget -->
+  <div id="chat-widget-container">
+    <button id="chat-toggle-btn">Chat</button>
+    <!-- Adresse où se trouve le chatbot -->
+    <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
+  </div>
+
+  <!-- Inclusion du JS pour le Chat Widget -->
+  <script src="../js/deploiementChatWidget.js"></script>
 
   <!-- HEADER FIXE -->
   <header>
@@ -25,7 +37,7 @@
         <ul>
           <li><a href="accueil.html">Accueil</a></li>
           <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="condition-Utilisation.html">À propos</a></li>
+          <li><a href="a_propos.html">À propos</a></li>
           <li><a href="profil.html">Profil</a></li>
           <li class="btn"><a href="connexion.html">Connexion</a></li>
         </ul>
@@ -53,6 +65,8 @@
   
     <!-- FILTRE À GAUCHE -->
     <aside class="filter-section">
+
+
       <h2>Filtrer par</h2>
       <form>
       <div class="filter-group">
@@ -111,7 +125,7 @@
     <!-- LISTE DES STADES -->
     <section class="stadium-list">
 
-      <a href="">
+      <a href="stade-de-france.html">
         <div class="stadium">
           <img src="../photo/stade-de-france.jpg" alt="Stade de France">
           <h2>Stade de France</h2>

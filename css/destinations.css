@@ -78,8 +78,8 @@ nav ul li a:hover {
 
 .filter-section {
     position: sticky;
-    top: 80px; /* Même valeur que pour le header si besoin */
-    width: 250px; /* largeur fixe du filtre */
+    top: 80px; 
+    width: 250px; 
     max-height: calc(100vh - 100px);
     overflow-y: auto;
     background-color: var(--gris-tres-clair);
@@ -120,7 +120,7 @@ nav ul li a:hover {
 main {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centre la hero section */
+  align-items: center; 
   padding: 20px;
   background-image: url('../photo/arriere-plan.jpeg');
   background-repeat: no-repeat;
@@ -131,7 +131,7 @@ main {
 
 .double-grid {
   display: grid;
-  grid-template-columns: 1fr 4fr; /* Petit à gauche et grand à droite */
+  grid-template-columns: 1fr 4fr; 
   gap: 20px;
 
 }
@@ -143,8 +143,8 @@ main {
 .filter-section {
   
   order: 1;
-  max-width: 300px; /* Réduit la largeur du filtre */
-  margin: 0 auto; /* Centre le filtre */
+  max-width: 300px;
+  margin: 0 auto; 
 }
 
 /* Centrer le formulaire */
@@ -224,7 +224,6 @@ main {
   width: 100%;
   box-sizing: border-box;
   min-height: 10vh;
-  /* Prend toute la hauteur de la page */
 }
 
 .stadium {
@@ -260,7 +259,6 @@ main {
 
 a {
   text-decoration: none;
-  /* Supprime le soulignement */
   color: var(--bleu-fonce);
 }
 

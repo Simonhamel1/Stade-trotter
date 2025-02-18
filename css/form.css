@@ -83,11 +83,11 @@ nav ul li a:hover {
 
 /* Conteneur des formulaires */
 .form-container {
-    background: rgba(173, 216, 230, 0.95); /* Bleu clair semi-transparent */
-    color: var(--bleu-fonce); /* Bleu foncé pour le texte */
+    background: rgba(173, 216, 230, 0.95); 
+    color: var(--bleu-fonce); 
     border-radius: 15px;
     text-align: center;
-    width: 400px; /* Taille par défaut */
+    width: 400px; 
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -113,9 +113,9 @@ nav ul li a:hover {
     padding: 8px;
   }
 
-/* Réduction de la taille du formulaire d'inscription */
+
 .form-container.inscription {
-    width: 300px; /* Formulaire plus petit */
+    width: 300px; 
 }
 
 #form_logo {
@@ -127,7 +127,7 @@ nav ul li a:hover {
 h2 {
     margin: 0;
     font-size: 2em;
-    color: var(--bleu-fonce); /* Bleu foncé pour les titres */
+    color: var(--bleu-fonce); 
     padding-bottom: 15px;
 }
 
@@ -138,7 +138,7 @@ label {
     font-weight: bold;
     padding: 0 22px;
     font-size: 1em;
-    color: var(--bleu-moyen); /* Bleu moyen */
+    color: var(--bleu-moyen); 
 }
 
 /* Champs de saisie */
@@ -146,23 +146,23 @@ input, select {
     width: 100%;
     padding: 8px;
     margin: 7px 0;
-    border: 2px solid var(--bleu-clair); /* Bleu clair */
+    border: 2px solid var(--bleu-clair); 
     border-radius: 5px;
     font-size: 1em;
-    background: #E0F7FA; /* Fond bleu très clair */
-    color: var(--bleu-fonce); /* Texte bleu foncé */
+    background: #E0F7FA; 
+    color: var(--bleu-fonce); 
 }
 
 /* Bouton */
 input[type="submit"] {
-    background: var(--bleu-fonce); /* Bleu foncé */
+    background: var(--bleu-fonce); 
     color: var(--blanc);
     padding: 10px;
     font-size: 1.3em;
     cursor: pointer;
     border: none;
     margin-top: 15px;
-    border: 2px solid var(--bleu-fonce); /* Contour bleu foncé */
+    border: 2px solid var(--bleu-fonce); 
     transition: 0.3s;
 }
 

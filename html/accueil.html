@@ -22,15 +22,28 @@
     <!-- js -->
     <script src="https://cdn.footystats.org/embeds/standings-loc.js"></script>
 
-    <!-- Chat Widget -->
     <div id="chat-widget-container">
-        <button id="chat-toggle-btn">Chat</button>
-        <!-- Adresse où se trouve le chatbot -->
-        <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
+        <button id="chat-toggle-btn">💬</button>
+        <iframe id="chat-iframe" src="../chatbot/chatbot.html"></iframe>
     </div>
 
-    <!-- Inclusion du JS pour le Chat Widget -->
-    <script src="../js/deploiementChatWidget.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatIframe = document.getElementById("chat-iframe");
+            const chatToggleBtn = document.getElementById("chat-toggle-btn");
+        
+            chatToggleBtn.addEventListener("click", function () {
+                if (chatIframe.style.display === "none" || chatIframe.style.display === "") {
+                    chatIframe.style.display = "block";
+                    setTimeout(() => chatIframe.style.transform = "translateY(0%)", 10);
+                } else {
+                    chatIframe.style.transform = "translateY(110%)";
+                    setTimeout(() => chatIframe.style.display = "none", 300);
+                }
+            });
+        });
+    </script>
 
     <div class="loading-screen">
         <div class="palette"></div>
@@ -110,6 +123,9 @@
         <div id="fs-standings"></div>
         <script> (function (w, d, s, o, f, js, fjs) { w['fsStandingsEmbed'] = o; w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'mw', 'https://cdn.footystats.org/embeds/standings-loc.js')); mw('params', { leagueID: 2392, lang: 'fr' }); </script>
 
+        
+
+
         <!-- FOOTER -->
         <footer>
             <div class="footer-container">
@@ -169,8 +185,6 @@
 
         </footer>
     </main>
-
-
 
     <script src="script.js"></script>
 </body>

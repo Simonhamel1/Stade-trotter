@@ -28,7 +28,7 @@
     <section class="form-container">
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
         <h2>⚽ Connexion ⚽</h2>
-        <form action="https://www.cafe-it.fr/cytech/post.php" method="post">
+        <form action="../php/post.php" method="post">
             <label for="email">Email:</label>
             <input type="email" id="email" name="Email" required>
 

@@ -50,22 +50,7 @@
     </div>
 
     <!-- Entête navbar -->
-    <header>
-        <div class="navbar">
-            <a href="#top">
-                <img class="logo" src="../photo/logo.png" alt="Logo Stade Trotter">
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="accueil.html">Accueil</a></li>
-                    <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="a_propos.html">À propos</a></li>
-                    <li><a href="profil.html">Profil</a></li>
-                    <li class="connexion"><a href="connexion.html">Connexion</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <?php include '../php/header.php'; ?>
 
     <!-- Contenu principal -->
     <main>
@@ -122,8 +107,6 @@
 
         <div id="fs-standings"></div>
         <script> (function (w, d, s, o, f, js, fjs) { w['fsStandingsEmbed'] = o; w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'mw', 'https://cdn.footystats.org/embeds/standings-loc.js')); mw('params', { leagueID: 2392, lang: 'fr' }); </script>
-
-        
 
 
         <!-- FOOTER -->

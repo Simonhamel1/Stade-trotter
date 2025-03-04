@@ -1,0 +1,4 @@
+- Relier login et connexion avec php pour vérifier existence ou non de l'utilisateur 
+- Mettre en place système de session
+- Mettre en place .csv pour base de données des utilisateurs
+- Refactoriser le code avec les header et footer définient 

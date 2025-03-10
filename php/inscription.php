@@ -11,8 +11,7 @@
     <!-- Entête navbar -->
     <?php include './header.php'; ?>
     
-    <main>
-      <section class="form-container">
+    <section class="form-container">
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
         <h2>⚽ Inscription ⚽</h2>
         <form action="../php/post.php" method="post">
@@ -48,9 +47,8 @@
             </select>
 
             <input type="submit" value="S'inscrire">
-            <p>Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+            <p>Déjà un compte ? <a href="connexion.php">Se connecter</a></p>
         </form>
     </section>
-  </main>
 </body>
 </html>

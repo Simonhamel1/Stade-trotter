@@ -1,4 +1,4 @@
-</section><footer>
+<footer>
     <div class="footer-container">
 
         <div class="footer-section payment">

@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <div id="upbar">
-        <a href="accueil.html"><h2>StadeTrotter</h2></a>
-    </div>
+     
+    <?php include './header.php'; ?>
+
     <div id="profil">
         <div id="form"> <!-- Toute cette page à refaire avec son css pcq dans la logique j'ai quillé ça, mtn va falloir que ça affiche les infos du form -->
             <form action="https://www.cafe-it.fr/cytech/post.php" method="post">

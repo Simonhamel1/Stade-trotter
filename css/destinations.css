@@ -15,64 +15,67 @@ html {
 
 /* ==================== HEADER/NavBar ==================== */
 header {
-  background-color: var(--bleu-fonce);
-  color: var(--blanc);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.container {
-  width: 95%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-  width: 70px;
-  transition: transform 0.3s ease-in-out;
-  max-width: 100%;
+    width: 70px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+    display: flex;
+
 }
 
 .logo:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 nav ul li {
-  margin: 0 15px;
+    margin: 0 15px;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: var(--blanc);
-  font-weight: 600;
-  transition: color 0.3s ease-in-out;
+    text-decoration: none;
+    color: var(--blanc);
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
-  color: var(--bleu-clair);
+    color: var(--bleu-clair);
 }
 
-.btn a {
-  background-color: var(--bleu-moyen);
-  padding: 10px 20px;
-  border-radius: 5px;
+.connexion a {
+    background-color: var(--bleu-moyen);
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
-.btn a:hover {
-  background-color: var(--bleu-clair);
-  color: var(--noir);
+.connexion a:hover {
+    background-color: var(--bleu-clair);
+    color: black;
 }
+
 /* =================== Filtres ================== */
 
 

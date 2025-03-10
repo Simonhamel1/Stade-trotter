@@ -50,7 +50,7 @@
     </div>
 
     <!-- Entête navbar -->
-    <?php include '../php/header.php'; ?>
+    <?php include './header.php'; ?>
 
     <!-- Contenu principal -->
     <main>

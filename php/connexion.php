@@ -8,22 +8,8 @@
     <script src="../js/navbar.js"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-          <a href="#top">
-            <img class="logo" src="../photo/logo.png" alt="Logo Stade Trotter">
-          </a>
-          <nav>
-            <ul>
-              <li><a href="accueil.html">Accueil</a></li>
-              <li><a href="destinations.html">Destinations</a></li>
-              <li><a href="a_propos.html">À propos</a></li>
-              <li><a href="profil.html">Profil</a></li>
-              <li class="btn"><a href="connexion.html">Connexion</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+     <!-- Entête navbar -->
+     <?php include './header.php'; ?>
     
     <section class="form-container">
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
@@ -36,7 +22,7 @@
             <input type="password" id="password" name="Password" required>
 
             <input type="submit" value="Se connecter">
-            <p>Pas encore inscrit ? <a href="inscription.html">Créer un compte</a></p>
+            <p>Pas encore inscrit ? <a href="inscription.php">Créer un compte</a></p>
         </form>
     </section>
 </body>

@@ -27,23 +27,8 @@
   <!-- Inclusion du JS pour le Chat Widget -->
   <script src="../js/deploiementChatWidget.js"></script>
 
-  <!-- HEADER FIXE -->
-  <header>
-    <div class="container">
-      <a href="#top">
-        <img class="logo" src="../photo/logo.png" alt="Logo Stade Trotter">
-      </a>
-      <nav>
-        <ul>
-          <li><a href="accueil.html">Accueil</a></li>
-          <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="a_propos.html">À propos</a></li>
-          <li><a href="profil.html">Profil</a></li>
-          <li class="btn"><a href="connexion.html">Connexion</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <!-- Entête navbar -->
+  <?php include './header.php'; ?>
 
   <!-- SECTION HERO -->
   <main>

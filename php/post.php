@@ -1,9 +1,6 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fields = ['Nom', 'Prénom', 'Email', 'Sexe', 'Password', 'Club'];
-    echo "<div style='width: 300px; margin: 20px auto; padding: 15px; border: 1px solid #ccc; border-radius: 5px;'>";
-    echo "<h2 style='text-align: center;'>Informations soumises</h2>";
-    
+
     foreach ($fields as $field) {
         if (isset($_POST[$field])) {
             if ($field != 'Password') {  // Ne pas afficher le mot de passe
@@ -13,5 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     echo "</div>";
-}
+// Bcrypt : Méthode de hashage
+// json_encode : Transforme un tableau php en json
+// json_encode($_POST) // attention à vérifier la variable peut être à retraiter
 ?>

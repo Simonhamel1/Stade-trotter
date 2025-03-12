@@ -15,12 +15,12 @@
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
         <h2>⚽ Inscription ⚽</h2>
         <form action="../php/post.php" method="post">
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="Prenom" required>
+
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="Nom" required>
-
-            <label for="prenom">Prénom:</label>
-            <input type="text" id="prenom" name="Prénom" required>
-
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="Email" required>
 

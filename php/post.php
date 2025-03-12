@@ -1,16 +1,9 @@
 <?php
-    $fields = ['Nom', 'Prénom', 'Email', 'Sexe', 'Password', 'Club'];
-
-    foreach ($fields as $field) {
-        if (isset($_POST[$field])) {
-            if ($field != 'Password') {  // Ne pas afficher le mot de passe
-                echo "<p style='margin: 10px 0;'><strong>" . $field . ":</strong> " 
-                     . htmlspecialchars($_POST[$field]) . "</p>";
-            }
-        }
-    }
-    echo "</div>";
-// Bcrypt : Méthode de hashage
-// json_encode : Transforme un tableau php en json
-// json_encode($_POST) // attention à vérifier la variable peut être à retraiter
+    $_POST['Password'] = hash('sha256', $_POST['Password']);
+    $post_json = json_encode($_POST);
+    echo $post_json;
+    // isn't able to write after the post method
+    $fichier = fopen("./donnees/DB.json", "a+");
+    fwrite($fichier, $post_json);
+    fclose($fichier);
 ?>

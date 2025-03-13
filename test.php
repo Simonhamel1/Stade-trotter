@@ -1,5 +1,5 @@
 <?php
-    $Array = array('a' => 1,'ewan' => 2,'clabaut' => 3);
+    $Array = array('Id' => hash('sha256', "administrateur@gmail.com"), 'Password' => hash('sha256', "administrateur"), 'Role' => "admin");
     $json = json_encode($Array);
     $absolute_path = __DIR__ . "/donnees/DB.json";
     $fichier = fopen($absolute_path, "a+");

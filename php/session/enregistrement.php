@@ -27,5 +27,7 @@
     $_SESSION['Id'] = $Id;
     $_SESSION['Prenom'] = $_POST['Prenom'];
     $_SESSION['Nom'] = $_POST['Nom'];
+    $_SESSION['Email'] = $_POST['Email'];
+    $_SESSION['Club'] = $_POST['Club'];
     header('Location:../accueil.php');
 ?>

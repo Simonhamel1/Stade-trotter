@@ -20,16 +20,6 @@
   <!-- Entête navbar -->
   <?php include './header.php'; ?>
   
-  <!-- Chat Widget -->
-  <div id="chat-widget-container">
-    <button id="chat-toggle-btn">Chat</button>
-    <!-- Adresse où se trouve le chatbot -->
-    <iframe id="chat-iframe" src="http://127.0.0.1:5000" title="Chatbot"></iframe>
-  </div>
-
-  <!-- Inclusion du JS pour le Chat Widget -->
-  <script src="../js/deploiementChatWidget.js"></script>
-
 
   <!-- SECTION HERO -->
   <main>

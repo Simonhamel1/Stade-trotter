@@ -22,12 +22,13 @@
     <!-- js -->
     <script src="https://cdn.footystats.org/embeds/standings-loc.js"></script>
 
+    <?php if(basename($_SERVER['PHP_SELF']) === 'accueil.php'): ?>
+    <!-- Chat Widget -->
     <div id="chat-widget-container">
         <button id="chat-toggle-btn">💬</button>
         <iframe id="chat-iframe" src="../chatbot/chatbot.html"></iframe>
     </div>
 
-    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const chatIframe = document.getElementById("chat-iframe");
@@ -44,6 +45,7 @@
             });
         });
     </script>
+    <?php endif; ?>
 
     <div class="loading-screen">
         <div class="palette"></div>

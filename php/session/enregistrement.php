@@ -22,4 +22,10 @@
     
     // Reconvertir en JSON et écrire dans le fichier
     file_put_contents($absolute_path, json_encode($jsonArray, JSON_PRETTY_PRINT));
+
+    session_start();
+    $_SESSION['Id'] = $Id;
+    $_SESSION['Prenom'] = $_POST['Prenom'];
+    $_SESSION['Nom'] = $_POST['Nom'];
+    header('Location:../accueil.php');
 ?>

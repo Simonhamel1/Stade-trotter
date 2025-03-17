@@ -14,7 +14,7 @@
     <section class="form-container">
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
         <h2>⚽ Inscription ⚽</h2>
-        <form action="./session/post.php" method="post">
+        <form action="./session/enregistrement.php" method="post">
             <label for="prenom">Prénom:</label>
             <input type="text" id="prenom" name="Prenom" required>
 

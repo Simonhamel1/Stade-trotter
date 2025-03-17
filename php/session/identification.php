@@ -14,9 +14,10 @@ $Content = json_decode($Content, true);
 foreach($Content as $tab){
     if($tab['Id'] == $Id) {                           
         // créer la session 
-    header('Location:../accueil.php');  
+        session_start();
+        $_SESSION['Id'] = $Id;
+        header('Location:../accueil.php');  
     }
 }
-
-// header('Location:../inscription.php');
+header('Location:../inscription.php');
 ?>

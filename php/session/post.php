@@ -4,7 +4,7 @@
     $DataArray = $_POST; 
     $DataArray["Id"] = $Id;
     $DataArray = json_encode($DataArray);
-    $absolute_path = "../donnees/DB.json";
+    $absolute_path = "../../donnees/DB.json";
     
     // Lire le contenu actuel du fichier
     $content = file_get_contents($absolute_path);

@@ -200,7 +200,7 @@
 
       <a href="">
         <div class="stadium">
-          <img src="../photo/stadio-olimpico.jpg" alt="Stadio Olimpico">
+          <img src="../photo/stade-olimpico.jpg" alt="Stadio Olimpico">
           <h2>Stadio Olimpico</h2>
           <p>Vivez l'expérience authentique du Stadio Olimpico à Rome.</p>
         </div>

@@ -57,5 +57,23 @@
         "Password": "5694d08a2e53ffcae0c3103e5ad6f6076abd960eb1f8a56577040bc1028f702b",
         "Club": "Bayern",
         "Id": "cf60330ecdc78aeb009e0c0844c6407ffafa2d4317841217086ee58eaaa8f9ad"
+    },
+    {
+        "Prenom": "simon",
+        "Nom": "hamelin",
+        "Email": "simon.hamelin11@gmail.com",
+        "Sexe": "Homme",
+        "Password": "03042cf8100db386818cee4ff0f2972431a62ed78edbd09ac08accfabbefd818",
+        "Club": "PSG",
+        "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "Prenom": "simon",
+        "Nom": "hamelin",
+        "Email": "simon.hamelin11@gmail.com",
+        "Sexe": "Homme",
+        "Password": "03042cf8100db386818cee4ff0f2972431a62ed78edbd09ac08accfabbefd818",
+        "Club": "PSG",
+        "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
     }
 ]

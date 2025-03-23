@@ -1,6 +1,7 @@
 <footer>
     <div class="footer-container">
 
+
         <div class="footer-section payment">
             <h2>Paiements acceptés</h2>
             <div class="payment-logos">

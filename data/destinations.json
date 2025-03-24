@@ -1,0 +1,92 @@
+{
+    "stade-de-france": {
+        "name": "Stade de France",
+        "description": "Plongez dans l'histoire du football français et vibrez au cœur de ce stade mythique.",
+        "image": "stade-de-france.jpg",
+        "continent": "Europe"
+    },
+    "allianz-arena": {
+        "name": "Allianz Arena",
+        "description": "Découvrez le célèbre stade du Bayern Munich avec son architecture futuriste.",
+        "image": "allianz-arena.jpg",
+        "continent": "Europe"
+    },
+    "camp-nou": {
+        "name": "Camp Nou",
+        "description": "Visitez la maison du FC Barcelone et ressentez l'ambiance unique de ce temple du football.",
+        "image": "camp-nou.jpeg",
+        "continent": "Europe"
+    },
+    "wembley": {
+        "name": "Wembley",
+        "description": "Un lieu emblématique du football anglais où se jouent les plus grandes finales.",
+        "image": "wembley.jpeg",
+        "continent": "Europe"
+    },
+    "san-siro": {
+        "name": "San Siro",
+        "description": "Explorez le stade légendaire de Milan, partagé par l'AC Milan et l'Inter Milan.",
+        "image": "san-siro.jpeg",
+        "continent": "Europe"
+    },
+    "bernabeu": {
+        "name": "Santiago Bernabéu",
+        "description": "Visitez le stade emblématique du Real Madrid, un lieu chargé d'histoire et de gloire.",
+        "image": "bernabeu.jpg",
+        "continent": "Europe"
+    },
+    "anfield": {
+        "name": "Anfield",
+        "description": "Ressentez l'atmosphère unique du stade de Liverpool, célèbre pour son Kop.",
+        "image": "anfield.jpeg",
+        "continent": "Europe"
+    },
+    "maracana": {
+        "name": "Maracanã",
+        "description": "Découvrez le mythique stade de Rio de Janeiro, un symbole du football brésilien.",
+        "image": "maracana.jpeg",
+        "continent": "Amerique"
+    },
+    "signal-iduna-park": {
+        "name": "Signal Iduna Park",
+        "description": "Vivez l'ambiance électrique du stade du Borussia Dortmund, connu pour son Mur Jaune.",
+        "image": "signal-iduna-park.jpg",
+        "continent": "Europe"
+    },
+    "estadio-azteca": {
+        "name": "Estadio Azteca",
+        "description": "Explorez le stade de Mexico, célèbre pour avoir accueilli deux finales de Coupe du Monde.",
+        "image": "azteca.jpg",
+        "continent": "Amerique"
+    },
+    "old-trafford": {
+        "name": "Old Trafford",
+        "description": "Visitez le stade mythique de Manchester United, un lieu chargé d'histoire et de légendes.",
+        "image": "old-trafford.jpeg",
+        "continent": "Europe"
+    },
+    "stade-velodrome": {
+        "name": "Stade Vélodrome",
+        "description": "Découvrez l'ambiance vibrante du Stade Vélodrome à Marseille.",
+        "image": "orange-velodrome.jpeg",
+        "continent": "Europe"
+    },
+    "stadio-olimpico": {
+        "name": "Stadio Olimpico",
+        "description": "Vivez l'expérience authentique du Stadio Olimpico à Rome.",
+        "image": "stade-olimpico.jpg",
+        "continent": "Europe"
+    },
+    "la-bombonera": {
+        "name": "La Bombonera",
+        "description": "Plongez au cœur de la passion argentine dans ce stade mythique.",
+        "image": "la-bombonera.jpeg",
+        "continent": "Amerique"
+    },
+    "emirates-stadium": {
+        "name": "Emirates Stadium",
+        "description": "Explorez l'élégant Emirates Stadium, symbole du football londonien.",
+        "image": "emirates-stadium.jpeg",
+        "continent": "Europe"
+    }
+}

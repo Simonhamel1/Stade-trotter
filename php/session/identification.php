@@ -1,7 +1,8 @@
 <?php
-// Receiving user datas
+session_start();
+// Receiving user datas    
 $_POST['Password'] = hash('sha256', $_POST['Password']);
-$Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);  
+$Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);   
 
 // Path to the json
 $relative_path = "../../donnees/DB.json";
@@ -13,15 +14,11 @@ $Content = json_decode($Content, true);
 // Bug is here
 foreach($Content as $tab){
     if($tab['Id'] == $Id) {                           
-        // créer la session 
-        session_start();
-        $_SESSION['Id'] = $Id;
-        $_SESSION['Prenom'] = $_POST['Prenom'];
-        $_SESSION['Nom'] = $_POST['Nom'];
-        $_SESSION['Email'] = $_POST['Email'];
-        $_SESSION['Club'] = $_POST['Club'];
-        header('Location:../accueil.php');  
+        header('Location:../accueil.php'); 
+        exit();
     }
 }
-header('Location:../inscription.php');
+$_SESSION['error_message'] = "This account doesn't exist or the password isn't right";
+header('Location:../connexion.php');
+exit();
 ?>

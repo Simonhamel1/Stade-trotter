@@ -8,8 +8,14 @@
                     <li><a href="accueil.php">Accueil</a></li>
                     <li><a href="destinations.php">Destinations</a></li>
                     <li><a href="a_propos.php">À propos</a></li>
-                    <li><a href="profil.php">Profil</a></li>
-                    <li class="connexion"><a href="connexion.php">Connexion</a></li>
+                    <?php
+                    // session_start();
+                    if(isset($_SESSION['user'])) {
+                        echo '<li class="connexion"><a href="profil.php">' . $_SESSION["Prenom"] . '</a></li>';
+                    } else {
+                        echo '<li class="connexion"><a href="connexion.php">Connexion</a></li>';
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>

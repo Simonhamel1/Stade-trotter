@@ -3,7 +3,7 @@
     session_start();
     // Vérifier l'existence d'une session pour l'utilisateur sinon créer nouvelle
     if (!isset($_SESSION['Id'])) {
-        header("Location:../connexion.php");
+        header("Location:./inscription.php");
     } else {
         // Si la session existe déjà, on affiche l'ID utilisateur
         echo "Session existante détectée : " . $_SESSION['Id'];

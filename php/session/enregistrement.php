@@ -1,6 +1,12 @@
 <?php
+    session_start();
+    $_SESSION["Prenom"]=$_POST["Prenom"];
+    $_SESSION["Nom"]=$_POST["Nom"];
+    $_SESSION["Email"]=$_POST["Email"];
     $_POST['Password'] = hash('sha256', $_POST['Password']);
-    $Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']); 
+    $_SESSION["Password"]=$_POST["Password"];
+    $Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);  
+    $_SESSION["user"] = $Id;
     $DataArray = $_POST; 
     $DataArray["Id"] = $Id;
     $DataArray = json_encode($DataArray);
@@ -16,18 +22,19 @@
     
     // Convertir le contenu en tableau PHP
     $jsonArray = json_decode($content, true);
-    
+
+    // Vérifier que l'utilisateur n'a pas un compte
+    foreach($jsonArray as $row){
+        if($row["Id"] == $Id || $row["Email"] == $_POST["Email"]) {
+            $_SESSION['error_message'] = "This email already has an account, please connect to it";
+            header('Location: ../inscription.php'); // Redirect to your signup page
+            exit();
+        }
+    }
     // Ajouter les nouvelles données
     $jsonArray[] = json_decode($DataArray, true);
     
     // Reconvertir en JSON et écrire dans le fichier
     file_put_contents($absolute_path, json_encode($jsonArray, JSON_PRETTY_PRINT));
-
-    session_start();
-    $_SESSION['Id'] = $Id;
-    $_SESSION['Prenom'] = $_POST['Prenom'];
-    $_SESSION['Nom'] = $_POST['Nom'];
-    $_SESSION['Email'] = $_POST['Email'];
-    $_SESSION['Club'] = $_POST['Club'];
-    header('Location:../accueil.php');
+    header('Location:../test.php');
 ?>

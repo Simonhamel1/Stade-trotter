@@ -1,0 +1,921 @@
+{
+    "stade-de-france": {
+        "name": "Stade de France",
+        "description": "Plongez dans l'histoire du football français et vibrez au cœur de ce stade mythique.",
+        "image": "stade-de-france.jpg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Accueil et installation",
+                "date": "1er juin 2025",
+                "lieu": "Saint-Denis, France",
+                "description": "Installation dans un hôtel proche du Stade de France.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Bus collectif",
+                        "Voiture privée",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée de la ville",
+                        "Dîner gastronomique",
+                        "Soirée spectacle"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du Stade",
+                "date": "2 juin 2025",
+                "lieu": "Stade de France, Saint-Denis",
+                "description": "Visite guidée du stade le matin et match de football en après-midi.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette du stade",
+                        "Taxi",
+                        "Voiture privée"
+                    ],
+                    "activites": [
+                        "Visite du stade",
+                        "Match de football",
+                        "Accès VIP"
+                    ]
+                }
+            }
+        ]
+    },
+    "allianz-arena": {
+        "name": "Allianz Arena",
+        "description": "Découvrez le célèbre stade du Bayern Munich avec son architecture futuriste.",
+        "image": "allianz-arena.jpg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Installation et découverte",
+                "date": "5 juin 2025",
+                "lieu": "Munich, Allemagne",
+                "description": "Arrivée et installation dans un hôtel central, découverte des environs.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Bus",
+                        "Taxi",
+                        "Location de voiture"
+                    ],
+                    "activites": [
+                        "Visite de la ville",
+                        "Dîner typique bavarois",
+                        "Concert local"
+                    ]
+                }
+            }
+        ]
+    },
+    "camp-nou": {
+        "name": "Camp Nou",
+        "description": "Visitez la maison du FC Barcelone et ressentez l'ambiance unique de ce temple du football.",
+        "image": "camp-nou.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Arrivée et installation",
+                "date": "10 septembre 2025",
+                "lieu": "Barcelone, Espagne",
+                "description": "Installation dans un hôtel près du Camp Nou et première immersion dans l'ambiance catalane.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Petit-déjeuner",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Taxi",
+                        "Bus touristique"
+                    ],
+                    "activites": [
+                        "Tour de la ville",
+                        "Soirée tapas",
+                        "Musée FC Barcelone"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du Camp Nou",
+                "date": "11 septembre 2025",
+                "lieu": "Camp Nou, Barcelone",
+                "description": "Visite guidée du stade avec accès aux coulisses et visite du musée FC Barcelone.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Bus touristique",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Boutique FC Barcelone",
+                        "Rencontre avec des supporters"
+                    ]
+                }
+            }
+        ]
+    },
+    "wembley": {
+        "name": "Wembley",
+        "description": "Un lieu emblématique du football anglais où se jouent les plus grandes finales.",
+        "image": "wembley.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Accueil à Londres",
+                "date": "15 octobre 2025",
+                "lieu": "Londres, Angleterre",
+                "description": "Installation dans un hôtel londonien avec vue sur les principaux monuments.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner inclus",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Tube",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite des monuments",
+                        "Shopping",
+                        "Croisière sur la Tamise"
+                    ]
+                }
+            },
+            {
+                "titre": "Découverte de Wembley",
+                "date": "16 octobre 2025",
+                "lieu": "Wembley, Angleterre",
+                "description": "Visite guidée du stade suivi d'une immersion dans l'ambiance d'un match historique.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette locale",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Match live",
+                        "Accès aux loges"
+                    ]
+                }
+            }
+        ]
+    },
+    "san-siro": {
+        "name": "San Siro",
+        "description": "Explorez le stade légendaire de Milan, partagé par l'AC Milan et l'Inter Milan.",
+        "image": "san-siro.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Installation à Milan",
+                "date": "20 novembre 2025",
+                "lieu": "Milan, Italie",
+                "description": "Installation dans un hôtel situé au cœur de Milan pour découvrir la ville.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée de Milan",
+                        "Shopping",
+                        "Dégustation de spécialités italiennes"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du San Siro",
+                "date": "21 novembre 2025",
+                "lieu": "San Siro, Milan",
+                "description": "Tour du stade avec accès aux vestiaires et au tunnel des joueurs.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Boutique officielle",
+                        "Photo souvenir"
+                    ]
+                }
+            }
+        ]
+    },
+    "bernabeu": {
+        "name": "Santiago Bernabéu",
+        "description": "Visitez le stade emblématique du Real Madrid, un lieu chargé d'histoire et de gloire.",
+        "image": "bernabeu.jpg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Arrivée à Madrid",
+                "date": "5 décembre 2025",
+                "lieu": "Madrid, Espagne",
+                "description": "Installation dans un hôtel central et découverte de la capitale espagnole.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite des musées",
+                        "Balade dans le parc",
+                        "Tour en ville"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du Bernabéu",
+                "date": "6 décembre 2025",
+                "lieu": "Stade Santiago Bernabéu, Madrid",
+                "description": "Visite guidée du stade avec découverte des trophées et espaces VIP.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Collection de trophées",
+                        "Rencontre avec des anciens joueurs"
+                    ]
+                }
+            }
+        ]
+    },
+    "anfield": {
+        "name": "Anfield",
+        "description": "Ressentez l'atmosphère unique du stade de Liverpool, célèbre pour son Kop.",
+        "image": "anfield.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Installation à Liverpool",
+                "date": "10 janvier 2026",
+                "lieu": "Liverpool, Angleterre",
+                "description": "Installation dans un hôtel traditionnel et découverte des ruelles animées de Liverpool.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Bus",
+                        "Taxi",
+                        "Tram"
+                    ],
+                    "activites": [
+                        "Visite culturelle",
+                        "Marché local",
+                        "Musée du football"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite d'Anfield",
+                "date": "11 janvier 2026",
+                "lieu": "Anfield, Liverpool",
+                "description": "Tour du stade avec explications sur son histoire légendaire et ses supporters passionnés.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Rencontre avec les fans",
+                        "Boutique officielle"
+                    ]
+                }
+            }
+        ]
+    },
+    "maracana": {
+        "name": "Maracanã",
+        "description": "Découvrez le mythique stade de Rio de Janeiro, un symbole du football brésilien.",
+        "image": "maracana.jpeg",
+        "continent": "Amerique",
+        "etapes": [
+            {
+                "titre": "Arrivée à Rio",
+                "date": "20 février 2026",
+                "lieu": "Rio de Janeiro, Brésil",
+                "description": "Installation dans un hôtel avec vue sur la baie de Rio et première immersion dans la culture brésilienne.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite de la ville",
+                        "Cours de samba",
+                        "Dégustation locale"
+                    ]
+                }
+            },
+            {
+                "titre": "Découverte du Maracanã",
+                "date": "21 février 2026",
+                "lieu": "Maracanã, Rio de Janeiro",
+                "description": "Visite guidée du stade mythique avec explications sur ses grands moments de l'histoire du football.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Rencontre avec des anciens joueurs",
+                        "Boutique du stade"
+                    ]
+                }
+            }
+        ]
+    },
+    "signal-iduna-park": {
+        "name": "Signal Iduna Park",
+        "description": "Vivez l'ambiance électrique du stade du Borussia Dortmund, connu pour son Mur Jaune.",
+        "image": "signal-iduna-park.jpg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Accueil à Dortmund",
+                "date": "1er mars 2026",
+                "lieu": "Dortmund, Allemagne",
+                "description": "Installation dans un hôtel moderne et découverte de la ville industrielle.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Train",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite urbaine",
+                        "Découverte de la Ruhr",
+                        "Musée local"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du Signal Iduna Park",
+                "date": "2 mars 2026",
+                "lieu": "Signal Iduna Park, Dortmund",
+                "description": "Tour du stade avec focus sur le fameux Mur Jaune et l'ambiance des supporters.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Session photo",
+                        "Boutique du club"
+                    ]
+                }
+            }
+        ]
+    },
+    "estadio-azteca": {
+        "name": "Estadio Azteca",
+        "description": "Explorez le stade de Mexico, célèbre pour avoir accueilli deux finales de Coupe du Monde.",
+        "image": "azteca.jpg",
+        "continent": "Amerique",
+        "etapes": [
+            {
+                "titre": "Installation à Mexico",
+                "date": "10 avril 2026",
+                "lieu": "Mexico, Mexique",
+                "description": "Installation dans un hôtel typique et découverte de l'effervescence de Mexico.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite de la ville",
+                        "Découverte culinaire",
+                        "Tour historique"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite de l'Estadio Azteca",
+                "date": "11 avril 2026",
+                "lieu": "Estadio Azteca, Mexico",
+                "description": "Visite guidée du stade, retraçant son histoire et ses grands moments sportifs.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Exposition historique",
+                        "Boutique officielle"
+                    ]
+                }
+            }
+        ]
+    },
+    "old-trafford": {
+        "name": "Old Trafford",
+        "description": "Visitez le stade mythique de Manchester United, un lieu chargé d'histoire et de légendes.",
+        "image": "old-trafford.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Accueil à Manchester",
+                "date": "25 mai 2026",
+                "lieu": "Manchester, Angleterre",
+                "description": "Installation dans un hôtel central et découverte du riche patrimoine industriel de Manchester.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Train",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite de musées",
+                        "Balade en ville",
+                        "Shopping"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite d'Old Trafford",
+                "date": "26 mai 2026",
+                "lieu": "Old Trafford, Manchester",
+                "description": "Tour guidé du stade avec focus sur les moments mythiques et accès aux espaces exclusifs.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Rencontre avec des fans",
+                        "Boutique club"
+                    ]
+                }
+            }
+        ]
+    },
+    "stade-velodrome": {
+        "name": "Stade Vélodrome",
+        "description": "Découvrez l'ambiance vibrante du Stade Vélodrome à Marseille.",
+        "image": "orange-velodrome.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Installation à Marseille",
+                "date": "5 juin 2026",
+                "lieu": "Marseille, France",
+                "description": "Installation dans un hôtel en bord de mer et découverte du vieux port de Marseille.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite culturelle",
+                        "Balade en bateau",
+                        "Marché local"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du Vélodrome",
+                "date": "6 juin 2026",
+                "lieu": "Stade Vélodrome, Marseille",
+                "description": "Visite guidée du stade avec explications sur son histoire et ses grandes rencontres sportives.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Session photo",
+                        "Boutique officielle"
+                    ]
+                }
+            }
+        ]
+    },
+    "stadio-olimpico": {
+        "name": "Stadio Olimpico",
+        "description": "Vivez l'expérience authentique du Stadio Olimpico à Rome.",
+        "image": "stade-olimpico.jpg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Arrivée à Rome",
+                "date": "10 juillet 2026",
+                "lieu": "Rome, Italie",
+                "description": "Installation dans un hôtel historique et première découverte des vestiges antiques de Rome.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Métro",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite des monuments",
+                        "Dégustation de gelato",
+                        "Balade dans les ruelles"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite du Stadio Olimpico",
+                "date": "11 juillet 2026",
+                "lieu": "Stadio Olimpico, Rome",
+                "description": "Tour guidé du stade mythique, entre histoire sportive et culture romaine.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Exposition historique",
+                        "Boutique du stade"
+                    ]
+                }
+            }
+        ]
+    },
+    "la-bombonera": {
+        "name": "La Bombonera",
+        "description": "Plongez au cœur de la passion argentine dans ce stade mythique.",
+        "image": "la-bombonera.jpeg",
+        "continent": "Amerique",
+        "etapes": [
+            {
+                "titre": "Installation à Buenos Aires",
+                "date": "15 août 2026",
+                "lieu": "Buenos Aires, Argentine",
+                "description": "Installation dans un hôtel authentique et découverte de la culture tango.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Bus",
+                        "Taxi",
+                        "Métro"
+                    ],
+                    "activites": [
+                        "Visite de quartiers",
+                        "Spectacle de tango",
+                        "Dégustation culinaire"
+                    ]
+                }
+            },
+            {
+                "titre": "Visite de La Bombonera",
+                "date": "16 août 2026",
+                "lieu": "La Bombonera, Buenos Aires",
+                "description": "Tour guidé du stade avec immersion dans l'ambiance vibrante du football argentin.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Suite (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Exposition d'histoire",
+                        "Rencontre avec des fans"
+                    ]
+                }
+            }
+        ]
+    },
+    "emirates-stadium": {
+        "name": "Emirates Stadium",
+        "description": "Explorez l'élégant Emirates Stadium, symbole du football londonien.",
+        "image": "emirates-stadium.jpeg",
+        "continent": "Europe",
+        "etapes": [
+            {
+                "titre": "Accueil à Londres",
+                "date": "20 septembre 2026",
+                "lieu": "Londres, Angleterre",
+                "description": "Installation dans un hôtel moderne et début de la découverte de l'élégance londonienne.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Aucun repas",
+                        "Petit-déjeuner",
+                        "Demi-pension"
+                    ],
+                    "transport": [
+                        "Tube",
+                        "Bus",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite des monuments",
+                        "Shopping",
+                        "Thé traditionnel"
+                    ]
+                }
+            },
+            {
+                "titre": "Tour d'Emirates Stadium",
+                "date": "21 septembre 2026",
+                "lieu": "Emirates Stadium, Londres",
+                "description": "Visite guidée du stade avec focus sur l'architecture moderne et le parcours historique du club.",
+                "options": {
+                    "hebergement": [
+                        "Standard (3★)",
+                        "Deluxe (4★)",
+                        "Luxe (5★)"
+                    ],
+                    "restauration": [
+                        "Snack-bar",
+                        "Demi-pension",
+                        "Pension complète"
+                    ],
+                    "transport": [
+                        "Navette",
+                        "Taxi"
+                    ],
+                    "activites": [
+                        "Visite guidée",
+                        "Boutique officielle",
+                        "Rencontre avec des légendes"
+                    ]
+                }
+            }
+        ]
+    }
+}

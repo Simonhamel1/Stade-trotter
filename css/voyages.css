@@ -1,0 +1,349 @@
+/* ==================== IMPORTATION DES STYLES ==================== */
+@import url('colors.css');
+
+
+/* ==================== HEADER/NavBar ==================== */
+header {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 70px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--blanc);
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: var(--bleu-clair);
+}
+
+.connexion a {
+    background-color: var(--bleu-moyen);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.connexion a:hover {
+    background-color: var(--bleu-clair);
+    color: black;
+}
+
+
+/* ==================== MAIN ==================== */
+main {
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('../photo/acceuil/arriere-plan.jpeg');
+    width: 100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 100px;
+    transition: background 0.5s ease;
+}
+
+/* ==================== IMAGE GRID ==================== */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.image-grid > div {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* Suppression des animations sur le conteneur */
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Pas d'animation sur l'image */
+}
+
+/* ==================== BASE ==================== */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gris-tres-clair);
+    color: #333;
+}
+
+/* ==================== CONTENEUR PRINCIPAL ==================== */
+.content-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 120px auto auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.content-container:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* ==================== SECTION VOYAGE HEADER ==================== */
+.voyage-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.voyage-header h1 {
+    font-size: 2.8rem;
+    color: var(--blanc);
+    margin-bottom: 20px;
+}
+
+.voyage-header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    /* Suppression de l’animation sur l’image */
+}
+
+.voyage-header p {
+    font-size: 1.1rem;
+    color: var(--blanc);
+    line-height: 1.7;
+}
+
+/* ==================== SECTION DES ÉTAPES ==================== */
+.etape {
+    margin-bottom: 50px;
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: var(--gris-tres-clair);
+    transition: background-color 0.3s ease;
+}
+
+.etape:hover {
+    background-color: #eaeaea;
+}
+
+.etape h2 {
+    font-size: 1.9rem;
+    color: var(--bleu-fonce);
+    margin-bottom: 15px;
+}
+
+.etape p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* ==================== OPTIONS PERSONNALISABLES ==================== */
+.option-group {
+    margin-bottom: 20px;
+}
+
+.option-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--bleu-fonce);
+}
+
+.option-group select,
+.option-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.option-group select:focus,
+.option-group input[type="text"]:focus {
+    border-color: var(--bleu-moyen);
+    outline: none;
+}
+
+.option-group fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.option-group fieldset legend {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--bleu-fonce);
+}
+
+.option-group fieldset label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* ==================== BOUTON DE VALIDATION ==================== */
+.submit-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.submit-container button {
+    background-color: var(--bleu-moyen);
+    color: var(--blanc);
+    padding: 14px 35px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-container button:hover {
+    background-color: var(--bleu-clair);
+    transform: translateY(-3px);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.payment-logos img {
+    width: auto;
+    height: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: var(--blanc);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #f8d210;
+}
+
+/* Contact */
+.footer-section p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    font-size: 14px;
+    color: var(--blanc);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media screen and (max-width: 768px) {
+    .voyage-header h1 {
+        font-size: 2rem;
+    }
+    .etape h2 {
+        font-size: 1.5rem;
+    }
+    .content-container {
+        margin: 100px 10px 20px 10px;
+        padding: 15px;
+    }
+}

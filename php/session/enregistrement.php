@@ -1,12 +1,17 @@
 <?php
     session_start();
+    // Getting all inscription infos
     $_SESSION["Prenom"]=$_POST["Prenom"];
     $_SESSION["Nom"]=$_POST["Nom"];
     $_SESSION["Email"]=$_POST["Email"];
+    $_SESSION["Club"]=$_POST["Club"];
     $_POST['Password'] = hash('sha256', $_POST['Password']);
     $_SESSION["Password"]=$_POST["Password"];
+
+    // Hashing Id
     $Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);  
     $_SESSION["user"] = $Id;
+
     $DataArray = $_POST; 
     $DataArray["Id"] = $Id;
     $DataArray = json_encode($DataArray);
@@ -36,5 +41,5 @@
     
     // Reconvertir en JSON et écrire dans le fichier
     file_put_contents($absolute_path, json_encode($jsonArray, JSON_PRETTY_PRINT));
-    header('Location:../test.php');
+    header('Location:../accueil.php');
 ?>

@@ -1,8 +1,12 @@
 [
     {
-        "Id": "987a50b91fc155c93d04ce885fe7128810b5e2539c8aa6d11da58ed3b0edc62f",
-        "Password": "1f2894b9c64af1e9646ce8ae49fe67c74e4267054d1182e2a96ff36a02ba8b08",
-        "Role": "admin"
+        "Prenom": "Admin",
+        "Nom": "Admin",
+        "Email": "admin@gmail.com",
+        "Sexe": "Homme",
+        "Password": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+        "Club": "PSG",
+        "Id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"
     },
     {
         "Prenom": "Ewan",
@@ -12,5 +16,86 @@
         "Password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
         "Club": "PSG",
         "Id": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "Prenom": "Alice",
+        "Nom": "Martin",
+        "Email": "alice.martin@gmail.com",
+        "Sexe": "Femme",
+        "Password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+        "Club": "PSG",
+        "Id": "b5d9c8c3f8d4e7a2b1c6d9e8f7a4b3c2d5e8f7a4b3c2d5e8f7a4b3c2d5e8f7a4"
+    },
+    {
+        "Prenom": "Lucas",
+        "Nom": "Dubois",
+        "Email": "lucas.dubois@gmail.com",
+        "Sexe": "Homme",
+        "Password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "Club": "Real Madrid",
+        "Id": "c7e9d4b1a8f5c2e6b3d9a7f4e1c8b5a2d6f3c9e7b4a1d8f5c2e6b3d9a7f4e1c8"
+    },
+    {
+        "Prenom": "Emma",
+        "Nom": "Bernard",
+        "Email": "emma.bernard@gmail.com",
+        "Sexe": "Femme",
+        "Password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "Club": "Autre",
+        "Id": "d2f5e8c1b4a7d3f6e9c2b5a8d1f4e7c3b6a9d2f5e8c1b4a7d3f6e9c2b5a8d1f4"
+    },
+    {
+        "Prenom": "Hugo",
+        "Nom": "Thomas",
+        "Email": "hugo.thomas@gmail.com",
+        "Sexe": "Homme",
+        "Password": "7d793037a0760186574b0282f2f435e7", 
+        "Club": "FC Barcelone",
+        "Id": "e8f1c4b7a3d6e9f2c5b8a1d4e7c3b6a9f2e5c8b1a4d7e3f6c9b2a5d8e1f4c7b3"
+    },
+    {
+        "Prenom": "Léa",
+        "Nom": "Petit",
+        "Email": "lea.petit@gmail.com",
+        "Sexe": "Femme",
+        "Password": "b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0",
+        "Club": "Autre",
+        "Id": "f4e1d8c5b2a9f6e3c7b4a1d8e5f2c9b6a3d7e4f1c8b5a2f6e9c3b7d4a1e8f5c2"
+    },
+    {
+        "Prenom": "Nathan",
+        "Nom": "Robert",
+        "Email": "nathan.robert@gmail.com",
+        "Sexe": "Homme",
+        "Password": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+        "Club": "Real Madrid",
+        "Id": "a2b5c8d1e4f7a3b6c9d2e5f8a1b4c7d3e6f9a2b5c8d1e4f7a3b6c9d2e5f8a1b4"
+    },
+    {
+        "Prenom": "Camille",
+        "Nom": "Moreau",
+        "Email": "camille.moreau@gmail.com",
+        "Sexe": "Femme",
+        "Password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
+        "Club": "Bayern Munich",
+        "Id": "b3c6d9e2f5a8b1c4d7e3f6a9c2b5e8d1f4a7b3c6d9e2f5a8b1c4d7e3f6a9c2b5"
+    },
+    {
+        "Prenom": "Louis",
+        "Nom": "Laurent",
+        "Email": "louis.laurent@gmail.com",
+        "Sexe": "Homme",
+        "Password": "7b8b965ad4bca0e41ab51de7b31363a1853d5bf6f4d1a8c5c754657aee660666",
+        "Club": "PSG",
+        "Id": "c4d7e2f5a8b3c6d9e1f4a7b2c5e8d3f6a9c1b4d7e2f5a8b3c6d9e1f4a7b2c5e8"
+    },
+    {
+        "Prenom": "Julie",
+        "Nom": "Simon",
+        "Email": "julie.simon@gmail.com",
+        "Sexe": "Femme",
+        "Password": "49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c",
+        "Club": "Bayern Munich",
+        "Id": "d5e8f1a4b7c3d6e9f2a5b8c1d4e7a3f6b9c2d5e8f1a4b7c3d6e9f2a5b8c1d4e7"
     }
 ]

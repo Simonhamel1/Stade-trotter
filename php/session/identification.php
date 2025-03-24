@@ -13,7 +13,14 @@ $Content = json_decode($Content, true);
 
 // Bug is here
 foreach($Content as $tab){
-    if($tab['Id'] == $Id) {                           
+    if($tab['Id'] == $Id) {    
+            // Getting all inscription infos
+        $_SESSION["Prenom"]=$tab["Prenom"];
+        $_SESSION["Nom"]=$tab["Nom"];
+        $_SESSION["Email"]=$tab["Email"];
+        $_SESSION["Club"]=$tab["Club"];
+        $_SESSION["Password"]=$tab["Password"];
+        $_SESSION["user"] = $tab["Id"];                       
         header('Location:../accueil.php'); 
         exit();
     }

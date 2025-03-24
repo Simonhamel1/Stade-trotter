@@ -1,9 +1,6 @@
 <?php include './session/session.php';?>
 <!DOCTYPE html>
 <html lang="fr">
-
-<!-- Définition de la page -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +17,6 @@
 </head>
 
 <body>
-    <!-- js -->
-    <script src="https://cdn.footystats.org/embeds/standings-loc.js"></script>
-
     <?php if(basename($_SERVER['PHP_SELF']) === 'accueil.php'): ?>
     <!-- Chat Widget -->
     <div id="chat-widget-container">
@@ -47,10 +41,6 @@
         });
     </script>
     <?php endif; ?>
-
-    <div class="loading-screen">
-        <div class="palette"></div>
-    </div>
 
     <!-- Entête navbar -->
     <?php include './header.php'; ?>
@@ -109,8 +99,19 @@
         </section>
 
         <div id="fs-standings"></div>
-        <script> (function (w, d, s, o, f, js, fjs) { w['fsStandingsEmbed'] = o; w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) }; js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs); }(window, document, 'script', 'mw', 'https://cdn.footystats.org/embeds/standings-loc.js')); mw('params', { leagueID: 2392, lang: 'fr' }); </script>
-
+        <script>
+            (function (w, d, s, o, f, js, fjs) {
+                w['fsStandingsEmbed'] = o;
+                w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                js = d.createElement(s),
+                fjs = d.getElementsByTagName(s)[0];
+                js.id = o;
+                js.src = f;
+                js.async = 1;
+                fjs.parentNode.insertBefore(js, fjs);
+            }(window, document, 'script', 'mw', 'https://cdn.footystats.org/embeds/standings-loc.js'));
+            mw('params', { leagueID: 2392, lang: 'fr' });
+        </script>
 
         <!-- FOOTER -->
         <?php include './footer.php'; ?>
@@ -119,5 +120,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>

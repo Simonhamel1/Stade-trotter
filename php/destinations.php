@@ -180,6 +180,46 @@
           <p>Explorez le stade de Mexico, célèbre pour avoir accueilli deux finales de Coupe du Monde.</p>
         </div>
       </a>
+
+      <a href="">
+        <div class="stadium">
+          <img src="../photo/old-trafford.jpeg" alt="Old Trafford">
+          <h2>Old Trafford</h2>
+          <p>Visitez le stade mythique de Manchester United, un lieu chargé d'histoire et de légendes.</p>
+        </div>
+      </a>
+
+      <a href="">
+        <div class="stadium">
+          <img src="../photo/orange-velodrome.jpeg" alt="Stade Vélodrome">
+          <h2>Stade Vélodrome</h2>
+          <p>Découvrez l'ambiance vibrante du Stade Vélodrome à Marseille.</p>
+        </div>
+      </a>
+
+      <a href="">
+        <div class="stadium">
+          <img src="../photo/stade-olimpico.jpg" alt="Stadio Olimpico">
+          <h2>Stadio Olimpico</h2>
+          <p>Vivez l'expérience authentique du Stadio Olimpico à Rome.</p>
+        </div>
+      </a>
+
+      <a href="">
+        <div class="stadium">
+          <img src="../photo/la-bombonera.jpeg" alt="La Bombonera">
+          <h2>La Bombonera</h2>
+          <p>Plongez au cœur de la passion argentine dans ce stade mythique.</p>
+        </div>
+      </a>
+
+      <a href="">
+        <div class="stadium">
+          <img src="../photo/emirates-stadium.jpeg" alt="Emirates Stadium">
+          <h2>Emirates Stadium</h2>
+          <p>Explorez l'élégant Emirates Stadium, symbole du football londonien.</p>
+        </div>
+      </a>
       
     </section>
   </div>

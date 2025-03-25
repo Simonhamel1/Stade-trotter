@@ -10,7 +10,8 @@
         "typeFilter": "multi-sport",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1998
+        "yearOfConstruction": 1998,
+        "travelprice": 1000
     },
     "allianz-arena": {
         "name": "Allianz Arena",
@@ -23,7 +24,8 @@
         "typeFilter": "football",
         "roof": "Fermé",
         "roofFilter": "ferme",
-        "yearOfConstruction": 2005
+        "yearOfConstruction": 2005,
+        "travelprice": 1500
     },
     "camp-nou": {
         "name": "Camp Nou",
@@ -36,7 +38,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1957
+        "yearOfConstruction": 1957,
+        "travelprice": 1200
     },
     "wembley": {
         "name": "Wembley",
@@ -49,7 +52,8 @@
         "typeFilter": "football",
         "roof": "Semi-ouvert",
         "roofFilter": "semi-ouvert",
-        "yearOfConstruction": 2007
+        "yearOfConstruction": 2007,
+        "travelprice": 1300
     },
     "san-siro": {
         "name": "San Siro",
@@ -62,7 +66,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1926
+        "yearOfConstruction": 1926,
+        "travelprice": 1100
     },
     "bernabeu": {
         "name": "Santiago Bernabéu",
@@ -75,7 +80,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1947
+        "yearOfConstruction": 1947,
+        "travelprice": 1400
     },
     "anfield": {
         "name": "Anfield",
@@ -88,7 +94,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1884
+        "yearOfConstruction": 1884,
+        "travelprice": 1250
     },
     "maracana": {
         "name": "Maracanã",
@@ -101,7 +108,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1950
+        "yearOfConstruction": 1950,
+        "travelprice": 800
     },
     "signal-iduna-park": {
         "name": "Signal Iduna Park",
@@ -114,7 +122,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1974
+        "yearOfConstruction": 1974,
+        "travelprice": 1600
     },
     "estadio-azteca": {
         "name": "Estadio Azteca",
@@ -127,7 +136,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1966
+        "yearOfConstruction": 1966,
+        "travelprice": 900
     },
     "old-trafford": {
         "name": "Old Trafford",
@@ -140,7 +150,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1910
+        "yearOfConstruction": 1910,
+        "travelprice": 1350
     },
     "stade-velodrome": {
         "name": "Stade Vélodrome",
@@ -153,7 +164,8 @@
         "typeFilter": "multi-sport",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1937
+        "yearOfConstruction": 1937,
+        "travelprice": 950
     },
     "stadio-olimpico": {
         "name": "Stadio Olimpico",
@@ -166,7 +178,8 @@
         "typeFilter": "olympique",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1953
+        "yearOfConstruction": 1953,
+        "travelprice": 1000
     },
     "la-bombonera": {
         "name": "La Bombonera",
@@ -179,7 +192,8 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 1940
+        "yearOfConstruction": 1940,
+        "travelprice": 700
     },
     "emirates-stadium": {
         "name": "Emirates Stadium",
@@ -192,6 +206,7 @@
         "typeFilter": "football",
         "roof": "Ouvert",
         "roofFilter": "ouvert",
-        "yearOfConstruction": 2006
+        "yearOfConstruction": 2006,
+        "travelprice": 1250
     }
 }

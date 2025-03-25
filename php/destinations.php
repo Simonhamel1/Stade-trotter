@@ -10,9 +10,19 @@ $capacity  = isset($_GET['capacity']) ? trim($_GET['capacity']) : '';
 $type      = isset($_GET['type']) ? trim($_GET['type']) : '';
 $roof      = isset($_GET['roof']) ? trim($_GET['roof']) : '';
 $year      = isset($_GET['year']) ? trim($_GET['year']) : '';
+$search    = isset($_GET['search']) ? trim($_GET['search']) : '';
 
 // Filtrer les destinations selon tous les critères
-$filtered_destinations = array_filter($destinations, function ($destination) use ($continent, $pays, $capacity, $type, $roof, $year) {
+$filtered_destinations = array_filter($destinations, function ($destination) use ($continent, $pays, $capacity, $type, $roof, $year, $search) {
+  // Filtrer par recherche textuelle dans le nom ou la description
+  if ($search) {
+    $needle = strtolower($search);
+    $name  = strtolower($destination['name'] ?? '');
+    $desc  = strtolower($destination['description'] ?? '');
+    if (strpos($name, $needle) === false && strpos($desc, $needle) === false) {
+      return false;
+    }
+  }
   // Filtrer par continent (s'il est défini)
   if ($continent && strtolower($destination['continent'] ?? '') !== strtolower($continent)) {
     return false;
@@ -87,8 +97,8 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
       <form class="form" action="" method="get">
       <div class="search-container">
         <span class="icon">🔍</span>
-        <!-- Optionnel : ajouter un champ pour rechercher par mot-clé -->
-        <input type="text" name="search" class="search" placeholder="Rechercher...">
+        <!-- Champ de recherche -->
+        <input type="text" name="search" class="search" placeholder="Rechercher..." value="<?= htmlspecialchars($search) ?>">
         <button type="submit" class="submit">Search</button>
       </div>
       </form>
@@ -99,8 +109,8 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
     <aside class="filter-section">
     <h2>Filtrer par</h2>
     <form method="get" action="">
-      <!-- Garde les autres paramètres si nécessaire (exemple : search, continent) -->
-      <input type="hidden" name="search" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+      <!-- Garde les autres paramètres si nécessaire -->
+      <input type="hidden" name="search" value="<?= htmlspecialchars($search) ?>">
       <input type="hidden" name="continent" value="<?= htmlspecialchars($continent) ?>">
     
       <div class="filter-group">

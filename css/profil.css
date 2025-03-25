@@ -135,11 +135,18 @@ main {
     font-size: 1.2em;
     color: #333;
 }
-
 #deconnexion {
-    border: black solid 1px;
+    display: flex;
+    margin-right: auto;  /* Changed from margin: 0 auto to align left */
+    width: fit-content;
+    border: rgb(255, 0, 0) solid 1px;
+    padding: 1.1%;
     border-radius: 15px;
     background-color: red;
+    font-size: 1.5rem;
+}
+
+#deconnexion a {
     color: white;
 }
 

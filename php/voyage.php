@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Chargement des voyages depuis le fichier JSON
 $jsonFile = __DIR__ . '/../data/voyages.json'; // ajustez le chemin si nécessaire
 if (!file_exists($jsonFile)) {

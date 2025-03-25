@@ -83,7 +83,8 @@ main {
 /* ==================== SECTION PROFILE ==================== */
 #profil {
     max-width: 700px;
-    margin: 100px auto 40px; /* extra top margin to avoid overlap with fixed header */
+    margin: 100px auto 40px;
+    /* extra top margin to avoid overlap with fixed header */
     background-color: var(--blanc);
     border: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -133,6 +134,13 @@ main {
 .profile-details .info p {
     font-size: 1.2em;
     color: #333;
+}
+
+#deconnexion {
+    border: black solid 1px;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
 }
 
 @media (max-width: 600px) {

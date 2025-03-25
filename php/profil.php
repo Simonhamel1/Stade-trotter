@@ -25,9 +25,12 @@
             <h2>Nom</h2>
             <p><?php echo htmlspecialchars($_SESSION['Nom']); ?></p>
         </div>
-        <div class="data">
+        <div class="data">  
             <h2>Club</h2>
             <p><?php echo htmlspecialchars($_SESSION['Club']); ?></p>
+        </div>
+        <div class="data" id="deconnexion">
+            <a href="./session/deconnexion.php">Deconnexion</a>
         </div>
     </section>
 

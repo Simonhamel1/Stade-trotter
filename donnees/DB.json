@@ -12,5 +12,14 @@
         "Password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
         "Club": "PSG",
         "Id": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "Prenom": "Simon",
+        "Nom": "hamelin",
+        "Email": "simon.hamelin11@gmail.com",
+        "Sexe": "Homme",
+        "Password": "03042cf8100db386818cee4ff0f2972431a62ed78edbd09ac08accfabbefd818",
+        "Club": "PSG",
+        "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
     }
 ]

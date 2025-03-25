@@ -1,18 +1,88 @@
 {
     "stade-de-france": {
         "name": "Stade de France",
+        "title": "Week-end Football au Stade de France",
         "description": "Plongez dans l'histoire du football français et vibrez au cœur de ce stade mythique.",
+        "dates": {
+            "debut": null,
+            "fin": null
+        },
         "image": "stade-de-france.jpg",
         "continent": "Europe",
+        "prix": 1000,
+        "specificites": {
+            "type": "Événement sportif",
+            "niveau_physique": "Facile",
+            "accessibilite": "Adapté aux personnes à mobilité réduite"
+        },
+        "personnes": [],
         "etapes": [
             {
                 "titre": "Accueil et installation",
-                "date": "{{DATE_DYNAMIC}}",
                 "lieu": "Saint-Denis, France",
+                "position": {
+                    "gps": "48.9244, 2.3602",
+                    "ville": "Saint-Denis"
+                },
+                "dates": {
+                    "arrivee": null,
+                    "depart": null
+                },
                 "description": "Installation dans un hôtel proche du Stade de France.",
+                "personnes_supplementaires": [],
                 "options": {
                     "hebergement": [
-                        { "name": "Standard (3★)", "price": 100 },
+                        { "name": "Standard (3★)", "price": 100, "default": true },
+                        { "name": "Deluxe (4★)", "price": 150 },
+                        { "name": "Luxe (5★)", "price": 200 },
+                        { "name": "Economie", "price": 80 },
+                        { "name": "Suite Royale", "price": 250 }
+                    ],
+                    "restauration": [
+                        { "name": "Aucun repas", "price": 0 },
+                        { "name": "Demi-pension", "price": 50, "default": true },
+                        { "name": "Pension complète", "price": 80 },
+                        { "name": "Buffet local", "price": 60 },
+                        { "name": "Menu gastronomique", "price": 100 }
+                    ],
+                    "transport": [
+                        { "name": "Bus collectif", "price": 10 },
+                        { "name": "Voiture privée", "price": 30, "default": true, "vitesse_moyenne": 50 },
+                        { "name": "Taxi", "price": 20 },
+                        { "name": "Train régional", "price": 15 },
+                        { "name": "Vélo en libre-service", "price": 5 }
+                    ],
+                    "activites": [
+                        { "name": "Visite guidée de la ville", "price": 25 },
+                        { "name": "Dîner gastronomique", "price": 60, "default": true },
+                        { "name": "Soirée spectacle", "price": 40 },
+                        { "name": "Concert en plein air", "price": 35 },
+                        { "name": "Exposition sur l'histoire du sport", "price": 20 }
+                    ],
+                    "garde_enfants": [
+                        { "name": "Aucun", "price": 0 },
+                        { "name": "Babysitting (soirée)", "price": 50, "default": true },
+                        { "name": "Garderie (journée)", "price": 80 }
+                    ]
+                }
+            },
+            {
+                "titre": "Match de football",
+                "lieu": "Stade de France, France",
+                "position": {
+                    "gps": "48.9245, 2.3600",
+                    "ville": "Saint-Denis"
+                },
+                "dates": {
+                    "arrivee": null,
+                    "depart": null,
+                    "duree": 1
+                },
+                "description": "Assistez à un match de football dans une ambiance électrisante.",
+                "personnes_supplementaires": [],
+                "options": {
+                    "hebergement": [
+                        { "name": "Standard (3★)", "price": 100, "default": true },
                         { "name": "Deluxe (4★)", "price": 150 },
                         { "name": "Luxe (5★)", "price": 200 },
                         { "name": "Economie", "price": 80 },
@@ -21,12 +91,12 @@
                     "restauration": [
                         { "name": "Aucun repas", "price": 0 },
                         { "name": "Demi-pension", "price": 50 },
-                        { "name": "Pension complète", "price": 80 },
+                        { "name": "Pension complète", "price": 80, "default": true },
                         { "name": "Buffet local", "price": 60 },
                         { "name": "Menu gastronomique", "price": 100 }
                     ],
                     "transport": [
-                        { "name": "Bus collectif", "price": 10 },
+                        { "name": "Bus collectif", "price": 10, "default": true, "vitesse_moyenne": 30 },
                         { "name": "Voiture privée", "price": 30 },
                         { "name": "Taxi", "price": 20 },
                         { "name": "Train régional", "price": 15 },
@@ -36,7 +106,7 @@
                         { "name": "Visite guidée de la ville", "price": 25 },
                         { "name": "Dîner gastronomique", "price": 60 },
                         { "name": "Soirée spectacle", "price": 40 },
-                        { "name": "Concert en plein air", "price": 35 },
+                        { "name": "Concert en plein air", "price": 35, "default": true },
                         { "name": "Exposition sur l'histoire du sport", "price": 20 }
                     ]
                 }

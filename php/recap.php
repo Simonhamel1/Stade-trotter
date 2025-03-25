@@ -34,7 +34,7 @@ if (!isset($voyages[$voyage_id])) {
 
 $voyage = $voyages[$voyage_id];
 
-$finalPrice = 0;
+$finalPrice = $voyage['prix'] ?? 0; // Inclure le prix de base du voyage
 $stepsDetails = []; // Détail et prix par étape
 
 // Parcours de chaque étape soumise
@@ -107,10 +107,13 @@ foreach ($data as $index => $etapeData) {
             <?php if (isset($voyage['continent'])): ?>
                 <p><strong>Continent :</strong> <?= htmlspecialchars($voyage['continent']) ?></p>
             <?php endif; ?>
+            <?php if (isset($voyage['prix'])): ?>
+                <p><strong>Prix de base :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
+            <?php endif; ?>
         </section>
         
         <?php if (!empty($stepsDetails)): ?>
-            <?php $_SESSION["voyage"][] = $stepsDetails;
+            <?php $_SESSION["voyage"][] = $stepsDetails; ?>
             <?php foreach ($stepsDetails as $index => $detail): ?>
                 <section class="etape">
                     <h2>Étape <?= $index + 1 ?></h2>

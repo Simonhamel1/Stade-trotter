@@ -19,7 +19,7 @@ if (!$id || !isset($voyages[$id])) {
   exit();
 }
 $voyage = $voyages[$id];
-$_SESSION["voyage"]["name"]=$voyage["name"];
+$_SESSION["voyage"]["name"] = $voyage["name"];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,61 +27,61 @@ $_SESSION["voyage"]["name"]=$voyage["name"];
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($voyage['name']) ?> - Voyages Football</title>
-  
-  <!-- Lien vers le fichier CSS spécifique -->
   <link rel="stylesheet" href="../css/voyages.css">
   <script src="../js/navbar.js"></script>
-
-  <!-- Importation de la police Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Entête navbar -->
   <?php include './header.php'; ?>
   
-  <!-- Contenu principal -->
   <main>
     <div class="content-container">
-      <!-- Affichage du titre, de l'image et de la description du voyage -->
       <section class="voyage-header">
-        <h1><?= htmlspecialchars($voyage['name']) ?></h1>
+        <h1><?= htmlspecialchars($voyage['title'] ?? $voyage['name']) ?></h1>
         <img src="../photo/<?= htmlspecialchars($voyage['image']) ?>" alt="<?= htmlspecialchars($voyage['name']) ?>">
         <p><?= htmlspecialchars($voyage['description']) ?></p>
-        <?php if (isset($voyage['continent'])): ?>
-          <p><strong>Continent :</strong> <?= htmlspecialchars($voyage['continent']) ?></p>
-        <?php endif; ?>
+        
+        <div class="voyage-details">
+          <?php if (isset($voyage['continent'])): ?>
+            <p><strong>Continent :</strong> <?= htmlspecialchars($voyage['continent']) ?></p>
+          <?php endif; ?>
+          
+          <?php if (isset($voyage['prix'])): ?>
+            <p><strong>Prix estimé :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
+          <?php endif; ?>
+        </div>
       </section>
       
-      <!-- Formulaire de personnalisation du voyage -->
       <form action="recap.php" method="post">
-        <!-- Passage de l'identifiant du voyage dans un champ caché -->
         <input type="hidden" name="voyage_id" value="<?= htmlspecialchars($id) ?>">
         
-        <?php foreach ($voyage['etapes'] as $index => $etape): ?>
+        <!-- Section des dates -->
+        <section class="date-selection">
+          <h2>Dates du voyage</h2>
+          <div class="date-input">
+            <label for="date_depart">Date de départ :</label>
+            <input type="date" id="date_depart" name="date_depart" required>
+            
+            <label for="date_retour">Date de retour :</label>
+            <input type="date" id="date_retour" name="date_retour" required>
+          </div>
+        </section>
+        
+        <!-- Section des participants simplifiée -->
+        <section class="participants">
+          <h2>Participants</h2>
+          <div class="participant-count">
+            <label for="nb_participants">Nombre de participants :</label>
+            <input type="number" id="nb_participants" name="nb_participants" min="1" value="1" required>
+          </div>
+        </section>
+
+        <?php if (isset($voyage['etapes']) && is_array($voyage['etapes'])): ?>
+          <?php foreach ($voyage['etapes'] as $index => $etape): ?>
           <section class="etape">
             <h2>Étape <?= $index + 1 ?> : <?= htmlspecialchars($etape['titre']) ?></h2>
-            <p><strong>Date :</strong></p>
-            <?php 
-              $date = $etape['date'];
-              if ($date === '{{DATE_DYNAMIC}}'): 
-                // Définir la date minimale sur la date du jour
-                $minDate = date('Y-m-d');
-            ?>
-              <div class="date-choice">
-                <label for="etape<?= $index ?>_date">Choisissez la date :</label>
-                <input type="date" name="etapes[<?= $index ?>][date]" id="etape<?= $index ?>_date" min="<?= $minDate ?>">
-              </div>
-            <?php else:
-              $dateObj = DateTime::createFromFormat('Y-m-d', $date);
-              $errors = DateTime::getLastErrors();
-              if ($errors['warning_count'] > 0 || $errors['error_count'] > 0) {
-                $date = "Date invalide";
-              }
-            ?>
-              <input type="hidden" name="etapes[<?= $index ?>][date]" value="<?= htmlspecialchars($date) ?>">
-            <?php endif; ?>
             <p><strong>Lieu :</strong> <?= htmlspecialchars($etape['lieu']) ?></p>
             <p><?= htmlspecialchars($etape['description']) ?></p>
             
@@ -94,15 +94,17 @@ $_SESSION["voyage"]["name"]=$voyage["name"];
                     <legend>Choisissez vos activités :</legend>
                     <?php foreach ($options as $option): ?>
                       <label>
-                        <input type="checkbox" name="etapes[<?= $index ?>][<?= $categorie ?>][]" value="<?= htmlspecialchars($option['name']) ?>">
+                        <input type="checkbox" name="etapes[<?= $index ?>][<?= $categorie ?>][]" value="<?= htmlspecialchars($option['name']) ?>"
+                          <?= (isset($option['default']) && $option['default']) ? 'checked' : '' ?>>
                         <?= htmlspecialchars($option['name']) ?> (<?= htmlspecialchars($option['price']) ?> €)
-                      </label><br>
+                      </label>
                     <?php endforeach; ?>
                   </fieldset>
                 <?php else: ?>
                   <select name="etapes[<?= $index ?>][<?= $categorie ?>]" id="etape<?= $index ?>_<?= $categorie ?>">
                     <?php foreach ($options as $option): ?>
-                      <option value="<?= htmlspecialchars($option['name']) ?>">
+                      <option value="<?= htmlspecialchars($option['name']) ?>" 
+                        <?= (isset($option['default']) && $option['default']) ? 'selected' : '' ?>>
                         <?= htmlspecialchars($option['name']) ?> (<?= htmlspecialchars($option['price']) ?> €)
                       </option>
                     <?php endforeach; ?>
@@ -112,8 +114,8 @@ $_SESSION["voyage"]["name"]=$voyage["name"];
             <?php endforeach; ?>
           </section>
         <?php endforeach; ?>
+        <?php endif; ?>
         
-        <!-- Bouton de validation du formulaire -->
         <div class="submit-container">
           <button type="submit">Valider mon voyage</button>
         </div>
@@ -121,7 +123,20 @@ $_SESSION["voyage"]["name"]=$voyage["name"];
     </div>
   </main>
   
-  <!-- FOOTER -->
   <?php include './footer.php'; ?>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Définition d'une date minimum (aujourd'hui) pour les champs de date
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('date_depart').min = today;
+      document.getElementById('date_retour').min = today;
+      
+      // Validation: la date de retour doit être après la date de départ
+      document.getElementById('date_depart').addEventListener('change', function() {
+        document.getElementById('date_retour').min = this.value;
+      });
+    });
+  </script>
 </body>
 </html>

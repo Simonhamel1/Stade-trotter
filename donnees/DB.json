@@ -49,12 +49,12 @@
         "Nom": "Thomas",
         "Email": "hugo.thomas@gmail.com",
         "Sexe": "Homme",
-        "Password": "7d793037a0760186574b0282f2f435e7", 
+        "Password": "7d793037a0760186574b0282f2f435e7",
         "Club": "FC Barcelone",
         "Id": "e8f1c4b7a3d6e9f2c5b8a1d4e7c3b6a9f2e5c8b1a4d7e3f6c9b2a5d8e1f4c7b3"
     },
     {
-        "Prenom": "Léa",
+        "Prenom": "L\u00e9a",
         "Nom": "Petit",
         "Email": "lea.petit@gmail.com",
         "Sexe": "Femme",
@@ -97,5 +97,14 @@
         "Password": "49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c",
         "Club": "Bayern Munich",
         "Id": "d5e8f1a4b7c3d6e9f2a5b8c1d4e7a3f6b9c2d5e8f1a4b7c3d6e9f2a5b8c1d4e7"
+    },
+    {
+        "Prenom": "Simon",
+        "Nom": "hamelin",
+        "Email": "simon.hamelin11@gmail.com",
+        "Sexe": "Homme",
+        "Password": "03042cf8100db386818cee4ff0f2972431a62ed78edbd09ac08accfabbefd818",
+        "Club": "PSG",
+        "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
     }
 ]

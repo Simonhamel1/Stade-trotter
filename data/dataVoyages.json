@@ -1,4 +1,40 @@
 [
+    {
+        "Id": "user",
+        "voyage": "Stade de France",
+        "date": {
+            "début": "15 juin",
+            "fin": "26 juin"
+        },
+        "etapes": {
+            "1": {
+                "nom": "parcours 1",
+                "date": {
+                    "début": "15 juin",
+                    "fin": "20 juin"
+                },
+                "localisation": "Saint-Denis",
+                "hebergement": "Standart",
+                "restauration": "Demi-pension",
+                "transport": "Bus collectif",
+                "activites": "Match de foot"
+            },
+            "2": {
+                "nom": "parcours 2",
+                "date": {
+                    "début": "20 juin",
+                    "fin": "26 juin"
+                },
+                "localisation": "Paris",
+                "hebergement": "Luxe",
+                "restauration": "Demi-pension",
+                "transport": "Taxi",
+                "activites": "Visite guidée de la ville"
+            }
+        },
+        "taille": "10",
+        "prix": "165363"
+    }
 ]
 // Voyages
 // *titre
@@ -8,7 +44,6 @@
 // •liste de personnes 
 // •prix total
 // •éventuellement le statut (payé, en cours de modification
-
 // Etapes
 // titre
 // •dates (arrivée, départ, durée

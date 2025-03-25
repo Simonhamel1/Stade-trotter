@@ -1,0 +1,20 @@
+[
+]
+// Voyages
+// *titre
+// •dates (début, fin, durée, ...)
+// •liste des étapes
+// •spécificités du voyage
+// •liste de personnes 
+// •prix total
+// •éventuellement le statut (payé, en cours de modification
+
+// Etapes
+// titre
+// •dates (arrivée, départ, durée
+// •position géographique (position gps, nom de ville/lieu, ...)
+// •liste d’options par étape (activité sportive ou culturelle,
+// hébergement,   restauration,   transport   vers   l’étape
+// suivante, garde d’enfants, gestion du linge, ...)
+// •personnes supplémentaires (ex : un ami qui rejoint le
+// groupe sur une étape et qui va partager les prestations)

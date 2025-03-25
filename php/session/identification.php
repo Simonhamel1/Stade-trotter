@@ -5,7 +5,7 @@ $_POST['Password'] = hash('sha256', $_POST['Password']);
 $Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);   
 
 // Path to the json
-$relative_path = "../../donnees/DB.json";
+$relative_path = "../../data/utilisateurs.json";
 
 // Verifying user's existence
 $Content = file_get_contents($relative_path);
@@ -14,7 +14,7 @@ $Content = json_decode($Content, true);
 // Bug is here
 foreach($Content as $tab){
     if($tab['Id'] == $Id) {    
-            // Getting all inscription infos
+        // Getting all inscription infos
         $_SESSION["Prenom"]=$tab["Prenom"];
         $_SESSION["Nom"]=$tab["Nom"];
         $_SESSION["Email"]=$tab["Email"];

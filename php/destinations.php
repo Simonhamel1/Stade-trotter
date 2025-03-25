@@ -1,4 +1,5 @@
 <?php
+  session_start();
 // Charger les destinations depuis le fichier JSON
 $jsonData = file_get_contents('../data/destinations.json');
 $destinations = json_decode($jsonData, true);

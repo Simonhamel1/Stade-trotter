@@ -110,6 +110,7 @@ foreach ($data as $index => $etapeData) {
         </section>
         
         <?php if (!empty($stepsDetails)): ?>
+            <?php $_SESSION["voyage"][] = $stepsDetails;
             <?php foreach ($stepsDetails as $index => $detail): ?>
                 <section class="etape">
                     <h2>Étape <?= $index + 1 ?></h2>

@@ -19,6 +19,7 @@ if (!$id || !isset($voyages[$id])) {
   exit();
 }
 $voyage = $voyages[$id];
+$_SESSION["voyage"]["name"]=$voyage["name"];
 ?>
 <!DOCTYPE html>
 <html lang="fr">

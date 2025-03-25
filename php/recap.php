@@ -8,23 +8,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['etapes'])) {
 
 // Exemple de données pour le récapitulatif
 $user = isset($_SESSION['user']) ? $_SESSION['user'] : 'Visiteur';
-$data = isset($_SESSION['data']) ? $_SESSION['data'] : [];
+$data = (isset($_SESSION['data']) && is_array($_SESSION['data'])) ? $_SESSION['data'] : [];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Récapitulatif - Stade Trotter</title>
-    <link rel="stylesheet" href="recap.css">
+    <link rel="stylesheet" href="../css/recap.css">
 </head>
 <body>
     <header>
+        <?php include __DIR__ . '/header.php'; ?>
+    </header>
+    <main>
         <h1>Récapitulatif de votre session</h1>
         <nav>
             <a href="voyage.php">Retour à Voyage</a>
         </nav>
-    </header>
-    <main>
         <p>Bonjour <?php echo htmlspecialchars($user); ?>, voici votre récapitulatif :</p>
         <?php if (!empty($data)): ?>
             <?php foreach ($data as $index => $etape): ?>
@@ -51,7 +52,7 @@ $data = isset($_SESSION['data']) ? $_SESSION['data'] : [];
         <?php endif; ?>
     </main>
     <footer>
-        <p>&copy; <?php echo date('Y'); ?> Stade Trotter. Tous droits réservés.</p>
+        <?php include __DIR__ . '/footer.php'; ?>
     </footer>
 </body>
 </html>

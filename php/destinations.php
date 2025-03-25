@@ -10,6 +10,9 @@ if ($jsonData === false) {
 }
 
 $destinations = json_decode($jsonData, true);
+if (json_last_error() !== JSON_ERROR_NONE) {
+  die("Erreur lors du décodage JSON: " . json_last_error_msg());
+}
 
 // Récupérer et nettoyer les paramètres de l'URL
 $continent = isset($_GET['continent']) ? trim($_GET['continent']) : '';
@@ -66,37 +69,37 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
   }
 
   // Filtrage par type
-  if ($type && strtolower($destination['type'] ?? '') !== strtolower($type)) {
+  if ($type && strtolower($destination['typeFilter'] ?? '') !== strtolower($type)) {
     return false;
   }
 
   // Filtrage par toit
-  if ($roof && strtolower($destination['roof'] ?? '') !== strtolower($roof)) {
+  if ($roof && strtolower($destination['roofFilter'] ?? '') !== strtolower($roof)) {
     return false;
   }
 
   // Filtrage par année de construction
-  if ($year && isset($destination['year'])) {
-    if ($year === 'avant-1950' && $destination['year'] >= 1950) {
+  if ($year && isset($destination['yearOfConstruction'])) {
+    if ($year === 'avant-1950' && $destination['yearOfConstruction'] >= 1950) {
       return false;
     }
-    if ($year === '1950-2000' && ($destination['year'] < 1950 || $destination['year'] > 2000)) {
+    if ($year === '1950-2000' && ($destination['yearOfConstruction'] < 1950 || $destination['yearOfConstruction'] > 2000)) {
       return false;
     }
-    if ($year === 'apres-2000' && $destination['year'] <= 2000) {
+    if ($year === 'apres-2000' && $destination['yearOfConstruction'] <= 2000) {
       return false;
     }
   }
 
   // Filtrage par prix
-  if ($price && isset($destination['price'])) {
-    if ($price === 'moins-de-50' && $destination['price'] >= 50) {
+  if ($price && isset($destination['travelprice'])) {
+    if ($price === 'moins-de-1000' && $destination['travelprice'] >= 1000) {
       return false;
     }
-    if ($price === '50-100' && ($destination['price'] < 50 || $destination['price'] > 100)) {
+    if ($price === '1000-1500' && ($destination['travelprice'] < 1000 || $destination['travelprice'] > 1500)) {
       return false;
     }
-    if ($price === 'plus-de-100' && $destination['price'] <= 100) {
+    if ($price === 'plus-de-1500' && $destination['travelprice'] <= 1500) {
       return false;
     }
   }
@@ -152,7 +155,7 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
           <div class="filter-group">
             <label for="pays">Pays</label>
             <select id="pays" name="pays">
-              <option value="" <?= $pays === '' ? 'selected' : '' ?>>Tous les stades</option>
+              <option value="" <?= $pays === '' ? 'selected' : '' ?>>-- TOUT --</option>
               <option value="france" <?= $pays === 'france' ? 'selected' : '' ?>>France</option>
               <option value="allemagne" <?= $pays === 'allemagne' ? 'selected' : '' ?>>Allemagne</option>
               <option value="espagne" <?= $pays === 'espagne' ? 'selected' : '' ?>>Espagne</option>
@@ -164,7 +167,7 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
           <div class="filter-group">
             <label for="capacity">Capacité</label>
             <select id="capacity" name="capacity">
-              <option value="" <?= $capacity === '' ? 'selected' : '' ?>>-- Choisir --</option>
+              <option value="" <?= $capacity === '' ? 'selected' : '' ?>>-- TOUT --</option>
               <option value="moins-de-20000" <?= $capacity === 'moins-de-20000' ? 'selected' : '' ?>>Moins de 20,000</option>
               <option value="20000-50000" <?= $capacity === '20000-50000' ? 'selected' : '' ?>>20,000 - 50,000</option>
               <option value="plus-de-50000" <?= $capacity === 'plus-de-50000' ? 'selected' : '' ?>>Plus de 50,000</option>
@@ -174,7 +177,7 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
           <div class="filter-group">
             <label for="type">Type de stade</label>
             <select id="type" name="type">
-              <option value="" <?= $type === '' ? 'selected' : '' ?>>-- Choisir --</option>
+              <option value="" <?= $type === '' ? 'selected' : '' ?>>-- TOUT --</option>
               <option value="football" <?= $type === 'football' ? 'selected' : '' ?>>Football</option>
               <option value="multi-sport" <?= $type === 'multi-sport' ? 'selected' : '' ?>>Multi-sport</option>
               <option value="olympique" <?= $type === 'olympique' ? 'selected' : '' ?>>Olympique</option>
@@ -184,7 +187,7 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
           <div class="filter-group">
             <label for="roof">Toit</label>
             <select id="roof" name="roof">
-              <option value="" <?= $roof === '' ? 'selected' : '' ?>>-- Choisir --</option>
+              <option value="" <?= $roof === '' ? 'selected' : '' ?>>-- TOUT --</option>
               <option value="ouvert" <?= $roof === 'ouvert' ? 'selected' : '' ?>>Ouvert</option>
               <option value="ferme" <?= $roof === 'ferme' ? 'selected' : '' ?>>Fermé</option>
               <option value="retractable" <?= $roof === 'retractable' ? 'selected' : '' ?>>Rétractable</option>
@@ -194,7 +197,7 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
           <div class="filter-group">
             <label for="year">Année de construction</label>
             <select id="year" name="year">
-              <option value="" <?= $year === '' ? 'selected' : '' ?>>-- Choisir --</option>
+              <option value="" <?= $year === '' ? 'selected' : '' ?>>-- TOUT --</option>
               <option value="avant-1950" <?= $year === 'avant-1950' ? 'selected' : '' ?>>Avant 1950</option>
               <option value="1950-2000" <?= $year === '1950-2000' ? 'selected' : '' ?>>1950 - 2000</option>
               <option value="apres-2000" <?= $year === 'apres-2000' ? 'selected' : '' ?>>Après 2000</option>
@@ -204,10 +207,10 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
           <div class="filter-group">
             <label for="price">Prix</label>
             <select id="price" name="price">
-              <option value="" <?= $price === '' ? 'selected' : '' ?>>-- Choisir --</option>
-              <option value="moins-de-50" <?= $price === 'moins-de-50' ? 'selected' : '' ?>>Moins de 50€</option>
-              <option value="50-100" <?= $price === '50-100' ? 'selected' : '' ?>>50€ - 100€</option>
-              <option value="plus-de-100" <?= $price === 'plus-de-100' ? 'selected' : '' ?>>Plus de 100€</option>
+              <option value="" <?= $price === '' ? 'selected' : '' ?>>-- TOUT --</option>
+              <option value="moins-de-1000" <?= $price === 'moins-de-1000' ? 'selected' : '' ?>>Moins de 1000€</option>
+              <option value="1000-1500" <?= $price === '1000-1500' ? 'selected' : '' ?>>1000€ - 1500€</option>
+              <option value="plus-de-1500" <?= $price === 'plus-de-1500' ? 'selected' : '' ?>>Plus de 1500€</option>
             </select>
           </div>
 
@@ -223,8 +226,8 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
               <img src="../photo/<?= htmlspecialchars($destination['image']) ?>" alt="<?= htmlspecialchars($destination['name']) ?>">
               <h2><?= htmlspecialchars($destination['name']) ?></h2>
               <p><?= htmlspecialchars($destination['description']) ?></p>
-              <?php if (isset($destination['price'])): ?>
-                <p>Prix : <?= htmlspecialchars($destination['price']) ?>€</p>
+              <?php if (isset($destination['travelprice'])): ?>
+                <p>Prix : <?= htmlspecialchars($destination['travelprice']) ?>€</p>
               <?php endif; ?>
             </div>
           </a>

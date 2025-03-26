@@ -110,6 +110,36 @@
                         { "name": "Exposition sur l'histoire du sport", "price": 20 }
                     ]
                 }
+            },
+            {
+                "titre": "Dîner de clôture",
+                "lieu": "Paris, France",
+                "position": {
+                    "gps": "48.8566, 2.3522",
+                    "ville": "Paris"
+                },
+                "dates": {
+                    "arrivee": null,
+                    "depart": null
+                },
+                "description": "Un dîner de clôture pour célébrer la fin du séjour et partager un moment convivial.",
+                "personnes_supplementaires": [],
+                "options": {
+                    "restauration": [
+                        { "name": "Menu du chef", "price": 120, "default": true },
+                        { "name": "Buffet", "price": 90 },
+                        { "name": "Dîner en terrasse", "price": 110 }
+                    ],
+                    "transport": [
+                        { "name": "Taxi", "price": 20, "default": true },
+                        { "name": "Voiture privée", "price": 30 },
+                        { "name": "Bus collectif", "price": 10 }
+                    ],
+                    "activites": [
+                        { "name": "Sortie nocturne", "price": 50, "default": true },
+                        { "name": "Visite culturelle", "price": 40 }
+                    ]
+                }
             }
         ]
     }

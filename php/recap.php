@@ -1,10 +1,15 @@
 <?php
 session_start();
 
+$utilisateurId = $_SESSION['utilisateur_id'] ?? '';
+
 // Si le formulaire est soumis, stocker les données en session
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['save_recap'])) {
     $_SESSION['data'] = $_POST['etapes'] ?? [];
     $_SESSION['voyage_id'] = $_POST['voyage_id'] ?? '';
+    $_SESSION['date_depart'] = $_POST['date_depart'] ?? '';
+    $_SESSION['date_retour'] = $_POST['date_retour'] ?? '';
+    $_SESSION['nb_participants'] = $_POST['nb_participants'] ?? '';
 }
 
 $data = $_SESSION['data'] ?? [];
@@ -34,10 +39,9 @@ if (!isset($voyages[$voyage_id])) {
 
 $voyage = $voyages[$voyage_id];
 
-$finalPrice = $voyage['prix'] ?? 0; // Inclure le prix de base du voyage
+$finalPrice = $voyage['prix'] ?? 0; // Prix de base
 $stepsDetails = []; // Détail et prix par étape
 
-// Parcours de chaque étape soumise
 foreach ($data as $index => $etapeData) {
     if (!isset($voyage['etapes'][$index])) {
         continue;
@@ -57,7 +61,6 @@ foreach ($data as $index => $etapeData) {
         }
         $options = $etapeVoyage['options'][$categorie];
         
-        // Traitement des options multiples (ex : activités)
         if (is_array($selected)) {
             $selectedDetails = [];
             foreach ($selected as $sel) {
@@ -71,7 +74,6 @@ foreach ($data as $index => $etapeData) {
             }
             $stepDetail[$categorie] = $selectedDetails;
         } else {
-            // Option unique
             foreach ($options as $option) {
                 if ($option['name'] === $selected) {
                     $selectedDetail = ['name' => $selected, 'price' => $option['price']];
@@ -87,6 +89,39 @@ foreach ($data as $index => $etapeData) {
     $finalPrice += $stepTotal;
     $stepsDetails[$index] = $stepDetail;
 }
+
+$nbParticipants = isset($_SESSION['nb_participants']) ? (int) $_SESSION['nb_participants'] : 1;
+$finalPrice *= $nbParticipants;
+
+$recapResults = [
+    'voyage_id'       => $voyage_id,
+    'voyage_name'     => $voyage['name'],
+    'date_depart'     => $_SESSION['date_depart'] ?? '',
+    'date_retour'     => $_SESSION['date_retour'] ?? '',
+    'nb_participants' => $nbParticipants,
+    'final_price'     => $finalPrice,
+    'steps_details'   => $stepsDetails,
+    'utilisateur_id'  => $utilisateurId
+];
+
+// Enregistrer le récapitulatif dans le fichier JSON et rediriger vers la page de paiement
+if (isset($_POST['save_recap'])) {
+    $jsonRecapFile = __DIR__ . '/../data/dataVoyages.json';
+    if (file_exists($jsonRecapFile)) {
+        $existingData = json_decode(file_get_contents($jsonRecapFile), true);
+        if (!is_array($existingData)) {
+            $existingData = [];
+        }
+    } else {
+        $existingData = [];
+    }
+    
+    $existingData[] = $recapResults;
+    file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));
+    
+    header("Location: paiement.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -98,6 +133,9 @@ foreach ($data as $index => $etapeData) {
 <body>
     <header>
         <?php include __DIR__ . '/header.php'; ?>
+        <div class="user-info">
+            <p>Connecté en tant que : <?= htmlspecialchars($utilisateurId) ?></p>
+        </div>
     </header>
     <main>
         <h1>Compte rendu complet de votre voyage</h1>
@@ -110,10 +148,11 @@ foreach ($data as $index => $etapeData) {
             <?php if (isset($voyage['prix'])): ?>
                 <p><strong>Prix de base :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
             <?php endif; ?>
+            <p><strong>Nombre de participants :</strong> <?= htmlspecialchars($nbParticipants) ?> personnes</p>
+            <p><strong>ID utilisateur :</strong> <?= htmlspecialchars($utilisateurId) ?></p>
         </section>
         
         <?php if (!empty($stepsDetails)): ?>
-            <?php $_SESSION["voyage"][] = $stepsDetails; ?>
             <?php foreach ($stepsDetails as $index => $detail): ?>
                 <section class="etape">
                     <h2>Étape <?= $index + 1 ?></h2>
@@ -150,12 +189,12 @@ foreach ($data as $index => $etapeData) {
         <section class="final-price">
             <h2>Prix final de votre voyage : <?= $finalPrice ?> €</h2>
         </section>
-
-        <!-- Affichage optionnel des détails de session pour vérification -->
-        <section class="session-details">
-            <h2>Détails complets de la session</h2>
-            <pre><?php print_r($_SESSION); ?></pre>
-        </section>
+        
+        <form method="post">
+            <input type="hidden" name="voyage_id" value="<?= htmlspecialchars($voyage_id) ?>">
+            <input type="hidden" name="utilisateur_id" value="<?= htmlspecialchars($utilisateurId) ?>">
+            <button type="submit" name="save_recap" value="1">Enregistrer le récapitulatif</button>
+        </form>
     </main>
     <footer>
         <?php include __DIR__ . '/footer.php'; ?>

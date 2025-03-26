@@ -49,7 +49,9 @@ $_SESSION["voyage"]["name"] = $voyage["name"];
           <?php endif; ?>
           
           <?php if (isset($voyage['prix'])): ?>
-            <p><strong>Prix estimé :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
+            <p><strong>Prix estimé par personne :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
+            <!-- Le prix total reste statique -->
+            <p id="totalPrice"><strong>Prix total :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
           <?php endif; ?>
         </div>
       </section>
@@ -71,10 +73,9 @@ $_SESSION["voyage"]["name"] = $voyage["name"];
         
         <!-- Section des participants simplifiée -->
         <section class="participants">
-          <h2>Participants</h2>
           <div class="participant-count">
             <label for="nb_participants">Nombre de participants :</label>
-            <input type="number" id="nb_participants" name="nb_participants" min="1" value="1" required>
+            <input type="number" id="nb_participants" name="nb_participants" min="1" max="8" value="1" required>
           </div>
         </section>
 
@@ -127,7 +128,7 @@ $_SESSION["voyage"]["name"] = $voyage["name"];
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Définition d'une date minimum (aujourd'hui) pour les champs de date
+      // Définir la date minimum (aujourd'hui) pour les champs de date
       const today = new Date().toISOString().split('T')[0];
       document.getElementById('date_depart').min = today;
       document.getElementById('date_retour').min = today;
@@ -136,6 +137,8 @@ $_SESSION["voyage"]["name"] = $voyage["name"];
       document.getElementById('date_depart').addEventListener('change', function() {
         document.getElementById('date_retour').min = this.value;
       });
+      
+      // Suppression de la mise à jour dynamique du prix
     });
   </script>
 </body>

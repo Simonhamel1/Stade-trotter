@@ -1,14 +1,22 @@
 <?php
+// filepath: c:\wamp64\www\projet\Stade-trotter\php\recap.php
 session_start();
 
-$utilisateurId = $_SESSION['utilisateur_id'] ?? '';
 
-// Si le formulaire est soumis, stocker les données en session
+// Récupération de l'ID utilisateur depuis la session (déjà connecté)
+$utilisateurId = $_SESSION['user'] ?? '';
+
+// Stockage des données saisies (hors sauvegarde du récapitulatif)
+// On conserve les dates si elles sont déjà renseignées
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['save_recap'])) {
     $_SESSION['data'] = $_POST['etapes'] ?? [];
     $_SESSION['voyage_id'] = $_POST['voyage_id'] ?? '';
-    $_SESSION['date_depart'] = $_POST['date_depart'] ?? '';
-    $_SESSION['date_retour'] = $_POST['date_retour'] ?? '';
+    if (empty($_SESSION['date_depart'])) {
+        $_SESSION['date_depart'] = $_POST['date_depart'] ?? '';
+    }
+    if (empty($_SESSION['date_retour'])) {
+        $_SESSION['date_retour'] = $_POST['date_retour'] ?? '';
+    }
     $_SESSION['nb_participants'] = $_POST['nb_participants'] ?? '';
 }
 
@@ -25,22 +33,20 @@ $jsonFile = __DIR__ . '/../data/voyages.json';
 if (!file_exists($jsonFile)) {
     die("Le fichier de données voyages n'existe pas.");
 }
-
 $jsonData = file_get_contents($jsonFile);
 $voyages = json_decode($jsonData, true);
 if (!$voyages) {
     die("Erreur lors du décodage du fichier JSON.");
 }
-
 if (!isset($voyages[$voyage_id])) {
     echo "<p>Voyage non trouvé. <a href='destinations.php'>Retour aux destinations</a></p>";
     exit;
 }
-
 $voyage = $voyages[$voyage_id];
 
-$finalPrice = $voyage['prix'] ?? 0; // Prix de base
-$stepsDetails = []; // Détail et prix par étape
+// Calcul du prix final et préparation du détail par étape
+$finalPrice = $voyage['prix'] ?? 0; // prix de base du voyage
+$stepsDetails = [];
 
 foreach ($data as $index => $etapeData) {
     if (!isset($voyage['etapes'][$index])) {
@@ -52,6 +58,7 @@ foreach ($data as $index => $etapeData) {
     $stepTotal = 0;
     
     foreach ($etapeData as $categorie => $selected) {
+        // Conserver la date déjà saisie (pour l'étape)
         if ($categorie === 'date') {
             $stepDetail[$categorie] = $selected;
             continue;
@@ -76,9 +83,8 @@ foreach ($data as $index => $etapeData) {
         } else {
             foreach ($options as $option) {
                 if ($option['name'] === $selected) {
-                    $selectedDetail = ['name' => $selected, 'price' => $option['price']];
+                    $stepDetail[$categorie] = ['name' => $selected, 'price' => $option['price']];
                     $stepTotal += $option['price'];
-                    $stepDetail[$categorie] = $selectedDetail;
                     break;
                 }
             }
@@ -104,18 +110,16 @@ $recapResults = [
     'utilisateur_id'  => $utilisateurId
 ];
 
-// Enregistrer le récapitulatif dans le fichier JSON et rediriger vers la page de paiement
+// Sauvegarde du récapitulatif dans le fichier JSON si l'utilisateur a cliqué sur "Enregistrer le récapitulatif"
 if (isset($_POST['save_recap'])) {
     $jsonRecapFile = __DIR__ . '/../data/dataVoyages.json';
+    $existingData = [];
     if (file_exists($jsonRecapFile)) {
         $existingData = json_decode(file_get_contents($jsonRecapFile), true);
         if (!is_array($existingData)) {
             $existingData = [];
         }
-    } else {
-        $existingData = [];
     }
-    
     $existingData[] = $recapResults;
     file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));
     
@@ -142,14 +146,16 @@ if (isset($_POST['save_recap'])) {
         <section class="voyage-details">
             <h2><?= htmlspecialchars($voyage['name']) ?></h2>
             <p><?= htmlspecialchars($voyage['description']) ?></p>
-            <?php if (isset($voyage['continent'])): ?>
+            <?php if (!empty($voyage['continent'])): ?>
                 <p><strong>Continent :</strong> <?= htmlspecialchars($voyage['continent']) ?></p>
             <?php endif; ?>
             <?php if (isset($voyage['prix'])): ?>
                 <p><strong>Prix de base :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
             <?php endif; ?>
-            <p><strong>Nombre de participants :</strong> <?= htmlspecialchars($nbParticipants) ?> personnes</p>
-            <p><strong>ID utilisateur :</strong> <?= htmlspecialchars($utilisateurId) ?></p>
+            <p><strong>Nombre de participants :</strong> <?= htmlspecialchars($nbParticipants) ?></p>
+            <?php if (!empty($_SESSION['date_depart']) && !empty($_SESSION['date_retour'])): ?>
+                <p><strong>Période :</strong> Du <?= htmlspecialchars($_SESSION['date_depart']) ?> au <?= htmlspecialchars($_SESSION['date_retour']) ?></p>
+            <?php endif; ?>
         </section>
         
         <?php if (!empty($stepsDetails)): ?>

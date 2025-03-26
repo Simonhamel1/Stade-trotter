@@ -14,6 +14,17 @@ html {
     scroll-behavior: smooth;
 }
 
+button{
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--bleu-moyen);
+    color: var(--blanc);
+    cursor: pointer;
+}
 
 /* ==================== HEADER/NavBar ==================== */
 header {

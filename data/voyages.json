@@ -142,5 +142,288 @@
                 }
             }
         ]
+    }, 
+    "wembley": {
+        "name": "Wembley",
+        "title": "Une visite inoubliable à Wembley",
+        "description": "Un lieu emblématique du football anglais où se jouent les plus grandes finales.",
+        "dates": {
+            "debut": null,
+            "fin": null
+        },
+        "image": "wembley.jpeg",
+        "continent": "Europe",
+        "prix": 1300,
+        "specificites": {
+            "type": "Événement sportif",
+            "niveau_physique": "Moyen",
+            "accessibilite": "Adapté aux personnes à mobilité réduite"
+        },
+        "personnes": [],
+        "etapes": [
+            {
+                "titre": "Arrivée à Londres",
+                "lieu": "Londres, Angleterre",
+                "position": {
+                    "gps": "51.5085, -0.1257",
+                    "ville": "Londres"
+                },
+                "dates": {
+                    "arrivee": null,
+                    "depart": null
+                },
+                "description": "Installation dans un hôtel londonien.",
+                "personnes_supplementaires": [],
+                "options": {
+                    "hebergement": [
+                        { "name": "Standard (3★)", "price": 100, "default": true },
+                        { "name": "Deluxe (4★)", "price": 150 },
+                        { "name": "Luxe (5★)", "price": 200 },
+                        { "name": "Economie", "price": 80 },
+                        { "name": "Suite Royale", "price": 250 }
+                    ],
+                    "restauration": [
+                        { "name": "Aucun repas", "price": 0 , "default": true },
+                        { "name": "Demi-pension", "price": 50},
+                        { "name": "Pension complète", "price": 80 },
+                        { "name": "Buffet local", "price": 60 },
+                        { "name": "Menu gastronomique", "price": 100 }
+                    ],
+                    "transport": [
+                        { "name": "Bus collectif", "price": 10 },
+                        { "name": "Voiture privée", "price": 30, "default": true, "vitesse_moyenne": 50 },
+                        { "name": "Taxi", "price": 20 },
+                        { "name": "Train régional", "price": 15 },
+                        { "name": "Vélo en libre-service", "price": 5 }
+                    ],
+                    "activites": [
+                        { "name": "Visite guidée des monumets de la capitale", "price": 25 },
+                        { "name": "Dîner gastronomique", "price": 60, "default": true },
+                        { "name": "Tournée des pubs anglais", "price": 40 },
+                        { "name": "Concert en plein air", "price": 35 },
+                        { "name": "Dîner royale avec le roi d'angleterre", "price": 200000 }
+                    ]
+                }
+            },
+            {
+                "titre": "Match de football",
+                "lieu": "Wembley Stadium, Brent",
+                "position": {
+                    "gps": "51.5085, -0.1257",
+                    "ville": "Brent"
+                },
+                "dates": {
+                    "arrivee": null,
+                    "depart": null,
+                    "duree": 1
+                },
+                "description": "Assistez à un match de football dans le plus grand stade du Royaume-Uni.",
+                "personnes_supplementaires": [],
+                "options": {
+                    "hebergement": [
+                        { "name": "Standard (3★)", "price": 100, "default": true },
+                        { "name": "Deluxe (4★)", "price": 150 },
+                        { "name": "Luxe (5★)", "price": 200 },
+                        { "name": "Economie", "price": 80 },
+                        { "name": "Suite Royale", "price": 250 }
+                    ],
+                    "restauration": [
+                        { "name": "Aucun repas", "price": 0, "default": true },
+                        { "name": "Demi-pension", "price": 50 },
+                        { "name": "Pension complète", "price": 80},
+                        { "name": "Buffet local", "price": 60 },
+                        { "name": "Menu gastronomique", "price": 100 }
+                    ],
+                    "transport": [
+                        { "name": "Bus collectif", "price": 10, "default": true, "vitesse_moyenne": 30 },
+                        { "name": "Voiture privée", "price": 30 },
+                        { "name": "Taxi", "price": 20 },
+                        { "name": "Train régional", "price": 15 },
+                        { "name": "Vélo en libre-service", "price": 5 }
+                    ],
+                    "activites": [
+                        { "name": "Visite intégrale du stade", "price": 25, "default": true },
+                        { "name": "Rencontre d'après match avec les joueurs", "price": 100 },
+                        { "name": "Musée Harry-Potter à Londres", "price": 70 },
+                        { "name": "Soirée binouse au pub", "price": 15 }
+                    ]
+                }
+            },
+            {
+                "titre": "Dîner de clôture",
+                "lieu": "Londres, France",
+                "position": {
+                    "gps": "51.5085, -0.1257",
+                    "ville": "Londres"
+                },
+                "dates": {
+                    "arrivee": null,
+                    "depart": null
+                },
+                "description": "Un dîner de clôture pour célébrer la fin du séjour et partager un moment convivial.",
+                "personnes_supplementaires": [],
+                "options": {
+                    "restauration": [
+                        { "name": "Menu du chef", "price": 120, "default": true },
+                        { "name": "Buffet", "price": 90 },
+                        { "name": "Dîner en terrasse", "price": 110 }
+                    ],
+                    "transport": [
+                        { "name": "Taxi", "price": 20, "default": true },
+                        { "name": "Voiture privée", "price": 30 },
+                        { "name": "Bus collectif", "price": 10 }
+                    ],
+                    "activites": [
+                        { "name": "Soirée théatre en amoureux", "price": 50, "default": true },
+                        { "name": "Nocturne du British museum", "price": 30 }
+                    ]
+                }
+            }
+        ]
+    },
+    "san-siro": {
+        "name": "San Siro",
+        "title": "Un week-end mythique dans le nord de l'Italie",
+        "description": "Explorez le stade légendaire de Milan, partagé par l'AC Milan et l'Inter Milan.",
+        "dates": {
+            "debut": null,
+            "fin": null
+        },
+        "image": "san-siro.jpg",
+        "continent": "Europe",
+        "prix": 1100,
+        "specificites": {
+            "type": "Événement sportif",
+            "niveau_physique": "Difficile",
+            "accessibilite": "Adapté aux personnes à mobilité réduite"
+        },
+        "personnes": [],
+        "etapes": [
+        {
+            "titre": "Accueil et installation",
+            "lieu": "Milan, Italie",
+            "position": {
+                "gps": "45.4642, 9.1900",
+                "ville": "Milan"
+            },
+            "dates": {
+                "arrivee": null,
+                "depart": null
+            },
+            "description": "Installation dans un hôtel proche du stade San Siro.",
+            "personnes_supplementaires": [],
+            "options": {
+                "hebergement": [
+                    { "name": "Standard (3★)", "price": 100, "default": true },
+                    { "name": "Deluxe (4★)", "price": 150 },
+                    { "name": "Luxe (5★)", "price": 200 },
+                    { "name": "Economie", "price": 80 },
+                    { "name": "Suite Royale", "price": 250 }
+                ],
+                "restauration": [
+                    { "name": "Aucun repas", "price": 0 },
+                    { "name": "Demi-pension", "price": 50, "default": true },
+                    { "name": "Pension complète", "price": 80 },
+                    { "name": "Buffet local", "price": 60 },
+                    { "name": "Menu gastronomique", "price": 100 }
+                ],
+                "transport": [
+                    { "name": "Bus collectif", "price": 10 },
+                    { "name": "Voiture privée", "price": 30, "default": true, "vitesse_moyenne": 50 },
+                    { "name": "Taxi", "price": 20 },
+                    { "name": "Train régional", "price": 15 },
+                    { "name": "Vélo en libre-service", "price": 5 }
+                ],
+                "activites": [
+                    { "name": "Tour en bateau des canaux de Milan", "price": 25 },
+                    { "name": "Dîner gastronomique", "price": 60, "default": true },
+                    { "name": "Atelier pizza", "price": 40 },
+                    { "name": "Visite du Centre commercial de Vittorio Emanuele de Galleria", "price": 0 },
+                    { "name": "Exposition sur l'histoire du sport", "price": 20 }
+                ],
+                "garde_enfants": [
+                    { "name": "Aucun", "price": 0 },
+                    { "name": "Babysitting (soirée)", "price": 50, "default": true },
+                    { "name": "Garderie (journée)", "price": 80 }
+                ]
+            }
+        },
+        {
+            "titre": "Visite du stade San Siro",
+            "lieu": "Stade San Siro, Milan, Italie",
+            "position": {
+                "gps": "45.4770, 9.1087",
+                "ville": "Milan"
+            },
+            "dates": {
+                "arrivee": null,
+                "depart": null,
+                "duree": 1
+            },
+            "description": "Visitez le célèbre stade San Siro et découvrez son histoire.",
+            "personnes_supplementaires": [],
+            "options": {
+                "hebergement": [
+                    { "name": "Standard (3★)", "price": 100, "default": true },
+                    { "name": "Deluxe (4★)", "price": 150 },
+                    { "name": "Luxe (5★)", "price": 200 },
+                    { "name": "Economie", "price": 80 },
+                    { "name": "Suite Royale", "price": 250 }
+                ],
+                "restauration": [
+                    { "name": "Aucun repas", "price": 0 },
+                    { "name": "Demi-pension", "price": 50 },
+                    { "name": "Pension complète", "price": 80, "default": true },
+                    { "name": "Buffet local", "price": 60 },
+                    { "name": "Menu gastronomique", "price": 100 }
+                ],
+                "transport": [
+                    { "name": "Bus collectif", "price": 10, "default": true, "vitesse_moyenne": 30 },
+                    { "name": "Voiture privée", "price": 30 },
+                    { "name": "Taxi", "price": 20 },
+                    { "name": "Train régional", "price": 15 },
+                    { "name": "Vélo en libre-service", "price": 5 }
+                ],
+                "activites": [
+                    { "name": "Visite guidée du stade", "price": 30, "default": true },
+                    { "name": "Musée du football", "price": 20 },
+                    { "name": "Tour des vestiaires", "price": 25 },
+                    { "name": "Session photo sur le terrain", "price": 40 },
+                    { "name": "Rencontre avec un ancien joueur", "price": 50 }
+                ]
+            }
+        },
+        {
+            "titre": "Dîner de clôture",
+            "lieu": "Milan, Italie",
+            "position": {
+                "gps": "45.4642, 9.1900",
+                "ville": "Milan"
+            },
+            "dates": {
+                "arrivee": null,
+                "depart": null
+            },
+            "description": "Un dîner de clôture pour célébrer la fin du séjour et partager un moment convivial.",
+            "personnes_supplementaires": [],
+            "options": {
+                "restauration": [
+                    { "name": "Menu du chef", "price": 120, "default": true },
+                    { "name": "Buffet", "price": 90 },
+                    { "name": "Dîner en terrasse", "price": 110 }
+                ],
+                "transport": [
+                    { "name": "Taxi", "price": 20, "default": true },
+                    { "name": "Voiture privée", "price": 30 },
+                    { "name": "Bus collectif", "price": 10 }
+                ],
+                "activites": [
+                    { "name": "Milan by night", "price": 50, "default": true },
+                    { "name": "Visite nocturne de la cathédrale de Milan", "price": 40 }
+                ]
+            }
+        }
+    ]
+
     }
 }

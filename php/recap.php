@@ -215,7 +215,7 @@ if (isset($_POST['save_recap'])) {
                 value= '<?php echo $retour ?>' >
                 <input type='hidden' name='control'
                 value='<?php echo $control ?>'>
-                <input type='submit' value="Enregistrer et payer">
+                <input id="submit" type='submit' value="Enregistrer et payer">
             </form>
         </div>
     </main>

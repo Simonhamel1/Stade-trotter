@@ -1,7 +1,10 @@
 <?php
-// filepath: c:\wamp64\www\projet\Stade-trotter\php\recap.php
 session_start();
 
+require('getapikey.php');
+$vendeur = 'MEF-2_D';
+$api_key = getAPIKey($vendeur); 
+$retour = 'http://localhost/StadeTrotter/php/finalisation.php';
 
 // Récupération de l'ID utilisateur depuis la session (déjà connecté)
 $utilisateurId = $_SESSION['user'] ?? '';
@@ -43,10 +46,6 @@ if (!isset($voyages[$voyage_id])) {
     exit;
 }
 $voyage = $voyages[$voyage_id];
-
-// Calcul du prix final et préparation du détail par étape
-$finalPrice = $voyage['prix'] ?? 0; // prix de base du voyage
-$stepsDetails = [];
 
 foreach ($data as $index => $etapeData) {
     if (!isset($voyage['etapes'][$index])) {
@@ -109,6 +108,16 @@ $recapResults = [
     'steps_details'   => $stepsDetails,
     'utilisateur_id'  => $utilisateurId
 ];
+
+$montant = $finalPrice;
+$transition = ($montant * 100000) % 100000000;
+$transaction = $transition . "AZERT";
+
+$control = md5( $api_key
+ . "#" . $transaction
+ . "#" . $montant
+ . "#" . $vendeur
+ . "#" . $retour . "#" );
 
 // Sauvegarde du récapitulatif dans le fichier JSON si l'utilisateur a cliqué sur "Enregistrer le récapitulatif"
 if (isset($_POST['save_recap'])) {
@@ -195,12 +204,20 @@ if (isset($_POST['save_recap'])) {
         <section class="final-price">
             <h2>Prix final de votre voyage : <?= $finalPrice ?> €</h2>
         </section>
-        
-        <form method="post">
-            <input type="hidden" name="voyage_id" value="<?= htmlspecialchars($voyage_id) ?>">
-            <input type="hidden" name="utilisateur_id" value="<?= htmlspecialchars($utilisateurId) ?>">
-            <button type="submit" name="save_recap" value="1">Enregistrer le récapitulatif</button>
-        </form>
+        <div class="session-details">
+            <form action='https://www.plateforme-smc.fr/cybank/index.php'
+                method='POST'>
+                <input type='hidden' name='transaction'
+                value='<?php echo $transaction ?>'>
+                <input type='hidden' name='montant' value='<?php echo $montant ?>'>
+                <input type='hidden' name='vendeur' value='<?php echo $vendeur ?>'>
+                <input type='hidden' name='retour'
+                value= '<?php echo $retour ?>' >
+                <input type='hidden' name='control'
+                value='<?php echo $control ?>'>
+                <input type='submit' value="Enregistrer et payer">
+            </form>
+        </div>
     </main>
     <footer>
         <?php include __DIR__ . '/footer.php'; ?>

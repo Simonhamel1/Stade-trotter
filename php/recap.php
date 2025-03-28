@@ -5,6 +5,7 @@ require('getapikey.php');
 $vendeur = 'MEF-2_D';
 $api_key = getAPIKey($vendeur); 
 $retour = 'http://localhost/StadeTrotter/php/retour.php';       
+$finalPrice = 0;
 
 // Récupération de l'ID utilisateur depuis la session (déjà connecté)
 $utilisateurId = $_SESSION['user'] ?? '';
@@ -90,6 +91,8 @@ foreach ($data as $index => $etapeData) {
         }
     }
     
+
+
     $stepDetail['total'] = $stepTotal;
     $finalPrice += $stepTotal;
     $stepsDetails[$index] = $stepDetail;
@@ -138,7 +141,7 @@ $control = md5( $api_key
     <main>
         <h1>Compte rendu complet de votre voyage</h1>
         <?php
-            if($_SESSION['transaction_status'] == 'denied'){
+            if(isset($_SESSION['transaction_status']) && $_SESSION['transaction_status'] == 'denied'){
                 echo '<div class="error-message">Une erreur est survenue lors du paiement. Veuillez réessayer.</div>';
             }
         ?>
@@ -218,9 +221,12 @@ $control = md5( $api_key
                 value= '<?php echo $retour ?>' >
                 <input type='hidden' name='control'
                 value='<?php echo $control ?>'>
-                <input id="submit" type='submit' value="Payer">
+                <input id="submit" type='submit' value="Enregistrer et payer">
+
+                <input type='hidden' name='save_recap' value='1'>
+
             </form>
-            <a id="back" href="./voyage.php">Retour</a>
+            <a id="back" href="#" onclick="history.back(); return false;">Retour</a>
         </div>
     </main>
     <footer>

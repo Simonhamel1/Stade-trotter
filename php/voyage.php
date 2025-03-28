@@ -11,9 +11,9 @@ $voyages = json_decode($jsonData, true);
 if (!$voyages) {
   die("Erreur lors du décodage du fichier JSON.");
 }
-
+$_SESSION['voyage_id'] = $_GET['destination'];
 // Récupérer l'identifiant du voyage depuis l'URL
-$id = $_GET['destination'] ?? '';
+$id = $_SESSION['voyage_id'] ?? '';
 if (!$id || !isset($voyages[$id])) {
   echo "<p>Voyage non trouvé. <a href='destinations.php'>Retour aux destinations</a></p>";
   exit();
@@ -138,7 +138,6 @@ $_SESSION["voyage"]["name"] = $voyage["name"];
         document.getElementById('date_retour').min = this.value;
       });
       
-      // Suppression de la mise à jour dynamique du prix
     });
   </script>
 </body>

@@ -109,9 +109,10 @@ $recapResults = [
     'utilisateur_id'  => $utilisateurId         
 ];
 
+$_SESSION['voyage_data'] = $recapResults;
+
 $montant = $finalPrice;
-$transition = ($montant * 100000) % 100000000;
-$transaction = $transition . "AZERT";
+$transaction = uniqid();
 
 $control = md5( $api_key
  . "#" . $transaction
@@ -119,22 +120,6 @@ $control = md5( $api_key
  . "#" . $vendeur
  . "#" . $retour . "#" );
 
-// Sauvegarde du récapitulatif dans le fichier JSON si l'utilisateur a cliqué sur "Enregistrer le récapitulatif"
-if (isset($_POST['save_recap'])) {
-    $jsonRecapFile = __DIR__ . '/../data/dataVoyages.json';
-    $existingData = [];
-    if (file_exists($jsonRecapFile)) {
-        $existingData = json_decode(file_get_contents($jsonRecapFile), true);
-        if (!is_array($existingData)) {
-            $existingData = [];
-        }
-    }
-    $existingData[] = $recapResults;
-    file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));
-    
-    header("Location: paiement.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -210,6 +195,19 @@ if (isset($_POST['save_recap'])) {
             <h2>Prix final de votre voyage : <?= $finalPrice ?> €</h2>
         </section>
         <div class="end-buttons">
+            <?php
+            // // Save recap data before payment
+            // $jsonRecapFile = "./../data/dataVoyages.json";
+            // $existingData = [];
+            // if (file_exists($jsonRecapFile)) {
+            //     $existingData = json_decode(file_get_contents($jsonRecapFile), true);
+            //     if (!is_array($existingData)) {
+            //         $existingData = [];
+            //     }
+            // }
+            // $existingData[] = $recapResults;
+            // file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));
+            ?>
             <form action='https://www.plateforme-smc.fr/cybank/index.php'
                 method='POST'>
                 <input type='hidden' name='transaction'
@@ -220,9 +218,9 @@ if (isset($_POST['save_recap'])) {
                 value= '<?php echo $retour ?>' >
                 <input type='hidden' name='control'
                 value='<?php echo $control ?>'>
-                <input id="submit" type='submit' value="Enregistrer et payer">
+                <input id="submit" type='submit' value="Payer">
             </form>
-            <a id="back" href="./destinations.php">Retour</a>
+            <a id="back" href="./voyage.php">Retour</a>
         </div>
     </main>
     <footer>

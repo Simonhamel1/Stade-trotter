@@ -5,19 +5,27 @@ if($_GET['status'] == 'denied'){
     header('Location:./recap.php');
 }   
 $absolute_path_paiements = "../data/paiements.json";
+$absolute_path_dataVoyages = "../data/dataVoyages.json";
 
 // Lire le contenu actuel du fichier
-$content = file_get_contents($absolute_path_paiements);
+$content_paiement = file_get_contents($absolute_path_paiements);
+$content_voyage = file_get_contents($absolute_path_dataVoyages);
 
 // Convertir le contenu en tableau PHP
-$jsonArray = json_decode($content, true);
+$jsonArrayPaiement = json_decode($content_paiement, true);
+$jsonArrayVoyage = json_decode($content_voyage, true);
 // Tableau des informations de paiements
 $userData = $_GET;
 $userData['user'] = $_SESSION['user'];
-$jsonArray[] = $userData;
+$jsonArrayPaiement[] = $userData;
+// Tableau des informations de voyages
+$jsonArrayVoyage[] = $_SESSION['voyage_data'];
 
 // Ajoute les infos aux json
-file_put_contents($absolute_path_paiements, json_encode($jsonArray, JSON_PRETTY_PRINT));
+file_put_contents($absolute_path_paiements, json_encode($jsonArrayPaiement, JSON_PRETTY_PRINT));
+file_put_contents($absolute_path_dataVoyages, json_encode($jsonArrayVoyage, JSON_PRETTY_PRINT));
+unset($_SESSION['voyage_id']);
+unset($_SESSION['voyage_data']);
 ?>
 
 <!DOCTYPE html>

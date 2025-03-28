@@ -5,6 +5,7 @@ require('getapikey.php');
 $vendeur = 'MEF-2_D';
 $api_key = getAPIKey($vendeur); 
 $retour = 'http://localhost/StadeTrotter/php/retour.php';       
+$finalPrice = 0;
 
 // Récupération de l'ID utilisateur depuis la session (déjà connecté)
 $utilisateurId = $_SESSION['user'] ?? '';
@@ -90,6 +91,8 @@ foreach ($data as $index => $etapeData) {
         }
     }
     
+
+
     $stepDetail['total'] = $stepTotal;
     $finalPrice += $stepTotal;
     $stepsDetails[$index] = $stepDetail;
@@ -130,11 +133,15 @@ if (isset($_POST['save_recap'])) {
         }
     }
     $existingData[] = $recapResults;
-    file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));
+    $result = file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));  
+    if($result === false) {
+        die("Erreur lors de l'écriture dans le fichier JSON.");
+    }
     
     header("Location: paiement.php");
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -153,7 +160,7 @@ if (isset($_POST['save_recap'])) {
     <main>
         <h1>Compte rendu complet de votre voyage</h1>
         <?php
-            if($_SESSION['transaction_status'] == 'denied'){
+            if(isset($_SESSION['transaction_status']) && $_SESSION['transaction_status'] == 'denied'){
                 echo '<div class="error-message">Une erreur est survenue lors du paiement. Veuillez réessayer.</div>';
             }
         ?>
@@ -221,8 +228,11 @@ if (isset($_POST['save_recap'])) {
                 <input type='hidden' name='control'
                 value='<?php echo $control ?>'>
                 <input id="submit" type='submit' value="Enregistrer et payer">
+
+                <input type='hidden' name='save_recap' value='1'>
+
             </form>
-            <a id="back" href="./destinations.php">Retour</a>
+            <a id="back" href="#" onclick="history.back(); return false;">Retour</a>
         </div>
     </main>
     <footer>

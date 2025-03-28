@@ -1,7 +1,50 @@
 [
-
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "70500000AZERT",
+        "vendeur": "MEF-2_D",
+        "control": "ef261d601e0f81e2daa28ad3909223e4",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "70500000AZERT",
+        "vendeur": "MEF-2_D",
+        "control": "de5e12b882ac24d74d13d5d01a060b93",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "70500000AZERT",
+        "vendeur": "MEF-2_D",
+        "control": "de5e12b882ac24d74d13d5d01a060b93",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "70500000AZERT",
+        "vendeur": "MEF-2_D",
+        "control": "de5e12b882ac24d74d13d5d01a060b93",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "70500000AZERT",
+        "vendeur": "MEF-2_D",
+        "control": "ef261d601e0f81e2daa28ad3909223e4",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "70500000AZERT",
+        "vendeur": "MEF-2_D",
+        "control": "de5e12b882ac24d74d13d5d01a060b93",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    }
 ]
-// •coordonnées   bancaires   (numéro   de   carte,   date   de
-// validité, ...)
-// •lien avec l’utilisateur et le voyage choisi
-// •date de transation

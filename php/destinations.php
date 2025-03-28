@@ -106,6 +106,8 @@ $filtered_destinations = array_filter($destinations, function ($destination) use
 
   return true;
 });
+
+unset($_SESSION['transaction_status']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">

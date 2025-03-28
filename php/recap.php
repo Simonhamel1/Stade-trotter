@@ -4,7 +4,7 @@ session_start();
 require('getapikey.php');
 $vendeur = 'MEF-2_D';
 $api_key = getAPIKey($vendeur); 
-$retour = 'http://localhost/StadeTrotter/php/finalisation.php';
+$retour = 'http://localhost/StadeTrotter/php/retour.php';       
 
 // Récupération de l'ID utilisateur depuis la session (déjà connecté)
 $utilisateurId = $_SESSION['user'] ?? '';
@@ -106,7 +106,7 @@ $recapResults = [
     'nb_participants' => $nbParticipants,
     'final_price'     => $finalPrice,
     'steps_details'   => $stepsDetails,
-    'utilisateur_id'  => $utilisateurId
+    'utilisateur_id'  => $utilisateurId         
 ];
 
 $montant = $finalPrice;
@@ -152,6 +152,11 @@ if (isset($_POST['save_recap'])) {
     </header>
     <main>
         <h1>Compte rendu complet de votre voyage</h1>
+        <?php
+            if($_SESSION['transaction_status'] == 'denied'){
+                echo '<div class="error-message">Une erreur est survenue lors du paiement. Veuillez réessayer.</div>';
+            }
+        ?>
         <section class="voyage-details">
             <h2><?= htmlspecialchars($voyage['name']) ?></h2>
             <p><?= htmlspecialchars($voyage['description']) ?></p>
@@ -204,7 +209,7 @@ if (isset($_POST['save_recap'])) {
         <section class="final-price">
             <h2>Prix final de votre voyage : <?= $finalPrice ?> €</h2>
         </section>
-        <div class="session-details">
+        <div class="end-buttons">
             <form action='https://www.plateforme-smc.fr/cybank/index.php'
                 method='POST'>
                 <input type='hidden' name='transaction'
@@ -217,6 +222,7 @@ if (isset($_POST['save_recap'])) {
                 value='<?php echo $control ?>'>
                 <input id="submit" type='submit' value="Enregistrer et payer">
             </form>
+            <a id="back" href="./destinations.php">Retour</a>
         </div>
     </main>
     <footer>

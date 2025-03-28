@@ -94,5 +94,13 @@
         "vendeur": "MEF-2_D",
         "control": "c6403579b2276af72ad5a66e19c964f7",
         "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "67e72fe37d949",
+        "vendeur": "MEF-2_D",
+        "control": "fbaa8ae2505f845c7c729934f781120c",
+        "user": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
     }
 ]

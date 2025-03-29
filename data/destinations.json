@@ -165,7 +165,7 @@
         "roof": "Ouvert",
         "roofFilter": "ouvert",
         "yearOfConstruction": 1937,
-        "travelprice": 950
+        "travelprice": 0
     },
     "stadio-olimpico": {
         "name": "Stadio Olimpico",
@@ -179,7 +179,7 @@
         "roof": "Ouvert",
         "roofFilter": "ouvert",
         "yearOfConstruction": 1953,
-        "travelprice": 1000
+        "travelprice": 9999
     },
     "la-bombonera": {
         "name": "La Bombonera",

@@ -292,7 +292,7 @@
         },
         "image": "camp-nou.jpeg",
         "continent": "Europe",
-        "prix": 1400,
+        "prix": 1200,
         "specificites": {
             "type": "Événement sportif",
             "niveau_physique": "Moyen",
@@ -427,7 +427,7 @@
         },
         "image": "allianz-arena.jpg",
         "continent": "Europe",
-        "prix": 1200,
+        "prix": 1500,
         "specificites": {
             "type": "Événement sportif",
             "niveau_physique": "Moyen",
@@ -570,7 +570,7 @@
         },
         "image": "anfield.jpeg",
         "continent": "Europe",
-        "prix": 1100,
+        "prix": 1250,
         "specificites": {
             "type": "Événement sportif",
             "niveau_physique": "Moyen",
@@ -705,7 +705,7 @@
         },
         "image": "maracana.jpeg",
         "continent": "Amérique",
-        "prix": 900,
+        "prix": 800,
         "specificites": {
             "type": "Événement sportif",
             "niveau_physique": "Facile",
@@ -840,7 +840,7 @@
         },
         "image": "signal-iduna-park.jpg",
         "continent": "Europe",
-        "prix": 1150,
+        "prix": 1600,
         "specificites": {
             "type": "Événement sportif",
             "niveau_physique": "Moyen",
@@ -975,7 +975,7 @@
             },
             "image": "azteca.jpg",
             "continent": "Amérique",
-            "prix": 1400,
+            "prix": 900,
             "specificites": {
                 "type": "Événement sportif",
                 "niveau_physique": "Moyen",
@@ -1105,7 +1105,7 @@
             },
             "image": "old-trafford.jpeg",
             "continent": "Europe",
-            "prix": 1250,
+            "prix": 1350,
             "specificites": {
                 "type": "Événement sportif",
                 "niveau_physique": "Moyen",
@@ -1381,7 +1381,7 @@
         },
         "image": "emirates-stadium.jpeg",
         "continent": "Europe",
-        "prix": 0,
+        "prix": 1250,
         "specificites": {
             "type": "Troll sportif",
             "niveau_physique": "Facile",
@@ -1433,7 +1433,7 @@
             },
             "image": "la-bombonera.jpeg",
             "continent": "Europe",
-            "prix": 800,
+            "prix": 700,
             "specificites": {
                 "type": "Découverte culturelle",
                 "niveau_physique": "Modéré",
@@ -1510,7 +1510,7 @@
         },
         "image": "bernabeu.jpg",
         "continent": "Europe",
-        "prix": 1500,
+        "prix": 1400,
         "specificites": {
             "type": "Événement sportif",
             "niveau_physique": "Moyen",

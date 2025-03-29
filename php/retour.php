@@ -3,7 +3,6 @@ session_start();
 
 if(isset($_GET['status']) && $_GET['status'] == 'denied'){
     $_SESSION['transaction_status'] = 'denied';
-    header('Location:./recap.php');
 }   
 $absolute_path_paiements = "../data/paiements.json";
 $absolute_path_dataVoyages = "../data/dataVoyages.json";
@@ -46,12 +45,12 @@ unset($_SESSION['voyage_data']);
     body {
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url('../photo/acceuil/arriere-plan.jpeg'); /* Assurez-vous que l'image existe à cet emplacement */
+        font-family: Arial, sans-serif; 
         background-size: cover;
         background-position: center;
         color: #fff;
         text-align: center;
+        color : #000;
     }
 
     h1 {
@@ -63,6 +62,9 @@ unset($_SESSION['voyage_data']);
     p {
         font-size: 1.2rem;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        text-align: center;
+        margin: 20px auto;
+        color: #000;
     }
 
     a {
@@ -75,6 +77,7 @@ unset($_SESSION['voyage_data']);
         border-radius: 5px;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         transition: background-color 0.3s ease;
+        color : #000;
     }
 
     a:hover {
@@ -97,7 +100,7 @@ unset($_SESSION['voyage_data']);
     <?php else: ?>
         <h1>Le paiement a échoué.</h1>
         <p>Nous sommes désolés pour ce désagrément. Veuillez réessayer le paiement</p>
-        <a href="javascript:history.go(-2)">Retour</a>
+        <a href="javascript:history.go(-2)">Retour au paiement</a>
     <?php endif; ?>
 </body>
 </html>

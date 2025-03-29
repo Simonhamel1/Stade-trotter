@@ -5,7 +5,6 @@ require('getapikey.php');
 $vendeur = 'MEF-2_D';
 $api_key = getAPIKey($vendeur); 
 $retour = 'http://localhost/StadeTrotter/php/retour.php';       
-$finalPrice = 0;
 
 // Récupération de l'ID utilisateur depuis la session (déjà connecté)
 $utilisateurId = $_SESSION['user'] ?? '';
@@ -94,12 +93,14 @@ foreach ($data as $index => $etapeData) {
 
 
     $stepDetail['total'] = $stepTotal;
-    $finalPrice += $stepTotal;
+    $finalPrice = isset($finalPrice) ? $finalPrice + $stepTotal : $stepTotal;
     $stepsDetails[$index] = $stepDetail;
 }
 
 $nbParticipants = isset($_SESSION['nb_participants']) ? (int) $_SESSION['nb_participants'] : 1;
 $finalPrice *= $nbParticipants;
+$finalPrice += $voyage['prix'] * $nbParticipants;
+// On ajoute le prix de base du voyage au prix final
 
 $recapResults = [
     'voyage_id'       => $voyage_id,

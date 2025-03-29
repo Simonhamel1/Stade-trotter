@@ -246,5 +246,125 @@
         "vendeur": "MEF-2_D",
         "control": "14a368684d176abf9676d7dea1628b20",
         "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "67e7c2e70530a",
+        "vendeur": "MEF-2_D",
+        "control": "e874d76a0d3e94a9b8f7084b5bac40e0",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c37301e82",
+        "vendeur": "MEF-2_D",
+        "control": "5f27460c4f231c98876355e8af6a660c",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c41d739d4",
+        "vendeur": "MEF-2_D",
+        "control": "bc08fef606e1ef8bd42b460bff45f612",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "67e7c41d739d4",
+        "vendeur": "MEF-2_D",
+        "control": "474735a3f5fc40a631a9de8c53347c3b",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "67e7ae4c395d0",
+        "vendeur": "MEF-2_D",
+        "control": "14a368684d176abf9676d7dea1628b20",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "67e7c46552bf0",
+        "vendeur": "MEF-2_D",
+        "control": "7a986c3caf8299c78a15943ab3fa87df",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "denied",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "26b55b703f6a120cd0ed941d1805d389",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "705",
+        "transaction": "67e7c48f43bb7",
+        "vendeur": "MEF-2_D",
+        "control": "d67ff0c48af3c4d77a84886108945a43",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": null,
+        "montant": null,
+        "transaction": null,
+        "vendeur": null,
+        "control": null,
+        "user": null
     }
 ]

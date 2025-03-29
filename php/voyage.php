@@ -20,7 +20,37 @@ if (!$id || !isset($voyages[$id])) {
 }
 $voyage = $voyages[$id];
 $_SESSION["voyage"]["name"] = $voyage["name"];
+
+// Récupérer le prix de base et le nombre de participants
+$basePrice = $voyage['prix']; // Prix de base par personne
+$nbParticipants = $_POST['nb_participants'] ?? 1; // Nombre de participants
+$totalPrice = $basePrice * $nbParticipants; // Calcul du prix total sans options
+
+// Ajouter le coût des options sélectionnées
+if (isset($_POST['etapes'])) {
+    foreach ($_POST['etapes'] as $etapeIndex => $etape) {
+        foreach ($etape as $categorie => $options) {
+            if (is_array($options)) {
+                foreach ($options as $option) {
+                    // Ajouter le coût de chaque option
+                    foreach ($voyage['etapes'][$etapeIndex]['options'][$categorie] as $optionDetail) {
+                        if ($optionDetail['name'] === $option && isset($optionDetail['price'])) {
+                            $totalPrice += $optionDetail['price'] * $nbParticipants;
+                        }
+                    }
+                }
+            } else {
+                foreach ($voyage['etapes'][$etapeIndex]['options'][$categorie] as $optionDetail) {
+                    if ($optionDetail['name'] === $options && isset($optionDetail['price'])) {
+                        $totalPrice += $optionDetail['price'] * $nbParticipants;
+                    }
+                }
+            }
+        }
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -50,15 +80,15 @@ $_SESSION["voyage"]["name"] = $voyage["name"];
           
           <?php if (isset($voyage['prix'])): ?>
             <p><strong>Prix estimé par personne :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
-            <!-- Le prix total reste statique -->
-            <p id="totalPrice"><strong>Prix total :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
+            <p><strong>Prix total pour <?= $nbParticipants ?> participants :</strong> <?= $totalPrice ?> €</p>
           <?php endif; ?>
         </div>
       </section>
       
       <form action="recap.php" method="post">
         <input type="hidden" name="voyage_id" value="<?= htmlspecialchars($id) ?>">
-        
+        <input type="hidden" name="total_price" value="<?= $totalPrice ?>">
+
         <!-- Section des dates -->
         <section class="date-selection">
           <h2>Dates du voyage</h2>

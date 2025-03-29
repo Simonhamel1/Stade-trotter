@@ -992,5 +992,223 @@
             }
         ],
         "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "voyage_id": "stade-de-france",
+        "voyage_name": "Stade de France",
+        "date_depart": "2025-04-04",
+        "date_retour": "2025-04-28",
+        "nb_participants": 1,
+        "final_price": 705,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Demi-pension",
+                    "price": 50
+                },
+                "transport": {
+                    "name": "Voiture priv\u00e9e",
+                    "price": 30
+                },
+                "activites": [
+                    {
+                        "name": "D\u00eener gastronomique",
+                        "price": 60
+                    }
+                ],
+                "garde_enfants": {
+                    "name": "Babysitting (soir\u00e9e)",
+                    "price": 50
+                },
+                "total": 290
+            },
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Pension compl\u00e8te",
+                    "price": 80
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Concert en plein air",
+                        "price": 35
+                    }
+                ],
+                "total": 225
+            },
+            {
+                "restauration": {
+                    "name": "Menu du chef",
+                    "price": 120
+                },
+                "transport": {
+                    "name": "Taxi",
+                    "price": 20
+                },
+                "activites": [
+                    {
+                        "name": "Sortie nocturne",
+                        "price": 50
+                    }
+                ],
+                "total": 190
+            }
+        ],
+        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "voyage_id": "stade-de-france",
+        "voyage_name": "Stade de France",
+        "date_depart": "2025-04-04",
+        "date_retour": "2025-04-28",
+        "nb_participants": 1,
+        "final_price": 705,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Demi-pension",
+                    "price": 50
+                },
+                "transport": {
+                    "name": "Voiture priv\u00e9e",
+                    "price": 30
+                },
+                "activites": [
+                    {
+                        "name": "D\u00eener gastronomique",
+                        "price": 60
+                    }
+                ],
+                "garde_enfants": {
+                    "name": "Babysitting (soir\u00e9e)",
+                    "price": 50
+                },
+                "total": 290
+            },
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Pension compl\u00e8te",
+                    "price": 80
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Concert en plein air",
+                        "price": 35
+                    }
+                ],
+                "total": 225
+            },
+            {
+                "restauration": {
+                    "name": "Menu du chef",
+                    "price": 120
+                },
+                "transport": {
+                    "name": "Taxi",
+                    "price": 20
+                },
+                "activites": [
+                    {
+                        "name": "Sortie nocturne",
+                        "price": 50
+                    }
+                ],
+                "total": 190
+            }
+        ],
+        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "voyage_id": "anfield",
+        "voyage_name": "Anfield",
+        "date_depart": "2025-04-04",
+        "date_retour": "2025-04-28",
+        "nb_participants": 1,
+        "final_price": 465,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Aucun repas",
+                    "price": 0
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Visite guid\u00e9e de Liverpool",
+                        "price": 25
+                    }
+                ],
+                "total": 135
+            },
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Aucun repas",
+                    "price": 0
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Visite guid\u00e9e d'Anfield",
+                        "price": 30
+                    }
+                ],
+                "total": 140
+            },
+            {
+                "restauration": {
+                    "name": "Menu du chef",
+                    "price": 120
+                },
+                "transport": {
+                    "name": "Taxi",
+                    "price": 20
+                },
+                "activites": [
+                    {
+                        "name": "Soir\u00e9e musicale",
+                        "price": 50
+                    }
+                ],
+                "total": 190
+            }
+        ],
+        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
     }
 ]

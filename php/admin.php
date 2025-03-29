@@ -11,7 +11,7 @@
 
 <body>
     <div id="main">
-        <a href="accueil.html">
+        <a href="accueil.php">
             <h1>Liste utilisateurs</h1>
         </a>
         <table id="tableau">
@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 <?php
-                $jsonData = file_get_contents('../donnees/DB.json');
+                $jsonData = file_get_contents('../data/utilisateurs.json');
                 $users = json_decode($jsonData, true);
 
                 foreach ($users as $user) {
@@ -34,8 +34,8 @@
                     echo "    <td>" . htmlspecialchars($user['Nom']) . "</td>\n";
                     echo "    <td>" . htmlspecialchars($user['Prenom']) . "</td>\n";
                     echo "    <td>" . htmlspecialchars($user['Email']) . "</td>\n";
-                    echo "    <td>" . ($user['VIP'] ? 'OUI' : 'NON') . "</td>\n";
-                    echo "    <td>" . ($user['banni'] ? 'OUI' : 'NON') . "</td>\n";
+                    echo "    <td>" . (isset($user['VIP']) ? ($user['VIP'] ? 'OUI' : 'NON') : 'N/A') . "</td>\n";
+                    echo "    <td>" . (isset($user['banni']) ? ($user['banni'] ? 'OUI' : 'NON') : 'N/A') . "</td>\n";
                     echo "</tr>\n";
                 }
                 ?>

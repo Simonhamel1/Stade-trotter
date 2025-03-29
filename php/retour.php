@@ -43,7 +43,7 @@ unset($_SESSION['voyage_data']);
 
 <style>
     body {
-        margin: 0;
+        
         padding: 0;
         font-family: Arial, sans-serif; 
         background-size: cover;
@@ -92,11 +92,15 @@ unset($_SESSION['voyage_data']);
 </head>
 <body>
     <?php if (isset($_GET['status']) && $_GET['status'] == 'accepted'): ?>
-        <script>
-            setTimeout(function() {
-                window.location.href = "./accueil.php";
-            }, 1);
-        </script>
+        <h1>Paiement accepté !</h1>
+        <p>Merci pour votre paiement. Voici un récapitulatif de votre transaction :</p>
+        <ul style="list-style-type: none; padding: 0; text-align: left; display: inline-block;">
+            <li><strong>Montant :</strong> <?php echo htmlspecialchars($_GET['montant'] ?? 'N/A'); ?> €</li>
+            <li><strong>Transaction ID :</strong> <?php echo htmlspecialchars($_GET['transaction'] ?? 'N/A'); ?></li>
+            <li><strong>Vendeur :</strong> <?php echo htmlspecialchars($_GET['vendeur'] ?? 'N/A'); ?></li>
+        </ul>
+        <p></p>
+        <a href="./accueil.php">Retour à l'accueil</a>
     <?php else: ?>
         <h1>Le paiement a échoué.</h1>
         <p>Nous sommes désolés pour ce désagrément. Veuillez réessayer le paiement</p>

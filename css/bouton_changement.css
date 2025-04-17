@@ -1,0 +1,90 @@
+/* Styles pour le bouton de changement de thème */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle, .connexion {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    display: flex;
+    align-items: center;
+}
+
+#theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0 10px;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    font-size: 18px;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.theme-icon.light {
+    opacity: 1;
+}
+
+.theme-icon.dark {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-icon.light {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-icon.dark {
+    opacity: 1;
+}
+
+:root {
+    --noir: #ffffff; /* Utilisé pour le fond du header */
+    --blanc: #1f1c1c; /* Utilisé pour la couleur de la police */
+    --gris-tres-clair: #8f8e8e; /* Utilisé pour le fond de la page */
+    --bleu-fonce: #353f49;  /* Utilisé pour le fond du header */
+    --gris-clair: #886767;  /* Utilisé pour le fond du footer */
+    --bleu-nuit: #4d6885; /* Utilisé pour le fond du footer */
+    --bleu-moyen: #083877;  /* Utilisé pour le bouton */
+    --bleu-clair: #031f4e; /* Utilisé pour le survol du bouton */
+    --rouge: #ea4335; /* Utilisé pour le bouton */
+    --rouge-fonce: #d23c30; /* Utilisé pour le survol du bouton */
+}
+
+[data-theme="dark"] {
+    --noir: #000000; /* Utilisé pour le fond du header */
+    --blanc: #ffffff; /* Utilisé pour la couleur de la police */
+    --gris-tres-clair: #fefefe; /* Utilisé pour le fond de la page */
+    --bleu-fonce: #0a1720;  /* Utilisé pour le fond du header */
+    --gris-clair: #fdfdfd;  /* Utilisé pour le fond du footer */
+    --bleu-nuit: #0b1821; /* Utilisé pour le fond du footer */
+    --bleu-moyen: #1d3557;  /* Utilisé pour le bouton */
+    --bleu-clair: #457b9d; /* Utilisé pour le survol du bouton */
+    --rouge: #e63946; /* Utilisé pour le bouton */
+    --rouge-fonce: #a82030; /* Utilisé pour le survol du bouton */
+}

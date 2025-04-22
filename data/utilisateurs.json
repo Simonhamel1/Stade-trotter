@@ -128,7 +128,7 @@
         "Password": "03042cf8100db386818cee4ff0f2972431a62ed78edbd09ac08accfabbefd818",
         "Club": "PSG",
         "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5",
-        "VIP": false,
+        "VIP": true,
         "banni": false
     }
 ]

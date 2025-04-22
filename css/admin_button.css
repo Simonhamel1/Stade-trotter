@@ -46,3 +46,31 @@
 .toggle-status:active {
     animation: pulse 0.3s;
 }
+
+/* Styles for disabled buttons during state changes */
+.toggle-status.disabled,
+button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+/* Loading animation for disabled buttons */
+.toggle-status.disabled::after,
+button.disabled::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s linear infinite;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

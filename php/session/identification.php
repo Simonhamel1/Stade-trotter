@@ -11,21 +11,30 @@ $relative_path = "../../data/utilisateurs.json";
 $Content = file_get_contents($relative_path);
 $Content = json_decode($Content, true);
 
-// Bug is here
 foreach($Content as $tab){
     if($tab['Id'] == $Id) {    
+        // Check if user is banned
+        if($tab["banni"]) {
+            $_SESSION['error_message'] = "Votre compte a été banni. Connexion impossible.";
+            header('Location:../connexion.php');
+            exit();
+        }
+        
         // Getting all inscription infos
         $_SESSION["Prenom"]=$tab["Prenom"];
         $_SESSION["Nom"]=$tab["Nom"];
         $_SESSION["Email"]=$tab["Email"];
         $_SESSION["Club"]=$tab["Club"];
         $_SESSION["Password"]=$tab["Password"];
-        $_SESSION["user"] = $tab["Id"];                       
+        $_SESSION["user"] = $tab["Id"];    
+        $_SESSION["VIP"] = $tab["VIP"];
+        $_SESSION["banni"] = $tab["banni"];                   
         header('Location:../accueil.php'); 
         exit();
     }
 }
 $_SESSION['error_message'] = "This account doesn't exist or the password isn't right";
 header('Location:../connexion.php');
+
 exit();
 ?>

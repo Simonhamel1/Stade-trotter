@@ -1,0 +1,48 @@
+/* Styles pour les beaux boutons */
+.toggle-status {
+    padding: 8px 12px;
+    margin-left: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    outline: none;
+    font-size: 14px;
+}
+
+.status-active {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.status-active:hover {
+    background-color: #ff3333;
+    box-shadow: 0 4px 8px rgba(255,77,77,0.3);
+}
+
+.status-inactive {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-inactive:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(76,175,80,0.3);
+}
+
+.status-text {
+    font-weight: bold;
+}
+
+/* Animation pour les changements de statut */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.toggle-status:active {
+    animation: pulse 0.3s;
+}

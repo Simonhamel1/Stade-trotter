@@ -7,6 +7,8 @@
     $_SESSION["Club"]=$_POST["Club"];
     $_POST['Password'] = hash('sha256', $_POST['Password']);
     $_SESSION["Password"]=$_POST["Password"];
+    $_SESSION["VIP"] = false;
+    $_SESSION["banni"] = false;
 
     // Hashing Id
     $Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);  

@@ -22,8 +22,13 @@
         <h2>⚽ Connexion ⚽</h2>
         <?php 
             if(isset($_SESSION["error_message"])){
-            echo '<p style="color: red;">' . $_SESSION["error_message"] . '</p>';
-            unset($_SESSION["error_message"]);
+                echo '<p style="color: red;">' . $_SESSION["error_message"] . '</p>';
+                unset($_SESSION["error_message"]);
+            }
+            
+            if(isset($_SESSION["banned"]) && $_SESSION["banned"] === true) {
+                echo '<p style="color: red;">Votre compte a été banni. Vous ne pouvez pas vous connecter.</p>';
+                unset($_SESSION["banned"]);
             }
         ?>
         <form action="../php/session/identification.php" method="post">
@@ -36,6 +41,7 @@
             <input type="submit" value="Se connecter">
             <p>Pas encore inscrit ? <a href="inscription.php">Créer un compte</a></p>
         </form>
+        <p><small>Note: Les utilisateurs bannis ne peuvent pas se connecter à la plateforme.</small></p>
     </section>
 </body>
 </html>

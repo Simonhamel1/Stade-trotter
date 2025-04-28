@@ -135,9 +135,51 @@ main {
     font-size: 1.2em;
     color: #333;
 }
+
+/* ==================== Modifier_button ================== */
+div.modification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.modification_button{
+    display: flex;
+    justify-content: center;
+    background-color: white;    
+}
+
+.permettre_modifications {
+    background-color: #1d3557;
+    color: white;
+    border: rgb(0, 0, 220) solid 1px;
+    padding: 12%;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.enregistrer_modifications {
+    background-color: green;
+    color: white;
+    border: rgb(0, 128, 0) solid 1px;
+    padding: 5%;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+.annuler_modifications {
+    background-color: red;
+    color: white;
+    border: rgb(255, 0, 0) solid 1px;
+    padding: 5%;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+/* ==================== Fin_modifier_button ================== */
+
 #deconnexion {
     display: flex;
-    margin-right: auto;  /* Changed from margin: 0 auto to align left */
+    margin-right: auto;  
     width: fit-content;
     border: rgb(255, 0, 0) solid 1px;
     padding: 1.1%;

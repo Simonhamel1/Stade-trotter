@@ -130,5 +130,16 @@
         "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5",
         "VIP": true,
         "banni": false
+    },
+    {
+        "Prenom": "Simon",
+        "Nom": "hamelin",
+        "Email": "simon.hamelin1@gmail.com",
+        "Sexe": "Homme",
+        "Club": "PSG",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$7fz.vybnTeURimlcev6hLOX0GJS.Rf5tNd9OBdmZK\/\/AeN7IlLRam",
+        "Id": "4e9e4fd141503daa196ef9641cf6d6d823a69b101f0d8a54307f0686dcb5077c"
     }
 ]

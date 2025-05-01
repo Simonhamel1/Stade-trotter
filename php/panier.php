@@ -179,3 +179,6 @@
     </script>
 </body>
 </html>
+
+<!-- Supprimer le panier quand on procède paiement
+ Mettre en place sauvegarde du panier -->

@@ -148,11 +148,16 @@
                             : 'Non';
                     ?>
                 </p>
+                <div id="end_buttons">
                 <?php if(isset($_SESSION['VIP']) && $_SESSION['VIP']===true): ?>
                     <a href="./admin.php" class="admin-button">
                         Accéder à la page Admin
                     </a>
                 <?php endif; ?>
+                    <button id="soumettre_button" onclick="soumettreTousLesChamps()" style="display: none;">
+                    Soumettre
+                    </button>
+                </div>
             </div>
             <div class="data" id="deconnexion">
                 <a href="./session/deconnexion.php">Déconnexion</a>

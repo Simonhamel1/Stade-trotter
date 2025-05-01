@@ -274,13 +274,38 @@ div.modification_button{
     background-color: #d32638; 
 }
 
+#end_buttons {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+#soumettre_button {
+    background-color: var(--bleu-moyen);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#soumettre_button:hover {
+    background-color: var(--bleu-fonce);
+    opacity: 0.8;
+}
+
 #deconnexion {
+    display: flex;
+    flex-direction: column;
     width: fit-content;
     margin-top: 30px;
+    margin: 0 auto;
+    margin-top: 35px;
 }
 
 #deconnexion a {
-    display: block;
     background-color: #e63946;
     color: white;
     padding: 10px 20px;

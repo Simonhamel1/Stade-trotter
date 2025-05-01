@@ -24,6 +24,12 @@ if(isset($_COOKIE['theme'])) {
                 <li><a href="accueil.php">Accueil</a></li>
                 <li><a href="destinations.php">Destinations</a></li>
                 <li><a href="a_propos.php">À propos</a></li>
+                <li class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Changer de thème" data-current-theme="<?php echo $theme; ?>">
+                        <span class="theme-icon light">☀️</span>
+                        <span class="theme-icon dark">🌙</span>
+                    </button>
+                </li>
                 <?php
             
                 if(isset($_SESSION['user'])) {

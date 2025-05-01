@@ -1,3 +1,19 @@
+<?php
+// Check for theme cookie at the beginning of the file
+$theme = 'dark'; // Default theme
+if(isset($_COOKIE['theme'])) {
+    // Validate cookie value
+    if($_COOKIE['theme'] === 'light' || $_COOKIE['theme'] === 'dark') {
+        $theme = $_COOKIE['theme'];
+    } else {
+        // Invalid value, reset to default
+        setcookie('theme', $theme, time() + (365 * 24 * 60 * 60), '/');
+    }
+} else {
+    // Cookie doesn't exist, create with default value
+    setcookie('theme', $theme, time() + (365 * 24 * 60 * 60), '/');
+}
+?>
 <header>
     <div class="navbar">
         <a href="#top">
@@ -9,7 +25,13 @@
                 <li><a href="destinations.php">Destinations</a></li>
                 <li><a href="a_propos.php">À propos</a></li>
                 <?php
+<<<<<<< HEAD
             
+=======
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+>>>>>>> eaea528c5364e44b2083e9b193ecc73b8909fd3d
                 if(isset($_SESSION['user'])) {
                     if($_SESSION['user'] == "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"){
                         echo '<li class="connexion"><a href="admin.php">' . "ADMIN" . '</a></li>';
@@ -20,10 +42,23 @@
                     echo '<li class="connexion"><a href="connexion.php">Connexion</a></li>';
                 }
                 ?>
+<<<<<<< HEAD
                 <li><a href="panier.php">🛒 Panier</a></li>
+=======
+                <li class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Changer de thème" data-current-theme="<?php echo $theme; ?>">
+                        <span class="theme-icon light">☀️</span>
+                        <span class="theme-icon dark">🌙</span>
+                    </button>
+                </li>
+>>>>>>> eaea528c5364e44b2083e9b193ecc73b8909fd3d
             </ul>
         </nav>
     </div>
     <link rel="stylesheet" href="../css/bouton_changement.css">
+    <script>
+        // Apply theme from cookie immediately to prevent flash of wrong theme
+        document.documentElement.setAttribute('data-theme', '<?php echo $theme; ?>');
+    </script>
     <script src="../js/bouton_changement.js" defer></script>
 </header>

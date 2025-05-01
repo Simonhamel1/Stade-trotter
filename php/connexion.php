@@ -1,8 +1,11 @@
 <?php
+    // Only reset session if user is not already logged in
     session_start();
-    session_unset();
-    session_destroy();
-    session_start();
+    if (!isset($_SESSION['user_id'])) {
+        session_unset();
+        session_destroy();
+        session_start();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,18 +23,8 @@
     <section class="form-container">
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
         <h2>⚽ Connexion ⚽</h2>
-        <?php 
-            if(isset($_SESSION["error_message"])){
-                echo '<p style="color: red;">' . $_SESSION["error_message"] . '</p>';
-                unset($_SESSION["error_message"]);
-            }
-            
-            if(isset($_SESSION["banned"]) && $_SESSION["banned"] === true) {
-                echo '<p style="color: red;">Votre compte a été banni. Vous ne pouvez pas vous connecter.</p>';
-                unset($_SESSION["banned"]);
-            }
-        ?>
-        <form action="../php/session/identification.php" method="post">
+        
+        <form id="loginForm" action="../php/session/identification.php" method="post">
             <label for="email">Email:</label>
             <input type="email" id="email" name="Email" required>
 
@@ -41,7 +34,15 @@
             <input type="submit" value="Se connecter">
             <p>Pas encore inscrit ? <a href="inscription.php">Créer un compte</a></p>
         </form>
-        <p><small>Note: Les utilisateurs bannis ne peuvent pas se connecter à la plateforme.</small></p>
     </section>
+    
+    <!-- Popup for errors -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="errorPopup">
+        <p id="errorMessage" class="popup-error"></p>
+        <button onclick="closePopup()">Fermer</button>
+    </div>
+    
+    <script src="../js/form-validation.js"></script>
 </body>
 </html>

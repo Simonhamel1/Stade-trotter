@@ -1,8 +1,12 @@
 <?php
 session_start();
-// Receiving user datas    
-$_POST['Password'] = hash('sha256', $_POST['Password']);
-$Id = hash('sha256', hash('sha256', $_POST['Email']) . $_POST['Password']);   
+header('Content-Type: application/json');
+
+// Receiving user data
+$email = $_POST['Email'] ?? '';
+$password = $_POST['Password'] ?? '';
+$hashedPassword = hash('sha256', $password);
+$Id = hash('sha256', hash('sha256', $email) . $hashedPassword);   
 
 // Path to the json
 $relative_path = "../../data/utilisateurs.json";
@@ -11,30 +15,45 @@ $relative_path = "../../data/utilisateurs.json";
 $Content = file_get_contents($relative_path);
 $Content = json_decode($Content, true);
 
+// Check if email exists first
+$emailExists = false;
+$passwordCorrect = false;
+$userAccount = null;
+
 foreach($Content as $tab){
-    if($tab['Id'] == $Id) {    
-        // Check if user is banned
-        if($tab["banni"]) {
-            $_SESSION['error_message'] = "Votre compte a été banni. Connexion impossible.";
-            header('Location:../connexion.php');
-            exit();
+    if($tab['Email'] == $email) {
+        $emailExists = true;
+        // Now check password
+        if(hash('sha256', hash('sha256', $email) . $hashedPassword) == $tab['Id']) {
+            $passwordCorrect = true;
+            $userAccount = $tab;
+            break;
         }
-        
-        // Getting all inscription infos
-        $_SESSION["Prenom"]=$tab["Prenom"];
-        $_SESSION["Nom"]=$tab["Nom"];
-        $_SESSION["Email"]=$tab["Email"];
-        $_SESSION["Club"]=$tab["Club"];
-        $_SESSION["Password"]=$tab["Password"];
-        $_SESSION["user"] = $tab["Id"];    
-        $_SESSION["VIP"] = $tab["VIP"];
-        $_SESSION["banni"] = $tab["banni"];                   
-        header('Location:../accueil.php'); 
-        exit();
     }
 }
-$_SESSION['error_message'] = "This account doesn't exist or the password isn't right";
-header('Location:../connexion.php');
 
-exit();
+// Handle different cases
+if(!$emailExists) {
+    echo json_encode(['success' => false, 'message' => 'Adresse email inconnue.']);
+    exit();
+} else if(!$passwordCorrect) {
+    echo json_encode(['success' => false, 'message' => 'Mot de passe incorrect.']);
+    exit();
+} else if($userAccount['banni']) {
+    echo json_encode(['success' => false, 'message' => 'Votre compte a été banni. Connexion impossible.']);
+    exit();
+} else {
+    // Getting all inscription infos
+    $_SESSION["Prenom"] = $userAccount["Prenom"];
+    $_SESSION["Nom"] = $userAccount["Nom"];
+    $_SESSION["Email"] = $userAccount["Email"];
+    $_SESSION["Club"] = $userAccount["Club"];
+    $_SESSION["Password"] = $userAccount["Password"];
+    $_SESSION["user"] = $userAccount["Id"];    
+    $_SESSION["VIP"] = $userAccount["VIP"];
+    $_SESSION["banni"] = $userAccount["banni"];
+    
+    echo json_encode(['success' => true, 'redirect' => 'accueil.php']);
+    exit();
+}
 ?>

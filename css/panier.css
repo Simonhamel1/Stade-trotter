@@ -1,0 +1,446 @@
+/* ==================== IMPORTATION DES STYLES ==================== */
+@import url('colors.css');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gris-tres-clair);
+}
+  
+
+html {
+    background-color: var(--bleu-fonce);
+    scroll-behavior: smooth;
+}
+
+/* ==================== HEADER/NavBar ==================== */
+header {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 70px;
+    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--blanc);
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: var(--bleu-clair);
+}
+
+.connexion a {
+    background-color: var(--bleu-moyen);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.connexion a:hover {
+    background-color: var(--bleu-clair);
+    color: black;
+}
+
+/* ==================== MAIN ==================== */
+main {
+    width: 100%;
+    height: 100%;
+}
+
+/* ==================== PANIER ==================== */
+.panier-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 4.5rem;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.panier-vide {
+    text-align: center;
+    padding: 3rem;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.panier-vide p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.panier-items {
+    margin-bottom: 2rem;
+}
+
+.panier-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.panier-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f0f8ff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.panier-item-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+.panier-item-details {
+    display: flex;
+    padding: 1.5rem;
+}
+
+.panier-item-info {
+    flex: 1;
+}
+
+.panier-item-info p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.etapes-voyage {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.etapes-voyage h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.etapes-voyage ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.etapes-voyage li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.etape-nom {
+    font-weight: bold;
+}
+
+.etape-duree {
+    color: #777;
+}
+
+.panier-item-prix {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    min-width: 150px;
+}
+
+.prix {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.panier-recapitulatif {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.panier-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.panier-total h3 {
+    font-size: 1.4rem;
+    margin: 0;
+    color: #333;
+}
+
+.prix-total {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.panier-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ==================== BOUTONS ==================== */
+.btn-supprimer, 
+.btn-modifier, 
+.btn-continuer, 
+.btn-paiement {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-supprimer {
+    background-color: #fff;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+    font-size: 0.9rem;
+}
+
+.btn-supprimer:hover {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-modifier {
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+}
+
+.btn-modifier:hover {
+    background-color: #2980b9;
+}
+
+.btn-continuer {
+    background-color: #fff;
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+.btn-continuer:hover {
+    background-color: #f0f8ff;
+}
+
+#submit {
+    background-color: #2ecc71;
+    color: #fff;
+    border: 1px solid #2ecc71;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+#submit:hover {
+    background-color: #27ae60;
+}
+
+
+/* ==================== FOOTER ==================== */
+footer {
+    background-color: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.payment-logos img {
+    width: auto;
+    height: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 8px 0;
+}
+
+.footer-section ul li a {
+    color: var(--blanc);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #f8d210;
+}
+
+/* Contact */
+.footer-section p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    font-size: 14px;
+    color: var(--blanc);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media screen and (max-width: 1024px) {
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* Pour voir l’effet de déplacement */
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+      }
+      
+      /* Quand on ajoute la classe active, on translate le header vers le haut */
+      header.active {
+        transform: translateY(-80%);
+        padding-bottom: 30%;
+    }
+  
+    .navbar {
+        height: 95%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav a {
+       margin-bottom: 10px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .panier-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .panier-item-details {
+        flex-direction: column;
+    }
+    
+    .panier-item-prix {
+        margin-top: 1rem;
+        align-items: flex-start;
+    }
+}

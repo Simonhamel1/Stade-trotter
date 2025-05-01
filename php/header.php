@@ -9,7 +9,7 @@
                 <li><a href="destinations.php">Destinations</a></li>
                 <li><a href="a_propos.php">À propos</a></li>
                 <?php
-                // session_start();
+            
                 if(isset($_SESSION['user'])) {
                     if($_SESSION['user'] == "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"){
                         echo '<li class="connexion"><a href="admin.php">' . "ADMIN" . '</a></li>';
@@ -20,12 +20,7 @@
                     echo '<li class="connexion"><a href="connexion.php">Connexion</a></li>';
                 }
                 ?>
-                <li class="theme-toggle">
-                    <button id="theme-toggle-btn" aria-label="Changer de thème">
-                        <span class="theme-icon light">☀️</span>
-                        <span class="theme-icon dark">🌙</span>
-                    </button>
-                </li>
+                <li><a href="panier.php">🛒 Panier</a></li>
             </ul>
         </nav>
     </div>

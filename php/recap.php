@@ -199,19 +199,6 @@ $control = md5( $api_key
             <h2>Prix final de votre voyage : <?= $finalPrice ?> €</h2>
         </section>
         <div class="end-buttons">
-            <?php
-            // // Save recap data before payment
-            // $jsonRecapFile = "./../data/dataVoyages.json";
-            // $existingData = [];
-            // if (file_exists($jsonRecapFile)) {
-            //     $existingData = json_decode(file_get_contents($jsonRecapFile), true);
-            //     if (!is_array($existingData)) {
-            //         $existingData = [];
-            //     }
-            // }
-            // $existingData[] = $recapResults;
-            // file_put_contents($jsonRecapFile, json_encode($existingData, JSON_PRETTY_PRINT));
-            ?>
             <form action='https://www.plateforme-smc.fr/cybank/index.php'
                 method='POST'>
                 <input type='hidden' name='transaction'
@@ -228,6 +215,7 @@ $control = md5( $api_key
 
             </form>
             <a id="back" href="#" onclick="history.back(); return false;">Retour</a>
+            <a id="panier" href="./panier.php">Panier</a>
         </div>
     </main>
     <footer>

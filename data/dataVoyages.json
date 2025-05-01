@@ -2,84 +2,10 @@
     {
         "voyage_id": "stade-de-france",
         "voyage_name": "Stade de France",
-        "date_depart": "2025-03-27",
-        "date_retour": "2025-06-18",
-        "nb_participants": 1,
-        "final_price": 1705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": ""
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
         "date_depart": "2025-03-29",
         "date_retour": "2025-03-30",
         "nb_participants": 1,
-        "final_price": 1855,
+        "final_price": 0,
         "steps_details": [
             {
                 "hebergement": {
@@ -402,63 +328,21 @@
         "utilisateur_id": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
     },
     {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-03-30",
-        "date_retour": "2025-03-31",
-        "nb_participants": 1,
-        "final_price": 705,
+        "voyage_id": "signal-iduna-park",
+        "voyage_name": "Signal Iduna Park",
+        "date_depart": "2025-05-24",
+        "date_retour": "2025-05-27",
+        "nb_participants": 8,
+        "final_price": 18400,
         "steps_details": [
             {
                 "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
+                    "name": "Suite Royale",
+                    "price": 250
                 },
                 "restauration": {
                     "name": "Pension compl\u00e8te",
                     "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
                 },
                 "transport": {
                     "name": "Taxi",
@@ -466,343 +350,11 @@
                 },
                 "activites": [
                     {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-01",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-01",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-01",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "allianz-arena",
-        "voyage_name": "Allianz Arena",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 515,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Aucun repas",
-                    "price": 0
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Visite guid\u00e9e de Munich",
+                        "name": "Visite guid\u00e9e de Dortmund",
                         "price": 25
                     }
                 ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 185
+                "total": 375
             },
             {
                 "hebergement": {
@@ -819,379 +371,13 @@
                 },
                 "activites": [
                     {
-                        "name": "Visite guid\u00e9e du stade",
-                        "price": 30
-                    }
-                ],
-                "total": 140
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Soir\u00e9e culturelle",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "anfield",
-        "voyage_name": "Anfield",
-        "date_depart": "2025-04-04",
-        "date_retour": "2025-04-28",
-        "nb_participants": 1,
-        "final_price": 465,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Aucun repas",
-                    "price": 0
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Visite guid\u00e9e de Liverpool",
+                        "name": "Tour du stade",
                         "price": 25
                     }
                 ],
                 "total": 135
             },
             {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Aucun repas",
-                    "price": 0
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Visite guid\u00e9e d'Anfield",
-                        "price": 30
-                    }
-                ],
-                "total": 140
-            },
-            {
                 "restauration": {
                     "name": "Menu du chef",
                     "price": 120
@@ -1202,7 +388,7 @@
                 },
                 "activites": [
                     {
-                        "name": "Soir\u00e9e musicale",
+                        "name": "Soir\u00e9e allemande",
                         "price": 50
                     }
                 ],
@@ -1214,23 +400,23 @@
     {
         "voyage_id": "stade-de-france",
         "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-06",
-        "nb_participants": 1,
-        "final_price": 705,
+        "date_depart": "2025-05-24",
+        "date_retour": "2025-05-27",
+        "nb_participants": 2,
+        "final_price": 3920,
         "steps_details": [
             {
                 "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
+                    "name": "Suite Royale",
+                    "price": 250
                 },
                 "restauration": {
                     "name": "Demi-pension",
                     "price": 50
                 },
                 "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
+                    "name": "Taxi",
+                    "price": 20
                 },
                 "activites": [
                     {
@@ -1239,23 +425,23 @@
                     }
                 ],
                 "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
+                    "name": "Garderie (journ\u00e9e)",
+                    "price": 80
                 },
-                "total": 290
+                "total": 460
             },
             {
                 "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
+                    "name": "Luxe (5\u2605)",
+                    "price": 200
                 },
                 "restauration": {
                     "name": "Pension compl\u00e8te",
                     "price": 80
                 },
                 "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
+                    "name": "Train r\u00e9gional",
+                    "price": 15
                 },
                 "activites": [
                     {
@@ -1263,12 +449,12 @@
                         "price": 35
                     }
                 ],
-                "total": 225
+                "total": 330
             },
             {
                 "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
+                    "name": "D\u00eener en terrasse",
+                    "price": 110
                 },
                 "transport": {
                     "name": "Taxi",
@@ -1276,381 +462,11 @@
                 },
                 "activites": [
                     {
-                        "name": "Sortie nocturne",
-                        "price": 50
+                        "name": "Visite culturelle",
+                        "price": 40
                     }
                 ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-06",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-06",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-06",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-05",
-        "date_retour": "2025-05-06",
-        "nb_participants": 1,
-        "final_price": 705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
-            }
-        ],
-        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
-    },
-    {
-        "voyage_id": "stade-de-france",
-        "voyage_name": "Stade de France",
-        "date_depart": "2025-04-03",
-        "date_retour": "2025-04-29",
-        "nb_participants": 1,
-        "final_price": 1705,
-        "steps_details": [
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Demi-pension",
-                    "price": 50
-                },
-                "transport": {
-                    "name": "Voiture priv\u00e9e",
-                    "price": 30
-                },
-                "activites": [
-                    {
-                        "name": "D\u00eener gastronomique",
-                        "price": 60
-                    }
-                ],
-                "garde_enfants": {
-                    "name": "Babysitting (soir\u00e9e)",
-                    "price": 50
-                },
-                "total": 290
-            },
-            {
-                "hebergement": {
-                    "name": "Standard (3\u2605)",
-                    "price": 100
-                },
-                "restauration": {
-                    "name": "Pension compl\u00e8te",
-                    "price": 80
-                },
-                "transport": {
-                    "name": "Bus collectif",
-                    "price": 10
-                },
-                "activites": [
-                    {
-                        "name": "Concert en plein air",
-                        "price": 35
-                    }
-                ],
-                "total": 225
-            },
-            {
-                "restauration": {
-                    "name": "Menu du chef",
-                    "price": 120
-                },
-                "transport": {
-                    "name": "Taxi",
-                    "price": 20
-                },
-                "activites": [
-                    {
-                        "name": "Sortie nocturne",
-                        "price": 50
-                    }
-                ],
-                "total": 190
+                "total": 170
             }
         ],
         "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"

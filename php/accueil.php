@@ -3,6 +3,10 @@
     if(!isset($_SESSION['user'])){
         header('Location:./connexion.php');
     }
+
+    if (isset($_SESSION['user'])) {
+        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="fr">

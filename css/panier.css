@@ -198,6 +198,7 @@ h1 {
     font-weight: bold;
     color: #2c3e50;
     margin-bottom: 1rem;
+    margin-right: 1.5rem;
 }
 
 .panier-recapitulatif {
@@ -237,7 +238,6 @@ h1 {
 
 /* ==================== BOUTONS ==================== */
 .btn-supprimer, 
-.btn-modifier, 
 .btn-continuer, 
 .btn-paiement {
     display: inline-block;
@@ -260,16 +260,6 @@ h1 {
 .btn-supprimer:hover {
     background-color: #e74c3c;
     color: #fff;
-}
-
-.btn-modifier {
-    background-color: #3498db;
-    color: #fff;
-    border: 1px solid #3498db;
-}
-
-.btn-modifier:hover {
-    background-color: #2980b9;
 }
 
 .btn-continuer {

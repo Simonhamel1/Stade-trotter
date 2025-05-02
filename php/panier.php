@@ -79,6 +79,162 @@
     <title>Panier - Réservation de voyage</title>
     <link rel="stylesheet" href="../css/panier.css">
     <script src="../js/navbar.js"></script>
+    <style>
+    /* Styles pour les étapes du voyage */
+    .etapes-voyage {
+        margin: 20px 0;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .etapes-voyage h3 {
+        color: #2c3e50;
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 8px;
+    }
+    
+    .timeline {
+        position: relative;
+        padding-left: 30px;
+    }
+    
+    .timeline:before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: #3498db;
+    }
+    
+    .timeline-item {
+        position: relative;
+        margin-bottom: 25px;
+    }
+    
+    .timeline-marker {
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #3498db;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+    }
+    
+    .step-number {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .timeline-content {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        border-left: 3px solid #3498db;
+    }
+    
+    .timeline-content h4 {
+        margin-top: 0;
+        color: #3498db;
+        font-size: 1.2em;
+    }
+    
+    .date-badge {
+        display: inline-block;
+        background: #2ecc71;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        margin-bottom: 10px;
+    }
+    
+    .etape-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .option-category {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+    }
+    
+    .category-name {
+        font-weight: bold;
+        color: #2c3e50;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .option-values {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .option-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .option-name {
+        color: #555;
+    }
+    
+    .option-price {
+        color: #e74c3c;
+        font-weight: bold;
+    }
+    
+    .etape-total {
+        margin-top: 10px;
+        text-align: right;
+        font-weight: bold;
+        padding-top: 8px;
+        border-top: 1px solid #eee;
+    }
+    
+    .etape-total .price {
+        color: #e74c3c;
+        font-size: 1.1em;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .timeline {
+            padding-left: 20px;
+        }
+        
+        .timeline:before {
+            left: 10px;
+        }
+        
+        .timeline-marker {
+            left: -20px;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .step-number {
+            font-size: 0.8em;
+        }
+        
+        .timeline-content {
+            padding: 10px;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Entête navbar -->
@@ -110,24 +266,79 @@
                                 <?php if (!empty($voyage['steps_details'])): ?>
                                     <div class="etapes-voyage">
                                         <h3>Étapes du voyage</h3>
-                                        <ul>
-                                            <?php foreach ($voyage['steps_details'] as $etape): ?>
-                                                <li>
-                                                    <span class="etape-nom"><?php echo htmlspecialchars($etape['nom']); ?></span>
-                                                    <?php if (isset($etape['duree'])): ?>
-                                                        <span class="etape-duree"><?php echo $etape['duree']; ?> jours</span>
-                                                    <?php endif; ?>
-                                                </li>
+                                        <div class="timeline">
+                                            <?php foreach ($voyage['steps_details'] as $etapeIndex => $etapeDetails): ?>
+                                                <div class="timeline-item">
+                                                    <div class="timeline-marker">
+                                                        <span class="step-number"><?php echo ($etapeIndex + 1); ?></span>
+                                                    </div>
+                                                    <div class="timeline-content">
+                                                        <h4>Étape <?php echo ($etapeIndex + 1); ?></h4>
+                                                        
+                                                        <?php if (isset($etapeDetails['date'])): ?>
+                                                            <div class="date-badge">
+                                                                <i class="fa fa-calendar"></i> <?php echo $etapeDetails['date']; ?>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                        
+                                                        <div class="etape-options">
+                                                            <?php
+                                                            // Parcourir les détails pour afficher les options choisies
+                                                            foreach ($etapeDetails as $categorie => $valeur) {
+                                                                if ($categorie === 'total' || $categorie === 'date') {
+                                                                    continue; // Traitement spécial pour ces champs
+                                                                }
+                                                                
+                                                                echo '<div class="option-category">';
+                                                                echo '<span class="category-name">' . ucfirst($categorie) . '</span>';
+                                                                echo '<div class="option-values">';
+                                                                
+                                                                if (is_array($valeur)) {
+                                                                    if (isset($valeur[0]) && is_array($valeur[0])) {
+                                                                        // Cas d'un tableau d'options
+                                                                        foreach ($valeur as $option) {
+                                                                            if (isset($option['name'])) {
+                                                                                echo '<div class="option-item">';
+                                                                                echo '<span class="option-name">' . htmlspecialchars($option['name']) . '</span>';
+                                                                                if (isset($option['price'])) {
+                                                                                    echo '<span class="option-price">' . number_format($option['price'], 2, ',', ' ') . ' €</span>';
+                                                                                }
+                                                                                echo '</div>';
+                                                                            }
+                                                                        }
+                                                                    } else if (isset($valeur['name'])) {
+                                                                        // Cas d'une option unique
+                                                                        echo '<div class="option-item">';
+                                                                        echo '<span class="option-name">' . htmlspecialchars($valeur['name']) . '</span>';
+                                                                        if (isset($valeur['price'])) {
+                                                                            echo '<span class="option-price">' . number_format($valeur['price'], 2, ',', ' ') . ' €</span>';
+                                                                        }
+                                                                        echo '</div>';
+                                                                    }
+                                                                }
+                                                                
+                                                                echo '</div>'; // Fin option-values
+                                                                echo '</div>'; // Fin option-category
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        
+                                                        <?php if (isset($etapeDetails['total'])): ?>
+                                                            <div class="etape-total">
+                                                                Total étape: <span class="price"><?php echo number_format($etapeDetails['total'], 2, ',', ' '); ?> €</span>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </div>
                                             <?php endforeach; ?>
-                                        </ul>
+                                        </div>
                                     </div>
                                 <?php endif; ?>
                             </div>
                             
-                            <div class="panier-item-prix">
-                                <p class="prix"><?php echo number_format($voyage['final_price'], 2, ',', ' '); ?> €</p>
-                                <a href="modifier_voyage.php?id=<?php echo $voyage['voyage_id']; ?>" class="btn-modifier">Modifier</a>
-                            </div>
+                        </div>
+                        <div class="panier-item-prix">
+                            <p class="prix"><?php echo "Total Voyage: " . number_format($voyage['final_price'], 2, ',', ' '); ?> €</p>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -135,7 +346,7 @@
             
             <div class="panier-recapitulatif">
                 <div class="panier-total">
-                    <h3>Total</h3>
+                    <h3>Total Panier</h3>
                     <p class="prix-total"><?php echo number_format($prixTotalPanier, 2, ',', ' '); ?> €</p>
                 </div>
                 

@@ -550,5 +550,29 @@
         "vendeur": "MEF-2_D",
         "control": "3bb1548de6cce6ddb02078eac3319130",
         "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "17699",
+        "transaction": "68148df1c88d7",
+        "vendeur": "MEF-2_D",
+        "control": "46cd7720031f7595e315b86564a0aabf",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "2165",
+        "transaction": "6814c2eec5d81",
+        "vendeur": "MEF-2_D",
+        "control": "e5aeee4e664624dd0d4d1c071e1f0d45",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
+    },
+    {
+        "status": "accepted",
+        "montant": "13640",
+        "transaction": "6814c3742844a",
+        "vendeur": "MEF-2_D",
+        "control": "3d1ce10a9dcdc1d4740a1a5c698f28f2",
+        "user": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
     }
 ]

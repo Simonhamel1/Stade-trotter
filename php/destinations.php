@@ -14,99 +14,6 @@ if (json_last_error() !== JSON_ERROR_NONE) {
   die("Erreur lors du décodage JSON: " . json_last_error_msg());
 }
 
-// Récupérer et nettoyer les paramètres de l'URL
-$continent = isset($_GET['continent']) ? trim($_GET['continent']) : '';
-$pays      = isset($_GET['pays'])      ? trim($_GET['pays']) : '';
-$capacity  = isset($_GET['capacity'])  ? trim($_GET['capacity']) : '';
-$type      = isset($_GET['type'])      ? trim($_GET['type']) : '';
-$roof      = isset($_GET['roof'])      ? trim($_GET['roof']) : '';
-$year      = isset($_GET['year'])      ? trim($_GET['year']) : '';
-$price     = isset($_GET['price'])     ? trim($_GET['price']) : '';
-$search    = isset($_GET['search'])    ? trim($_GET['search']) : '';
-
-// Filtrer les destinations selon tous les critères
-$filtered_destinations = array_filter($destinations, function ($destination) use (
-  $continent,
-  $pays,
-  $capacity,
-  $type,
-  $roof,
-  $year,
-  $price,
-  $search
-) {
-  // Recherche textuelle dans le nom ou la description
-  if ($search) {
-    $needle = strtolower($search);
-    $name   = strtolower($destination['name'] ?? '');
-    $desc   = strtolower($destination['description'] ?? '');
-    if (strpos($name, $needle) === false && strpos($desc, $needle) === false) {
-      return false;
-    }
-  }
-
-  // Filtrage par continent
-  if ($continent && strtolower($destination['continent'] ?? '') !== strtolower($continent)) {
-    return false;
-  }
-
-  // Filtrage par pays
-  if ($pays && strtolower($destination['pays'] ?? '') !== strtolower($pays)) {
-    return false;
-  }
-
-  // Filtrage par capacité
-  if ($capacity && isset($destination['capacity'])) {
-    if ($capacity === 'moins-de-20000' && $destination['capacity'] >= 20000) {
-      return false;
-    }
-    if ($capacity === '20000-50000' && ($destination['capacity'] < 20000 || $destination['capacity'] > 50000)) {
-      return false;
-    }
-    if ($capacity === 'plus-de-50000' && $destination['capacity'] <= 50000) {
-      return false;
-    }
-  }
-
-  // Filtrage par type
-  if ($type && strtolower($destination['typeFilter'] ?? '') !== strtolower($type)) {
-    return false;
-  }
-
-  // Filtrage par toit
-  if ($roof && strtolower($destination['roofFilter'] ?? '') !== strtolower($roof)) {
-    return false;
-  }
-
-  // Filtrage par année de construction
-  if ($year && isset($destination['yearOfConstruction'])) {
-    if ($year === 'avant-1950' && $destination['yearOfConstruction'] >= 1950) {
-      return false;
-    }
-    if ($year === '1950-2000' && ($destination['yearOfConstruction'] < 1950 || $destination['yearOfConstruction'] > 2000)) {
-      return false;
-    }
-    if ($year === 'apres-2000' && $destination['yearOfConstruction'] <= 2000) {
-      return false;
-    }
-  }
-
-  // Filtrage par prix
-  if ($price && isset($destination['travelprice'])) {
-    if ($price === 'moins-de-1000' && $destination['travelprice'] >= 1000) {
-      return false;
-    }
-    if ($price === '1000-1500' && ($destination['travelprice'] < 1000 || $destination['travelprice'] > 1500)) {
-      return false;
-    }
-    if ($price === 'plus-de-1500' && $destination['travelprice'] <= 1500) {
-      return false;
-    }
-  }
-
-  return true;
-});
-
 unset($_SESSION['transaction_status']);
 ?>
 <!DOCTYPE html>
@@ -116,7 +23,7 @@ unset($_SESSION['transaction_status']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stade Trotter - Voyages Football</title>
   
-  <!-- Lien vers le fichier CSS -->
+  <!-- Lien vers les fichiers CSS et JS -->
   <link rel="stylesheet" href="../css/destinations.css">
   <script src="../js/navbar.js"></script>
 
@@ -137,93 +44,98 @@ unset($_SESSION['transaction_status']);
         <div class="hero-content">
           <h1>Voyagez à travers les plus grands stades du monde !</h1>
           <p>Découvrez des destinations inoubliables pour les passionnés de football.</p>
-          <form class="form" action="" method="get">
-            <div class="search-container">
-              <span class="icon">🔍</span>
-              <input type="text" name="search" class="search" placeholder="Rechercher..." value="<?= htmlspecialchars($search) ?>">
-              <button type="submit" class="submit">Search</button>
-            </div>
-          </form>
+          <div class="search-container">
+            <span class="icon">🔍</span>
+            <input type="text" id="searchInput" class="search" placeholder="Rechercher...">
+            <button type="button" id="searchButton" class="submit">Search</button>
+          </div>
         </div>
       </section>
+
 
       <!-- FILTRE À GAUCHE -->
       <aside class="filter-section">
         <h2>Filtrer par</h2>
-        <form method="get" action="">
-          <input type="hidden" name="search" value="<?= htmlspecialchars($search) ?>">
-          <input type="hidden" name="continent" value="<?= htmlspecialchars($continent) ?>">
-
+        <div class="filter-form">
           <div class="filter-group">
             <label for="pays">Pays</label>
             <select id="pays" name="pays">
-              <option value="" <?= $pays === '' ? 'selected' : '' ?>>-- TOUT --</option>
-              <option value="france" <?= $pays === 'france' ? 'selected' : '' ?>>France</option>
-              <option value="allemagne" <?= $pays === 'allemagne' ? 'selected' : '' ?>>Allemagne</option>
-              <option value="espagne" <?= $pays === 'espagne' ? 'selected' : '' ?>>Espagne</option>
-              <option value="angleterre" <?= $pays === 'angleterre' ? 'selected' : '' ?>>Angleterre</option>
-              <option value="italie" <?= $pays === 'italie' ? 'selected' : '' ?>>Italie</option>
+              <option value="">-- TOUT --</option>
+              <option value="france">France</option>
+              <option value="allemagne">Allemagne</option>
+              <option value="espagne">Espagne</option>
+              <option value="angleterre">Angleterre</option>
+              <option value="italie">Italie</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="capacity">Capacité</label>
             <select id="capacity" name="capacity">
-              <option value="" <?= $capacity === '' ? 'selected' : '' ?>>-- TOUT --</option>
-              <option value="moins-de-20000" <?= $capacity === 'moins-de-20000' ? 'selected' : '' ?>>Moins de 20,000</option>
-              <option value="20000-50000" <?= $capacity === '20000-50000' ? 'selected' : '' ?>>20,000 - 50,000</option>
-              <option value="plus-de-50000" <?= $capacity === 'plus-de-50000' ? 'selected' : '' ?>>Plus de 50,000</option>
+              <option value="">-- TOUT --</option>
+              <option value="moins-de-20000">Moins de 20,000</option>
+              <option value="20000-50000">20,000 - 50,000</option>
+              <option value="plus-de-50000">Plus de 50,000</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="type">Type de stade</label>
             <select id="type" name="type">
-              <option value="" <?= $type === '' ? 'selected' : '' ?>>-- TOUT --</option>
-              <option value="football" <?= $type === 'football' ? 'selected' : '' ?>>Football</option>
-              <option value="multi-sport" <?= $type === 'multi-sport' ? 'selected' : '' ?>>Multi-sport</option>
-              <option value="olympique" <?= $type === 'olympique' ? 'selected' : '' ?>>Olympique</option>
+              <option value="">-- TOUT --</option>
+              <option value="football">Football</option>
+              <option value="multi-sport">Multi-sport</option>
+              <option value="olympique">Olympique</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="roof">Toit</label>
             <select id="roof" name="roof">
-              <option value="" <?= $roof === '' ? 'selected' : '' ?>>-- TOUT --</option>
-              <option value="ouvert" <?= $roof === 'ouvert' ? 'selected' : '' ?>>Ouvert</option>
-              <option value="ferme" <?= $roof === 'ferme' ? 'selected' : '' ?>>Fermé</option>
-              <option value="retractable" <?= $roof === 'retractable' ? 'selected' : '' ?>>Rétractable</option>
+              <option value="">-- TOUT --</option>
+              <option value="ouvert">Ouvert</option>
+              <option value="ferme">Fermé</option>
+              <option value="retractable">Rétractable</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="year">Année de construction</label>
             <select id="year" name="year">
-              <option value="" <?= $year === '' ? 'selected' : '' ?>>-- TOUT --</option>
-              <option value="avant-1950" <?= $year === 'avant-1950' ? 'selected' : '' ?>>Avant 1950</option>
-              <option value="1950-2000" <?= $year === '1950-2000' ? 'selected' : '' ?>>1950 - 2000</option>
-              <option value="apres-2000" <?= $year === 'apres-2000' ? 'selected' : '' ?>>Après 2000</option>
+              <option value="">-- TOUT --</option>
+              <option value="avant-1950">Avant 1950</option>
+              <option value="1950-2000">1950 - 2000</option>
+              <option value="apres-2000">Après 2000</option>
             </select>
           </div>
 
           <div class="filter-group">
             <label for="price">Prix</label>
             <select id="price" name="price">
-              <option value="" <?= $price === '' ? 'selected' : '' ?>>-- TOUT --</option>
-              <option value="moins-de-1000" <?= $price === 'moins-de-1000' ? 'selected' : '' ?>>Moins de 1000€</option>
-              <option value="1000-1500" <?= $price === '1000-1500' ? 'selected' : '' ?>>1000€ - 1500€</option>
-              <option value="plus-de-1500" <?= $price === 'plus-de-1500' ? 'selected' : '' ?>>Plus de 1500€</option>
+              <option value="">-- TOUT --</option>
+              <option value="moins-de-1000">Moins de 1000€</option>
+              <option value="1000-1500">1000€ - 1500€</option>
+              <option value="plus-de-1500">Plus de 1500€</option>
             </select>
           </div>
 
-          <button type="submit" class="submit">Filtrer</button>
-        </form>
+          <button type="button" id="filterButton" class="submit">Filtrer</button>
+        </div>
       </aside>
 
       <!-- LISTE DES STADES -->
-      <section class="stadium-list">
-        <?php foreach ($filtered_destinations as $key => $destination): ?>
-          <a href="voyage.php?destination=<?= $key ?>">
+      <section class="stadium-list" id="stadium-list">
+        <?php foreach ($destinations as $key => $destination): ?>
+          <a href="voyage.php?destination=<?= $key ?>" class="stadium-item" 
+             data-continent="<?= htmlspecialchars(strtolower($destination['continent'] ?? '')) ?>" 
+             data-pays="<?= htmlspecialchars(strtolower($destination['pays'] ?? '')) ?>" 
+             data-capacity="<?= htmlspecialchars($destination['capacity'] ?? '') ?>" 
+             data-type="<?= htmlspecialchars(strtolower($destination['typeFilter'] ?? '')) ?>" 
+             data-roof="<?= htmlspecialchars(strtolower($destination['roofFilter'] ?? '')) ?>" 
+             data-year="<?= htmlspecialchars($destination['yearOfConstruction'] ?? '') ?>"
+             data-price="<?= htmlspecialchars($destination['travelprice'] ?? '') ?>"
+             data-name="<?= htmlspecialchars(strtolower($destination['name'] ?? '')) ?>"
+             data-description="<?= htmlspecialchars(strtolower($destination['description'] ?? '')) ?>">
             <div class="stadium">
               <img src="../photo/<?= htmlspecialchars($destination['image']) ?>" alt="<?= htmlspecialchars($destination['name']) ?>">
               <h2><?= htmlspecialchars($destination['name']) ?></h2>
@@ -240,5 +152,8 @@ unset($_SESSION['transaction_status']);
 
   <!-- FOOTER -->
   <?php include './footer.php'; ?>
+  
+  <!-- Script de filtrage -->
+  <script src="../js/filtre.js"></script>
 </body>
 </html>

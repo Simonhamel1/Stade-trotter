@@ -21,34 +21,8 @@ if (!$id || !isset($voyages[$id])) {
 $voyage = $voyages[$id];
 $_SESSION["voyage"]["name"] = $voyage["name"];
 
-// Récupérer le prix de base et le nombre de participants
-$basePrice = $voyage['prix']; // Prix de base par personne
-$nbParticipants = $_POST['nb_participants'] ?? 1; // Nombre de participants
-$totalPrice = $basePrice * $nbParticipants; // Calcul du prix total sans options
-
-// Ajouter le coût des options sélectionnées
-if (isset($_POST['etapes'])) {
-    foreach ($_POST['etapes'] as $etapeIndex => $etape) {
-        foreach ($etape as $categorie => $options) {
-            if (is_array($options)) {
-                foreach ($options as $option) {
-                    // Ajouter le coût de chaque option
-                    foreach ($voyage['etapes'][$etapeIndex]['options'][$categorie] as $optionDetail) {
-                        if ($optionDetail['name'] === $option && isset($optionDetail['price'])) {
-                            $totalPrice += $optionDetail['price'] * $nbParticipants;
-                        }
-                    }
-                }
-            } else {
-                foreach ($voyage['etapes'][$etapeIndex]['options'][$categorie] as $optionDetail) {
-                    if ($optionDetail['name'] === $options && isset($optionDetail['price'])) {
-                        $totalPrice += $optionDetail['price'] * $nbParticipants;
-                    }
-                }
-            }
-        }
-    }
-}
+// Récupérer le nombre de participants (valeur par défaut = 1)
+$nbParticipants = 1;
 ?>
 
 <!DOCTYPE html>
@@ -58,10 +32,11 @@ if (isset($_POST['etapes'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($voyage['name']) ?> - Voyages Football</title>
   <link rel="stylesheet" href="../css/voyages.css">
-  <script src="../js/navbar.js"></script>
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/prix_dynamique.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <?php include './header.php'; ?>
@@ -78,26 +53,35 @@ if (isset($_POST['etapes'])) {
             <p><strong>Continent :</strong> <?= htmlspecialchars($voyage['continent']) ?></p>
           <?php endif; ?>
           
-          <?php if (isset($voyage['prix'])): ?>
-            <p><strong>Prix estimé par personne :</strong> <?= htmlspecialchars($voyage['prix']) ?> €</p>
-            <p><strong>Prix total pour <?= $nbParticipants ?> participants :</strong> <?= $totalPrice ?> €</p>
-          <?php endif; ?>
+          <div class="prix-container">
+            <p id="prix-base" data-prix="<?= htmlspecialchars($voyage['prix']) ?>">
+              <strong>Prix de base par personne :</strong> <?= htmlspecialchars($voyage['prix']) ?> €
+            </p>
+            <p>
+              <strong>Prix total estimé :</strong> 
+              <span class="prix-total"><span id="prix-total">0.00</span> €</span>
+            </p>
+          </div>
         </div>
       </section>
       
       <form action="recap.php" method="post">
         <input type="hidden" name="voyage_id" value="<?= htmlspecialchars($id) ?>">
-        <input type="hidden" name="total_price" value="<?= $totalPrice ?>">
+        <input type="hidden" name="total_price" value="0">
 
         <!-- Section des dates -->
         <section class="date-selection">
           <h2>Dates du voyage</h2>
           <div class="date-input">
-            <label for="date_depart">Date de départ :</label>
-            <input type="date" id="date_depart" name="date_depart" required>
+            <div>
+              <label for="date_depart">Date de départ :</label>
+              <input type="date" id="date_depart" name="date_depart" required>
+            </div>
             
-            <label for="date_retour">Date de retour :</label>
-            <input type="date" id="date_retour" name="date_retour" required>
+            <div>
+              <label for="date_retour">Date de retour :</label>
+              <input type="date" id="date_retour" name="date_retour" required>
+            </div>
           </div>
         </section>
         
@@ -167,7 +151,6 @@ if (isset($_POST['etapes'])) {
       document.getElementById('date_depart').addEventListener('change', function() {
         document.getElementById('date_retour').min = this.value;
       });
-      
     });
   </script>
 </body>

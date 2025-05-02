@@ -159,12 +159,14 @@ main {
 
 /* Conteneur de la barre de recherche */
 .search-container {
+
     display: flex;
     align-items: center;
     border: 3px solid var(--noir);
     border-radius: 30px;
     overflow: hidden;
-    width: 100%;
+    margin: auto;
+    width: 50%;
 }
 
 .search-container .icon {

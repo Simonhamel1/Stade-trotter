@@ -66,5 +66,4 @@
     <!-- Inclure le fichier JavaScript -->
     <script src="../js/admin.js"></script>
 </body>
-
 </html>

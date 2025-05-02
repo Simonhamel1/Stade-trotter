@@ -1,117 +1,205 @@
 /* Styles spécifiques pour la page détails d'un voyage */
+:root {
+    --blanc: #ffffff;
+    --bleu-fonce: #1a3c61;
+    --bleu-moyen: #3a6ea5;
+    --bleu-clair: #c1d8f0;
+    --gris-clair: #f7f9fc;
+    --gris-moyen: #e0e0e0;
+    --accent: #2a9d8f;
+    --prix: #e63946;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
 #voyage-details {
-    max-width: 1000px;
-    margin: 100px auto 40px;
+    max-width: 1100px;
+    margin: 100px auto 50px;
     background-color: var(--blanc);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-medium);
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+#voyage-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--bleu-fonce), var(--bleu-moyen));
 }
 
 .voyage-header {
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 20px;
-    margin-bottom: 25px;
+    border-bottom: 2px solid var(--gris-moyen);
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    position: relative;
 }
 
 .voyage-header h1 {
     color: var(--bleu-fonce);
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
     text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .voyage-meta {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
+    gap: 15px;
 }
 
 .voyage-meta p {
     flex: 1;
     min-width: 200px;
-    padding: 10px;
-    background-color: #f7f9fc;
-    border-radius: 5px;
+    padding: 15px;
+    background-color: var(--gris-clair);
+    border-radius: 8px;
     color: #555;
+    font-size: 1.05rem;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    border-left: 4px solid var(--bleu-moyen);
+}
+
+.voyage-meta p:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .voyage-meta p span {
     font-weight: 600;
     color: var(--bleu-fonce);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .steps-container {
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 .steps-container h2 {
     color: var(--bleu-fonce);
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    margin-bottom: 25px;
     text-align: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--gris-moyen);
+    position: relative;
+}
+
+.steps-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--bleu-moyen);
 }
 
 .step-card {
-    background-color: #f7f9fc;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease;
+    background-color: var(--gris-clair);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .step-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .step-card h3 {
     color: var(--bleu-fonce);
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e0e0e0;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gris-moyen);
+    position: relative;
+    display: inline-block;
+}
+
+.step-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60%;
+    height: 2px;
+    background-color: var(--bleu-moyen);
 }
 
 .step-details {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .detail-item {
-    padding: 15px;
+    padding: 18px;
     background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    border-top: 4px solid var(--bleu-clair);
+}
+
+.detail-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .detail-item h4 {
     color: var(--bleu-moyen);
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+}
+
+.detail-item h4::before {
+    content: '•';
+    margin-right: 8px;
+    color: var(--accent);
+    font-size: 1.5em;
 }
 
 .detail-item p {
-    margin: 5px 0;
+    margin: 8px 0;
     color: #555;
+    line-height: 1.4;
 }
 
 .detail-item ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .detail-item ul li {
     display: flex;
     justify-content: space-between;
-    padding: 5px 0;
+    padding: 8px 0;
     border-bottom: 1px dashed #eaeaea;
+    align-items: center;
 }
 
 .detail-item ul li:last-child {
@@ -119,66 +207,113 @@
 }
 
 .price {
-    font-weight: 600;
-    color: #2a9d8f;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: rgba(42, 157, 143, 0.1);
+    display: inline-block;
+    margin-top: 5px;
 }
 
 .step-total {
-    margin-top: 20px;
+    margin-top: 25px;
     padding-top: 15px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--gris-moyen);
     text-align: right;
 }
 
 .step-total p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #333;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(230, 57, 70, 0.1);
+    border-radius: 6px;
 }
 
 .step-total p span {
-    font-weight: bold;
-    color: #e63946;
-    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--prix);
+    font-size: 1.3rem;
+    margin-left: 8px;
 }
 
 .voyage-actions {
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 2px solid #e0e0e0;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 2px solid var(--gris-moyen);
 }
 
 .btn-back, .btn-recap {
-    padding: 12px 25px;
-    border-radius: 6px;
+    padding: 14px 28px;
+    border-radius: 8px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
 }
 
 .btn-back {
     background-color: #6c757d;
     color: white;
+    border: none;
 }
 
 .btn-back:hover {
     background-color: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .btn-recap {
     background-color: var(--bleu-fonce);
     color: white;
+    border: none;
 }
 
 .btn-recap:hover {
     background-color: #0a1a2d;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* Animation pour le chargement de la page */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#voyage-details {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.step-card {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.step-card:nth-child(1) { animation-delay: 0.1s; }
+.step-card:nth-child(2) { animation-delay: 0.2s; }
+.step-card:nth-child(3) { animation-delay: 0.3s; }
+.step-card:nth-child(4) { animation-delay: 0.4s; }
+.step-card:nth-child(5) { animation-delay: 0.5s; }
 
 /* Responsive design */
 @media (max-width: 768px) {
     #voyage-details {
         margin: 80px 15px 30px;
         padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .voyage-header h1 {
+        font-size: 1.8rem;
     }
     
     .voyage-meta {
@@ -187,6 +322,7 @@
     
     .voyage-meta p {
         width: 100%;
+        min-width: auto;
     }
     
     .step-details {
@@ -201,5 +337,33 @@
     .btn-back, .btn-recap {
         text-align: center;
         width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    #voyage-details {
+        padding: 15px;
+        margin-top: 60px;
+    }
+    
+    .voyage-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .steps-container h2 {
+        font-size: 1.4rem;
+    }
+    
+    .step-card {
+        padding: 18px;
+    }
+    
+    .step-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .detail-item {
+        padding: 15px;
     }
 }

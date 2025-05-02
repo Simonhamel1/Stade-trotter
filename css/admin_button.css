@@ -1,4 +1,4 @@
-/* Styles pour les beaux boutons */
+/* Styles pour les boutons de changement de statut */
 .toggle-status {
     padding: 8px 12px;
     margin-left: 15px;
@@ -47,7 +47,7 @@
     animation: pulse 0.3s;
 }
 
-/* Styles for disabled buttons during state changes */
+/* Styles pour les boutons désactivés pendant les changements d'état */
 .toggle-status.disabled,
 button.disabled {
     opacity: 0.6;
@@ -56,7 +56,7 @@ button.disabled {
     pointer-events: none;
 }
 
-/* Loading animation for disabled buttons */
+/* Animation de chargement pour les boutons désactivés */
 .toggle-status.disabled::after,
 button.disabled::after {
     content: "";

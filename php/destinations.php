@@ -5,7 +5,7 @@
     }
 
     if (isset($_SESSION['user_id'])) {
-        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
+        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user_id'] . '");</script>';
     } 
 // Charger les destinations depuis le fichier JSON avec vérification d'erreur
 $jsonPath = '../data/destinations.json';

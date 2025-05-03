@@ -7,7 +7,7 @@ $api_key = getAPIKey($vendeur);
 $retour = 'http://localhost/StadeTrotter/php/retour.php';       
 
 // Récupération de l'ID utilisateur depuis la session (déjà connecté)
-$utilisateurId = $_SESSION['user'] ?? '';
+$utilisateurId = $_SESSION['user_id'] ?? '';
 
 // Stockage des données saisies (hors sauvegarde du récapitulatif)
 // On conserve les dates si elles sont déjà renseignées

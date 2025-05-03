@@ -14,8 +14,8 @@
         $_SESSION['panier'] = [];
         
         // Si l'utilisateur est connecté, charger son panier sauvegardé s'il existe
-        if (isset($_SESSION['user'])) {
-            $utilisateur_id = $_SESSION['user'];
+        if (isset($_SESSION['user_id'])) {
+            $utilisateur_id = $_SESSION['user_id'];
             
             if (file_exists($paniers_file)) {
                 $paniers_data = json_decode(file_get_contents($paniers_file), true) ?: [];
@@ -51,8 +51,8 @@
         }
         
         // Sauvegarder le panier dans le fichier JSON si l'utilisateur est connecté
-        if (isset($_SESSION['user'])) {
-            sauvegarderPanier($_SESSION['user'], $_SESSION['panier']);
+        if (isset($_SESSION['user_id'])) {
+            sauvegarderPanier($_SESSION['user_id'], $_SESSION['panier']);
         }
         
         // Supprimer les données temporaires du voyage
@@ -75,8 +75,8 @@
         $_SESSION['panier'] = array_values($_SESSION['panier']);
         
         // Sauvegarder le panier mis à jour dans le fichier JSON si l'utilisateur est connecté
-        if (isset($_SESSION['user'])) {
-            sauvegarderPanier($_SESSION['user'], $_SESSION['panier']);
+        if (isset($_SESSION['user_id'])) {
+            sauvegarderPanier($_SESSION['user_id'], $_SESSION['panier']);
         }
         
         // Rediriger pour éviter de supprimer plusieurs fois

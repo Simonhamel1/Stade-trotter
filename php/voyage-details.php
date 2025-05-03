@@ -19,7 +19,7 @@
 
     
     // Vérifier si l'ID de l'utilisateur est défini dans la session
-    if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['user_id'])) {
         header('Location: ./profil.php');
         exit;
     }
@@ -35,7 +35,7 @@
         $v = null;
         // Rechercher le voyage spécifique
         foreach ($voyages_data as $v) {
-            if ($v['voyage_id'] === $voyage_id && $v['utilisateur_id'] === $_SESSION['user'] && $v['date_depart'] === $date_depart && $v['date_retour'] === $date_retour ) {
+            if ($v['voyage_id'] === $voyage_id && $v['utilisateur_id'] === $_SESSION['user_id'] && $v['date_depart'] === $date_depart && $v['date_retour'] === $date_retour ) {
                 $voyage = $v;
                 break;
             }

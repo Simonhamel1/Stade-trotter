@@ -12,8 +12,8 @@
     
     // Stocker les messages dans des variables plutôt que de les afficher directement
     $debug_messages = '';
-    if (isset($_SESSION['user'])) {
-        $debug_messages .= '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
+    if (isset($_SESSION['user_id'])) {
+        $debug_messages .= '<script>console.log("Utilisateur connecté : ' . $_SESSION['user_id'] . '");</script>';
     } 
     
     // Chargement des données des utilisateurs depuis le fichier JSON
@@ -43,9 +43,9 @@
     
     // Filtrer pour ne retourner que les voyages de l'utilisateur connecté
     $voyages_payes = [];
-    if (!empty($voyages_data) && isset($_SESSION['user'])) {
+    if (!empty($voyages_data) && isset($_SESSION['user_id'])) {
         foreach ($voyages_data as $voyage) {
-            if (isset($voyage['utilisateur_id']) && $voyage['utilisateur_id'] === $_SESSION['user']) {
+            if (isset($voyage['utilisateur_id']) && $voyage['utilisateur_id'] === $_SESSION['user_id']) {
                 $voyages_payes[] = $voyage;
             }
         }
@@ -189,7 +189,7 @@
         error_log("Données soumises: email=$email, prenom=$prenom, nom=$nom, club=$club, sexe=$sexe");
         
         // Mise à jour des données utilisateur
-        $update_result = update_user_info($_SESSION['user'], $email, $prenom, $nom, $club, $sexe, $question, $reponse);
+        $update_result = update_user_info($_SESSION['user_id'], $email, $prenom, $nom, $club, $sexe, $question, $reponse);
         
         if ($update_result === 'email_exists') {
             // Email existe déjà
@@ -209,7 +209,7 @@
     // Récupération des données complètes de l'utilisateur connecté
     $current_user = null;
     foreach ($users_data as $user) {
-        if (isset($user['Id']) && $user['Id'] === $_SESSION['user']) {
+        if (isset($user['Id']) && $user['Id'] === $_SESSION['user_id']) {
             $current_user = $user;
             break;
         }
@@ -429,35 +429,19 @@
     <?php include '../php/footer.php'; ?>
     
     <script>
-        // Fonction pour afficher le bouton de soumission quand des champs sont modifiés
-        function checkModifiedFields() {
-            const inputs = document.querySelectorAll('input:not([readonly]), select:not([disabled])');
-            const submitButton = document.getElementById('soumettre_button');
-            
-            if (inputs.length > 0) {
-                submitButton.style.display = 'block';
-            } else {
-                submitButton.style.display = 'none';
-            }
-        }
-
-        // Mettre à jour la fonction de modification pour vérifier les champs modifiés
         document.addEventListener('DOMContentLoaded', function() {
-            // Vérifier périodiquement si des champs sont modifiables
-            setInterval(checkModifiedFields, 500);
-            
-            // Afficher le message de succès ou d'erreur
-            <?php if (!empty($update_message)): ?>
-            setTimeout(function() {
-                const alerts = document.querySelectorAll('.alert');
-                alerts.forEach(function(alert) {
-                    alert.style.opacity = '0';
-                    setTimeout(function() {
-                        alert.style.display = 'none';
-                    }, 1000);
-                });
-            }, 3000);
-            <?php endif; ?>
+            // Afficher le message de succès ou d'erreur puis le faire disparaître
+            const alerts = document.querySelectorAll('.alert');
+            if (alerts.length > 0) {
+                setTimeout(function() {
+                    alerts.forEach(function(alert) {
+                        alert.style.opacity = '0';
+                        setTimeout(function() {
+                            alert.style.display = 'none';
+                        }, 1000);
+                    });
+                }, 3000);
+            }
             
             // S'assurer que les menus déroulants sont activés avant soumission
             document.getElementById('update-profile-form').addEventListener('submit', function(e) {
@@ -487,8 +471,8 @@
             });
             
             // Debug: Afficher les valeurs actuelles
-            console.log("Club actuel: <?php echo isset($_SESSION['Club']) ? $_SESSION['Club'] : 'Non défini'; ?>");
-            console.log("Sexe actuel: <?php echo isset($_SESSION['Sexe']) ? $_SESSION['Sexe'] : 'Non défini'; ?>");
+            console.log("Club actuel:", document.getElementById('inputbutton4').value);
+            console.log("Sexe actuel:", document.getElementById('inputbutton5').value);
         });
     </script>
     

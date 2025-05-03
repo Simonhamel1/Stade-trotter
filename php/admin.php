@@ -3,7 +3,7 @@
 session_start();
 
 // Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user_id'])) {
     header('Location: ./connexion.php');
     exit;
 }
@@ -12,7 +12,7 @@ if (!isset($_SESSION['user'])) {
 $jsonData = file_get_contents('../data/utilisateurs.json');
 $users = json_decode($jsonData, true);
 
-$userId = $_SESSION['user'];
+$userId = $_SESSION['user_id'];
 $isAdmin = false;
 
 // Vérifier si l'utilisateur existe dans le fichier JSON et est VIP

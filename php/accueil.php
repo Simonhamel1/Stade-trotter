@@ -1,11 +1,11 @@
 <?php 
     session_start();
-    if(!isset($_SESSION['user'])){
+    if(!isset($_SESSION['user_id'])){
         header('Location:./connexion.php');
     }
 
-    if (isset($_SESSION['user'])) {
-        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
+    if (isset($_SESSION['user_id'])) {
+        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user_id'] . '");</script>';
     } 
 ?>
 <!DOCTYPE html>

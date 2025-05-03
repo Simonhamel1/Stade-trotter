@@ -18,8 +18,8 @@ $status = "error";
 // ET que la transaction en session correspond, ce qui peut échouer.
 if ($paiement_status == 'accepted') {
     // Traitement du paiement accepté
-    if (isset($_SESSION['user'])) {
-        $utilisateur_id = $_SESSION['user'];
+    if (isset($_SESSION['user_id'])) {
+        $utilisateur_id = $_SESSION['user_id'];
         
         // Récupérer le panier de l'utilisateur
         $panier = $_SESSION['panier'] ?? [];

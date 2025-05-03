@@ -167,5 +167,44 @@
         "banni": false,
         "Password": "$2y$10$ibo9..yx9ml8\/zd.mahhauWnRD4lt5qtcfvfnb1F.m\/uyafZJvPwu",
         "Id": "a0918da4300f46ed6d3e84894cb3c3ad3cb4caeada93cf7d9dd372a97c4e7248"
+    },
+    {
+        "Prenom": "Ewan",
+        "Nom": "Clabaut",
+        "Email": "toto@gmail.com",
+        "Sexe": "Homme",
+        "Club": "PSG",
+        "Question": "Quel est le nom de votre premier animal de compagnie ?",
+        "Reponse": "$2y$10$pdUQ3ip3lGcYAHuo6cXSCeusUQg4Hteay3\/HHS90Bw1sIxnDmgCNS",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$qYEWayEegs8LqQsxBpueb.TAXN75H\/dh6iVT32kPFxxenUIGjGV3i",
+        "Id": "2a848ea0109de2922874f59ae4192372fd6fbbd9638577c11de46bb5f2fe6318"
+    },
+    {
+        "Prenom": "a",
+        "Nom": "a",
+        "Email": "b@gmail.com",
+        "Sexe": "Homme",
+        "Club": "PSG",
+        "Question": "Quel est le nom de votre premier animal de compagnie ?",
+        "Reponse": "$2y$10$B2G1uhfwY1V2PYaM\/XnmGuuppdw1Ul5l8oY6VOt\/Y9XvdKSH2k9Ui",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$NF5XBiEo.p\/V57qA.erAAeEMq5XBfb5LvoJ.9hjvd48\/OcqCW\/M46",
+        "Id": "4ba89bb7dce72c205425afdf639d90387eaf3aa312fb9028785cd395fcaccb7e"
+    },
+    {
+        "Prenom": "Ewan",
+        "Nom": "bksbjb",
+        "Email": "abc@gmail.com",
+        "Sexe": "Homme",
+        "Club": "PSG",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$w6R.3hLiTwBxPYBFxo3QHe6XVJyBajcUp.yz\/scdrgmDzpTMNZGjy",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$JadiFpnMb2egvfUdm6GO3.wmcJNpmOeAelnWMX4bLttPRWBku0JdS",
+        "Id": "24791085673141df2ffa2c18a7d18e20a6a57ce37fe14a99638d21399325b2f2"
     }
 ]

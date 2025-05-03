@@ -46,7 +46,7 @@ if(!$emailExists) {
     $_SESSION["Nom"] = $userAccount["Nom"];
     $_SESSION["Email"] = $userAccount["Email"];
     $_SESSION["Club"] = $userAccount["Club"];
-    $_SESSION["user"] = $userAccount["Id"];    
+    $_SESSION["user_id"] = $userAccount["Id"];    
     $_SESSION["VIP"] = $userAccount["VIP"];
     $_SESSION["banni"] = $userAccount["banni"];
     // Don't store password in session

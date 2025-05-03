@@ -32,8 +32,8 @@ if(isset($_COOKIE['theme'])) {
                 </li>
                 <?php
             
-                if(isset($_SESSION['user'])) {
-                    if($_SESSION['user'] == "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"){
+                if(isset($_SESSION['user_id'])) {
+                    if($_SESSION['user_id'] == "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"){
                         echo '<li class="connexion"><a href="admin.php">' . "ADMIN" . '</a></li>';
                     } else {
                         echo '<li class="connexion"><a href="profil.php">' . $_SESSION["Prenom"] . '</a></li>';

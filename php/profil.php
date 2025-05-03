@@ -51,11 +51,32 @@
         }
     }
 
+    // Fonction pour vérifier si un email existe déjà
+    function email_exists($email, $current_user_id) {
+        global $users_data;
+        
+        foreach ($users_data as $user) {
+            // Vérifier si l'email existe chez un autre utilisateur
+            if (isset($user['Email']) && 
+                strtolower($user['Email']) === strtolower($email) && 
+                $user['Id'] !== $current_user_id) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
     // Fonction pour mettre à jour les données utilisateur dans le fichier JSON
     function update_user_info($user_id, $email, $prenom, $nom, $club, $sexe, $question, $reponse) {
         global $users_data, $users_json_file, $voyages_json_file, $voyages_data;
         
         $user_updated = false;
+        
+        // Vérifier si l'email a été modifié et s'il existe déjà
+        if (!empty($email) && $email !== $_SESSION['Email'] && email_exists($email, $user_id)) {
+            return 'email_exists';
+        }
         
         foreach ($users_data as $key => $user) {
             if ($user['Id'] === $user_id) {
@@ -168,7 +189,13 @@
         error_log("Données soumises: email=$email, prenom=$prenom, nom=$nom, club=$club, sexe=$sexe");
         
         // Mise à jour des données utilisateur
-        if (update_user_info($_SESSION['user'], $email, $prenom, $nom, $club, $sexe, $question, $reponse)) {
+        $update_result = update_user_info($_SESSION['user'], $email, $prenom, $nom, $club, $sexe, $question, $reponse);
+        
+        if ($update_result === 'email_exists') {
+            // Email existe déjà
+            header('Location: profil.php?error=2');
+            exit;
+        } elseif ($update_result) {
             // Redirection pour éviter les re-soumissions de formulaire
             header('Location: profil.php?updated=1');
             exit;
@@ -194,6 +221,8 @@
         $update_message = '<div class="alert success">Vos informations ont été mises à jour avec succès.</div>';
     } elseif (isset($_GET['error']) && $_GET['error'] == 1) {
         $update_message = '<div class="alert error">Une erreur est survenue lors de la mise à jour de vos informations.</div>';
+    } elseif (isset($_GET['error']) && $_GET['error'] == 2) {
+        $update_message = '<div class="alert error">Cette adresse email est déjà utilisée par un autre utilisateur.</div>';
     }
     
     // Vider le buffer de sortie pour éviter les problèmes de headers
@@ -440,6 +469,21 @@
                 // Log pour vérifier les valeurs avant envoi
                 console.log("Club sélectionné:", document.getElementById('inputbutton4').value);
                 console.log("Sexe sélectionné:", document.getElementById('inputbutton5').value);
+            });
+            
+            // Validation côté client pour l'email
+            document.getElementById('inputbutton1').addEventListener('change', function() {
+                const emailInput = this;
+                const submitButton = document.getElementById('soumettre_button');
+                
+                // Vérification de l'email valide (format)
+                if (!emailInput.checkValidity()) {
+                    alert("Veuillez entrer une adresse email valide.");
+                    emailInput.focus();
+                    submitButton.disabled = true;
+                } else {
+                    submitButton.disabled = false;
+                }
             });
             
             // Debug: Afficher les valeurs actuelles

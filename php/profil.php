@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    
+    // Buffer de sortie pour éviter les erreurs "headers already sent"
+    ob_start();
 
     // Vérification si l'utilisateur est connecté
     if (!isset($_SESSION['Email'])) {
@@ -57,17 +60,20 @@
         foreach ($users_data as $key => $user) {
             if ($user['Id'] === $user_id) {
                 // Sauvegarde des anciennes valeurs pour mise à jour des voyages
-                $old_club = $user['Club'];
-                $old_email = $user['Email'];
-                $old_prenom = $user['Prenom'];
-                $old_nom = $user['Nom'];
+                $old_club = isset($user['Club']) ? $user['Club'] : '';
+                $old_email = isset($user['Email']) ? $user['Email'] : '';
+                $old_prenom = isset($user['Prenom']) ? $user['Prenom'] : '';
+                $old_nom = isset($user['Nom']) ? $user['Nom'] : '';
                 
                 // Mise à jour des champs modifiés dans le tableau utilisateurs
                 if (!empty($email)) $users_data[$key]['Email'] = $email;
                 if (!empty($prenom)) $users_data[$key]['Prenom'] = $prenom;
                 if (!empty($nom)) $users_data[$key]['Nom'] = $nom;
-                if (!empty($club)) $users_data[$key]['Club'] = $club;
-                if (!empty($sexe)) $users_data[$key]['Sexe'] = $sexe;
+                
+                // Pour les champs select, traiter même si c'est la même valeur
+                $users_data[$key]['Club'] = $club; // Toujours mettre à jour le club
+                $users_data[$key]['Sexe'] = $sexe; // Toujours mettre à jour le sexe
+                
                 if (!empty($question)) $users_data[$key]['Question'] = $question;
                 if (!empty($reponse)) {
                     // Hasher la réponse avant de la stocker
@@ -75,14 +81,19 @@
                 }
                 
                 // Enregistrer les modifications dans le fichier JSON utilisateurs
-                file_put_contents($users_json_file, json_encode($users_data, JSON_PRETTY_PRINT));
+                $write_result = file_put_contents($users_json_file, json_encode($users_data, JSON_PRETTY_PRINT));
+                
+                if ($write_result === false) {
+                    error_log("Erreur lors de l'écriture dans le fichier JSON des utilisateurs");
+                    return false;
+                }
                 
                 // Mettre à jour les données de la session
                 $_SESSION['Email'] = $users_data[$key]['Email'];
                 $_SESSION['Prenom'] = $users_data[$key]['Prenom'];
                 $_SESSION['Nom'] = $users_data[$key]['Nom'];
-                $_SESSION['Club'] = $users_data[$key]['Club'];
-                if (!empty($sexe)) $_SESSION['Sexe'] = $users_data[$key]['Sexe'];
+                $_SESSION['Club'] = $users_data[$key]['Club']; // Mise à jour du club en session
+                $_SESSION['Sexe'] = $users_data[$key]['Sexe']; // Mise à jour du sexe en session
                 if (!empty($question)) $_SESSION['Question'] = $users_data[$key]['Question'];
                 
                 $user_updated = true;
@@ -109,7 +120,8 @@
                                 $voyages_updated = true;
                             }
                             
-                            if (!empty($club) && isset($voyage['stade']) && $voyage['stade'] === $old_club) {
+                            // Mise à jour du club si c'est le stade du voyage
+                            if (isset($voyage['stade']) && $voyage['stade'] === $old_club) {
                                 $voyages_data[$v_key]['stade'] = $club;
                                 $voyages_updated = true;
                             }
@@ -126,7 +138,11 @@
                     
                     // Enregistrer les modifications des voyages si nécessaire
                     if ($voyages_updated) {
-                        file_put_contents($voyages_json_file, json_encode($voyages_data, JSON_PRETTY_PRINT));
+                        $voyages_write = file_put_contents($voyages_json_file, json_encode($voyages_data, JSON_PRETTY_PRINT));
+                        if ($voyages_write === false) {
+                            error_log("Erreur lors de l'écriture dans le fichier JSON des voyages");
+                            // Ne pas échouer pour cette étape
+                        }
                     }
                 }
                 
@@ -139,14 +155,18 @@
 
     // Traitement des modifications du profil si formulaire soumis
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update_profile') {
-        $email = isset($_POST['email']) ? $_POST['email'] : '';
-        $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
-        $nom = isset($_POST['nom']) ? $_POST['nom'] : '';
-        $club = isset($_POST['club']) ? $_POST['club'] : '';
-        $sexe = isset($_POST['sexe']) ? $_POST['sexe'] : '';
+        // Récupérer les valeurs du formulaire
+        $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+        $prenom = isset($_POST['prenom']) ? trim($_POST['prenom']) : '';
+        $nom = isset($_POST['nom']) ? trim($_POST['nom']) : '';
+        $club = isset($_POST['club']) ? $_POST['club'] : null;
+        $sexe = isset($_POST['sexe']) ? $_POST['sexe'] : null;
         $question = isset($_POST['question']) ? $_POST['question'] : '';
         $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
-
+        
+        // Log pour débogage
+        error_log("Données soumises: email=$email, prenom=$prenom, nom=$nom, club=$club, sexe=$sexe");
+        
         // Mise à jour des données utilisateur
         if (update_user_info($_SESSION['user'], $email, $prenom, $nom, $club, $sexe, $question, $reponse)) {
             // Redirection pour éviter les re-soumissions de formulaire
@@ -162,7 +182,7 @@
     // Récupération des données complètes de l'utilisateur connecté
     $current_user = null;
     foreach ($users_data as $user) {
-        if ($user['Id'] === $_SESSION['user']) {
+        if (isset($user['Id']) && $user['Id'] === $_SESSION['user']) {
             $current_user = $user;
             break;
         }
@@ -175,6 +195,9 @@
     } elseif (isset($_GET['error']) && $_GET['error'] == 1) {
         $update_message = '<div class="alert error">Une erreur est survenue lors de la mise à jour de vos informations.</div>';
     }
+    
+    // Vider le buffer de sortie pour éviter les problèmes de headers
+    ob_end_clean();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -187,12 +210,14 @@
 </head>
 <body>
     <?php include './header.php'; ?>
+    
+    <?php if (!empty($update_message)): ?>
+        <div class="notification-container">
+            <?php echo $update_message; ?>
+        </div>
+    <?php endif; ?>
 
     <section id="profil">
-        <?php 
-        // Afficher le message de mise à jour s'il existe
-        ?>
-        
         <form id="update-profile-form" method="POST" action="profil.php">
             <input type="hidden" name="action" value="update_profile">
             
@@ -247,18 +272,18 @@
                     <h2>Club</h2>
                     <div class="modification">
                         <select id="inputbutton4" name="club" disabled>
-                            <option value="PSG" <?php echo ($_SESSION['Club'] == 'PSG') ? 'selected' : ''; ?>>PSG</option>
-                            <option value="Real Madrid" <?php echo ($_SESSION['Club'] == 'Real Madrid') ? 'selected' : ''; ?>>Real Madrid</option>
-                            <option value="Barcelone" <?php echo ($_SESSION['Club'] == 'Barcelone') ? 'selected' : ''; ?>>FC Barcelone</option>
-                            <option value="Bayern" <?php echo ($_SESSION['Club'] == 'Bayern') ? 'selected' : ''; ?>>Bayern Munich</option>
-                            <option value="Manchester United" <?php echo ($_SESSION['Club'] == 'Manchester United') ? 'selected' : ''; ?>>Manchester United</option>
-                            <option value="Liverpool" <?php echo ($_SESSION['Club'] == 'Liverpool') ? 'selected' : ''; ?>>Liverpool</option>
-                            <option value="Chelsea" <?php echo ($_SESSION['Club'] == 'Chelsea') ? 'selected' : ''; ?>>Chelsea</option>
-                            <option value="Manchester City" <?php echo ($_SESSION['Club'] == 'Manchester City') ? 'selected' : ''; ?>>Manchester City</option>
-                            <option value="Juventus" <?php echo ($_SESSION['Club'] == 'Juventus') ? 'selected' : ''; ?>>Juventus</option>
-                            <option value="AC Milan" <?php echo ($_SESSION['Club'] == 'AC Milan') ? 'selected' : ''; ?>>AC Milan</option>
-                            <option value="Borussia Dortmund" <?php echo ($_SESSION['Club'] == 'Borussia Dortmund') ? 'selected' : ''; ?>>Borussia Dortmund</option>
-                            <option value="Autre" <?php echo ($_SESSION['Club'] == 'Autre') ? 'selected' : ''; ?>>Autre</option>
+                            <option value="PSG" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'PSG') ? 'selected' : ''; ?>>PSG</option>
+                            <option value="Real Madrid" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Real Madrid') ? 'selected' : ''; ?>>Real Madrid</option>
+                            <option value="Barcelone" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Barcelone') ? 'selected' : ''; ?>>FC Barcelone</option>
+                            <option value="Bayern" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Bayern') ? 'selected' : ''; ?>>Bayern Munich</option>
+                            <option value="Manchester United" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Manchester United') ? 'selected' : ''; ?>>Manchester United</option>
+                            <option value="Liverpool" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Liverpool') ? 'selected' : ''; ?>>Liverpool</option>
+                            <option value="Chelsea" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Chelsea') ? 'selected' : ''; ?>>Chelsea</option>
+                            <option value="Manchester City" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Manchester City') ? 'selected' : ''; ?>>Manchester City</option>
+                            <option value="Juventus" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Juventus') ? 'selected' : ''; ?>>Juventus</option>
+                            <option value="AC Milan" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'AC Milan') ? 'selected' : ''; ?>>AC Milan</option>
+                            <option value="Borussia Dortmund" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Borussia Dortmund') ? 'selected' : ''; ?>>Borussia Dortmund</option>
+                            <option value="Autre" <?php echo (isset($_SESSION['Club']) && $_SESSION['Club'] == 'Autre') ? 'selected' : ''; ?>>Autre</option>
                         </select>
                         <div class="modification_button" id="button4">
                             <button type="button" class="permettre_modifications"
@@ -290,11 +315,11 @@
                     <h2>Question de sécurité</h2>
                     <div class="modification">
                         <select id="inputbutton6" name="question" disabled>
-                            <option value="Quel est le nom de votre premier animal de compagnie ?" <?php echo ($current_user['Question'] === "Quel est le nom de votre premier animal de compagnie ?") ? 'selected' : ''; ?>>Quel est le nom de votre premier animal de compagnie ?</option>
-                            <option value="Quel est votre film préféré ?" <?php echo ($current_user['Question'] === "Quel est votre film préféré ?") ? 'selected' : ''; ?>>Quel est votre film préféré ?</option>
-                            <option value="Dans quelle ville êtes-vous né(e) ?" <?php echo ($current_user['Question'] === "Dans quelle ville êtes-vous né(e) ?") ? 'selected' : ''; ?>>Dans quelle ville êtes-vous né(e) ?</option>
-                            <option value="Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?" <?php echo ($current_user['Question'] === "Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?") ? 'selected' : ''; ?>>Quel est le prénom de votre meilleur(e) ami(e) d'enfance ?</option>
-                            <option value="Quelle est votre couleur préférée ?" <?php echo ($current_user['Question'] === "Quelle est votre couleur préférée ?") ? 'selected' : ''; ?>>Quelle est votre couleur préférée ?</option>
+                            <option value="Quel est le nom de votre premier animal de compagnie ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quel est le nom de votre premier animal de compagnie ?") ? 'selected' : ''; ?>>Quel est le nom de votre premier animal de compagnie ?</option>
+                            <option value="Quel est votre film préféré ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quel est votre film préféré ?") ? 'selected' : ''; ?>>Quel est votre film préféré ?</option>
+                            <option value="Dans quelle ville êtes-vous né(e) ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Dans quelle ville êtes-vous né(e) ?") ? 'selected' : ''; ?>>Dans quelle ville êtes-vous né(e) ?</option>
+                            <option value="Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?") ? 'selected' : ''; ?>>Quel est le prénom de votre meilleur(e) ami(e) d'enfance ?</option>
+                            <option value="Quelle est votre couleur préférée ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quelle est votre couleur préférée ?") ? 'selected' : ''; ?>>Quelle est votre couleur préférée ?</option>
                         </select>
                         <div class="modification_button" id="button6">
                             <button type="button" class="permettre_modifications"
@@ -404,7 +429,25 @@
                 });
             }, 3000);
             <?php endif; ?>
+            
+            // S'assurer que les menus déroulants sont activés avant soumission
+            document.getElementById('update-profile-form').addEventListener('submit', function(e) {
+                // Activer tous les select pour qu'ils soient envoyés
+                document.querySelectorAll('select').forEach(function(select) {
+                    select.disabled = false;
+                });
+                
+                // Log pour vérifier les valeurs avant envoi
+                console.log("Club sélectionné:", document.getElementById('inputbutton4').value);
+                console.log("Sexe sélectionné:", document.getElementById('inputbutton5').value);
+            });
+            
+            // Debug: Afficher les valeurs actuelles
+            console.log("Club actuel: <?php echo isset($_SESSION['Club']) ? $_SESSION['Club'] : 'Non défini'; ?>");
+            console.log("Sexe actuel: <?php echo isset($_SESSION['Sexe']) ? $_SESSION['Sexe'] : 'Non défini'; ?>");
         });
     </script>
+    
+    <?php echo $debug_messages; ?>
 </body>
 </html>

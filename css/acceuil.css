@@ -15,10 +15,9 @@ body {
     bottom: 20px;
     right: 20px;
     z-index: 9999;
-  }
-  
-  /* Bouton de chat */
-  #chat-toggle-btn {
+}
+
+#chat-toggle-btn {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -27,12 +26,11 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     outline: none;
-  }
-  
-  /* Iframe du chat */
-  #chat-iframe {
+}
+
+#chat-iframe {
     background-color: #fff;
     position: fixed;
     bottom: 80px;
@@ -41,15 +39,13 @@ body {
     height: 500px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     z-index: 9999;
     transform: translateY(110%);
     transition: transform 0.3s ease;
     display: none;
-  }
-  
+}
 
-/* Assurez-vous que le contenu devient visible après l'animation */
 .contenu {
     display: none;
     opacity: 0;
@@ -62,7 +58,6 @@ html {
 }
 
 /* ==================== ANIMATION ==================== */
-/* Écran de chargement */
 .loading-screen {
     position: fixed;
     width: 100%;
@@ -75,7 +70,6 @@ html {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Logo qui suit exactement la souris */
 .palette {
     width: 10%;
     height: 20%;
@@ -83,9 +77,7 @@ html {
     border-radius: 50%;
     position: absolute;
     pointer-events: none;
-    /* Pour éviter d'intercepter les clics */
     transform: translate(-50%, -50%);
-    /* Centrer le logo par rapport à la souris */
 }
 
 .contenu {
@@ -170,7 +162,6 @@ main {
     background-size: cover;
     background-attachment: fixed;
     padding-top: 100px;
-    /* Pour éviter que le header fixe cache le contenu */
 }
 
 /* ==================== IMAGE GRID ==================== */
@@ -207,18 +198,16 @@ main {
 
 }
 
-/* ==================== AGENCe INFO ==================== */
+/* ==================== AGENCE INFO ==================== */
 .agence-info {
     text-align: center;
     color: var(--blanc);
     padding: 30px;
     font-size: clamp(1rem, 2vw, 1.2rem);
-    /* Ajustement automatique */
     line-height: 1.6;
     max-width: 800px;
     margin: auto;
     font-weight: bold;
-    /* Ajout de la propriété font-weight pour rendre le texte plus gras */
 }
 
 /* ==================== TÉMOIGNAGES ==================== */
@@ -276,7 +265,6 @@ main {
     max-width: 80%;
     margin: auto;
 }
-
 
 
 /* ==================== FOOTER ==================== */
@@ -337,7 +325,6 @@ footer {
     color: #f8d210;
 }
 
-/* Contact */
 .footer-section p {
     font-size: 14px;
     margin: 5px 0;
@@ -380,16 +367,14 @@ footer {
         transform: translateY(0);
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
-      }
-      
-      /* Quand on ajoute la classe active, on translate le header vers le haut */
-      header.active {
+    }
+
+    /* Quand on ajoute la classe active, on translate le header vers le haut */
+    header.active {
         transform: translateY(-80%);
         padding-bottom: 30%;
     }
 
-
-  
     .navbar {
         height: 95%;
         flex-direction: column;
@@ -405,13 +390,13 @@ footer {
     }
 
     nav a {
-       margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .palette {
         width: 35%;
     }
-    
+
     .image-large {
         grid-column: span 2;
         position: relative;

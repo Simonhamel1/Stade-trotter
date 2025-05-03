@@ -2,18 +2,18 @@
 session_start();
 header('Content-Type: application/json');
 
-// Receiving user data
+// Réception des données utilisateur
 $email = $_POST['Email'] ?? '';
 $password = $_POST['Password'] ?? '';
 
-// Path to the json
+// Chemin vers le fichier json
 $relative_path = "../../data/utilisateurs.json";
 
-// Verifying user's existence
+// Vérification de l'existence de l'utilisateur
 $Content = file_get_contents($relative_path);
 $Content = json_decode($Content, true);
 
-// Check if email exists first
+// Vérification de l'email et du mot de passe
 $emailExists = false;
 $passwordCorrect = false;
 $userAccount = null;
@@ -21,7 +21,6 @@ $userAccount = null;
 foreach($Content as $tab){
     if($tab['Email'] == $email) {
         $emailExists = true;
-        // Verify password using password_verify for bcrypt
         if(password_verify($password, $tab['Password'])) {
             $passwordCorrect = true;
             $userAccount = $tab;
@@ -30,7 +29,7 @@ foreach($Content as $tab){
     }
 }
 
-// Handle different cases
+// Gestion des différents cas
 if(!$emailExists) {
     echo json_encode(['success' => false, 'message' => 'Adresse email inconnue.']);
     exit();
@@ -41,7 +40,7 @@ if(!$emailExists) {
     echo json_encode(['success' => false, 'message' => 'Votre compte a été banni. Connexion impossible.']);
     exit();
 } else {
-    // Store user info in session, excluding sensitive data
+    // Stockage des informations utilisateur dans la session, sans les données sensibles
     $_SESSION["Prenom"] = $userAccount["Prenom"];
     $_SESSION["Nom"] = $userAccount["Nom"];
     $_SESSION["Email"] = $userAccount["Email"];
@@ -49,7 +48,7 @@ if(!$emailExists) {
     $_SESSION["user_id"] = $userAccount["Id"];    
     $_SESSION["VIP"] = $userAccount["VIP"];
     $_SESSION["banni"] = $userAccount["banni"];
-    // Don't store password in session
+    // Ne pas stocker le mot de passe dans la session
     
     echo json_encode(['success' => true, 'redirect' => 'accueil.php']);
     exit();

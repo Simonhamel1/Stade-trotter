@@ -14,8 +14,6 @@ $dataVoyages_file = __DIR__ . '/../data/dataVoyages.json';
 $message = "";
 $status = "error";
 
-// PROBLÈME IDENTIFIÉ : Le serveur de paiement renvoie "accepted" mais votre code vérifie "accepted" 
-// ET que la transaction en session correspond, ce qui peut échouer.
 if ($paiement_status == 'accepted') {
     // Traitement du paiement accepté
     if (isset($_SESSION['user_id'])) {

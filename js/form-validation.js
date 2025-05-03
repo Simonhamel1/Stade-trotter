@@ -14,10 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Login successful, redirect
                     window.location.href = data.redirect || 'acceuil.php';
                 } else {
-                    // Show error popup
                     showPopup(data.message);
                 }
             })

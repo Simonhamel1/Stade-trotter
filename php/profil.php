@@ -176,7 +176,6 @@
 
     // Traitement des modifications du profil si formulaire soumis
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update_profile') {
-        // Récupérer les valeurs du formulaire
         $email = isset($_POST['email']) ? trim($_POST['email']) : '';
         $prenom = isset($_POST['prenom']) ? trim($_POST['prenom']) : '';
         $nom = isset($_POST['nom']) ? trim($_POST['nom']) : '';
@@ -185,7 +184,6 @@
         $question = isset($_POST['question']) ? $_POST['question'] : '';
         $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
         
-        // Log pour débogage
         error_log("Données soumises: email=$email, prenom=$prenom, nom=$nom, club=$club, sexe=$sexe");
         
         // Mise à jour des données utilisateur
@@ -193,7 +191,7 @@
         
         if ($update_result === 'email_exists') {
             // Email existe déjà
-            header('Location: profil.php?error=2');
+            header('Location: profil.php?error=email_existe_deja');
             exit;
         } elseif ($update_result) {
             // Redirection pour éviter les re-soumissions de formulaire
@@ -225,7 +223,6 @@
         $update_message = '<div class="alert error">Cette adresse email est déjà utilisée par un autre utilisateur.</div>';
     }
     
-    // Vider le buffer de sortie pour éviter les problèmes de headers
     ob_end_clean();
 ?>
 <!DOCTYPE html>
@@ -430,7 +427,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Afficher le message de succès ou d'erreur puis le faire disparaître
             const alerts = document.querySelectorAll('.alert');
             if (alerts.length > 0) {
                 setTimeout(function() {
@@ -443,14 +439,11 @@
                 }, 3000);
             }
             
-            // S'assurer que les menus déroulants sont activés avant soumission
             document.getElementById('update-profile-form').addEventListener('submit', function(e) {
-                // Activer tous les select pour qu'ils soient envoyés
                 document.querySelectorAll('select').forEach(function(select) {
                     select.disabled = false;
                 });
                 
-                // Log pour vérifier les valeurs avant envoi
                 console.log("Club sélectionné:", document.getElementById('inputbutton4').value);
                 console.log("Sexe sélectionné:", document.getElementById('inputbutton5').value);
             });
@@ -459,8 +452,6 @@
             document.getElementById('inputbutton1').addEventListener('change', function() {
                 const emailInput = this;
                 const submitButton = document.getElementById('soumettre_button');
-                
-                // Vérification de l'email valide (format)
                 if (!emailInput.checkValidity()) {
                     alert("Veuillez entrer une adresse email valide.");
                     emailInput.focus();
@@ -470,7 +461,6 @@
                 }
             });
             
-            // Debug: Afficher les valeurs actuelles
             console.log("Club actuel:", document.getElementById('inputbutton4').value);
             console.log("Sexe actuel:", document.getElementById('inputbutton5').value);
         });

@@ -76,7 +76,7 @@ nav ul li a:hover {
   color: black;
 }
 
-/* ==================== MAIN CONTENT ==================== */
+/* ==================== partie principale ==================== */
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -247,13 +247,12 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    /* Pour voir l’effet de déplacement */
     transform: translateY(0);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
   }
 
-  /* Quand on ajoute la classe active, on translate le header vers le haut */
+
   header.active {
     transform: translateY(-80%);
     padding-bottom: 18%;

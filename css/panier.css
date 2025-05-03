@@ -7,7 +7,7 @@ body {
     padding: 0;
     background-color: var(--gris-tres-clair);
 }
-  
+
 
 html {
     background-color: var(--bleu-fonce);
@@ -237,8 +237,8 @@ h1 {
 }
 
 /* ==================== BOUTONS ==================== */
-.btn-supprimer, 
-.btn-continuer, 
+.btn-supprimer,
+.btn-continuer,
 .btn-paiement {
     display: inline-block;
     padding: 0.6rem 1.2rem;
@@ -284,148 +284,148 @@ h1 {
     background-color: #27ae60;
 }
 
-    
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #3498db;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.step-number {
+    color: white;
+    font-weight: bold;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 50px;
+    margin-right: 20px;
+}
+
+.timeline-content h4 {
+    margin-top: 0;
+    color: #3498db;
+    font-size: 1.2em;
+}
+
+.date-badge {
+    display: inline-block;
+    background: #2ecc71;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.etape-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-category {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.category-name {
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.option-values {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.option-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-name {
+    color: #555;
+}
+
+.option-price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.etape-total {
+    margin-top: 10px;
+    text-align: right;
+    font-weight: bold;
+    padding-top: 8px;
+    border-top: 1px solid #eee;
+}
+
+.etape-total .price {
+    color: #e74c3c;
+    font-size: 1.1em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
     .timeline {
-        position: relative;
-        padding-left: 30px;
+        padding-left: 20px;
     }
-    
+
     .timeline:before {
-        content: '';
-        position: absolute;
-        left: 15px;
-        top: 0;
-        height: 100%;
-        width: 2px;
-        background: #3498db;
+        left: 10px;
     }
-    
-    .timeline-item {
-        position: relative;
-        margin-bottom: 25px;
-    }
-    
+
     .timeline-marker {
-        position: absolute;
-        left: -30px;
-        top: 0;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: #3498db;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
+        left: -20px;
+        width: 20px;
+        height: 20px;
     }
-    
+
     .step-number {
-        color: white;
-        font-weight: bold;
+        font-size: 0.8em;
     }
-    
+
     .timeline-content {
-        background: #f8f9fa;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        margin-left: 50px;
-        margin-right: 20px;
+        padding: 10px;
     }
-    
-    .timeline-content h4 {
-        margin-top: 0;
-        color: #3498db;
-        font-size: 1.2em;
-    }
-    
-    .date-badge {
-        display: inline-block;
-        background: #2ecc71;
-        color: white;
-        padding: 3px 10px;
-        border-radius: 4px;
-        font-size: 0.9em;
-        margin-bottom: 10px;
-    }
-    
-    .etape-options {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .option-category {
-        border-bottom: 1px solid #eee;
-        padding-bottom: 8px;
-    }
-    
-    .category-name {
-        font-weight: bold;
-        color: #2c3e50;
-        display: block;
-        margin-bottom: 5px;
-    }
-    
-    .option-values {
-        margin-left: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-    
-    .option-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .option-name {
-        color: #555;
-    }
-    
-    .option-price {
-        color: #e74c3c;
-        font-weight: bold;
-    }
-    
-    .etape-total {
-        margin-top: 10px;
-        text-align: right;
-        font-weight: bold;
-        padding-top: 8px;
-        border-top: 1px solid #eee;
-    }
-    
-    .etape-total .price {
-        color: #e74c3c;
-        font-size: 1.1em;
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-        .timeline {
-            padding-left: 20px;
-        }
-        
-        .timeline:before {
-            left: 10px;
-        }
-        
-        .timeline-marker {
-            left: -20px;
-            width: 20px;
-            height: 20px;
-        }
-        
-        .step-number {
-            font-size: 0.8em;
-        }
-        
-        .timeline-content {
-            padding: 10px;
-        }
-    }
+}
 
 
 /* ==================== FOOTER ==================== */
@@ -525,18 +525,16 @@ footer {
         top: 0;
         left: 0;
         width: 100%;
-        /* Pour voir l’effet de déplacement */
         transform: translateY(0);
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
-      }
-      
-      /* Quand on ajoute la classe active, on translate le header vers le haut */
-      header.active {
+    }
+
+    header.active {
         transform: translateY(-80%);
         padding-bottom: 30%;
     }
-  
+
     .navbar {
         height: 95%;
         flex-direction: column;
@@ -552,7 +550,7 @@ footer {
     }
 
     nav a {
-       margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .footer-container {
@@ -567,11 +565,11 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .panier-item-details {
         flex-direction: column;
     }
-    
+
     .panier-item-prix {
         margin-top: 1rem;
         align-items: flex-start;

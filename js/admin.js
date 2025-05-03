@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleButtons = document.querySelectorAll('.toggle-status');
     
     toggleButtons.forEach(button => {
-        // Ajouter l'élément spinner à chaque bouton
+        //Pour ajouter l'élément spinner à chaque bouton
         const spinner = document.createElement('span');
         spinner.className = 'spinner';
         spinner.style.display = 'none';
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 this.classList.remove('status-active');
                                 this.classList.add('status-inactive');
                             }
-                            // Réajouter le spinner après modification du texte
+                            // Réajoute le spinner après modification du texte
                             this.appendChild(spinner);
                         } else {
                             alert('Erreur lors de la mise à jour: ' + result);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Ajouter le style pour l'animation de rotation
+    // Ajoute le style pour l'animation de rotation
     const style = document.createElement('style');
     style.textContent = `
         @keyframes spin {

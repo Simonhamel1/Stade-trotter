@@ -1,4 +1,4 @@
-/* Styles pour les boutons de changement de statut */
+/* Styles pour le bouton de statut dans l'interface d'administration */
 .toggle-status {
     padding: 8px 12px;
     margin-left: 15px;
@@ -12,26 +12,31 @@
     font-size: 14px;
 }
 
+/* Styles pour le bouton de statut actif */
 .status-active {
     background-color: #ff4d4d;
     color: white;
 }
 
+/* Styles pour le bouton de statut actif */
 .status-active:hover {
     background-color: #ff3333;
     box-shadow: 0 4px 8px rgba(255,77,77,0.3);
 }
 
+/* Styles pour le bouton de statut actif */
 .status-inactive {
     background-color: #4CAF50;
     color: white;
 }
 
+/* Styles pour le bouton de statut inactif */
 .status-inactive:hover {
     background-color: #45a049;
     box-shadow: 0 4px 8px rgba(76,175,80,0.3);
 }
 
+/* Styles pour le texte de statut */
 .status-text {
     font-weight: bold;
 }
@@ -43,6 +48,7 @@
     100% { transform: scale(1); }
 }
 
+/* Animation de clic pour les boutons */
 .toggle-status:active {
     animation: pulse 0.3s;
 }

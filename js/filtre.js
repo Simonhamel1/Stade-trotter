@@ -14,18 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearFilter = document.getElementById('year');
     const priceFilter = document.getElementById('price');
     
-    // Ajouter des événements aux boutons
+    // Ajoute des événements aux boutons
     searchButton.addEventListener('click', applyFilters);
     filterButton.addEventListener('click', applyFilters);
     
-    // Appliquer aussi les filtres lorsqu'on appuie sur Entrée dans le champ de recherche
+    // Applique aussi les filtres lorsqu'on appuie sur Entrée dans le champ de recherche
     searchInput.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
         applyFilters();
       }
     });
     
-    // Appliquer le filtrage à chaque changement dans les sélecteurs (optionnel)
+    // Applique le filtrage à chaque changement dans les sélecteurs (optionnel)
     const allFilters = [paysFilter, capacityFilter, typeFilter, roofFilter, yearFilter, priceFilter];
     allFilters.forEach(filter => {
       filter.addEventListener('change', applyFilters);
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
         
-        // Si l'élément correspond à tous les filtres, l'afficher
+        // Vérifier si l'élément doit être affiché
         const shouldDisplay = matchesSearch && matchesPays && matchesCapacity && 
                             matchesType && matchesRoof && matchesYear && matchesPrice;
         
@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Appliquer les filtres au chargement initial pour prendre en compte les paramètres d'URL
-    // (Optionnel, si vous voulez supporter la navigation par URL)
     function applyURLFilters() {
       const urlParams = new URLSearchParams(window.location.search);
       
@@ -150,10 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (urlParams.has('year')) yearFilter.value = urlParams.get('year');
       if (urlParams.has('price')) priceFilter.value = urlParams.get('price');
       
-      // Appliquer les filtres
       applyFilters();
     }
     
-    // Exécuter les filtres de l'URL au chargement
     applyURLFilters();
   });

@@ -75,7 +75,6 @@ nav ul li a:hover {
     color: black;
 }
 
-/* Ajout d'une marge pour compenser le header fixed */
 main {
     padding-top: 80px;
 }
@@ -250,7 +249,6 @@ main {
     border-radius: 6px;
     overflow: hidden;
 }
-/* ==================== Modifier_button ================== */
 
 /* ==================== SECTION PROFILE - PASSWORD INPUT ==================== */
 .data input[type="password"] {
@@ -279,16 +277,17 @@ main {
 .data input[type="password"]:not([readonly]):hover {
     border-color: #ccc;
 }
+
 div.modification {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-div.modification_button{
+div.modification_button {
     display: flex;
     justify-content: center;
-    background-color: white;    
+    background-color: white;
 }
 
 input[type="password"] {
@@ -346,14 +345,15 @@ input[type="password"] {
 }
 
 .annuler_modifications:hover {
-    background-color: #d32638; 
+    background-color: #d32638;
 }
 
 #end_buttons {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
 }
+
 .alert {
     padding: 10px 15px;
     margin-bottom: 20px;
@@ -374,63 +374,63 @@ input[type="password"] {
     border: 1px solid #ebccd1;
 }
 
-/* Style pour les champs en cours d'édition */
-input.editing, select.editing {
+input.editing,
+select.editing {
     background-color: #fff8e1;
     border: 2px solid #ffc107;
 }
 
 
-        .action-buttons {
-            display: flex;
-            gap: 5px;
-            margin-top: 5px;
-        }
-        
-        .validate-button,
-        .cancel-button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .validate-button {
-            background-color: #4CAF50;
-            color: white;
-            margin-left: 10px;
-        }
-        
-        .cancel-button {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        input.editing,
-        select.editing {
-            border: 2px solid #4CAF50;
-            background-color: #f8fff8;
-        }
-        
-        
-        .alert {
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-        }
-        
-        .alert.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .alert.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.validate-button,
+.cancel-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.validate-button {
+    background-color: #4CAF50;
+    color: white;
+    margin-left: 10px;
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+input.editing,
+select.editing {
+    border: 2px solid #4CAF50;
+    background-color: #f8fff8;
+}
+
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 
 
 #soumettre_button {
@@ -448,7 +448,6 @@ input.editing, select.editing {
     background-color: #45a049;
 }
 
-/* Amélioration du style pour le select */
 select {
     padding: 8px;
     border: 1px solid #ccc;
@@ -503,7 +502,7 @@ select:disabled {
         flex-direction: column;
         padding: 25px;
     }
-    
+
     #profil-left {
         border-right: none;
         border-bottom: 1px solid #e0e0e0;
@@ -511,12 +510,12 @@ select:disabled {
         padding-bottom: 20px;
         margin-bottom: 20px;
     }
-    
+
     .voyage-details {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .btn-details {
         margin-top: 10px;
         align-self: flex-end;
@@ -528,16 +527,16 @@ select:disabled {
         margin: 80px 15px 30px;
         padding: 20px;
     }
-    
+
     .modification {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .modification_button {
         margin-top: 10px;
     }
-    
+
     .btn-recap {
         padding: 10px 15px;
     }

@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Chemin vers le fichier JSON des utilisateurs
     $file_path = "../../data/utilisateurs.json";
     
-    // Vérifier si le fichier existe
+    // Vérifie si le fichier existe
     if (file_exists($file_path)) {
         // Lire le contenu du fichier
         $json_data = file_get_contents($file_path);
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Variable pour stocker l'utilisateur trouvé
         $found_user = null;
         
-        // Rechercher l'utilisateur avec l'email correspondant
+        // Recherche l'utilisateur avec l'email correspondant
         foreach ($users as $user) {
             if ($user['Email'] === $email) {
                 $found_user = $user;
@@ -37,7 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             // Si l'utilisateur n'est pas trouvé ou n'a pas de question de sécurité
-            // Par sécurité, nous ne révélons pas si l'email existe ou non
             header("Location: ./mot_de_passe_oublie.php?error=" . urlencode("Adresse email non trouvée ou question de sécurité non configurée."));
             exit();
         }

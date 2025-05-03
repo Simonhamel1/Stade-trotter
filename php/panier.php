@@ -96,11 +96,6 @@
     . "#" . $vendeur
     . "#" . $retour . "#" );
     
-    /**
-     * Fonction pour sauvegarder le panier d'un utilisateur dans le fichier JSON
-     * @param string $utilisateur_id L'ID de l'utilisateur
-     * @param array $panier Le panier à sauvegarder
-     */
     function sauvegarderPanier($utilisateur_id, $panier) {
         global $paniers_file;
         
@@ -182,7 +177,7 @@
                                                             // Parcourir les détails pour afficher les options choisies
                                                             foreach ($etapeDetails as $categorie => $valeur) {
                                                                 if ($categorie === 'total' || $categorie === 'date') {
-                                                                    continue; // Traitement spécial pour ces champs
+                                                                    continue;
                                                                 }
                                                                 
                                                                 echo '<div class="option-category">';
@@ -213,8 +208,8 @@
                                                                     }
                                                                 }
                                                                 
-                                                                echo '</div>'; // Fin option-values
-                                                                echo '</div>'; // Fin option-category
+                                                                echo '</div>';
+                                                                echo '</div>';
                                                             }
                                                             ?>
                                                         </div>

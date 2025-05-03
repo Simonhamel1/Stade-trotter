@@ -1,6 +1,5 @@
 <?php
     session_start();
-    // On conserve la session pour garder les données du formulaire
 ?>
 <!DOCTYPE html>
 <html lang="fr">

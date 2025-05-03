@@ -14,7 +14,7 @@ html {
     scroll-behavior: smooth;
 }
 
-button{
+button {
     display: block;
     margin: 20px auto;
     padding: 15px 30px;
@@ -102,7 +102,7 @@ main h1 {
     color: var(--noir);
 }
 
-.error-message{
+.error-message {
     background-color: #ff0000;
     color: white;
     padding: 15px;
@@ -116,7 +116,7 @@ main h1 {
 .etape {
     padding: 10px;
     margin: 20px 0;
-    background: linear-gradient(145deg, var(--bleu-fonce),var(--bleu-clair));
+    background: linear-gradient(145deg, var(--bleu-fonce), var(--bleu-clair));
     border-radius: 12px;
 }
 
@@ -132,11 +132,11 @@ main h1 {
 .voyage-details {
     margin: 20px 0;
     padding: 10px;
-    background: linear-gradient(145deg, var(--bleu-fonce),var(--bleu-clair));
+    background: linear-gradient(145deg, var(--bleu-fonce), var(--bleu-clair));
     border-radius: 12px;
 }
 
-.end-buttons{
+.end-buttons {
     display: flex;
     flex-direction: row-reverse;
 }
@@ -273,7 +273,8 @@ footer {
     font-size: 14px;
 }
 
-#submit:hover, #back:hover   {
+#submit:hover,
+#back:hover {
     transform: scale(1.05);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
@@ -297,7 +298,6 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    /* Exemple d'ajustement pour le contenu */
     main {
         margin: 120px 10px 20px;
         padding: 15px;

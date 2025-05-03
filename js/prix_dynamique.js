@@ -1,4 +1,3 @@
-// prix-dynamique.js - Gestion dynamique des prix
 document.addEventListener('DOMContentLoaded', function() {
     // Récupération des éléments du DOM
     const nbParticipantsInput = document.getElementById('nb_participants');
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     prixTotal += prixOption * nbParticipants;
                 }
             } 
-            // Pour les checkboxes
             else if (element.type === 'checkbox' && element.checked) {
                 const labelText = element.parentElement.textContent;
                 const prixOption = extrairePrix(labelText);

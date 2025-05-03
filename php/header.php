@@ -1,16 +1,16 @@
 <?php
-// Check for theme cookie at the beginning of the file
-$theme = 'dark'; // Default theme
+// Vérifie le cookie de thème au début du fichier
+$theme = 'dark'; // Thème par défaut
 if(isset($_COOKIE['theme'])) {
-    // Validate cookie value
+    // Valide la valeur du cookie
     if($_COOKIE['theme'] === 'light' || $_COOKIE['theme'] === 'dark') {
         $theme = $_COOKIE['theme'];
     } else {
-        // Invalid value, reset to default
+        // Valeur invalide, réinitialisation à la valeur par défaut
         setcookie('theme', $theme, time() + (365 * 24 * 60 * 60), '/');
     }
 } else {
-    // Cookie doesn't exist, create with default value
+    // Le cookie n'existe pas, création avec la valeur par défaut
     setcookie('theme', $theme, time() + (365 * 24 * 60 * 60), '/');
 }
 ?>
@@ -43,7 +43,7 @@ if(isset($_COOKIE['theme'])) {
     </div>
     <link rel="stylesheet" href="../css/bouton_changement.css">
     <script>
-        // Apply theme from cookie immediately to prevent flash of wrong theme
+        // Applique immédiatement le thème du cookie pour éviter un flash du mauvais thème
         document.documentElement.setAttribute('data-theme', '<?php echo $theme; ?>');
     </script>
     <script src="../js/bouton_changement.js" defer></script>

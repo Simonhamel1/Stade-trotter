@@ -105,8 +105,9 @@
 
     // Stockage minimal en session (uniquement ce qui est nécessaire)
     $_SESSION["user_id"] = $user_data["Id"];
-    $_SESSION["user_email"] = $user_data["Email"];
-    $_SESSION["user_name"] = $user_data["Prenom"] . " " . $user_data["Nom"];
+    $_SESSION["Email"] = $user_data["Email"];
+    $_SESSION["Prenom"] = $user_data["Prenom"];
+    $_SESSION["Nom"] = $user_data["Nom"];
     
     // Nettoyage des données temporaires du formulaire
     unset($_SESSION['form_prenom']);

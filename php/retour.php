@@ -1,110 +1,146 @@
 <?php
 session_start();
 
-if(isset($_GET['status']) && $_GET['status'] == 'denied'){
-    $_SESSION['transaction_status'] = 'denied';
-}   
-$absolute_path_paiements = "../data/paiements.json";
-$absolute_path_dataVoyages = "../data/dataVoyages.json";
+// Récupérer les informations de la transaction
+$transaction_id = $_REQUEST['transaction'] ?? '';
+$montant = $_REQUEST['montant'] ?? '';
+$paiement_status = $_REQUEST['status'] ?? '';
+$transaction_date = date('Y-m-d H:i:s');
 
-// Lire le contenu actuel du fichier
-$content_paiement = file_exists($absolute_path_paiements) ? file_get_contents($absolute_path_paiements) : '[]';
-$content_voyage = file_exists($absolute_path_dataVoyages) ? file_get_contents($absolute_path_dataVoyages) : '[]';
+// Chemin vers les fichiers JSON
+$paniers_file = __DIR__ . '/../data/paniers.json';
+$dataVoyages_file = __DIR__ . '/../data/dataVoyages.json';
 
-// Convertir le contenu en tableau PHP
-$jsonArrayPaiement = json_decode($content_paiement, true);
-$jsonArrayVoyage = json_decode($content_voyage, true);
-// Tableau des informations de paiements
-$userData = [
-    'status' => isset($_GET['status']) ? $_GET['status'] : null,
-    'montant' => isset($_GET['montant']) ? $_GET['montant'] : null,
-    'transaction' => isset($_GET['transaction']) ? $_GET['transaction'] : null,
-    'vendeur' => isset($_GET['vendeur']) ? $_GET['vendeur'] : null,
-    'control' => isset($_GET['control']) ? $_GET['control'] : null,
-    'user' => array_key_exists('user', $_SESSION) ? $_SESSION['user'] : null
-];
-$jsonArrayPaiement[] = $userData;
-// Tableau des informations de voyages
-if (isset($_SESSION['voyage_data'])) {
-    $jsonArrayVoyage[] = $_SESSION['voyage_data'];
+$message = "";
+$status = "error";
+
+// PROBLÈME IDENTIFIÉ : Le serveur de paiement renvoie "accepted" mais votre code vérifie "accepted" 
+// ET que la transaction en session correspond, ce qui peut échouer.
+if ($paiement_status == 'accepted') {
+    // Traitement du paiement accepté
+    if (isset($_SESSION['user'])) {
+        $utilisateur_id = $_SESSION['user'];
+        
+        // Récupérer le panier de l'utilisateur
+        $panier = $_SESSION['panier'] ?? [];
+        
+        if (!empty($panier)) {
+            // Ajouter les voyages achetés à dataVoyages.json
+            ajouterVoyagesAchetesAData($panier, $utilisateur_id, $transaction_id, $transaction_date);
+            
+            // Vider le panier de l'utilisateur dans la session
+            $_SESSION['panier'] = [];
+            
+            // Vider le panier de l'utilisateur dans le fichier JSON
+            if (file_exists($paniers_file)) {
+                $paniers_data = json_decode(file_get_contents($paniers_file), true) ?: [];
+                if (isset($paniers_data[$utilisateur_id])) {
+                    $paniers_data[$utilisateur_id] = [];
+                    file_put_contents($paniers_file, json_encode($paniers_data, JSON_PRETTY_PRINT));
+                }
+            }
+            
+            // Message de succès
+            $message = "Votre paiement a été traité avec succès. Merci pour votre achat !";
+            $status = "success";
+        } else {
+            $message = "Votre panier est vide. Le paiement a été accepté mais aucun voyage n'a été traité.";
+        }
+    } else {
+        $message = "Vous devez être connecté pour finaliser votre achat. Le paiement a été accepté mais aucun voyage n'a été enregistré.";
+    }
+} else {
+    // Paiement refusé ou erreur
+    $message = "Une erreur est survenue lors du traitement de votre paiement.";
 }
 
-// Ajoute les infos aux json
-file_put_contents($absolute_path_paiements, json_encode($jsonArrayPaiement, JSON_PRETTY_PRINT));
-file_put_contents($absolute_path_dataVoyages, json_encode($jsonArrayVoyage, JSON_PRETTY_PRINT));
-unset($_SESSION['voyage_id']);
-unset($_SESSION['voyage_data']);
-?>
+// Nettoyer les variables de session liées à la transaction
+unset($_SESSION['current_transaction']);
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<style>
-    body {
+function ajouterVoyagesAchetesAData($panier, $utilisateur_id, $transaction_id, $transaction_date) {
+    global $dataVoyages_file;
+    
+    // Créer le dossier data s'il n'existe pas
+    $dir = dirname($dataVoyages_file);
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+    
+    // Charger les données existantes
+    $dataVoyages = [];
+    if (file_exists($dataVoyages_file)) {
+        $dataVoyages = json_decode(file_get_contents($dataVoyages_file), true) ?: [];
+    }
+    
+    // Préparer les voyages achetés avec les informations de la transaction
+    foreach ($panier as $voyage) {
+        // Ajouter les informations de transaction
+        $voyage['transaction_id'] = $transaction_id;
+        $voyage['date_achat'] = $transaction_date;
+        $voyage['utilisateur_id'] = $utilisateur_id;
+        $voyage['status'] = 'payé';
         
-        padding: 0;
-        font-family: Arial, sans-serif; 
-        background-size: cover;
-        background-position: center;
-        color: #fff;
-        text-align: center;
-        color : #000;
+        // Ajouter le voyage à dataVoyages.json
+        $dataVoyages[] = $voyage;
     }
-
-    h1 {
-        margin-top: 20%;
-        font-size: 2.5rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    p {
-        font-size: 1.2rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        text-align: center;
-        margin: 20px auto;
-        color: #000;
-    }
-
-    a {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #007BFF;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        transition: background-color 0.3s ease;
-        color : #000;
-    }
-
-    a:hover {
-        background-color: #0056b3;
-    }
-</style>
-
+    
+    // Sauvegarder dans le fichier JSON
+    file_put_contents($dataVoyages_file, json_encode($dataVoyages, JSON_PRETTY_PRINT));
+}
+?>
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalisation</title>
+    <title>Confirmation de Transaction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .message {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 600px;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        .button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <?php if (isset($_GET['status']) && $_GET['status'] == 'accepted'): ?>
-        <h1>Paiement accepté !</h1>
-        <p>Merci pour votre paiement. Voici un récapitulatif de votre transaction :</p>
-        <ul style="list-style-type: none; padding: 0; text-align: left; display: inline-block;">
-            <li><strong>Montant :</strong> <?php echo htmlspecialchars($_GET['montant'] ?? 'N/A'); ?> €</li>
-            <li><strong>Transaction ID :</strong> <?php echo htmlspecialchars($_GET['transaction'] ?? 'N/A'); ?></li>
-            <li><strong>Vendeur :</strong> <?php echo htmlspecialchars($_GET['vendeur'] ?? 'N/A'); ?></li>
-        </ul>
-        <p></p>
-        <a href="./accueil.php">Retour à l'accueil</a>
-    <?php else: ?>
-        <h1>Le paiement a échoué.</h1>
-        <p>Nous sommes désolés pour ce désagrément. Veuillez réessayer le paiement</p>
-        <a href="javascript:history.go(-2)">Retour au paiement</a>
+    <?php if (!empty($message)): ?>
+    <div class="message <?php echo $status; ?>">
+        <?php echo $message; ?>
+    </div>
     <?php endif; ?>
+    <a href="accueil.php" class="button">Retour vers la page d'accueil</a>
 </body>
 </html>

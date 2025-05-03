@@ -115,8 +115,11 @@ $recapResults = [
 
 $_SESSION['voyage_data'] = $recapResults;
 
-$montant = $finalPrice;
+// Ajouter le paramètre transaction_id pour suivre la commande en cours
 $transaction = uniqid();
+$_SESSION['current_transaction'] = $transaction;
+
+$montant = $finalPrice;
 
 $control = md5( $api_key
  . "#" . $transaction
@@ -144,6 +147,7 @@ $control = md5( $api_key
         <?php
             if(isset($_SESSION['transaction_status']) && $_SESSION['transaction_status'] == 'denied'){
                 echo '<div class="error-message">Une erreur est survenue lors du paiement. Veuillez réessayer.</div>';
+                unset($_SESSION['transaction_status']);
             }
         ?>
         <section class="voyage-details">

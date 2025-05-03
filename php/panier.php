@@ -7,77 +7,25 @@
     $transaction = uniqid();
 
     // Chemin vers le fichier JSON des paniers
-    $paniers_json_file = '../data/paniers.json';
+    $paniers_file = __DIR__ . '/../data/paniers.json';
     
     // Initialiser le panier s'il n'existe pas encore
     if (!isset($_SESSION['panier'])) {
         $_SESSION['panier'] = [];
-    }
-    
-    // Fonction pour charger tous les paniers depuis le fichier JSON
-    function loadPaniers() {
-        global $paniers_json_file;
-        if (file_exists($paniers_json_file)) {
-            $content = file_get_contents($paniers_json_file);
-            if (!empty($content)) {
-                return json_decode($content, true);
+        
+        // Si l'utilisateur est connecté, charger son panier sauvegardé s'il existe
+        if (isset($_SESSION['user'])) {
+            $utilisateur_id = $_SESSION['user'];
+            
+            if (file_exists($paniers_file)) {
+                $paniers_data = json_decode(file_get_contents($paniers_file), true) ?: [];
+                
+                // Rechercher les voyages de l'utilisateur dans le fichier des paniers
+                if (isset($paniers_data[$utilisateur_id])) {
+                    $_SESSION['panier'] = $paniers_data[$utilisateur_id];
+                }
             }
         }
-        return [];
-    }
-    
-    // Fonction pour sauvegarder tous les paniers dans le fichier JSON
-    function savePaniers($paniers) {
-        global $paniers_json_file;
-        
-        // Créer le dossier data s'il n'existe pas
-        $dir = dirname($paniers_json_file);
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true);
-        }
-        
-        file_put_contents($paniers_json_file, json_encode($paniers, JSON_PRETTY_PRINT));
-    }
-    
-    // Fonction pour sauvegarder le panier actuel de l'utilisateur
-    function saveCurrentPanier() {
-        global $transaction;
-        
-        if (isset($_SESSION['panier']) && !empty($_SESSION['panier'])) {
-            $paniers = loadPaniers();
-            
-            // Récupérer l'ID utilisateur s'il est connecté
-            $utilisateur_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 'guest_' . session_id();
-            
-            // Créer une entrée pour ce panier
-            $panier_data = [
-                'panier_id' => $transaction,
-                'date_creation' => date('Y-m-d H:i:s'),
-                'utilisateur_id' => $utilisateur_id,
-                'voyages' => $_SESSION['panier'],
-                'montant_total' => calculateTotalPrice($_SESSION['panier']),
-                'statut' => 'en_attente' // en_attente, payé, annulé
-            ];
-            
-            // Ajouter ou mettre à jour le panier
-            $paniers[$transaction] = $panier_data;
-            
-            // Sauvegarder tous les paniers
-            savePaniers($paniers);
-            
-            return $transaction;
-        }
-        
-        return false;
-    }
-    
-    // Calculer le prix total d'un tableau de voyages
-    function calculateTotalPrice($voyages) {
-        $total = 0;
-        foreach ($voyages as $voyage) {
-            $total += $voyage['final_price'];
-        }
-        return $total;
     }
     
     // Ajouter le voyage au panier si les données du voyage sont disponibles
@@ -102,6 +50,11 @@
             $_SESSION['panier'][] = $voyage;
         }
         
+        // Sauvegarder le panier dans le fichier JSON si l'utilisateur est connecté
+        if (isset($_SESSION['user'])) {
+            sauvegarderPanier($_SESSION['user'], $_SESSION['panier']);
+        }
+        
         // Supprimer les données temporaires du voyage
         unset($_SESSION['voyage_data']);
         
@@ -121,13 +74,21 @@
         // Réindexer le tableau après suppression
         $_SESSION['panier'] = array_values($_SESSION['panier']);
         
+        // Sauvegarder le panier mis à jour dans le fichier JSON si l'utilisateur est connecté
+        if (isset($_SESSION['user'])) {
+            sauvegarderPanier($_SESSION['user'], $_SESSION['panier']);
+        }
+        
         // Rediriger pour éviter de supprimer plusieurs fois
         header('Location: panier.php');
         exit;
     }
     
     // Calculer le prix total du panier
-    $prixTotalPanier = calculateTotalPrice($_SESSION['panier']);
+    $prixTotalPanier = 0;
+    foreach ($_SESSION['panier'] as $voyage) {
+        $prixTotalPanier += $voyage['final_price'];
+    }
 
     $control = md5( $api_key
     . "#" . $transaction
@@ -135,10 +96,31 @@
     . "#" . $vendeur
     . "#" . $retour . "#" );
     
-    // Si l'utilisateur procède au paiement, sauvegarder le panier
-    if (isset($_POST['save_recap']) && $_POST['save_recap'] == '1') {
-        saveCurrentPanier();
-        // La redirection vers la page de paiement se fait normalement via le formulaire
+    /**
+     * Fonction pour sauvegarder le panier d'un utilisateur dans le fichier JSON
+     * @param string $utilisateur_id L'ID de l'utilisateur
+     * @param array $panier Le panier à sauvegarder
+     */
+    function sauvegarderPanier($utilisateur_id, $panier) {
+        global $paniers_file;
+        
+        // Créer le dossier data s'il n'existe pas
+        $dir = dirname($paniers_file);
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        
+        // Charger les paniers existants
+        $paniers_data = [];
+        if (file_exists($paniers_file)) {
+            $paniers_data = json_decode(file_get_contents($paniers_file), true) ?: [];
+        }
+        
+        // Mettre à jour le panier de l'utilisateur
+        $paniers_data[$utilisateur_id] = $panier;
+        
+        // Sauvegarder dans le fichier JSON
+        file_put_contents($paniers_file, json_encode($paniers_data, JSON_PRETTY_PRINT));
     }
 ?>    
 <!DOCTYPE html>
@@ -276,8 +258,9 @@
                         value= '<?php echo $retour ?>' >
                         <input type='hidden' name='control'
                         value='<?php echo $control ?>'>
+                        <input id="submit" type='submit' value="Procéder au paiement">
+
                         <input type='hidden' name='save_recap' value='1'>
-                        <input id="submit" type='submit' value="Procéder au paiement" onclick="savePanierBeforePayment()">
                     </form>                
                 </div>
             </div>
@@ -300,13 +283,6 @@
                 });
             });
         });
-
-        // Fonction pour sauvegarder le panier avant de rediriger vers la page de paiement
-        function savePanierBeforePayment() {
-            // Cette fonction est associée au bouton de paiement
-            // Le panier sera sauvegardé côté serveur grâce au champ save_recap
-            console.log("Sauvegarde du panier avant paiement...");
-        }
     </script>
 </body>
 </html>

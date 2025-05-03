@@ -203,21 +203,6 @@ $control = md5( $api_key
             <h2>Prix final de votre voyage : <?= $finalPrice ?> €</h2>
         </section>
         <div class="end-buttons">
-            <form action='https://www.plateforme-smc.fr/cybank/index.php'
-                method='POST'>
-                <input type='hidden' name='transaction'
-                value='<?php echo $transaction ?>'>
-                <input type='hidden' name='montant' value='<?php echo $montant ?>'>
-                <input type='hidden' name='vendeur' value='<?php echo $vendeur ?>'>
-                <input type='hidden' name='retour'
-                value= '<?php echo $retour ?>' >
-                <input type='hidden' name='control'
-                value='<?php echo $control ?>'>
-                <input id="submit" type='submit' value="Enregistrer et payer">
-
-                <input type='hidden' name='save_recap' value='1'>
-
-            </form>
             <a id="back" href="#" onclick="history.back(); return false;">Retour</a>
             <a id="panier" href="./panier.php">Panier</a>
         </div>

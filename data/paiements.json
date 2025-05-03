@@ -616,5 +616,14 @@
         "status": "paye",
         "vendeur": "MEF-2_D",
         "control": "bdb52cd6756be97ec674454da8bea821"
+    },
+    {
+        "transaction_id": "681636c20efbe",
+        "montant": "6860",
+        "utilisateur_id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2",
+        "date": "2025-05-03 15:31:25",
+        "status": "paye",
+        "vendeur": "MEF-2_D",
+        "control": "228648ed370ffabf51f34f2e217712f5"
     }
 ]

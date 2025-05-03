@@ -256,5 +256,83 @@
         "transaction_id": "6816335956435",
         "date_achat": "2025-05-03 15:16:51",
         "status": "pay\u00e9"
+    },
+    {
+        "voyage_id": "stade-de-france",
+        "voyage_name": "Stade de France",
+        "date_depart": "2025-05-22",
+        "date_retour": "2025-05-23",
+        "nb_participants": 1,
+        "final_price": 1705,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Demi-pension",
+                    "price": 50
+                },
+                "transport": {
+                    "name": "Voiture priv\u00e9e",
+                    "price": 30
+                },
+                "activites": [
+                    {
+                        "name": "D\u00eener gastronomique",
+                        "price": 60
+                    }
+                ],
+                "garde_enfants": {
+                    "name": "Babysitting (soir\u00e9e)",
+                    "price": 50
+                },
+                "total": 290
+            },
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Pension compl\u00e8te",
+                    "price": 80
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Concert en plein air",
+                        "price": 35
+                    }
+                ],
+                "total": 225
+            },
+            {
+                "restauration": {
+                    "name": "Menu du chef",
+                    "price": 120
+                },
+                "transport": {
+                    "name": "Taxi",
+                    "price": 20
+                },
+                "activites": [
+                    {
+                        "name": "Sortie nocturne",
+                        "price": 50
+                    }
+                ],
+                "total": 190
+            }
+        ],
+        "utilisateur_id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2",
+        "panier_id": "6816363001a7e",
+        "transaction_id": "681636c20efbe",
+        "date_achat": "2025-05-03 15:31:25",
+        "status": "pay\u00e9"
     }
 ]

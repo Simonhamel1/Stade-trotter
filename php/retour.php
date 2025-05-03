@@ -10,6 +10,7 @@ $transaction_date = date('Y-m-d H:i:s');
 // Chemin vers les fichiers JSON
 $paniers_file = __DIR__ . '/../data/paniers.json';
 $dataVoyages_file = __DIR__ . '/../data/dataVoyages.json';
+$paiements_file = __DIR__ . '/../data/paiements.json';
 
 $message = "";
 $status = "error";
@@ -23,6 +24,32 @@ if ($paiement_status == 'accepted') {
         $panier = $_SESSION['panier'] ?? [];
         
         if (!empty($panier)) {
+            // Ajouter le paiement à paiements.json
+            $paiements_data = [];
+
+            // Récupérer les données supplémentaires de la transaction
+            $vendeur = $_REQUEST['vendeur'] ?? '';
+            $control = $_REQUEST['control'] ?? '';
+            
+            // Charger le fichier de paiements existant
+            if (file_exists($paiements_file)) {
+                $paiements_data = json_decode(file_get_contents($paiements_file), true) ?: [];
+            }
+            
+            // Ajouter les détails de la transaction
+            $paiements_data[] = [
+                'transaction_id' => $transaction_id,
+                'montant' => $montant,
+                'utilisateur_id' => $utilisateur_id,
+                'date' => $transaction_date,
+                'status' => 'paye',
+                'vendeur' => $vendeur,
+                'control' => $control,
+            ];
+            
+            // Sauvegarder les paiements
+            file_put_contents($paiements_file, json_encode($paiements_data, JSON_PRETTY_PRINT));
+
             // Ajouter les voyages achetés à dataVoyages.json
             ajouterVoyagesAchetesAData($panier, $utilisateur_id, $transaction_id, $transaction_date);
             

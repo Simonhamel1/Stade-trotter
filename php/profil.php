@@ -1,17 +1,27 @@
 <?php 
     session_start();
 
-    
     // Vérification si l'utilisateur est connecté
     if (!isset($_SESSION['Email'])) {
         header('Location: ./connexion.php');
         exit;
     }
     
+    // Stocker les messages dans des variables plutôt que de les afficher directement
+    $debug_messages = '';
     if (isset($_SESSION['user'])) {
-        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
+        $debug_messages .= '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
     } 
     
+    // Chargement des données des utilisateurs depuis le fichier JSON
+    $users_json_file = '../data/utilisateurs.json';
+    $users_data = [];
+    
+    if (file_exists($users_json_file)) {
+        $users_data = json_decode(file_get_contents($users_json_file), true);
+    } else {
+        die("Le fichier de données des utilisateurs n'existe pas.");
+    }
 
     // Chargement des données des voyages depuis le fichier JSON
     $voyages_json_file = '../data/dataVoyages.json';
@@ -19,11 +29,11 @@
     
     if (file_exists($voyages_json_file)) {
         $voyages_data = json_decode(file_get_contents($voyages_json_file), true);
-        // Affichage des données des voyages dans la console du navigateur
-        echo '<script>';
-        echo 'console.log("Données des voyages:");';
-        echo 'console.log(' . json_encode($voyages_data, JSON_PRETTY_PRINT) . ');';
-        echo '</script>';
+        // Stocker le debug dans une variable au lieu de l'afficher immédiatement
+        $debug_messages .= '<script>';
+        $debug_messages .= 'console.log("Données des voyages:");';
+        $debug_messages .= 'console.log(' . json_encode($voyages_data, JSON_PRETTY_PRINT) . ');';
+        $debug_messages .= '</script>';
     } else {
         die("Le fichier de données des voyages n'existe pas.");
     }
@@ -38,30 +48,132 @@
         }
     }
 
+    // Fonction pour mettre à jour les données utilisateur dans le fichier JSON
+    function update_user_info($user_id, $email, $prenom, $nom, $club, $sexe, $question, $reponse) {
+        global $users_data, $users_json_file, $voyages_json_file, $voyages_data;
+        
+        $user_updated = false;
+        
+        foreach ($users_data as $key => $user) {
+            if ($user['Id'] === $user_id) {
+                // Sauvegarde des anciennes valeurs pour mise à jour des voyages
+                $old_club = $user['Club'];
+                $old_email = $user['Email'];
+                $old_prenom = $user['Prenom'];
+                $old_nom = $user['Nom'];
+                
+                // Mise à jour des champs modifiés dans le tableau utilisateurs
+                if (!empty($email)) $users_data[$key]['Email'] = $email;
+                if (!empty($prenom)) $users_data[$key]['Prenom'] = $prenom;
+                if (!empty($nom)) $users_data[$key]['Nom'] = $nom;
+                if (!empty($club)) $users_data[$key]['Club'] = $club;
+                if (!empty($sexe)) $users_data[$key]['Sexe'] = $sexe;
+                if (!empty($question)) $users_data[$key]['Question'] = $question;
+                if (!empty($reponse)) {
+                    // Hasher la réponse avant de la stocker
+                    $users_data[$key]['Reponse'] = password_hash($reponse, PASSWORD_DEFAULT);
+                }
+                
+                // Enregistrer les modifications dans le fichier JSON utilisateurs
+                file_put_contents($users_json_file, json_encode($users_data, JSON_PRETTY_PRINT));
+                
+                // Mettre à jour les données de la session
+                $_SESSION['Email'] = $users_data[$key]['Email'];
+                $_SESSION['Prenom'] = $users_data[$key]['Prenom'];
+                $_SESSION['Nom'] = $users_data[$key]['Nom'];
+                $_SESSION['Club'] = $users_data[$key]['Club'];
+                if (!empty($sexe)) $_SESSION['Sexe'] = $users_data[$key]['Sexe'];
+                if (!empty($question)) $_SESSION['Question'] = $users_data[$key]['Question'];
+                
+                $user_updated = true;
+                
+                // Mise à jour des informations utilisateur dans les voyages
+                if (!empty($voyages_data)) {
+                    $voyages_updated = false;
+                    
+                    foreach ($voyages_data as $v_key => $voyage) {
+                        if (isset($voyage['utilisateur_id']) && $voyage['utilisateur_id'] === $user_id) {
+                            // Mise à jour des informations utilisateur dans le voyage
+                            if (!empty($email) && isset($voyage['user_email'])) {
+                                $voyages_data[$v_key]['user_email'] = $email;
+                                $voyages_updated = true;
+                            }
+                            
+                            if (!empty($prenom) && isset($voyage['user_prenom'])) {
+                                $voyages_data[$v_key]['user_prenom'] = $prenom;
+                                $voyages_updated = true;
+                            }
+                            
+                            if (!empty($nom) && isset($voyage['user_nom'])) {
+                                $voyages_data[$v_key]['user_nom'] = $nom;
+                                $voyages_updated = true;
+                            }
+                            
+                            if (!empty($club) && isset($voyage['stade']) && $voyage['stade'] === $old_club) {
+                                $voyages_data[$v_key]['stade'] = $club;
+                                $voyages_updated = true;
+                            }
+                            
+                            // Mise à jour du nom complet si présent
+                            if (((!empty($prenom) || !empty($nom))) && isset($voyage['user_fullname'])) {
+                                $nouveau_prenom = !empty($prenom) ? $prenom : $old_prenom;
+                                $nouveau_nom = !empty($nom) ? $nom : $old_nom;
+                                $voyages_data[$v_key]['user_fullname'] = $nouveau_prenom . ' ' . $nouveau_nom;
+                                $voyages_updated = true;
+                            }
+                        }
+                    }
+                    
+                    // Enregistrer les modifications des voyages si nécessaire
+                    if ($voyages_updated) {
+                        file_put_contents($voyages_json_file, json_encode($voyages_data, JSON_PRETTY_PRINT));
+                    }
+                }
+                
+                break;
+            }
+        }
+        
+        return $user_updated;
+    }
+
     // Traitement des modifications du profil si formulaire soumis
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update_profile') {
-        if (isset($_POST['email']) && !empty($_POST['email'])) {
-            $_SESSION['Email'] = $_POST['email'];
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
+        $nom = isset($_POST['nom']) ? $_POST['nom'] : '';
+        $club = isset($_POST['club']) ? $_POST['club'] : '';
+        $sexe = isset($_POST['sexe']) ? $_POST['sexe'] : '';
+        $question = isset($_POST['question']) ? $_POST['question'] : '';
+        $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
+
+        // Mise à jour des données utilisateur
+        if (update_user_info($_SESSION['user'], $email, $prenom, $nom, $club, $sexe, $question, $reponse)) {
+            // Redirection pour éviter les re-soumissions de formulaire
+            header('Location: profil.php?updated=1');
+            exit;
+        } else {
+            // En cas d'erreur
+            header('Location: profil.php?error=1');
+            exit;
         }
-        
-        if (isset($_POST['prenom']) && !empty($_POST['prenom'])) {
-            $_SESSION['Prenom'] = $_POST['prenom'];
+    }
+
+    // Récupération des données complètes de l'utilisateur connecté
+    $current_user = null;
+    foreach ($users_data as $user) {
+        if ($user['Id'] === $_SESSION['user']) {
+            $current_user = $user;
+            break;
         }
-        
-        if (isset($_POST['nom']) && !empty($_POST['nom'])) {
-            $_SESSION['Nom'] = $_POST['nom'];
-        }
-        
-        if (isset($_POST['club']) && !empty($_POST['club'])) {
-            $_SESSION['Club'] = $_POST['club'];
-        }
-        
-        // ajouter la logique pour mettre à jour les données dans le fichier JSON ou la base de données
-        // Par exemple: update_user_info($_SESSION['Id'], $_POST['email'], $_POST['prenom'], $_POST['nom'], $_POST['club']);
-        
-        // Redirection pour éviter les re-soumissions de formulaire
-        header('Location: profil.php?updated=1');
-        exit;
+    }
+
+    // Message de confirmation après mise à jour
+    $update_message = '';
+    if (isset($_GET['updated']) && $_GET['updated'] == 1) {
+        $update_message = '<div class="alert success">Vos informations ont été mises à jour avec succès.</div>';
+    } elseif (isset($_GET['error']) && $_GET['error'] == 1) {
+        $update_message = '<div class="alert error">Une erreur est survenue lors de la mise à jour de vos informations.</div>';
     }
 ?>
 <!DOCTYPE html>
@@ -77,92 +189,162 @@
     <?php include './header.php'; ?>
 
     <section id="profil">
-        <!-- COLONNE DE GAUCHE : données utilisateur -->
-        <div id="profil-left">
-            <div class="data">
-                <h2>Email</h2>
-                <div class="modification">
-                    <input type="text" id="inputbutton1"
-                        value="<?php echo htmlspecialchars($_SESSION['Email']); ?>"
-                        readonly>
-                    <div class="modification_button" id="button1">
-                        <button class="permettre_modifications"
-                            onclick="modification_utilisateurs('button1');"
-                            value="modifier">
-                            Modifier
+        <?php 
+        // Afficher le message de mise à jour s'il existe
+        ?>
+        
+        <form id="update-profile-form" method="POST" action="profil.php">
+            <input type="hidden" name="action" value="update_profile">
+            
+            <!-- COLONNE DE GAUCHE : données utilisateur -->
+            <div id="profil-left">
+                <div class="data">
+                    <h2>Email</h2>
+                    <div class="modification">
+                        <input type="email" id="inputbutton1" name="email"
+                            value="<?php echo htmlspecialchars($_SESSION['Email']); ?>"
+                            readonly>
+                        <div class="modification_button" id="button1">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button1');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <h2>Prénom</h2>
+                    <div class="modification">
+                        <input type="text" id="inputbutton2" name="prenom"
+                            value="<?php echo htmlspecialchars($_SESSION['Prenom']); ?>"
+                            readonly>                
+                        <div class="modification_button" id="button2">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button2');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <h2>Nom</h2>
+                    <div class="modification">
+                        <input type="text" id="inputbutton3" name="nom"
+                            value="<?php echo htmlspecialchars($_SESSION['Nom']); ?>"
+                            readonly>
+                        <div class="modification_button" id="button3">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button3');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">  
+                    <h2>Club</h2>
+                    <div class="modification">
+                        <select id="inputbutton4" name="club" disabled>
+                            <option value="PSG" <?php echo ($_SESSION['Club'] == 'PSG') ? 'selected' : ''; ?>>PSG</option>
+                            <option value="Real Madrid" <?php echo ($_SESSION['Club'] == 'Real Madrid') ? 'selected' : ''; ?>>Real Madrid</option>
+                            <option value="Barcelone" <?php echo ($_SESSION['Club'] == 'Barcelone') ? 'selected' : ''; ?>>FC Barcelone</option>
+                            <option value="Bayern" <?php echo ($_SESSION['Club'] == 'Bayern') ? 'selected' : ''; ?>>Bayern Munich</option>
+                            <option value="Manchester United" <?php echo ($_SESSION['Club'] == 'Manchester United') ? 'selected' : ''; ?>>Manchester United</option>
+                            <option value="Liverpool" <?php echo ($_SESSION['Club'] == 'Liverpool') ? 'selected' : ''; ?>>Liverpool</option>
+                            <option value="Chelsea" <?php echo ($_SESSION['Club'] == 'Chelsea') ? 'selected' : ''; ?>>Chelsea</option>
+                            <option value="Manchester City" <?php echo ($_SESSION['Club'] == 'Manchester City') ? 'selected' : ''; ?>>Manchester City</option>
+                            <option value="Juventus" <?php echo ($_SESSION['Club'] == 'Juventus') ? 'selected' : ''; ?>>Juventus</option>
+                            <option value="AC Milan" <?php echo ($_SESSION['Club'] == 'AC Milan') ? 'selected' : ''; ?>>AC Milan</option>
+                            <option value="Borussia Dortmund" <?php echo ($_SESSION['Club'] == 'Borussia Dortmund') ? 'selected' : ''; ?>>Borussia Dortmund</option>
+                            <option value="Autre" <?php echo ($_SESSION['Club'] == 'Autre') ? 'selected' : ''; ?>>Autre</option>
+                        </select>
+                        <div class="modification_button" id="button4">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button4');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <h2>Sexe</h2>
+                    <div class="modification">
+                        <select id="inputbutton5" name="sexe" disabled>
+                            <option value="Homme" <?php echo (isset($_SESSION['Sexe']) && $_SESSION['Sexe'] === 'Homme') ? 'selected' : ''; ?>>Homme</option>
+                            <option value="Femme" <?php echo (isset($_SESSION['Sexe']) && $_SESSION['Sexe'] === 'Femme') ? 'selected' : ''; ?>>Femme</option>
+                            <option value="Autre" <?php echo (isset($_SESSION['Sexe']) && $_SESSION['Sexe'] === 'Autre') ? 'selected' : ''; ?>>Autre</option>
+                        </select>
+                        <div class="modification_button" id="button5">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button5');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <h2>Question de sécurité</h2>
+                    <div class="modification">
+                        <select id="inputbutton6" name="question" disabled>
+                            <option value="Quel est le nom de votre premier animal de compagnie ?" <?php echo ($current_user['Question'] === "Quel est le nom de votre premier animal de compagnie ?") ? 'selected' : ''; ?>>Quel est le nom de votre premier animal de compagnie ?</option>
+                            <option value="Quel est votre film préféré ?" <?php echo ($current_user['Question'] === "Quel est votre film préféré ?") ? 'selected' : ''; ?>>Quel est votre film préféré ?</option>
+                            <option value="Dans quelle ville êtes-vous né(e) ?" <?php echo ($current_user['Question'] === "Dans quelle ville êtes-vous né(e) ?") ? 'selected' : ''; ?>>Dans quelle ville êtes-vous né(e) ?</option>
+                            <option value="Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?" <?php echo ($current_user['Question'] === "Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?") ? 'selected' : ''; ?>>Quel est le prénom de votre meilleur(e) ami(e) d'enfance ?</option>
+                            <option value="Quelle est votre couleur préférée ?" <?php echo ($current_user['Question'] === "Quelle est votre couleur préférée ?") ? 'selected' : ''; ?>>Quelle est votre couleur préférée ?</option>
+                        </select>
+                        <div class="modification_button" id="button6">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button6');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <h2>Réponse de sécurité</h2>
+                    <div class="modification">
+                        <input type="password" id="inputbutton7" name="reponse"
+                            placeholder="Nouvelle réponse de sécurité"
+                            readonly>
+                        <div class="modification_button" id="button7">
+                            <button type="button" class="permettre_modifications"
+                                onclick="modification_utilisateurs('button7');"
+                                value="modifier">
+                                Modifier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="data">
+                    <h2>VIP</h2>
+                    <p>
+                        <?php
+                            echo (isset($_SESSION['VIP']) && $_SESSION['VIP']===true)
+                                ? 'Vous êtes un membre VIP'
+                                : 'Non';
+                        ?>
+                    </p>
+                    <div id="end_buttons">
+                        <?php if(isset($_SESSION['VIP']) && $_SESSION['VIP']===true): ?>
+                            <a href="./admin.php" class="admin-button">
+                                Accéder à la page Admin
+                            </a>
+                        <?php endif; ?>
+                        <button type="submit" id="soumettre_button" style="display: none;">
+                            Soumettre les modifications
                         </button>
                     </div>
                 </div>
-            </div>
-            <div class="data">
-                <h2>Prénom</h2>
-                <div class="modification">
-                    <input type="text" id="inputbutton2"
-                        value="<?php echo htmlspecialchars($_SESSION['Prenom']); ?>"
-                        readonly>                
-                    <div class="modification_button" id="button2">
-                        <button class="permettre_modifications"
-                            onclick="modification_utilisateurs('button2');"
-                            value="modifier">
-                            Modifier
-                        </button>
-                    </div>
+                <div class="data" id="deconnexion">
+                    <a href="./session/deconnexion.php">Déconnexion</a>
                 </div>
             </div>
-            <div class="data">
-                <h2>Nom</h2>
-                <div class="modification">
-                    <input type="text" id="inputbutton3"
-                        value="<?php echo htmlspecialchars($_SESSION['Nom']); ?>"
-                        readonly>
-                    <div class="modification_button" id="button3">
-                        <button class="permettre_modifications"
-                            onclick="modification_utilisateurs('button3');"
-                            value="modifier">
-                            Modifier
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="data">  
-                <h2>Club</h2>
-                <div class="modification">
-                    <input type="text" id="inputbutton4"
-                        value="<?php echo htmlspecialchars($_SESSION['Club']); ?>"
-                        readonly>
-                    <div class="modification_button" id="button4">
-                        <button class="permettre_modifications"
-                            onclick="modification_utilisateurs('button4');"
-                            value="modifier">
-                            Modifier
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="data">
-                <h2>VIP</h2>
-                <p>
-                    <?php
-                        echo (isset($_SESSION['VIP']) && $_SESSION['VIP']===true)
-                            ? 'Vous êtes un membre VIP'
-                            : 'Non';
-                    ?>
-                </p>
-                <div id="end_buttons">
-                <?php if(isset($_SESSION['VIP']) && $_SESSION['VIP']===true): ?>
-                    <a href="./admin.php" class="admin-button">
-                        Accéder à la page Admin
-                    </a>
-                <?php endif; ?>
-                    <button id="soumettre_button" onclick="soumettreTousLesChamps()" style="display: none;">
-                    Soumettre
-                    </button>
-                </div>
-            </div>
-            <div class="data" id="deconnexion">
-                <a href="./session/deconnexion.php">Déconnexion</a>
-            </div>
-        </div>
+        </form>
 
         <!-- COLONNE DE DROITE : liste des voyages payés -->
         <div id="profil-right">
@@ -191,5 +373,38 @@
     </section>
 
     <?php include '../php/footer.php'; ?>
+    
+    <script>
+        // Fonction pour afficher le bouton de soumission quand des champs sont modifiés
+        function checkModifiedFields() {
+            const inputs = document.querySelectorAll('input:not([readonly]), select:not([disabled])');
+            const submitButton = document.getElementById('soumettre_button');
+            
+            if (inputs.length > 0) {
+                submitButton.style.display = 'block';
+            } else {
+                submitButton.style.display = 'none';
+            }
+        }
+
+        // Mettre à jour la fonction de modification pour vérifier les champs modifiés
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier périodiquement si des champs sont modifiables
+            setInterval(checkModifiedFields, 500);
+            
+            // Afficher le message de succès ou d'erreur
+            <?php if (!empty($update_message)): ?>
+            setTimeout(function() {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(function(alert) {
+                    alert.style.opacity = '0';
+                    setTimeout(function() {
+                        alert.style.display = 'none';
+                    }, 1000);
+                });
+            }, 3000);
+            <?php endif; ?>
+        });
+    </script>
 </body>
 </html>

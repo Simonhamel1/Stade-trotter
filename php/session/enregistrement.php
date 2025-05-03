@@ -13,16 +13,11 @@
     if (isset($_POST['Email'])) $_SESSION['form_email'] = $_POST['Email'];
     if (isset($_POST['Sexe'])) $_SESSION['form_sexe'] = $_POST['Sexe'];
     if (isset($_POST['Club'])) $_SESSION['form_club'] = $_POST['Club'];
-
-    // Vérification du token CSRF (si implémenté)
-    // if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-    //     $_SESSION['error_message'] = "Erreur de sécurité, veuillez réessayer";
-    //     header('Location: ../inscription.php');
-    //     exit();
-    // }
+    if (isset($_POST['Question'])) $_SESSION['form_question'] = $_POST['Question'];
+    if (isset($_POST['Reponse'])) $_SESSION['form_reponse'] = $_POST['Reponse'];
 
     // Vérifier que tous les champs obligatoires sont présents
-    $required_fields = ['Prenom', 'Nom', 'Email', 'Password', 'ConfirmPassword', 'Club', 'Sexe'];
+    $required_fields = ['Prenom', 'Nom', 'Email', 'Password', 'ConfirmPassword', 'Club', 'Sexe', 'Question', 'Reponse'];
     foreach ($required_fields as $field) {
         if (!isset($_POST[$field]) || empty($_POST[$field])) {
             $_SESSION['error_message'] = "Tous les champs sont obligatoires";
@@ -52,6 +47,8 @@
         "Email" => htmlspecialchars(trim($_POST["Email"])),
         "Sexe" => htmlspecialchars($_POST["Sexe"]),
         "Club" => htmlspecialchars($_POST["Club"]),
+        "Question" => htmlspecialchars($_POST["Question"]),
+        "Reponse" => htmlspecialchars(trim($_POST["Reponse"])),
         "VIP" => false,
         "banni" => false
     ];
@@ -63,6 +60,9 @@
     // Génération de l'ID utilisateur (plus sécurisé)
     $unique_id = uniqid(rand(), true);
     $user_data["Id"] = hash('sha256', $unique_id . $_POST['Email']);
+
+    //HASHAGE DE LA REPONSE et de la question
+    $user_data["Reponse"] = password_hash($_POST['Reponse'], PASSWORD_DEFAULT);
 
     $absolute_path = "../../data/utilisateurs.json";
     
@@ -114,6 +114,8 @@
     unset($_SESSION['form_email']);
     unset($_SESSION['form_sexe']);
     unset($_SESSION['form_club']);
+    unset($_SESSION['form_question']);
+    unset($_SESSION['form_reponse']);
     
     // Redirection vers la page d'accueil
     header('Location:../accueil.php');

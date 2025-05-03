@@ -31,6 +31,8 @@
             <label for="password">Mot de passe:</label>
             <input type="password" id="password" name="Password" required>
 
+            <p><a href="./mot_de_passe_oublie/mot_de_passe_oublie.php">Mot de passe oublié ?</a></p>
+
             <input type="submit" value="Se connecter">
             <p>Pas encore inscrit ? <a href="inscription.php">Créer un compte</a></p>
         </form>

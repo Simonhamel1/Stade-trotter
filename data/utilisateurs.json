@@ -4,8 +4,10 @@
         "Nom": "Admin",
         "Email": "admin@gmail.com",
         "Sexe": "Homme",
-        "Password": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+        "Password": "$2y$10$ZC7OVo55KqadCpLjW.nWYOOejETZeLxoXFkBO.c.lz0hNpEpDMDTu",
         "Club": "PSG",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2",
         "VIP": true,
         "banni": false
@@ -17,6 +19,8 @@
         "Sexe": "Homme",
         "Password": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
         "Club": "PSG",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3",
         "VIP": true,
         "banni": false
@@ -28,6 +32,8 @@
         "Sexe": "Femme",
         "Password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
         "Club": "PSG",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "b5d9c8c3f8d4e7a2b1c6d9e8f7a4b3c2d5e8f7a4b3c2d5e8f7a4b3c2d5e8f7a4",
         "VIP": false,
         "banni": false
@@ -39,6 +45,8 @@
         "Sexe": "Homme",
         "Password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
         "Club": "Real Madrid",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "c7e9d4b1a8f5c2e6b3d9a7f4e1c8b5a2d6f3c9e7b4a1d8f5c2e6b3d9a7f4e1c8",
         "VIP": false,
         "banni": false
@@ -50,6 +58,8 @@
         "Sexe": "Femme",
         "Password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
         "Club": "Autre",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "d2f5e8c1b4a7d3f6e9c2b5a8d1f4e7c3b6a9d2f5e8c1b4a7d3f6e9c2b5a8d1f4",
         "VIP": false,
         "banni": false
@@ -61,6 +71,8 @@
         "Sexe": "Homme",
         "Password": "7d793037a0760186574b0282f2f435e7",
         "Club": "FC Barcelone",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "e8f1c4b7a3d6e9f2c5b8a1d4e7c3b6a9f2e5c8b1a4d7e3f6c9b2a5d8e1f4c7b3",
         "VIP": false,
         "banni": false
@@ -72,6 +84,8 @@
         "Sexe": "Femme",
         "Password": "b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0",
         "Club": "Autre",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "f4e1d8c5b2a9f6e3c7b4a1d8e5f2c9b6a3d7e4f1c8b5a2f6e9c3b7d4a1e8f5c2",
         "VIP": false,
         "banni": false
@@ -83,6 +97,8 @@
         "Sexe": "Homme",
         "Password": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
         "Club": "Real Madrid",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "a2b5c8d1e4f7a3b6c9d2e5f8a1b4c7d3e6f9a2b5c8d1e4f7a3b6c9d2e5f8a1b4",
         "VIP": false,
         "banni": false
@@ -94,6 +110,8 @@
         "Sexe": "Femme",
         "Password": "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f",
         "Club": "Bayern Munich",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "b3c6d9e2f5a8b1c4d7e3f6a9c2b5e8d1f4a7b3c6d9e2f5a8b1c4d7e3f6a9c2b5",
         "VIP": false,
         "banni": false
@@ -105,6 +123,8 @@
         "Sexe": "Homme",
         "Password": "7b8b965ad4bca0e41ab51de7b31363a1853d5bf6f4d1a8c5c754657aee660666",
         "Club": "PSG",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "c4d7e2f5a8b3c6d9e1f4a7b2c5e8d3f6a9c1b4d7e2f5a8b3c6d9e1f4a7b2c5e8",
         "VIP": false,
         "banni": false
@@ -116,6 +136,8 @@
         "Sexe": "Femme",
         "Password": "49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c",
         "Club": "Bayern Munich",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "d5e8f1a4b7c3d6e9f2a5b8c1d4e7a3f6b9c2d5e8f1a4b7c3d6e9f2a5b8c1d4e7",
         "VIP": false,
         "banni": false
@@ -125,8 +147,10 @@
         "Nom": "hamelin",
         "Email": "simon.hamelin11@gmail.com",
         "Sexe": "Homme",
-        "Password": "03042cf8100db386818cee4ff0f2972431a62ed78edbd09ac08accfabbefd818",
-        "Club": "PSG",
+        "Password": "$2y$10$IaIMMQlWbGpiBQxf\/aASj.gzBUPrb2VDI.sZDPDfvE1T9uui6xcda",
+        "Club": "AC Milan",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$DkjmIzWW8dELG3V\/1Rb8D.T.2j\/gN1JfFztHCdxuQpsjXZNQ5cMoK",
         "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5",
         "VIP": true,
         "banni": false
@@ -134,12 +158,14 @@
     {
         "Prenom": "Simon",
         "Nom": "hamelin",
-        "Email": "simon.hamelin1@gmail.com",
+        "Email": "simon@gmail.com",
         "Sexe": "Homme",
         "Club": "PSG",
+        "Question": "Nom de votre premier animal",
+        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "VIP": false,
         "banni": false,
-        "Password": "$2y$10$7fz.vybnTeURimlcev6hLOX0GJS.Rf5tNd9OBdmZK\/\/AeN7IlLRam",
-        "Id": "4e9e4fd141503daa196ef9641cf6d6d823a69b101f0d8a54307f0686dcb5077c"
+        "Password": "$2y$10$1kD8zpjSzPSfSlAYCQMZvuRE5xO2el\/AfP2T3wbYete4Bp6locCli",
+        "Id": "a0918da4300f46ed6d3e84894cb3c3ad3cb4caeada93cf7d9dd372a97c4e7248"
     }
 ]

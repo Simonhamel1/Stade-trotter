@@ -1,2 +1,4 @@
 id :admin@gmail.com
 mdp : admin
+
+reponse a toutes les questions chat est naya

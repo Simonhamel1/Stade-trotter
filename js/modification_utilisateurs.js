@@ -1,59 +1,159 @@
-let modifiedInputs = [];
-
+// Fonction pour gérer la modification des champs utilisateur
 function modification_utilisateurs(buttonId) {
-
-    // modifier attribut read-only
-    const dernierChar = buttonId.charAt(buttonId.length - 1);
-    const input_id = "inputbutton" + dernierChar;
-    document.getElementById(input_id).readOnly = false;
-
-    if (!modifiedInputs.includes(input_id)) {
-        modifiedInputs.push(input_id);
-    }
-
-    // Mise en place des nouveaux boutons
-    const valider_prefixe = "valider";
-    const annuler_prefixe = "annuler";
-    document.getElementById(buttonId).innerHTML = '<button class="enregistrer_modifications" id="' + valider_prefixe +'_'+ buttonId + '" onclick="enregistrer_changements(this.id);" value="enregistrer"> Enregistrer </button> <button class="annuler_modifications" id="' + annuler_prefixe +'_'+ buttonId + '" onclick="annuler_changements(this.id);" value="annuler"> Annuler </button>';
-}
-
-function enregistrer_changements(id) {
-    // For module4 Change the value in session and in files and display the new right value (session is enough)
-    const dernierChar = id.charAt(id.length - 1);
-    const input_id = "inputbutton" + dernierChar;
-    document.getElementById(input_id).readOnly = true;
-    const buttonId = "button" + dernierChar;
-    document.getElementById(buttonId).innerHTML = '<button class="permettre_modifications" onclick="modification_utilisateurs(\'' + buttonId + '\');" value="modifier"> Modifier </button>'
-
-    const soumettreBtn = document.getElementById("soumettre_button");
-    if (soumettreBtn) {
-        soumettreBtn.style.display = "inline-block"; 
-    }
-} 
-
-
-function annuler_changements(id) {
-    const dernierChar = id.charAt(id.length - 1);
-    const input_id = "inputbutton" + dernierChar;
-    const buttonId = "button" + dernierChar;
+    // Récupérer l'élément input correspondant au bouton
+    const inputId = 'input' + buttonId;
+    const inputElement = document.getElementById(inputId);
     
-    // Get the old value and set it back to read-only
-    const input = document.getElementById(input_id);
-    input.value = input.defaultValue;
-    input.readOnly = true;
+    // Récupérer le conteneur du bouton
+    const buttonContainer = document.getElementById(buttonId);
     
-    // Restore the original modify button
-    document.getElementById(buttonId).innerHTML = '<button class="permettre_modifications" onclick="modification_utilisateurs(\'' + buttonId + '\');" value="modifier"> Modifier </button>';
+    // Récupérer le bouton "Modifier"
+    const modifyButton = buttonContainer.querySelector('.permettre_modifications');
+    
+    // Si l'input est en lecture seule, le rendre modifiable
+    if (inputElement.readOnly || inputElement.disabled) {
+        // Sauvegarder la valeur originale
+        inputElement.setAttribute('data-original-value', inputElement.value);
+        
+        // Rendre l'input modifiable
+        if (inputElement.tagName.toLowerCase() === 'select') {
+            inputElement.disabled = false;
+        } else {
+            inputElement.readOnly = false;
+        }
+        
+        // Mettre en évidence l'input
+        inputElement.classList.add('editing');
+        // Ajouter une classe pour indiquer que le champ est en cours d'édition, mais pas encore validé
+        inputElement.classList.add('not-validated');
+        inputElement.focus();
+        
+        // Cacher le bouton "Modifier"
+        modifyButton.style.display = 'none';
+        
+        // Ajouter les boutons "Valider" et "Annuler"
+        const actionButtons = document.createElement('div');
+        actionButtons.className = 'action-buttons';
+        actionButtons.innerHTML = `
+            <button type="button" class="validate-button" onclick="validerModification('${buttonId}')">
+                Valider
+            </button>
+            <button type="button" class="cancel-button" onclick="annulerModification('${buttonId}')">
+                Annuler
+            </button>
+        `;
+        buttonContainer.appendChild(actionButtons);
+        
+        // Ne pas afficher le bouton de soumission tant qu'aucun champ n'est validé
+        // Le bouton sera affiché seulement après validation
+    }
 }
 
-function soumettreTousLesChamps() {
-    // Récupérer les valeurs de tous les champs modifiés
-    const valeursModifiees = {};
-    modifiedInputs.forEach(id => {
-        valeursModifiees[id] = document.getElementById(id).value;
-    });
-
-    // Faire un appel fetch ou AJAX, ou peupler un formulaire caché
-    console.log(valeursModifiees);
-    // ...envoyer ces données vers un script PHP...
+// Fonction pour valider la modification d'un champ
+function validerModification(buttonId) {
+    // Récupérer l'élément input
+    const inputId = 'input' + buttonId;
+    const inputElement = document.getElementById(inputId);
+    
+    // Récupérer le conteneur du bouton
+    const buttonContainer = document.getElementById(buttonId);
+    
+    // Récupérer le bouton "Modifier"
+    const modifyButton = buttonContainer.querySelector('.permettre_modifications');
+    
+    // Remettre l'input en lecture seule
+    if (inputElement.tagName.toLowerCase() === 'select') {
+        inputElement.disabled = true;
+    } else {
+        inputElement.readOnly = true;
+    }
+    
+    // Enlever la classe indiquant que le champ n'était pas encore validé
+    inputElement.classList.remove('not-validated');
+    
+    // Ajouter la classe indiquant que le champ a été validé et est prêt à être soumis
+    inputElement.classList.add('validated');
+    
+    // Enlever la mise en évidence d'édition
+    inputElement.classList.remove('editing');
+    
+    // Supprimer les boutons d'action
+    const actionButtons = buttonContainer.querySelector('.action-buttons');
+    if (actionButtons) {
+        buttonContainer.removeChild(actionButtons);
+    }
+    
+    // Afficher à nouveau le bouton "Modifier"
+    modifyButton.style.display = 'block';
+    
+    // Vérifier si des champs ont été validés pour afficher le bouton de soumission
+    checkValidatedFields();
 }
+
+// Fonction pour annuler la modification d'un champ
+function annulerModification(buttonId) {
+    // Récupérer l'élément input
+    const inputId = 'input' + buttonId;
+    const inputElement = document.getElementById(inputId);
+    
+    // Restaurer la valeur originale
+    const originalValue = inputElement.getAttribute('data-original-value');
+    if (originalValue !== null) {
+        inputElement.value = originalValue;
+    }
+    
+    // Récupérer le conteneur du bouton
+    const buttonContainer = document.getElementById(buttonId);
+    
+    // Récupérer le bouton "Modifier"
+    const modifyButton = buttonContainer.querySelector('.permettre_modifications');
+    
+    // Remettre l'input en lecture seule
+    if (inputElement.tagName.toLowerCase() === 'select') {
+        inputElement.disabled = true;
+    } else {
+        inputElement.readOnly = true;
+    }
+    
+    // Enlever toutes les classes d'état
+    inputElement.classList.remove('editing');
+    inputElement.classList.remove('not-validated');
+    inputElement.classList.remove('validated');
+    
+    // Supprimer les boutons d'action
+    const actionButtons = buttonContainer.querySelector('.action-buttons');
+    if (actionButtons) {
+        buttonContainer.removeChild(actionButtons);
+    }
+    
+    // Afficher à nouveau le bouton "Modifier"
+    modifyButton.style.display = 'block';
+    
+    // Vérifier si des champs validés restent pour maintenir le bouton de soumission visible
+    checkValidatedFields();
+}
+
+// Fonction pour vérifier si au moins un champ a été validé
+function checkValidatedFields() {
+    const validatedFields = document.querySelectorAll('input.validated, select.validated');
+    const submitButton = document.getElementById('soumettre_button');
+    
+    // Afficher ou masquer le bouton de soumission en fonction des champs validés
+    if (validatedFields.length > 0) {
+        submitButton.style.display = 'block';
+    } else {
+        submitButton.style.display = 'none';
+    }
+}
+
+// Initialiser les gestionnaires d'événements quand le DOM est chargé
+document.addEventListener('DOMContentLoaded', function() {
+    // S'assurer que le bouton de soumission est masqué au chargement
+    const submitButton = document.getElementById('soumettre_button');
+    if (submitButton) {
+        submitButton.style.display = 'none';
+    }
+    
+    // Vérifier s'il y a des champs déjà validés (lors d'un rechargement de page)
+    checkValidatedFields();
+});

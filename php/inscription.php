@@ -57,7 +57,27 @@
                 <option value="Barcelone" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Barcelone') ? 'selected' : ''; ?>>FC Barcelone</option>
                 <option value="Bayern" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Bayern') ? 'selected' : ''; ?>>Bayern Munich</option>
                 <option value="Autre" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Autre') ? 'selected' : ''; ?>>Autre</option>
+                <option value="Manchester United" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Manchester United') ? 'selected' : ''; ?>>Manchester United</option>
+                <option value="Liverpool" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Liverpool') ? 'selected' : ''; ?>>Liverpool</option>
+                <option value="Chelsea" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Chelsea') ? 'selected' : ''; ?>>Chelsea</option>
+                <option value="Manchester City" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Manchester City') ? 'selected' : ''; ?>>Manchester City</option>
+                <option value="Juventus" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Juventus') ? 'selected' : ''; ?>>Juventus</option>
+                <option value="AC Milan" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'AC Milan') ? 'selected' : ''; ?>>AC Milan</option>
+                <option value="Borussia Dortmund" <?php echo (isset($_SESSION['form_club']) && $_SESSION['form_club'] == 'Borussia Dortmund') ? 'selected' : ''; ?>>Borussia Dortmund</option>
             </select>
+
+            <label for="security_question">Question de sécurité:</label>
+            <select id="security_question" name="Question" required>
+                <option value="">Sélectionnez une question</option>
+                <option value="Nom de votre premier animal">Nom de votre premier animal</option>
+                <option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
+                <option value="Ville de naissance">Ville de naissance</option>
+                <option value="Premier emploi">Premier emploi</option>
+                <option value="Modèle de votre première voiture">Modèle de votre première voiture</option>
+            </select>
+            
+            <label for="security_answer">Réponse:</label>
+            <input type="text" id="security_answer" name="Reponse" required>
 
             <input type="submit" value="S'inscrire">
             <p>Déjà un compte ? <a href="connexion.php">Se connecter</a></p>

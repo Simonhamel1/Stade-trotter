@@ -34,5 +34,78 @@
             "panier_id": "681617ae1c19e"
         }
     ],
-    "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2": []
+    "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2": [],
+    "a0918da4300f46ed6d3e84894cb3c3ad3cb4caeada93cf7d9dd372a97c4e7248": [
+        {
+            "voyage_id": "camp-nou",
+            "voyage_name": "Camp Nou",
+            "date_depart": "2025-06-05",
+            "date_retour": "2025-06-06",
+            "nb_participants": 4,
+            "final_price": 6860,
+            "steps_details": [
+                {
+                    "hebergement": {
+                        "name": "Standard (3\u2605)",
+                        "price": 100
+                    },
+                    "restauration": {
+                        "name": "Aucun repas",
+                        "price": 0
+                    },
+                    "transport": {
+                        "name": "Bus collectif",
+                        "price": 10
+                    },
+                    "activites": [
+                        {
+                            "name": "Visite guid\u00e9e de Barcelone",
+                            "price": 25
+                        }
+                    ],
+                    "total": 135
+                },
+                {
+                    "hebergement": {
+                        "name": "Standard (3\u2605)",
+                        "price": 100
+                    },
+                    "restauration": {
+                        "name": "Demi-pension",
+                        "price": 50
+                    },
+                    "transport": {
+                        "name": "Bus collectif",
+                        "price": 10
+                    },
+                    "activites": [
+                        {
+                            "name": "Visite guid\u00e9e du stade",
+                            "price": 30
+                        }
+                    ],
+                    "total": 190
+                },
+                {
+                    "restauration": {
+                        "name": "Menu du chef",
+                        "price": 120
+                    },
+                    "transport": {
+                        "name": "Taxi",
+                        "price": 20
+                    },
+                    "activites": [
+                        {
+                            "name": "Soir\u00e9e culturelle",
+                            "price": 50
+                        }
+                    ],
+                    "total": 190
+                }
+            ],
+            "utilisateur_id": "a0918da4300f46ed6d3e84894cb3c3ad3cb4caeada93cf7d9dd372a97c4e7248",
+            "panier_id": "681638f9074d1"
+        }
+    ]
 }

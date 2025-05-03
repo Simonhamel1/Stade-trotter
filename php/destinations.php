@@ -1,6 +1,12 @@
-<?php
-session_start();
+<?php 
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header('Location:./connexion.php');
+    }
 
+    if (isset($_SESSION['user'])) {
+        echo '<script>console.log("Utilisateur connecté : ' . $_SESSION['user'] . '");</script>';
+    } 
 // Charger les destinations depuis le fichier JSON avec vérification d'erreur
 $jsonPath = '../data/destinations.json';
 $jsonData = file_get_contents($jsonPath);

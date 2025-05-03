@@ -23,61 +23,63 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
+  }
+  
+  .logo {
     width: 70px;
     transition: transform 0.3s ease-in-out;
     max-width: 100%;
     display: flex;
-
-}
-
-.logo:hover {
+  
+  }
+  
+  .logo:hover {
     transform: scale(1.2);
-}
-
-nav ul {
+  }
+  
+  nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-}
-
-nav ul li {
+  }
+  
+  nav ul li {
     margin: 0 15px;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
     color: var(--blanc);
     font-weight: 600;
     transition: color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
+  }
+  
+  nav ul li a:hover {
     color: var(--bleu-clair);
-}
-
-.connexion a {
+  }
+  
+  .connexion a {
     background-color: var(--bleu-moyen);
     padding: 10px 20px;
     border-radius: 5px;
-}
-
-.connexion a:hover {
+  }
+  
+  .connexion a:hover {
     background-color: var(--bleu-clair);
     color: black;
-}
+  }
 
+
+/* ==================== FORMULAIRE ==================== */
 /* Conteneur des formulaires */
 .form-container {
     background: rgba(173, 216, 230, 0.95);
@@ -178,12 +180,13 @@ p {
 a {
     color: var(--bleu-clair);
     text-decoration: none;
+
     font-weight: bold;
     font-size: 1em;
 }
 
 a:hover {
-    text-decoration: underline;
+    
     color: var(--bleu-fonce);
 }
 

@@ -1,4 +1,11 @@
-<?php session_start();?>
+<?php
+session_start();
+
+if (!isset($_SESSION['user']) || !is_array($_SESSION['user']) || !isset($_SESSION['user']['role']) || $_SESSION['user']['role'] !== 'admin') {
+    header('Location: ./connexion.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

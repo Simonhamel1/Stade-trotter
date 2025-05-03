@@ -178,5 +178,79 @@
             }
         ],
         "utilisateur_id": "af0133ebae3f42f30bd7b722274912681366eb5b90714c2a355eed911dc731c3"
+    },
+    {
+        "voyage_id": "stade-de-france",
+        "voyage_name": "Stade de France",
+        "date_depart": "2025-05-29",
+        "date_retour": "2025-06-02",
+        "nb_participants": 1,
+        "final_price": 1705,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Demi-pension",
+                    "price": 50
+                },
+                "transport": {
+                    "name": "Voiture priv\u00e9e",
+                    "price": 30
+                },
+                "activites": [
+                    {
+                        "name": "D\u00eener gastronomique",
+                        "price": 60
+                    }
+                ],
+                "garde_enfants": {
+                    "name": "Babysitting (soir\u00e9e)",
+                    "price": 50
+                },
+                "total": 290
+            },
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Pension compl\u00e8te",
+                    "price": 80
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Concert en plein air",
+                        "price": 35
+                    }
+                ],
+                "total": 225
+            },
+            {
+                "restauration": {
+                    "name": "Menu du chef",
+                    "price": 120
+                },
+                "transport": {
+                    "name": "Taxi",
+                    "price": 20
+                },
+                "activites": [
+                    {
+                        "name": "Sortie nocturne",
+                        "price": 50
+                    }
+                ],
+                "total": 190
+            }
+        ],
+        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5"
     }
 ]

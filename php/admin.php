@@ -1,10 +1,34 @@
 <?php
+// admin.php
 session_start();
 
-if (!isset($_SESSION['user']) || !is_array($_SESSION['user']) || !isset($_SESSION['user']['role']) || $_SESSION['user']['role'] !== 'admin') {
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
     header('Location: ./connexion.php');
     exit;
 }
+
+// Charger les données utilisateurs
+$jsonData = file_get_contents('../data/utilisateurs.json');
+$users = json_decode($jsonData, true);
+
+$userId = $_SESSION['user'];
+$isAdmin = false;
+
+// Vérifier si l'utilisateur existe dans le fichier JSON et est VIP
+foreach ($users as $user) {
+    if ($user['Id'] == $userId) {
+        $isAdmin = isset($user['VIP']) && $user['VIP'] === true;
+        break;
+    }
+}
+
+// Rediriger si l'utilisateur n'est pas admin
+if (!$isAdmin) {
+    header('Location: ./connexion.php');
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -32,7 +32,8 @@ unset($_SESSION['transaction_status']);
   <!-- Lien vers les fichiers CSS et JS -->
   <link rel="stylesheet" href="../css/destinations.css">
   <script src="../js/navbar.js"></script>
-
+  <!-- Script de filtrage -->
+  <script src="../js/filtre.js"></script>
   <!-- Importation de la police Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -159,7 +160,6 @@ unset($_SESSION['transaction_status']);
   <!-- FOOTER -->
   <?php include './footer.php'; ?>
   
-  <!-- Script de filtrage -->
-  <script src="../js/filtre.js"></script>
+
 </body>
 </html>

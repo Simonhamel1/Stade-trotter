@@ -18,21 +18,23 @@ $question = $_SESSION['security_question'];
     <title>Question de sécurité - Football Club</title>
     <link rel="stylesheet" href="../../css/form.css">
     <script src="../../js/navbar.js"></script>
+    <script src="../../js/password_viewer.js"></script>
 </head>
 <body>
+    <!-- Entête navbar -->
     <?php
-// Vérifier le cookie de thème au début du fichier
-$theme = 'dark'; // Thème par défaut
+// Check for theme cookie at the beginning of the file
+$theme = 'dark'; // Default theme
 if(isset($_COOKIE['theme'])) {
-    // Valider la valeur du cookie
+    // Validate cookie value
     if($_COOKIE['theme'] === 'light' || $_COOKIE['theme'] === 'dark') {
         $theme = $_COOKIE['theme'];
     } else {
-        // Valeur invalide, réinitialiser à la valeur par défaut
+        // Invalid value, reset to default
         setcookie('theme', $theme, time() + (365 * 24 * 60 * 60), '/');
     }
 } else {
-    // Le cookie n'existe pas, le créer avec la valeur par défaut
+    // Cookie doesn't exist, create with default value
     setcookie('theme', $theme, time() + (365 * 24 * 60 * 60), '/');
 }
 ?>
@@ -54,8 +56,8 @@ if(isset($_COOKIE['theme'])) {
                 </li>
                 <?php
             
-                if(isset($_SESSION['user_id'])) {
-                    if($_SESSION['user_id'] == "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"){
+                if(isset($_SESSION['user'])) {
+                    if($_SESSION['user'] == "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2"){
                         echo '<li class="connexion"><a href="../admin.php">' . "ADMIN" . '</a></li>';
                     } else {
                         echo '<li class="connexion"><a href="../profil.php">' . $_SESSION["Prenom"] . '</a></li>';
@@ -70,7 +72,7 @@ if(isset($_COOKIE['theme'])) {
     </div>
     <link rel="stylesheet" href="../../css/bouton_changement.css">
     <script>
-        // Appliquer immédiatement le thème depuis le cookie pour éviter un flash du mauvais thème
+        // Apply theme from cookie immediately to prevent flash of wrong theme
         document.documentElement.setAttribute('data-theme', '<?php echo $theme; ?>');
     </script>
     <script src="../../js/bouton_changement.js" defer></script>
@@ -91,16 +93,17 @@ if(isset($_COOKIE['theme'])) {
             <input type="text" id="answer" name="answer" required>
             
             <label for="new_password">Nouveau mot de passe:</label>
-            <input type="password" id="new_password" name="new_password" required>
+            <input type="password" id="new_password" name="new_password" class="toggle-password" required>
             
             <label for="confirm_password">Confirmer le mot de passe:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+            <input type="password" id="confirm_password" name="confirm_password"  class="toggle-password" required>
             
             <input type="submit" value="Réinitialiser le mot de passe">
             <p><a href="../connexion.php">Retour à la connexion</a></p>
         </form>
     </section>
     
+    <!-- Popup for messages -->
     <div class="overlay" id="overlay"></div>
     <div class="popup" id="messagePopup">
         <p id="popupMessage"></p>
@@ -124,6 +127,7 @@ if(isset($_COOKIE['theme'])) {
         document.getElementById('messagePopup').style.display = 'none';
     }
     
+    // Vérification des mots de passe
     document.getElementById('securityQuestionForm').addEventListener('submit', function(event) {
         const newPassword = document.getElementById('new_password').value;
         const confirmPassword = document.getElementById('confirm_password').value;
@@ -134,7 +138,7 @@ if(isset($_COOKIE['theme'])) {
         }
     });
     
-    // Verification de la réponse à la question de sécurité si elle est vraie
+    // Verificateion de la réponse à la question de sécurité si elle est vraie
     document.getElementById('securityQuestionForm').addEventListener('submit', function(event) {
         const answer = document.getElementById('answer').value;
         
@@ -144,7 +148,8 @@ if(isset($_COOKIE['theme'])) {
         }
     });
     
-    // Vérifier les paramètres de l'URL
+
+    // Check for URL parameters
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const error = urlParams.get('error');

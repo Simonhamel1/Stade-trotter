@@ -136,6 +136,36 @@ label {
     color: var(--bleu-moyen);
 }
 
+/* Style pour les conteneurs de champs de mot de passe */
+.form-container label + input[type="password"] {
+    position: relative;
+}
+
+/* Style pour le bouton de basculement de mot de passe */
+.password-toggle-btn {
+    position: absolute !important;
+    right: 30px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    padding: 0 !important;
+    z-index: 100 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+}
+
+/* Utiliser un icône plus visible */
+.eye-icon {
+    font-size: 18px !important;
+    color: #333 !important;
+}
+
 /* Champs de saisie */
 input,
 select {

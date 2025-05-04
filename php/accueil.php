@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../css/acceuil.css">
     <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
     <script src="../js/navbar.js"></script>
+    <script src="script.js"></script>
 
     <!-- Importation de la police Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,7 +127,5 @@
         <?php include './footer.php'; ?>
 
     </main>
-
-    <script src="script.js"></script>
 </body>
 </html>

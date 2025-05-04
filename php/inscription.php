@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Football Club</title>
     <link rel="stylesheet" href="../css/form.css">
-    <script src="../js/navbar.js"></script>
+    <script src="../js/navbar.js"></script>*
+    <script src="../js/password_viewer.js"></script>
 </head>
 <body>
     <!-- Entête navbar -->
@@ -44,10 +45,10 @@
             </select>
 
             <label for="password">Mot de passe:</label>
-            <input type="password" id="password" name="Password" required>
+            <input type="password" id="password" name="Password" class="toggle-password" required>
 
             <label for="confirm_password">Confirmer le mot de passe:</label>
-            <input type="password" id="confirm_password" name="ConfirmPassword" required>
+            <input type="password" id="confirm_password" name="ConfirmPassword" class="toggle-password" required>
 
             <label for="club">Club préféré:</label>
             <select id="club" name="Club">

@@ -15,6 +15,8 @@
     <title>Connexion - Football Club</title>
     <link rel="stylesheet" href="../css/form.css">
     <script src="../js/navbar.js"></script>
+    <script src="../js/password_viewer.js"></script>
+    <script src="../js/form-validation.js"></script>
 </head>
 <body>
      <!-- Entête navbar -->
@@ -29,7 +31,7 @@
             <input type="email" id="email" name="Email" required>
 
             <label for="password">Mot de passe:</label>
-            <input type="password" id="password" name="Password" required>
+            <input type="password" id="password" name="Password" class="toggle-password" required>
 
             <p><a href="./mot_de_passe_oublie/mot_de_passe_oublie.php">Mot de passe oublié ?</a></p>
 
@@ -45,6 +47,6 @@
         <button onclick="closePopup()">Fermer</button>
     </div>
     
-    <script src="../js/form-validation.js"></script>
+
 </body>
 </html>

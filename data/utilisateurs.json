@@ -271,5 +271,31 @@
         "banni": false,
         "Password": "$2y$10$CgwZjzh803\/bGbkAxAf4ouBdLJMNPU3635Ou.tJCU1XAEp9vEJgwO",
         "Id": "3f97b9fae496df1254aa7479c4b82b3e6d26ae4030a45c39c52fd7fe89538401"
+    },
+    {
+        "Prenom": "ibrahima",
+        "Nom": "balde cisse",
+        "Email": "ibraima.baldecicee@gmail.com",
+        "Sexe": "Femme",
+        "Club": "AC Milan",
+        "Question": "Premier emploi",
+        "Reponse": "$2y$10$w04hkfYacvgH90q9\/6mx3.ur4Ljt24\/6vJEUSOg\/2R8lEyXsMIjRe",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$SbzyhoYbQjZoRavJYEGwweEfDVkIIn9QLMOVifPC0IF8f5EvkM5ve",
+        "Id": "bbe19183089f4032e1d60e73a503254519cefbacb382dcaaa61aa549b416b922"
+    },
+    {
+        "Prenom": "Charly",
+        "Nom": "Pupier",
+        "Email": "charly@gmail.com",
+        "Sexe": "Homme",
+        "Club": "Autre",
+        "Question": "Mod\u00e8le de votre premi\u00e8re voiture",
+        "Reponse": "$2y$10$mRw3bMVyniYurok97EJp2.C\/BRyaA\/cvYOJGx7fHTm2DVKeR0Jlv6",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$ELNY0AmUbquGPyu7jDyS7uWeDAy5m2t9pvTzMbBjku5XNqOS7xIIq",
+        "Id": "9f69a368e10d2083435cac9faf133c339828837d8f90948180234a0eb8336b22"
     }
 ]

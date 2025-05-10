@@ -486,5 +486,87 @@
         "transaction_id": "681638b6343a8",
         "date_achat": "2025-05-03 15:39:42",
         "status": "pay\u00e9"
+    },
+    {
+        "voyage_id": "allianz-arena",
+        "voyage_name": "Allianz Arena",
+        "date_depart": "2025-05-07",
+        "date_retour": "2025-05-14",
+        "nb_participants": 1,
+        "final_price": 2195,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Buffet local",
+                    "price": 60
+                },
+                "transport": {
+                    "name": "Taxi",
+                    "price": 20
+                },
+                "activites": [
+                    {
+                        "name": "Visite guid\u00e9e de Munich",
+                        "price": 25
+                    }
+                ],
+                "garde_enfants": {
+                    "name": "Babysitting (soir\u00e9e)",
+                    "price": 50
+                },
+                "total": 255
+            },
+            {
+                "hebergement": {
+                    "name": "Standard (3\u2605)",
+                    "price": 100
+                },
+                "restauration": {
+                    "name": "Aucun repas",
+                    "price": 0
+                },
+                "transport": {
+                    "name": "Bus collectif",
+                    "price": 10
+                },
+                "activites": [
+                    {
+                        "name": "Visite guid\u00e9e du stade",
+                        "price": 30
+                    },
+                    {
+                        "name": "Rencontre avec des joueurs",
+                        "price": 100
+                    }
+                ],
+                "total": 240
+            },
+            {
+                "restauration": {
+                    "name": "Menu du chef",
+                    "price": 120
+                },
+                "transport": {
+                    "name": "Voiture priv\u00e9e",
+                    "price": 30
+                },
+                "activites": [
+                    {
+                        "name": "Soir\u00e9e culturelle",
+                        "price": 50
+                    }
+                ],
+                "total": 200
+            }
+        ],
+        "utilisateur_id": "9f69a368e10d2083435cac9faf133c339828837d8f90948180234a0eb8336b22",
+        "panier_id": "681886a7cb467",
+        "transaction_id": "681886a7d3415",
+        "date_achat": "2025-05-05 09:40:14",
+        "status": "pay\u00e9"
     }
 ]

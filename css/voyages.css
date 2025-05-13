@@ -618,3 +618,87 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* iPhone 16 specific styles */
+@media screen and (max-width: 430px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    header.active {
+        transform: translateY(-85%);
+        padding-bottom: 35%;
+    }
+
+    .navbar {
+        height: 95%;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .logo {
+        width: 60px;
+        margin: 0 auto 10px;
+    }
+
+    .connexion {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .connexion a {
+        width: 80%;
+        text-align: center;
+    }
+
+    main {
+        padding-top: 60px;
+    }
+
+    .content-container {
+        margin: 80px auto 20px;
+        padding: 15px;
+    }
+    
+    .voyage-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .etape {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+    }
+
+    .payment-logos img, 
+    .social-icons img {
+        height: 40px;
+    }
+}

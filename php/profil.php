@@ -1,20 +1,11 @@
 <?php 
     session_start();
-    
-    // Buffer de sortie pour éviter les erreurs "headers already sent"
-    ob_start();
 
     // Vérification si l'utilisateur est connecté
     if (!isset($_SESSION['Email'])) {
         header('Location: ./connexion.php');
         exit;
     }
-    
-    // Stocker les messages dans des variables plutôt que de les afficher directement
-    $debug_messages = '';
-    if (isset($_SESSION['user_id'])) {
-        $debug_messages .= '<script>console.log("Utilisateur connecté : ' . $_SESSION['user_id'] . '");</script>';
-    } 
     
     // Chargement des données des utilisateurs depuis le fichier JSON
     $users_json_file = '../data/utilisateurs.json';
@@ -32,11 +23,6 @@
     
     if (file_exists($voyages_json_file)) {
         $voyages_data = json_decode(file_get_contents($voyages_json_file), true);
-        // Stocker le debug dans une variable au lieu de l'afficher immédiatement
-        $debug_messages .= '<script>';
-        $debug_messages .= 'console.log("Données des voyages:");';
-        $debug_messages .= 'console.log(' . json_encode($voyages_data, JSON_PRETTY_PRINT) . ');';
-        $debug_messages .= '</script>';
     } else {
         die("Le fichier de données des voyages n'existe pas.");
     }
@@ -50,180 +36,6 @@
             }
         }
     }
-
-    // Fonction pour vérifier si un email existe déjà
-    function email_exists($email, $current_user_id) {
-        global $users_data;
-        
-        foreach ($users_data as $user) {
-            // Vérifier si l'email existe chez un autre utilisateur
-            if (isset($user['Email']) && 
-                strtolower($user['Email']) === strtolower($email) && 
-                $user['Id'] !== $current_user_id) {
-                return true;
-            }
-        }
-        
-        return false;
-    }
-
-    // Fonction pour mettre à jour les données utilisateur dans le fichier JSON
-    function update_user_info($user_id, $email, $prenom, $nom, $club, $sexe, $question, $reponse) {
-        global $users_data, $users_json_file, $voyages_json_file, $voyages_data;
-        
-        $user_updated = false;
-        
-        // Vérifier si l'email a été modifié et s'il existe déjà
-        if (!empty($email) && $email !== $_SESSION['Email'] && email_exists($email, $user_id)) {
-            return 'email_exists';
-        }
-        
-        foreach ($users_data as $key => $user) {
-            if ($user['Id'] === $user_id) {
-                // Sauvegarde des anciennes valeurs pour mise à jour des voyages
-                $old_club = isset($user['Club']) ? $user['Club'] : '';
-                $old_email = isset($user['Email']) ? $user['Email'] : '';
-                $old_prenom = isset($user['Prenom']) ? $user['Prenom'] : '';
-                $old_nom = isset($user['Nom']) ? $user['Nom'] : '';
-                
-                // Mise à jour des champs modifiés dans le tableau utilisateurs
-                if (!empty($email)) $users_data[$key]['Email'] = $email;
-                if (!empty($prenom)) $users_data[$key]['Prenom'] = $prenom;
-                if (!empty($nom)) $users_data[$key]['Nom'] = $nom;
-                
-                // Pour les champs select, traiter même si c'est la même valeur
-                $users_data[$key]['Club'] = $club; // Toujours mettre à jour le club
-                $users_data[$key]['Sexe'] = $sexe; // Toujours mettre à jour le sexe
-                
-                if (!empty($question)) $users_data[$key]['Question'] = $question;
-                if (!empty($reponse)) {
-                    // Hasher la réponse avant de la stocker
-                    $users_data[$key]['Reponse'] = password_hash($reponse, PASSWORD_DEFAULT);
-                }
-                
-                // Enregistrer les modifications dans le fichier JSON utilisateurs
-                $write_result = file_put_contents($users_json_file, json_encode($users_data, JSON_PRETTY_PRINT));
-                
-                if ($write_result === false) {
-                    error_log("Erreur lors de l'écriture dans le fichier JSON des utilisateurs");
-                    return false;
-                }
-                
-                // Mettre à jour les données de la session
-                $_SESSION['Email'] = $users_data[$key]['Email'];
-                $_SESSION['Prenom'] = $users_data[$key]['Prenom'];
-                $_SESSION['Nom'] = $users_data[$key]['Nom'];
-                $_SESSION['Club'] = $users_data[$key]['Club']; // Mise à jour du club en session
-                $_SESSION['Sexe'] = $users_data[$key]['Sexe']; // Mise à jour du sexe en session
-                if (!empty($question)) $_SESSION['Question'] = $users_data[$key]['Question'];
-                
-                $user_updated = true;
-                
-                // Mise à jour des informations utilisateur dans les voyages
-                if (!empty($voyages_data)) {
-                    $voyages_updated = false;
-                    
-                    foreach ($voyages_data as $v_key => $voyage) {
-                        if (isset($voyage['utilisateur_id']) && $voyage['utilisateur_id'] === $user_id) {
-                            // Mise à jour des informations utilisateur dans le voyage
-                            if (!empty($email) && isset($voyage['user_email'])) {
-                                $voyages_data[$v_key]['user_email'] = $email;
-                                $voyages_updated = true;
-                            }
-                            
-                            if (!empty($prenom) && isset($voyage['user_prenom'])) {
-                                $voyages_data[$v_key]['user_prenom'] = $prenom;
-                                $voyages_updated = true;
-                            }
-                            
-                            if (!empty($nom) && isset($voyage['user_nom'])) {
-                                $voyages_data[$v_key]['user_nom'] = $nom;
-                                $voyages_updated = true;
-                            }
-                            
-                            // Mise à jour du club si c'est le stade du voyage
-                            if (isset($voyage['stade']) && $voyage['stade'] === $old_club) {
-                                $voyages_data[$v_key]['stade'] = $club;
-                                $voyages_updated = true;
-                            }
-                            
-                            // Mise à jour du nom complet si présent
-                            if (((!empty($prenom) || !empty($nom))) && isset($voyage['user_fullname'])) {
-                                $nouveau_prenom = !empty($prenom) ? $prenom : $old_prenom;
-                                $nouveau_nom = !empty($nom) ? $nom : $old_nom;
-                                $voyages_data[$v_key]['user_fullname'] = $nouveau_prenom . ' ' . $nouveau_nom;
-                                $voyages_updated = true;
-                            }
-                        }
-                    }
-                    
-                    // Enregistrer les modifications des voyages si nécessaire
-                    if ($voyages_updated) {
-                        $voyages_write = file_put_contents($voyages_json_file, json_encode($voyages_data, JSON_PRETTY_PRINT));
-                        if ($voyages_write === false) {
-                            error_log("Erreur lors de l'écriture dans le fichier JSON des voyages");
-                            // Ne pas échouer pour cette étape
-                        }
-                    }
-                }
-                
-                break;
-            }
-        }
-        
-        return $user_updated;
-    }
-
-    // Traitement des modifications du profil si formulaire soumis
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'update_profile') {
-        $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-        $prenom = isset($_POST['prenom']) ? trim($_POST['prenom']) : '';
-        $nom = isset($_POST['nom']) ? trim($_POST['nom']) : '';
-        $club = isset($_POST['club']) ? $_POST['club'] : null;
-        $sexe = isset($_POST['sexe']) ? $_POST['sexe'] : null;
-        $question = isset($_POST['question']) ? $_POST['question'] : '';
-        $reponse = isset($_POST['reponse']) ? $_POST['reponse'] : '';
-        
-        error_log("Données soumises: email=$email, prenom=$prenom, nom=$nom, club=$club, sexe=$sexe");
-        
-        // Mise à jour des données utilisateur
-        $update_result = update_user_info($_SESSION['user_id'], $email, $prenom, $nom, $club, $sexe, $question, $reponse);
-        
-        if ($update_result === 'email_exists') {
-            // Email existe déjà
-            header('Location: profil.php?error=email_existe_deja');
-            exit;
-        } elseif ($update_result) {
-            // Redirection pour éviter les re-soumissions de formulaire
-            header('Location: profil.php?updated=1');
-            exit;
-        } else {
-            // En cas d'erreur
-            header('Location: profil.php?error=1');
-            exit;
-        }
-    }
-
-    // Récupération des données complètes de l'utilisateur connecté
-    $current_user = null;
-    foreach ($users_data as $user) {
-        if (isset($user['Id']) && $user['Id'] === $_SESSION['user_id']) {
-            $current_user = $user;
-            break;
-        }
-    }
-
-    // Message de confirmation après mise à jour
-    $update_message = '';
-    if (isset($_GET['updated']) && $_GET['updated'] == 1) {
-        $update_message = '<div class="alert success">Vos informations ont été mises à jour avec succès.</div>';
-    } elseif (isset($_GET['error']) && $_GET['error'] == 1) {
-        $update_message = '<div class="alert error">Une erreur est survenue lors de la mise à jour de vos informations.</div>';
-    } elseif (isset($_GET['error']) && $_GET['error'] == 2) {
-        $update_message = '<div class="alert error">Cette adresse email est déjà utilisée par un autre utilisateur.</div>';
-    }
-    
-    ob_end_clean();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -235,7 +47,7 @@
     <script type='text/javascript' src='../js/modification_utilisateurs.js'></script>
 </head>
 <body>
-    <?php include './header.php'; ?>
+    <?php require './header.php'; ?>
     
     <?php if (!empty($update_message)): ?>
         <div class="notification-container">
@@ -244,7 +56,6 @@
     <?php endif; ?>
 
     <section id="profil">
-        <form id="update-profile-form" method="POST" action="profil.php">
             <input type="hidden" name="action" value="update_profile">
             
             <!-- COLONNE DE GAUCHE : données utilisateur -->
@@ -387,7 +198,7 @@
                                 Accéder à la page Admin
                             </a>
                         <?php endif; ?>
-                        <button type="submit" id="soumettre_button" style="display: none;">
+                        <button id="soumettre_button" onclick="soumettre_modification();" style="display: none;">
                             Soumettre les modifications
                         </button>
                     </div>
@@ -396,7 +207,6 @@
                     <a href="./session/deconnexion.php">Déconnexion</a>
                 </div>
             </div>
-        </form>
 
         <!-- COLONNE DE DROITE : liste des voyages payés -->
         <div id="profil-right">
@@ -425,48 +235,5 @@
     </section>
 
     <?php include '../php/footer.php'; ?>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const alerts = document.querySelectorAll('.alert');
-            if (alerts.length > 0) {
-                setTimeout(function() {
-                    alerts.forEach(function(alert) {
-                        alert.style.opacity = '0';
-                        setTimeout(function() {
-                            alert.style.display = 'none';
-                        }, 1000);
-                    });
-                }, 3000);
-            }
-            
-            document.getElementById('update-profile-form').addEventListener('submit', function(e) {
-                document.querySelectorAll('select').forEach(function(select) {
-                    select.disabled = false;
-                });
-                
-                console.log("Club sélectionné:", document.getElementById('inputbutton4').value);
-                console.log("Sexe sélectionné:", document.getElementById('inputbutton5').value);
-            });
-            
-            // Validation côté client pour l'email
-            document.getElementById('inputbutton1').addEventListener('change', function() {
-                const emailInput = this;
-                const submitButton = document.getElementById('soumettre_button');
-                if (!emailInput.checkValidity()) {
-                    alert("Veuillez entrer une adresse email valide.");
-                    emailInput.focus();
-                    submitButton.disabled = true;
-                } else {
-                    submitButton.disabled = false;
-                }
-            });
-            
-            console.log("Club actuel:", document.getElementById('inputbutton4').value);
-            console.log("Sexe actuel:", document.getElementById('inputbutton5').value);
-        });
-    </script>
-    
-    <?php echo $debug_messages; ?>
 </body>
 </html>

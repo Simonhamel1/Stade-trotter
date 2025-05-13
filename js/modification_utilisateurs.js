@@ -1,3 +1,5 @@
+
+
 // Fonction pour gérer la modification des champs utilisateur
 function modification_utilisateurs(buttonId) {
     // Récupérer l'élément input correspondant au bouton
@@ -43,11 +45,9 @@ function modification_utilisateurs(buttonId) {
             </button>
         `;
         buttonContainer.appendChild(actionButtons);
-        
-        // Ne pas afficher le bouton de soumission tant qu'aucun champ n'est validé
-        // Le bouton sera affiché seulement après validation
     }
 }
+var modification_tab = [];
 
 // Fonction pour valider la modification d'un champ
 function validerModification(buttonId) {
@@ -67,9 +67,12 @@ function validerModification(buttonId) {
     } else {
         inputElement.readOnly = true;
     }
-    
+
     // Enlever la classe indiquant que le champ n'était pas encore validé
     inputElement.classList.remove('not-validated');
+    const key = inputElement.name;
+    const value = inputElement.value;
+    modification_tab.push(key + "=" + value);
     
     // Ajouter la classe indiquant que le champ a été validé et est prêt à être soumis
     inputElement.classList.add('validated');
@@ -131,6 +134,30 @@ function annulerModification(buttonId) {
     
     // Vérifier si des champs validés restent pour maintenir le bouton de soumission visible
     checkValidatedFields();
+}
+
+// Fonction pour soumettre les modifications
+function soumettre_modification() {
+    alert("allo");
+    const serv = "http://localhost/";
+    // Récupérer tous les champs validés
+    const modification_string = modification_tab.join('&');
+    // Envoyer les données au serveur via fetch API
+    window.fetch(new Request(serv + "StadeTrotter/php/modification_profil.php?" + modification_string))
+    .then(response => {
+        if (!response) {
+            throw new Error('Erreur réseau lors de la soumission');
+        }
+        return response.json();
+    })
+    .then((response) => {
+        /* Manage the response to modify the page */
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+    })
+    .finally(() => {
+    });
 }
 
 // Fonction pour vérifier si au moins un champ a été validé

@@ -45,6 +45,7 @@
     <title>Profil</title>
     <link rel="stylesheet" href="../css/profil.css">
     <script type='text/javascript' src='../js/modification_utilisateurs.js'></script>
+    <script src="../js/navbar.js"></script>
 </head>
 <body>
     <?php require './header.php'; ?>

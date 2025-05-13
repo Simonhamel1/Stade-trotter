@@ -134,6 +134,7 @@ $control = md5( $api_key
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($voyage['name']) ?> - Récapitulatif complet</title>
     <link rel="stylesheet" href="../css/recap.css">
+    <script src="../js/navbar.js"></script>
 </head>
 <body>
     <header>

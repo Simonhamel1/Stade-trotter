@@ -72,7 +72,6 @@ exit;
             echo "    <td>" . htmlspecialchars($user['Prenom']) . "</td>\n";
             echo "    <td>" . htmlspecialchars($user['Email']) . "</td>\n";
             
-            // Cellule pour le statut VIP avec un bouton élégant
             echo "    <td><span class='status-text'>" . ($isVip ? 'OUI' : 'NON') . "</span>" . 
                     "<button class='toggle-status " . ($isVip ? 'status-active' : 'status-inactive') . "' " .
                     "data-user-id='" . htmlspecialchars($user['Id']) . "' " .
@@ -80,7 +79,6 @@ exit;
                     "data-current-status='" . ($isVip ? 'true' : 'false') . "'>" .
                     ($isVip ? 'Retirer VIP' : 'Passer VIP') . "</button></td>\n";
             
-            // Cellule pour le statut Banni avec un bouton élégant
             echo "    <td><span class='status-text'>" . ($isBanned ? 'OUI' : 'NON') . "</span>" . 
                     "<button class='toggle-status " . ($isBanned ? 'status-active' : 'status-inactive') . "' " .
                     "data-user-id='" . htmlspecialchars($user['Id']) . "' " .

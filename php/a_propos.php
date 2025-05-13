@@ -8,7 +8,6 @@
   
   <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="../css/a_propos.css">
-  <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
   <script src="../js/navbar.js" defer></script>
 
   <!-- Importation de la police Montserrat -->

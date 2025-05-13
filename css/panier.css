@@ -560,18 +560,114 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
-    .panier-actions {
-        flex-direction: column;
-        gap: 1rem;
+/* iPhone 16 specific styles */
+@media screen and (max-width: 430px) {
+    .panier-container {
+        padding: 1rem 0.5rem;
+        padding-top: 5rem;
+        max-width: 100%;
+        box-sizing: border-box;
     }
-
+    
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .panier-vide {
+        padding: 1.5rem 1rem;
+        border-radius: 8px;
+    }
+    
+    .panier-item {
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .panier-item-header {
+        padding: 0.7rem;
+        background-color: var(--bleu-clair);
+        color: white;
+    }
+    
+    .panier-item-header h2 {
+        font-size: 1.1rem;
+    }
+    
     .panier-item-details {
+        padding: 0.8rem;
         flex-direction: column;
     }
-
+    
+    .panier-item-info p {
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+    
+    .etapes-voyage h3 {
+        font-size: 1rem;
+    }
+    
     .panier-item-prix {
-        margin-top: 1rem;
-        align-items: flex-start;
+        align-items: center;
+        padding-top: 0.6rem;
+        width: 100%;
+    }
+    
+    .prix {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+        margin-right: 0;
+    }
+    
+    .btn-supprimer {
+        padding: 0.5rem;
+    }
+    
+    .panier-recapitulatif {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .panier-total h3 {
+        font-size: 1.1rem;
+    }
+    
+    .prix-total {
+        font-size: 1.3rem;
+    }
+    
+    .btn-continuer, #submit {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+    
+    .timeline {
+        padding-left: 15px;
+    }
+    
+    .timeline:before {
+        left: 7px;
+    }
+    
+    .timeline-marker {
+        left: -15px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .timeline-content {
+        margin-left: 15px;
+        margin-right: 0;
+        padding: 10px;
+    }
+    
+    .date-badge {
+        font-size: 0.8em;
+        padding: 2px 8px;
+    }
+    
+    .option-name, .option-price {
+        font-size: 0.9rem;
     }
 }

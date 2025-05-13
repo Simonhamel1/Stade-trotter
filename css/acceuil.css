@@ -356,20 +356,18 @@ footer {
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */
-@media screen and (max-width: 1024px) {
-
+/* iPhone 16 specific styles */
+@media screen and (max-width: 430px) {
     header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        /* Pour voir l’effet de déplacement */
         transform: translateY(0);
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
     }
 
-    /* Quand on ajoute la classe active, on translate le header vers le haut */
     header.active {
         transform: translateY(-80%);
         padding-bottom: 30%;
@@ -397,12 +395,25 @@ footer {
         width: 35%;
     }
 
+    .slogan {
+        font-size: 1.8rem;
+        top: 25%;
+    }
+    
     .image-large {
         grid-column: span 2;
         position: relative;
-        padding-bottom: 50%;
         width: 100%;
         padding-bottom: 100%;
+    }
+    
+    .image-grid {
+        gap: 5px;
+        padding: 10px;
+    }
+    
+    .agence-info {
+        padding: 15px;
     }
 
     .temoignages {
@@ -412,6 +423,17 @@ footer {
 
     .temoignage-groupe {
         width: 100%;
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .temoignage img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .temoignage-texte {
+        padding: 0;
     }
 
     .footer-container {
@@ -419,14 +441,13 @@ footer {
         align-items: center;
         text-align: center;
     }
-}
-
-@media screen and (max-width: 768px) {
-    .overlay-text {
-        font-size: 2rem;
+    
+    .payment-logos img {
+        height: 35px;
     }
-
-    .agency-info {
-        font-size: 1rem;
+    
+    #chat-iframe {
+        width: 90%;
+        right: 5%;
     }
 }

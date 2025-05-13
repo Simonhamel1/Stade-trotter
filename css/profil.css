@@ -351,7 +351,7 @@ input[type="password"] {
 #end_buttons {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .alert {
@@ -442,6 +442,7 @@ select.editing {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    margin-left : 15px
 }
 
 #soumettre_button:hover {
@@ -618,4 +619,113 @@ footer {
     padding-top: 10px;
     font-size: 14px;
     color: var(--blanc);
+}
+/* iPhone 16 specific styles */
+@media screen and (max-width: 430px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    header.active {
+        transform: translateY(-85%);
+        padding-bottom: 35%;
+    }
+
+    .navbar {
+        height: 95%;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .logo {
+        width: 60px;
+        margin: 0 auto 10px;
+    }
+
+    .connexion {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .connexion a {
+        width: 80%;
+        text-align: center;
+    }
+
+    #profil {
+        margin: 80px 10px 20px;
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    #profil-left {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding-right: 0;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    #profil-right {
+        width: 100%;
+    }
+
+    .data h2 {
+        font-size: 1.1rem;
+    }
+
+    .voyage-card {
+        padding: 10px;
+    }
+
+    .voyage-card h3 {
+        font-size: 1rem;
+    }
+
+    .btn-details {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .btn-recap {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding-top: 60px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-section {
+        min-width: 100%;
+    }
+
+    .payment-logos img, 
+    .social-icons img {
+        height: 40px;
+    }
 }

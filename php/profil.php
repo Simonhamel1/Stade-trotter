@@ -341,11 +341,12 @@
                     <h2>Question de sécurité</h2>
                     <div class="modification">
                         <select id="inputbutton6" name="question" disabled>
-                            <option value="Quel est le nom de votre premier animal de compagnie ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quel est le nom de votre premier animal de compagnie ?") ? 'selected' : ''; ?>>Quel est le nom de votre premier animal de compagnie ?</option>
-                            <option value="Quel est votre film préféré ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quel est votre film préféré ?") ? 'selected' : ''; ?>>Quel est votre film préféré ?</option>
-                            <option value="Dans quelle ville êtes-vous né(e) ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Dans quelle ville êtes-vous né(e) ?") ? 'selected' : ''; ?>>Dans quelle ville êtes-vous né(e) ?</option>
-                            <option value="Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quel est le prénom de votre meilleur(e) ami(e) d\'enfance ?") ? 'selected' : ''; ?>>Quel est le prénom de votre meilleur(e) ami(e) d'enfance ?</option>
-                            <option value="Quelle est votre couleur préférée ?" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Quelle est votre couleur préférée ?") ? 'selected' : ''; ?>>Quelle est votre couleur préférée ?</option>
+                            <option value="">Sélectionnez une question</option>
+                            <option value="Nom de votre premier animal" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Nom de votre premier animal") ? 'selected' : ''; ?>>Nom de votre premier animal</option>
+                            <option value="Nom de jeune fille de votre mère" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Nom de jeune fille de votre mère") ? 'selected' : ''; ?>>Nom de jeune fille de votre mère</option>
+                            <option value="Ville de naissance" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Ville de naissance") ? 'selected' : ''; ?>>Ville de naissance</option>
+                            <option value="Premier emploi" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Premier emploi") ? 'selected' : ''; ?>>Premier emploi</option>
+                            <option value="Modèle de votre première voiture" <?php echo (isset($current_user['Question']) && $current_user['Question'] === "Modèle de votre première voiture") ? 'selected' : ''; ?>>Modèle de votre première voiture</option>
                         </select>
                         <div class="modification_button" id="button6">
                             <button type="button" class="permettre_modifications"

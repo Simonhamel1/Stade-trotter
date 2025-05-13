@@ -6,8 +6,8 @@
         "Sexe": "Homme",
         "Password": "$2y$10$ZC7OVo55KqadCpLjW.nWYOOejETZeLxoXFkBO.c.lz0hNpEpDMDTu",
         "Club": "PSG",
-        "Question": "Nom de votre premier animal",
-        "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
+        "Question": "Ville de naissance",
+        "Reponse": "$2y$10$NCwoMzhFPmMdKNnQ4vmLS.UwjRBuQ34QToDFJhiq8.JLVtN5wl11G",
         "Id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2",
         "VIP": true,
         "banni": false
@@ -149,7 +149,7 @@
         "Sexe": "Homme",
         "Password": "$2y$10$xkbfm9CS9bln6sxlSjzTMO3HboAMujIlqI7akMaUitYajFFXP9mkS",
         "Club": "PSG",
-        "Question": "Quel est le nom de votre premier animal de compagnie ?",
+        "Question": "Nom de votre premier animal",
         "Reponse": "$2y$10$uZP1SNTdtIJownMFcycz8Oock7feT6BLVCr9U7XnhJI5Fz7hFQHZa",
         "Id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5",
         "VIP": true,
@@ -297,5 +297,18 @@
         "banni": false,
         "Password": "$2y$10$ELNY0AmUbquGPyu7jDyS7uWeDAy5m2t9pvTzMbBjku5XNqOS7xIIq",
         "Id": "9f69a368e10d2083435cac9faf133c339828837d8f90948180234a0eb8336b22"
+    },
+    {
+        "Prenom": "Charly",
+        "Nom": "Pupier",
+        "Email": "simon11@gmail.com",
+        "Sexe": "Homme",
+        "Club": "AC Milan",
+        "Question": "Premier emploi",
+        "Reponse": "$2y$10$42wNIGqkHk78YTjh4RUsT.ieAEAV3RrPZERDwDLOy65PwpVLcvA8a",
+        "VIP": false,
+        "banni": false,
+        "Password": "$2y$10$1pqboICgyOrB7\/S58ze7ReojO8ajEf09a2JbHxq6MUELYBF8sQMSC",
+        "Id": "4b3af355225f423e1584bedb304174715b8a1d3325ca166888a47af9f0aea924"
     }
 ]

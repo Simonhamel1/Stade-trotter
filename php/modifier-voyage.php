@@ -232,6 +232,7 @@
     <link rel="stylesheet" href="../css/profil.css">
     <link rel="stylesheet" href="../css/voyages.css">
     <script src="../js/prix_dynamique.js" defer></script>
+    <script src="../js/navbar.js"></script>
 </head>
 <body>
     <?php include './header.php'; ?>

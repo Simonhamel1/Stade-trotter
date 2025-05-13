@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Football Club</title>
     <link rel="stylesheet" href="../css/form.css">
-    <script src="../js/navbar.js"></script>*
+    <script src="../js/navbar.js"></script>
     <script src="../js/password_viewer.js"></script>
 </head>
 <body>
     <!-- Entête navbar -->
     <?php include './header.php'; ?>
-    
+
     <section class="form-container">
         <img src="../photo/logo.png" alt="Football Club Logo" id="form_logo" >
         <h2>⚽ Inscription ⚽</h2>

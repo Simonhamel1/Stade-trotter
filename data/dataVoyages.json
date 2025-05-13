@@ -568,5 +568,41 @@
         "transaction_id": "681886a7d3415",
         "date_achat": "2025-05-05 09:40:14",
         "status": "pay\u00e9"
+    },
+    {
+        "voyage_id": "stade-velodrome",
+        "voyage_name": "Olympique de Marseille",
+        "date_depart": "2025-05-30",
+        "date_retour": "2025-05-31",
+        "nb_participants": 8,
+        "final_price": 216,
+        "steps_details": [
+            {
+                "hebergement": {
+                    "name": "Dormir sur un banc",
+                    "price": 0
+                },
+                "restauration": {
+                    "name": "Baguette et fromage",
+                    "price": 10
+                },
+                "transport": {
+                    "name": "M\u00e9tro",
+                    "price": 2
+                },
+                "activites": [
+                    {
+                        "name": "Tour Eiffel",
+                        "price": 15
+                    }
+                ],
+                "total": 27
+            }
+        ],
+        "utilisateur_id": "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5",
+        "panier_id": "681617ae1c19e",
+        "transaction_id": "682347bfb4a12",
+        "date_achat": "2025-05-13 13:23:27",
+        "status": "pay\u00e9"
     }
 ]

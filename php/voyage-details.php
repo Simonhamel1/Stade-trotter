@@ -56,6 +56,7 @@
     <title>Détails du voyage - <?php echo htmlspecialchars($voyage['voyage_name']); ?></title>
     <link rel="stylesheet" href="../css/profil.css">
     <link rel="stylesheet" href="../css/voyage-details.css">
+    <script src="../js/navbar.js"></script>
 </head>
 <body>
     <?php include './header.php'; ?>

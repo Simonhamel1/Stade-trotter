@@ -38,3 +38,34 @@ button {
     color: green;
     margin-top: 10px;
 }
+
+/* iPhone 16 specific styles */
+@media screen and (max-width: 430px) {
+    body {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .error, .success {
+        font-size: 0.9rem;
+    }
+
+    .error ul {
+        padding-left: 15px;
+    }
+}

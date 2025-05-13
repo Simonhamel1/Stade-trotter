@@ -134,6 +134,7 @@
         
         <div class="voyage-actions">
             <a href="./profil.php" class="btn-back">Retour à mon profil</a>
+            <a href="./modifier-voyage.php?id=<?php echo $voyage_id; ?>&date_depart=<?php echo urlencode($date_depart); ?>&date_retour=<?php echo urlencode($date_retour); ?>&price=<?php echo urlencode($voyage['final_price']); ?>" class="btn-edit">Modifier le voyage</a>
             <a href="./destinations.php" class="btn-recap">Voir un autre voyage</a>
         </div>
     </section>

@@ -351,7 +351,7 @@ input[type="password"] {
 #end_buttons {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .alert {
@@ -442,6 +442,7 @@ select.editing {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    margin-left : 15px
 }
 
 #soumettre_button:hover {

@@ -14,11 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stade Trotter - Voyages Football</title>
-
     <link rel="stylesheet" href="../css/acceuil.css">
-    <link rel="stylesheet" href="../chatbot/front/chatWidget.css">
     <script src="../js/navbar.js"></script>
-    <script src="script.js"></script>
 
     <!-- Importation de la police Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

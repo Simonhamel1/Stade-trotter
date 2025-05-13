@@ -1,0 +1,11 @@
+# Empêcher l'accès direct aux fichiers dans ce dossier
+<Files *>
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Autoriser l'accès via PHP
+<FilesMatch "\.php$">
+    Order Deny,Allow
+    Allow from all
+</FilesMatch>

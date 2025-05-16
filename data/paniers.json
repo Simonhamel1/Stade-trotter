@@ -1,0 +1,46 @@
+{
+    "b4a5c3cf6d3ccabf2b4d72a7f0621c14ec1f61eb910b047a5e6ae99b7e2becf5": [],
+    "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2": [],
+    "a0918da4300f46ed6d3e84894cb3c3ad3cb4caeada93cf7d9dd372a97c4e7248": [],
+    "bbe19183089f4032e1d60e73a503254519cefbacb382dcaaa61aa549b416b922": [
+        {
+            "voyage_id": "stade-velodrome",
+            "voyage_name": "Olympique de Marseille",
+            "date_depart": "2025-05-31",
+            "date_retour": "2025-06-07",
+            "nb_participants": 1,
+            "final_price": 157,
+            "steps_details": [
+                {
+                    "hebergement": {
+                        "name": "Dormir sur un banc",
+                        "price": 0
+                    },
+                    "restauration": {
+                        "name": "Menu gastronomique",
+                        "price": 120
+                    },
+                    "transport": {
+                        "name": "M\u00e9tro",
+                        "price": 2
+                    },
+                    "activites": [
+                        {
+                            "name": "Tour Eiffel",
+                            "price": 15
+                        },
+                        {
+                            "name": "Visite du Louvre",
+                            "price": 20
+                        }
+                    ],
+                    "total": 157
+                }
+            ],
+            "utilisateur_id": "bbe19183089f4032e1d60e73a503254519cefbacb382dcaaa61aa549b416b922",
+            "panier_id": "681873b4f0e5f"
+        }
+    ],
+    "9f69a368e10d2083435cac9faf133c339828837d8f90948180234a0eb8336b22": [],
+    "24791085673141df2ffa2c18a7d18e20a6a57ce37fe14a99638d21399325b2f2": []
+}

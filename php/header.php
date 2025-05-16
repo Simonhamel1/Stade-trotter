@@ -1,4 +1,9 @@
 <?php
+// Vérifie si l'utilisateur est banni
+if (file_exists(__DIR__ . '/check_ban.php')) {
+    require_once(__DIR__ . '/check_ban.php');
+}
+
 // Vérifie le cookie de thème au début du fichier
 $theme = 'dark'; // Thème par défaut
 if(isset($_COOKIE['theme'])) {

@@ -39,14 +39,36 @@
             <p>Pas encore inscrit ? <a href="inscription.php">Créer un compte</a></p>
         </form>
     </section>
-    
+      
     <!-- Popup for errors -->
     <div class="overlay" id="overlay"></div>
     <div class="popup" id="errorPopup">
         <p id="errorMessage" class="popup-error"></p>
         <button onclick="closePopup()">Fermer</button>
     </div>
-    
 
+    <script>
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('errorPopup').style.display = 'none';
+        }
+        
+        // Afficher un message d'erreur si l'utilisateur est banni
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+            
+            if (error === 'banned') {
+                document.getElementById('errorMessage').textContent = 'Votre compte a été banni. Veuillez contacter l\'administrateur pour plus d\'informations.';
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('errorPopup').style.display = 'block';
+            }
+            else if (error === 'invalid') {
+                document.getElementById('errorMessage').textContent = 'Identifiants incorrects. Veuillez réessayer.';
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('errorPopup').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

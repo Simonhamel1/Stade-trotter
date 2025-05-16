@@ -9,7 +9,7 @@
         "Question": "Ville de naissance",
         "Reponse": "$2y$10$NCwoMzhFPmMdKNnQ4vmLS.UwjRBuQ34QToDFJhiq8.JLVtN5wl11G",
         "Id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2",
-        "VIP": true,
+        "VIP": false,
         "banni": false
     },
     {
@@ -87,7 +87,7 @@
         "Question": "Nom de votre premier animal",
         "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "f4e1d8c5b2a9f6e3c7b4a1d8e5f2c9b6a3d7e4f1c8b5a2f6e9c3b7d4a1e8f5c2",
-        "VIP": false,
+        "VIP": true,
         "banni": false
     },
     {
@@ -100,7 +100,7 @@
         "Question": "Nom de votre premier animal",
         "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "Id": "a2b5c8d1e4f7a3b6c9d2e5f8a1b4c7d3e6f9a2b5c8d1e4f7a3b6c9d2e5f8a1b4",
-        "VIP": false,
+        "VIP": true,
         "banni": false
     },
     {
@@ -164,7 +164,7 @@
         "Question": "Nom de votre premier animal",
         "Reponse": "$2y$10$MSz2.TOUI7Y6hsSylJ9kt.XDPLvtdCqSKjMi2uIGxW2Lfk3Vcf0zm",
         "VIP": false,
-        "banni": false,
+        "banni": true,
         "Password": "$2y$10$rdGEEMA0\/Hzqw9UklViHaObdPjLR18I20O9bGMlh5ltuoQ48\/V\/rS",
         "Id": "a0918da4300f46ed6d3e84894cb3c3ad3cb4caeada93cf7d9dd372a97c4e7248"
     },

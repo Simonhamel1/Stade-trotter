@@ -5,7 +5,24 @@
     require('getapikey.php');
     $vendeur = 'MEF-2_D';
     $api_key = getAPIKey($vendeur);
-    $retour = 'http://localhost/StadeTrotter/php/retour2.php';
+    // Déterminer le chemin de base pour l'URL de retour
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http");
+    $host = $_SERVER['HTTP_HOST'];
+    
+    // Déterminer le chemin relatif du projet
+    $script_path = dirname($_SERVER['SCRIPT_NAME']);
+    $base_path = str_replace('/php', '', $script_path);
+    
+    // Créer un ID de transaction pour le paiement
+    $transaction = uniqid();
+    
+    // Construire l'URL de retour complète
+    $retour = $protocol . "://" . $host . $base_path . "/php/retour2.php?transaction=" . $transaction;
+    
+    // Si l'utilisateur est connecté, ajouter son ID à l'URL de retour
+    if(isset($_SESSION['user_id'])) {
+        $retour .= "&user_id=" . $_SESSION['user_id'];
+    }
     
     // Vérifier si l'utilisateur est connecté
     if (!isset($_SESSION['Email'])) {

@@ -3,8 +3,23 @@
     require('getapikey.php');
     $vendeur = 'MEF-2_D';
     $api_key = getAPIKey($vendeur);
-    $retour = './retour.php';       
     $transaction = uniqid();
+    // Déterminer le chemin de base pour l'URL de retour
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http");
+    $host = $_SERVER['HTTP_HOST'];
+    
+    // Déterminer le chemin relatif du projet
+    $script_path = dirname($_SERVER['SCRIPT_NAME']);
+    $base_path = str_replace('/php', '', $script_path);
+    
+    // Construire l'URL de retour complète
+    $retour = $protocol . "://" . $host . $base_path . "/php/retour.php?transaction=" . $transaction;
+    
+    // Si l'utilisateur est connecté, ajouter son ID à l'URL de retour
+    if(isset($_SESSION['user_id'])) {
+        $retour .= "&user_id=" . $_SESSION['user_id'];
+    }
+    
 
     // Chemin vers le fichier JSON des paniers
     $paniers_file = __DIR__ . '/../data/paniers.json';

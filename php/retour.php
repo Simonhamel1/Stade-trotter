@@ -69,7 +69,7 @@ if ($paiement_status == 'accepted') {
             $message = "Votre paiement a été traité avec succès. Merci pour votre achat !";
             $status = "success";
         } else {
-            $message = "Votre panier est vide. Le paiement a été accepté mais aucun voyage n'a été traité.";
+            $message = "Votre panier est vide. Le paiement a été refusé ";
         }
     } else {
         $message = "Vous devez être connecté pour finaliser votre achat. Le paiement a été accepté mais aucun voyage n'a été enregistré.";

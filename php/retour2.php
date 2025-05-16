@@ -63,7 +63,7 @@ if ($paiement_status == 'accepted') {
         // Ajouter un message de confirmation dans la session
         $_SESSION['message'] = "Votre voyage a été modifié avec succès et le supplément a été payé.";
     } else {
-        $message = "Vous devez être connecté et avoir des modifications de voyage en attente. Le paiement a bien été reçu mais aucune modification n'a été enregistrée.";
+        $message = "Vous devez être connecté et avoir des modifications de voyage en attente. Le paiement a n'a pas été bien rçu et il n'a été enregistrée.";
     }
 } else {
     // Paiement refusé ou erreur

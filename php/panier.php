@@ -3,7 +3,7 @@
     require('getapikey.php');
     $vendeur = 'MEF-2_D';
     $api_key = getAPIKey($vendeur);
-    $retour = 'http://localhost/StadeTrotter/php/retour.php';       
+    $retour = './retour.php';       
     $transaction = uniqid();
 
     // Chemin vers le fichier JSON des paniers

@@ -9,7 +9,7 @@
         "Question": "Ville de naissance",
         "Reponse": "$2y$10$NCwoMzhFPmMdKNnQ4vmLS.UwjRBuQ34QToDFJhiq8.JLVtN5wl11G",
         "Id": "31a446ed3e48942499fa6eec61b14eca563dc2d7210ba41d3807407c3e1de0c2",
-        "VIP": false,
+        "VIP": true,
         "banni": false
     },
     {
